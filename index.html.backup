@@ -241,7 +241,7 @@
         }
 
         .product-specs li::before {
-            content: "✓ ";
+            content: "âœ“ ";
             color: #007185;
             font-weight: bold;
             margin-right: 4px;
@@ -439,12 +439,12 @@
             <div class="logo">Amazon<span> Products</span></div>
             <div class="search-box">
                 <input type="text" class="search-input" placeholder="Buscar ejemplos...">
-                <button class="search-btn">🔍</button>
+                <button class="search-btn">ðŸ”</button>
             </div>
             <div class="header-actions">
                 <span class="nav-item">Mi Cuenta</span>
                 <span class="nav-item">Pedidos</span>
-                <span class="nav-item">🛒 Carrito (0)</span>
+                <span class="nav-item">ðŸ›’ Carrito (0)</span>
             </div>
         </div>
     </header>
@@ -460,146 +460,118 @@
         <div class="section-title">🎯 Templates Disponibles</div>
         <div class="section-subtitle">Explora nuestros estilos profesionales y selecciona el que mejor represente tu marca</div>
 
-                <!-- PRODUCTS GRID -->
+        <!-- PRODUCTS GRID -->
         <div class="products-grid">
-            <!-- TEMPLATE: GREEN/ECO -->
+            <!-- PANELES SOLARES -->
             <div class="product-card" onclick="window.location.href='ejemplos/template-paneles-solares.html'">
-                <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop&q=80');background-size:cover;background-position:center"></div>
+                <div class="product-image">â˜€ï¸</div>
                 <div class="product-content">
-                    <div class="product-category">🌿 ESTILO: GREEN/ECO</div>
-                    <div class="product-title">Template para Productos Ecológicos y Sustentables</div>
+                    <div class="product-category">EnergÃ­a Renovable</div>
+                    <div class="product-title">Paneles Solares 500W Monocristalino</div>
                     <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="rating-count">Ver demo →</span>
+                        <span class="stars">â˜…â˜…â˜…â˜…â˜…</span>
+                        <span class="rating-count">(145 reseÃ±as)</span>
                     </div>
                     <ul class="product-specs">
-                        <li>Paleta verde natural</li>
-                        <li>Énfasis en sustentabilidad</li>
-                        <li>Ideal: energía, orgánico</li>
+                        <li>500W alta eficiencia</li>
+                        <li>22% rendimiento</li>
+                        <li>25 aÃ±os garantÃ­a</li>
                     </ul>
                     <div class="product-footer">
-                        <div class="product-price" style="font-size:14px;color:#007185">Ejemplo: Paneles Solares</div>
+                        <div class="product-price">$399.99</div>
                         <span class="prime-badge">ECO</span>
                     </div>
                 </div>
-                <div class="btn-row">
-                    <a class="view-btn" href="ejemplos/template-paneles-solares.html" onclick="event.stopPropagation()">Ver Template</a>
-                    <a class="buy-btn" href="ejemplos/landing-paneles-solares.html" onclick="event.stopPropagation()">Ver Landing</a>
-                </div>
+                                <div class="btn-row">
+                                    <a class="view-btn" href="ejemplos/template-paneles-solares.html" onclick="event.stopPropagation()">Ver Ficha Amazon</a>
+                                    <a class="buy-btn" href="ejemplos/landing-paneles-solares.html" onclick="event.stopPropagation()">Landing: Comprar en Amazon</a>
+                                </div>
             </div>
 
-            <!-- TEMPLATE: TECH/MODERN -->
+            <!-- SMARTWATCH -->
             <div class="product-card" onclick="window.location.href='ejemplos/template-smartwatch.html'">
-                <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&h=600&fit=crop&q=80');background-size:cover;background-position:center"></div>
+                <div class="product-image">âŒš</div>
                 <div class="product-content">
-                    <div class="product-category">💙 ESTILO: TECH/MODERN</div>
-                    <div class="product-title">Template para Gadgets y Tecnología Avanzada</div>
+                    <div class="product-category">Wearable Tech</div>
+                    <div class="product-title">Smartwatch FitPulse Pro Fitness</div>
                     <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="rating-count">Ver demo →</span>
+                        <span class="stars">â˜…â˜…â˜…â˜…â˜…</span>
+                        <span class="rating-count">(892 reseÃ±as)</span>
                     </div>
                     <ul class="product-specs">
-                        <li>Paleta azul tecnológica</li>
-                        <li>Énfasis en innovación</li>
-                        <li>Ideal: wearables, IoT</li>
+                        <li>Monitor cardÃ­aco FDA</li>
+                        <li>14 dÃ­as baterÃ­a</li>
+                        <li>GPS + GLONASS</li>
                     </ul>
                     <div class="product-footer">
-                        <div class="product-price" style="font-size:14px;color:#007185">Ejemplo: Smartwatch</div>
-                        <span class="prime-badge">TECH</span>
+                        <div class="product-price">$179.99</div>
+                        <span class="prime-badge">PRIME</span>
                     </div>
                 </div>
-                <div class="btn-row">
-                    <a class="view-btn" href="ejemplos/template-smartwatch.html" onclick="event.stopPropagation()">Ver Template</a>
-                    <a class="buy-btn" href="ejemplos/landing-smartwatch.html" onclick="event.stopPropagation()">Ver Landing</a>
-                </div>
+                                <div class="btn-row">
+                                    <a class="view-btn" href="ejemplos/template-smartwatch.html" onclick="event.stopPropagation()">Ver Ficha Amazon</a>
+                                    <a class="buy-btn" href="ejemplos/landing-smartwatch.html" onclick="event.stopPropagation()">Landing: Comprar en Amazon</a>
+                                </div>
             </div>
 
-            <!-- TEMPLATE: SPORTS/DYNAMIC -->
+            <!-- ZAPATILLAS -->
             <div class="product-card" onclick="window.location.href='ejemplos/template-zapatillas.html'">
-                <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&h=600&fit=crop&q=80');background-size:cover;background-position:center"></div>
+                <div class="product-image">ðŸ‘Ÿ</div>
                 <div class="product-content">
-                    <div class="product-category">🔥 ESTILO: SPORTS/DYNAMIC</div>
-                    <div class="product-title">Template para Deportes y Fitness de Alto Rendimiento</div>
+                    <div class="product-category">Deportes & Fitness</div>
+                    <div class="product-title">Zapatillas SprintMax Ultra Performance</div>
                     <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="rating-count">Ver demo →</span>
+                        <span class="stars">â˜…â˜…â˜…â˜…â˜…</span>
+                        <span class="rating-count">(1,247 reseÃ±as)</span>
                     </div>
                     <ul class="product-specs">
-                        <li>Paleta naranja energía</li>
-                        <li>Énfasis en rendimiento</li>
-                        <li>Ideal: deportes, fitness</li>
+                        <li>185g ultraligera</li>
+                        <li>Placa carbono IAAF</li>
+                        <li>800+ km durabilidad</li>
                     </ul>
                     <div class="product-footer">
-                        <div class="product-price" style="font-size:14px;color:#007185">Ejemplo: Zapatillas</div>
-                        <span class="prime-badge">SPORT</span>
+                        <div class="product-price">$129.99</div>
+                        <span class="prime-badge">PRIME</span>
                     </div>
                 </div>
-                <div class="btn-row">
-                    <a class="view-btn" href="ejemplos/template-zapatillas.html" onclick="event.stopPropagation()">Ver Template</a>
-                    <a class="buy-btn" href="ejemplos/landing-zapatillas.html" onclick="event.stopPropagation()">Ver Landing</a>
-                </div>
+                                <div class="btn-row">
+                                    <a class="view-btn" href="ejemplos/template-zapatillas.html" onclick="event.stopPropagation()">Ver Ficha Amazon</a>
+                                    <a class="buy-btn" href="ejemplos/landing-zapatillas.html" onclick="event.stopPropagation()">Landing: Comprar en Amazon</a>
+                                </div>
             </div>
 
-            <!-- TEMPLATE: PRO/MINIMAL -->
+            <!-- MONITOR 4K -->
             <div class="product-card" onclick="window.location.href='ejemplos/template-monitor-4k.html'">
-                <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=800&h=600&fit=crop&q=80');background-size:cover;background-position:center"></div>
+                <div class="product-image">ðŸ–¥ï¸</div>
                 <div class="product-content">
-                    <div class="product-category">⚫ ESTILO: PRO/MINIMAL</div>
-                    <div class="product-title">Template para Electrónica y Productos Premium</div>
+                    <div class="product-category">ElectrÃ³nica Profesional</div>
+                    <div class="product-title">Monitor 4K ProDisplay Elite USB-C</div>
                     <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="rating-count">Ver demo →</span>
+                        <span class="stars">â˜…â˜…â˜…â˜…â˜…</span>
+                        <span class="rating-count">(543 reseÃ±as)</span>
                     </div>
                     <ul class="product-specs">
-                        <li>Paleta negra minimalista</li>
-                        <li>Énfasis en precisión</li>
-                        <li>Ideal: electrónica, pro</li>
+                        <li>4K nativo 3840x2160</li>
+                        <li>DCI-P3 98% color</li>
+                        <li>Thunderbolt 3</li>
                     </ul>
                     <div class="product-footer">
-                        <div class="product-price" style="font-size:14px;color:#007185">Ejemplo: Monitor 4K</div>
+                        <div class="product-price">$449.99</div>
                         <span class="prime-badge">PRO</span>
                     </div>
                 </div>
-                <div class="btn-row">
-                    <a class="view-btn" href="ejemplos/template-monitor-4k.html" onclick="event.stopPropagation()">Ver Template</a>
-                    <a class="buy-btn" href="ejemplos/landing-monitor-4k.html" onclick="event.stopPropagation()">Ver Landing</a>
-                </div>
-            </div>
-
-            <!-- DISEÑO PERSONALIZADO -->
-            <div class="product-card" style="border:2px dashed #FF9900;background:linear-gradient(135deg,#fff9f0 0%,#ffffff 100%)">
-                <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop&q=80');background-size:cover;background-position:center;position:relative">
-                    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,153,0,0.85) 0%,rgba(245,124,0,0.85) 100%);display:flex;align-items:center;justify-content:center;color:white;font-size:60px">✨</div>
-                </div>
-                <div class="product-content">
-                    <div class="product-category" style="color:#FF9900">💎 DISEÑO PERSONALIZADO</div>
-                    <div class="product-title">Crea un Template 100% Adaptado a Tu Marca</div>
-                    <div class="product-rating">
-                        <span class="stars" style="color:#FF9900">★★★★★</span>
-                        <span class="rating-count" style="color:#FF9900">Consulta →</span>
-                    </div>
-                    <ul class="product-specs">
-                        <li>Paleta de tu marca</li>
-                        <li>Diseño único y exclusivo</li>
-                        <li>Optimizado para tu nicho</li>
-                    </ul>
-                    <div class="product-footer">
-                        <div class="product-price" style="font-size:14px;color:#FF9900;font-weight:bold">Cotización personalizada</div>
-                        <span class="prime-badge" style="background:#FF9900">CUSTOM</span>
-                    </div>
-                </div>
-                <div class="btn-row">
-                    <a class="view-btn" style="background:#FF9900;color:white;border-color:#FF9900" href="mailto:contacto@ejemplo.com?subject=Solicitud de Diseño Personalizado">Solicitar Cotización</a>
-                    <a class="buy-btn" style="background:#fff;color:#FF9900;border:2px solid #FF9900" href="https://github.com/dsd228/amazon-product-page/issues/new">Abrir Consulta</a>
-                </div>
+                                <div class="btn-row">
+                                    <a class="view-btn" href="ejemplos/template-monitor-4k.html" onclick="event.stopPropagation()">Ver Ficha Amazon</a>
+                                    <a class="buy-btn" href="ejemplos/landing-monitor-4k.html" onclick="event.stopPropagation()">Landing: Comprar en Amazon</a>
+                                </div>
             </div>
         </div>
 
         <!-- ABOUT SECTION -->
         <section class="about-section">
-            <h2>¿Cómo Funciona?</h2>
-            <p>Explora nuestro catálogo de templates profesionales, cada uno optimizado para un tipo de producto y diseñado con las mejores prácticas de Amazon.</p>
-            <p>Elige el estilo que mejor se adapte a tu marca o solicita un diseño 100% personalizado para máxima diferenciación.</p>
+            <h2>Acerca de Este Portfolio</h2>
+            <p>Este es un showcase profesional de 4 fichas de producto completamente funcionales, diseÃ±adas con estÃ©tica Amazon y optimizadas para mÃ¡xima conversiÃ³n.</p>
+            <p>Cada ejemplo incluye: HTML responsive, CSS moderno, datos estructurados JSON, y mejores prÃ¡cticas de UX/UI para e-commerce.</p>
 
             <div class="features-list">
                 <div class="feature">
@@ -635,20 +607,20 @@
         <div class="footer-content">
             <div class="footer-column">
                 <h4>Ejemplos</h4>
-                <a href="ejemplos/template-paneles-solares.html">☀️ Paneles Solares</a>
-                <a href="ejemplos/template-smartwatch.html">⌚ Smartwatch</a>
-                <a href="ejemplos/template-zapatillas.html">👟 Zapatillas</a>
-                <a href="ejemplos/template-monitor-4k.html">🖥️ Monitor 4K</a>
+                <a href="ejemplos/template-paneles-solares.html">â˜€ï¸ Paneles Solares</a>
+                <a href="ejemplos/template-smartwatch.html">âŒš Smartwatch</a>
+                <a href="ejemplos/template-zapatillas.html">ðŸ‘Ÿ Zapatillas</a>
+                <a href="ejemplos/template-monitor-4k.html">ðŸ–¥ï¸ Monitor 4K</a>
             </div>
             <div class="footer-column">
                 <h4>Recursos</h4>
-                <a href="README.md">Documentación</a>
+                <a href="README.md">DocumentaciÃ³n</a>
                 <a href="Checklist_Producto_Amazon.md">Checklist 9 Fases</a>
-                <a href="guia-contenidos-amazon.md">Guía de Contenidos</a>
+                <a href="guia-contenidos-amazon.md">GuÃ­a de Contenidos</a>
                 <a href="GITHUB_PAGES_SETUP.md">Setup GitHub Pages</a>
             </div>
             <div class="footer-column">
-                <h4>Tecnología</h4>
+                <h4>TecnologÃ­a</h4>
                 <a href="https://github.com/dsd228/amazon-product-page">GitHub Repository</a>
                 <a href="https://github.com/dsd228">Perfil GitHub</a>
                 <a href="https://dsd228.github.io">Portfolio Personal</a>
@@ -738,6 +710,5 @@
 </section>
 </body>
 </html>
-
 
 
