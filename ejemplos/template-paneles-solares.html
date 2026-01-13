@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placa Solar 500W Monocristalina - Energía Renovable para Casas</title>
+    <meta name="description" content="Placa Solar 500W monocristalina para energía sustentable en tu hogar. Garantía 25 años. Ahorra hasta 80% en electricidad. Instalación simple.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* HEADER - Tema Verde para Energía Solar */
+        .product-header {
+            background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .product-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .product-header p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .eco-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .product-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        /* COLUMNA IZQUIERDA - IMÁGENES */
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .main-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #f0f0f0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+            overflow: hidden;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnails {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .thumbnail {
+            aspect-ratio: 1/1;
+            background: #f5f5f5;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            border-color: #22c55e;
+            transform: scale(1.05);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* COLUMNA DERECHA - INFORMACIÓN */
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 18px;
+        }
+
+        .rating-text {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .price-section {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #22c55e;
+        }
+
+        .price-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .price-current {
+            font-size: 32px;
+            font-weight: bold;
+            color: #15803d;
+            margin: 10px 0;
+        }
+
+        .price-original {
+            font-size: 16px;
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: #ef4444;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .promo-code {
+            background: #fef08a;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-top: 10px;
+            color: #854d0e;
+            font-weight: bold;
+        }
+
+        .ahorro-info {
+            background: #ecfdf5;
+            border-left: 4px solid #22c55e;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #15803d;
+        }
+
+        .ahorro-info strong {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #22c55e;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #16a34a;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .bullet-points {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #22c55e;
+        }
+
+        .bullet-points h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .bullet-points ul {
+            list-style: none;
+        }
+
+        .bullet-points li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+
+        .bullet-points li:last-child {
+            border-bottom: none;
+        }
+
+        .bullet-points li:before {
+            content: "♻";
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* DESCRIPCIÓN LARGA */
+        .full-description {
+            padding: 40px;
+            background: #fafafa;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .full-description h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #22c55e;
+            padding-bottom: 10px;
+        }
+
+        .full-description h3 {
+            font-size: 16px;
+            margin: 25px 0 15px 0;
+            color: #22c55e;
+            font-weight: 600;
+        }
+
+        .full-description p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .benefit-box {
+            background: white;
+            border-left: 4px solid #22c55e;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .benefit-box strong {
+            color: #15803d;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+
+        .specs-table th {
+            background: #f0fdf4;
+            font-weight: bold;
+            color: #15803d;
+        }
+
+        .specs-table tr:hover {
+            background: #f9fafb;
+        }
+
+        .warranty-badge {
+            display: inline-block;
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warranty-badge h4 {
+            color: #15803d;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .warranty-badge p {
+            color: #22c55e;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .instalacion-section {
+            background: #ecfdf5;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .instalacion-section h4 {
+            color: #15803d;
+            margin-bottom: 10px;
+        }
+
+        .instalacion-section ul {
+            margin-left: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .carbono-badge {
+            background: #f0fdf4;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 20px 0;
+            border: 2px solid #22c55e;
+        }
+
+        .carbono-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #15803d;
+        }
+
+        .carbono-label {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .footer {
+            background: #f0fdf4;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-highlight {
+            color: #15803d;
+            font-weight: bold;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .product-content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .thumbnails {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .product-header h1 {
+                font-size: 22px;
+            }
+
+            .price-current {
+                font-size: 24px;
+            }
+
+            .full-description {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="product-header">
+            <h1>☀️ Placa Solar 500W Monocristalina</h1>
+            <p>Energía Renovable para tu Hogar - Garantía 25 Años</p>
+            <div class="eco-badge">♻️ 100% Energía Sustentable</div>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="product-content">
+            <!-- COLUMNA IZQUIERDA: IMÁGENES -->
+            <div class="product-images">
+                <div class="main-image">
+                    <img src="https://via.placeholder.com/500x500?text=Panel+Solar+500W" alt="Placa Solar Principal">
+                </div>
+                <div class="thumbnails">
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Vista+1" alt="Vista 1">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Vista+2" alt="Vista 2">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Techo" alt="Vista 3">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Conexiones" alt="Vista 4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: INFORMACIÓN -->
+            <div class="product-info">
+                <!-- CALIFICACIÓN -->
+                <div class="rating">
+                    <div class="stars">★★★★★</div>
+                    <div class="rating-text">4.9/5 (347 reseñas verificadas)</div>
+                </div>
+
+                <!-- PRECIO -->
+                <div class="price-section">
+                    <div class="price-label">Precio Especial</div>
+                    <div>
+                        <span class="price-current">$399.99</span>
+                        <span class="discount-badge">-27%</span>
+                    </div>
+                    <div class="price-original">Precio regular: $549.99</div>
+                    <div class="promo-code">✓ Cupón SOLAR2025: 10% adicional</div>
+                </div>
+
+                <!-- AHORRO PROYECTADO -->
+                <div class="ahorro-info">
+                    <strong>💰 Ahorro Estimado</strong>
+                    Ahorra $115 USD/año promedio<br>
+                    <strong style="font-size: 18px; margin-top: 5px;">= $2,875+ en 25 años</strong>
+                </div>
+
+                <!-- BOTONES DE ACCIÓN -->
+                <div class="buttons">
+                    <button class="btn btn-primary">🛒 Comprar Ahora</button>
+                    <button class="btn btn-secondary">❤️ Guardar</button>
+                </div>
+
+                <!-- BULLET POINTS -->
+                <div class="bullet-points">
+                    <h3>✨ Por Qué Elegir Esta Placa</h3>
+                    <ul>
+                        <li><strong>Eficiencia 22%:</strong> La más alta del mercado en esta categoría</li>
+                        <li><strong>500W Potencia:</strong> Ideal para casas de 3-5 habitaciones</li>
+                        <li><strong>Garantía 25 años:</strong> Cobertura total + performance garantizado</li>
+                        <li><strong>Durabilidad extrema:</strong> Resiste granizo, vientos 200+km/h, nieve</li>
+                        <li><strong>ROI Rápido:</strong> Recupera inversión en 5-7 años</li>
+                        <li><strong>-60 toneladas CO₂:</strong> Equivalente a 1,000 árboles plantados</li>
+                        <li><strong>Instalación Simple:</strong> Kit completo + soporte técnico 24/7</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESCRIPCIÓN LARGA -->
+        <div class="full-description">
+            <h2>☀️ Descripción Completa - Energía Solar para tu Hogar</h2>
+            
+            <p>
+                La <strong>Placa Solar SunPower 500W Monocristalina</strong> es la solución ideal para familias que buscan <strong>independencia energética</strong>, <strong>reducir costos de electricidad</strong> y contribuir al medio ambiente. Con 25 años de garantía y eficiencia del 22%, es una <strong>inversión inteligente que se recupera en 5-7 años</strong>.
+            </p>
+
+            <h3>🎯 ¿Por Qué Energía Solar?</h3>
+            <p>
+                La factura de electricidad crece cada año. Un hogar promedio gasta entre $120-200 USD mensuales en energía. 
+                Con esta placa solar, <strong>reduces ese costo hasta 80%</strong> y generas tu propia energía limpia.
+            </p>
+
+            <div class="benefit-box">
+                <strong>El Panel SunPower 500W te permite:</strong>
+                ✓ Reducir factura de luz 75-80%<br>
+                ✓ Generar 912.5 kWh anuales (ubicación templada)<br>
+                ✓ Ahorrar $2,875+ en 25 años<br>
+                ✓ Tener energía 24/7 con sistema de baterías<br>
+                ✓ Contribuir a un planeta más verde
+            </div>
+
+            <h3>🔧 Especificaciones Técnicas</h3>
+            <table class="specs-table">
+                <tr>
+                    <th>Especificación</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td>Potencia Nominal</td>
+                    <td>500W (máxima en condiciones óptimas)</td>
+                </tr>
+                <tr>
+                    <td>Tipo de Célula</td>
+                    <td>Monocristalina silicio grado A (22% eficiencia)</td>
+                </tr>
+                <tr>
+                    <td>Dimensiones</td>
+                    <td>2.27m x 1.13m x 40mm</td>
+                </tr>
+                <tr>
+                    <td>Peso</td>
+                    <td>28kg (montaje por dos personas)</td>
+                </tr>
+                <tr>
+                    <td>Marco</td>
+                    <td>Aluminio anodizado 50mm (ultra resistente)</td>
+                </tr>
+                <tr>
+                    <td>Voltaje</td>
+                    <td>40.5V (compatible con inversores estándar)</td>
+                </tr>
+                <tr>
+                    <td>Temperatura Operación</td>
+                    <td>-40°C a +85°C (funciona en cualquier clima)</td>
+                </tr>
+                <tr>
+                    <td>Resistencia Mecánica</td>
+                    <td>Granizo 35mm, vientos 200+ km/h, nieve 5,400 Pa</td>
+                </tr>
+                <tr>
+                    <td>Garantía</td>
+                    <td>25 años + 100% performance año 1</td>
+                </tr>
+            </table>
+
+            <h3>📦 ¿Qué Incluye?</h3>
+            <ul style="margin-left: 20px; line-height: 2;">
+                <li>✓ 1x Placa Solar SunPower 500W Monocristalina</li>
+                <li>✓ Marco de aluminio preinstalado</li>
+                <li>✓ Cables MC4 (2x 3 metros)</li>
+                <li>✓ Conectores y soportes de montaje (acero galvanizado)</li>
+                <li>✓ Pernos y tuercas de acero inoxidable</li>
+                <li>✓ Manual de instalación en español</li>
+                <li>✓ Esquema técnico detallado</li>
+                <li>✓ Certificado de garantía 25 años</li>
+                <li>✓ Acceso a calculadora de ROI personalizada</li>
+                <li>✓ Soporte técnico 24/7</li>
+            </ul>
+
+            <h3>🔌 Instalación Simple</h3>
+            <div class="instalacion-section">
+                <h4>Requisitos Mínimos:</h4>
+                <ul>
+                    <li>Techo con orientación norte-sur</li>
+                    <li>Mínimo 15° de inclinación óptima</li>
+                    <li>Sin sombras entre 9am-3pm</li>
+                    <li>Inversor solar compatible (no incluido)</li>
+                </ul>
+            </div>
+
+            <p>
+                <strong>Tiempo de instalación:</strong> 4-6 horas<br>
+                <strong>Dificultad:</strong> Media (recomendamos técnico certificado)<br>
+                <strong>Apoyo:</strong> Incluimos soporte técnico gratuito para cualquier duda
+            </p>
+
+            <h3>🌍 Impacto Ambiental</h3>
+            <div class="carbono-badge">
+                <div class="carbono-number">-60 Toneladas CO₂</div>
+                <div class="carbono-label">En 25 años de operación<br>Equivalente a 1,000 árboles plantados</div>
+            </div>
+
+            <h3>🛡️ Garantía Premium 25 Años</h3>
+            <div class="warranty-badge">
+                <h4>✓ Cobertura Completa</h4>
+                <p>✓ Defectos de fabricación y células rotas</p>
+                <p>✓ Daño por granizo y accidentes</p>
+                <p>✓ Performance garantizado: 100% año 1 → 80% año 25</p>
+                <p>✓ Transferible a nuevo propietario</p>
+                <p>✓ Soporte técnico 24/7 en español</p>
+            </div>
+
+            <h3>💬 Lo que Dicen Nuestros Clientes</h3>
+            <div style="background: white; padding: 15px; border-left: 4px solid #22c55e; margin: 20px 0; border-radius: 4px;">
+                <strong>⭐⭐⭐⭐⭐ "Excelente inversor"</strong><br>
+                <em>"Reducí mi factura de $180 a $45 mensuales. El panel llegó bien empacado y la instalación fue sencilla. Ya pasó 3 años y sigue funcionando perfectamente."</em><br>
+                - Carlos M., Propietario
+            </div>
+
+            <div style="background: white; padding: 15px; border-left: 4px solid #22c55e; margin: 20px 0; border-radius: 4px;">
+                <strong>⭐⭐⭐⭐⭐ "Mejor decisión para mi casa"</strong><br>
+                <em>"No solo ahorro dinero, sino que duermo tranquilo sabiendo que estoy usando energía limpia. Excelente calidad y garantía."</em><br>
+                - María L., Emprendedora
+            </div>
+
+            <h3>🎁 Promoción Limitada</h3>
+            <div style="background: #fef08a; border-left: 4px solid #eab308; padding: 20px; border-radius: 4px; margin: 20px 0;">
+                <strong style="color: #854d0e;">⏰ OFERTA ESPECIAL - Solo Este Mes</strong><br>
+                ✓ 27% de descuento: $399.99 (de $549.99)<br>
+                ✓ 10% adicional con código SOLAR2025<br>
+                ✓ Envío GRATIS a todo el país<br>
+                ✓ Kit de limpieza para paneles INCLUIDO<br>
+                ✓ Guía premium de instalación GRATIS<br>
+                📦 Stock limitado: 45 unidades disponibles
+            </div>
+
+            <h3>❓ Preguntas Frecuentes</h3>
+            <div style="background: white; padding: 15px; border-left: 4px solid #22c55e; margin: 10px 0; border-radius: 4px;">
+                <strong>¿Funciona en días nublados?</strong><br>
+                Sí, aunque con 40-60% menos potencia. Nuestra tecnología de 22% eficiencia sigue generando bien en clima nublado.
+            </div>
+
+            <div style="background: white; padding: 15px; border-left: 4px solid #22c55e; margin: 10px 0; border-radius: 4px;">
+                <strong>¿Cuánto dura realmente?</strong><br>
+                Mínimo 25 años. Después sigue funcionando con 80% de capacidad. Algunos paneles duran 40+ años.
+            </div>
+
+            <div style="background: white; padding: 15px; border-left: 4px solid #22c55e; margin: 10px 0; border-radius: 4px;">
+                <strong>¿Necesito baterías?</strong><br>
+                No es obligatorio. Sin baterías generas energía de día. Con baterías, tienes energía 24/7 (inversión adicional).
+            </div>
+
+            <div style="background: white; padding: 15px; border-left: 4px solid #22c55e; margin: 10px 0; border-radius: 4px;">
+                <strong>¿Qué pasa si hay granizo?</strong><br>
+                Nuestro panel resiste granizo hasta 35mm con vidrio templado. Está diseñado para durar en cualquier clima.
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>🚚 <span class="footer-highlight">Envío GRATIS</span> a todo el país | 
+               ✅ <span class="footer-highlight">100% Original</span> con garantía | 
+               🔒 <span class="footer-highlight">Compra Segura</span> con encriptación | 
+               ☎️ <span class="footer-highlight">Soporte 24/7</span></p>
+            <p style="margin-top: 10px;">♻️ Energía sustentable para un futuro mejor - SunPower Energy</p>
+        </div>
+    </div>
+</body>
+</html>

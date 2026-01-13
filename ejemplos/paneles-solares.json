@@ -1,0 +1,321 @@
+{
+  "producto": {
+    "id": "PLACA-SOLAR-SUN-500W",
+    "titulo": "Placa Solar 500W Monocristalina - Sistema de Energía Renovable para Casas - Garantía 25 Años - Resistente Intemperie",
+    "marca": "SunPower Energy",
+    "modelo": "SP-500M Pro",
+    "categoria": "Energía Renovable > Paneles Solares",
+    "subcategoria": "Paneles Solares Residenciales",
+    "descripcion_corta": "Placa solar premium monocristalina 500W para maximizar la generación de energía limpia en tu hogar",
+    "descripcion_larga": "La Placa Solar SunPower 500W es la solución ideal para reducir tu factura de electricidad en hasta 80% mientras proteges el medio ambiente. Diseñada especialmente para viviendas, oficinas pequeñas y emprendimientos que buscan independencia energética. Con 25 años de garantía y eficiencia del 22%, es una inversión que se recupera en 5-7 años.",
+    
+    "precio": {
+      "moneda": "USD",
+      "precio_actual": 399.99,
+      "precio_original": 549.99,
+      "descuento_porcentaje": 27,
+      "con_iva": false,
+      "notas": "Sin incluir instalación - contratar técnico certificado"
+    },
+
+    "imagenes": [
+      {
+        "posicion": 1,
+        "tipo": "principal",
+        "url": "https://via.placeholder.com/1000x1000?text=Placa+Solar+Principal",
+        "alt": "Placa Solar SunPower 500W - Producto Principal",
+        "descripcion": "Fondo blanco, placa solar frontal, células de silicio visibles"
+      },
+      {
+        "posicion": 2,
+        "tipo": "angulo",
+        "url": "https://via.placeholder.com/1000x1000?text=Vista+Lateral",
+        "alt": "Vista lateral de la placa solar",
+        "descripcion": "Perfil lateral mostrando el grosor y estructura del marco"
+      },
+      {
+        "posicion": 3,
+        "tipo": "uso",
+        "url": "https://via.placeholder.com/1000x1000?text=Instalacion+Casa",
+        "alt": "Placas solares instaladas en techo de casa",
+        "descripcion": "Sistema completo instalado en techo residencial con vista del hogar"
+      },
+      {
+        "posicion": 4,
+        "tipo": "detalle",
+        "url": "https://via.placeholder.com/1000x1000?text=Detalle+Conexiones",
+        "alt": "Detalle de bornes y conexiones",
+        "descripcion": "Close-up de los terminales de conexión y caja de conexiones"
+      },
+      {
+        "posicion": 5,
+        "tipo": "comparacion",
+        "url": "https://via.placeholder.com/1000x1000?text=Eficiencia+Comparacion",
+        "alt": "Comparación de eficiencia energética",
+        "descripcion": "Infografía comparando 500W vs placas estándar de 300W"
+      },
+      {
+        "posicion": 6,
+        "tipo": "contenido",
+        "url": "https://via.placeholder.com/1000x1000?text=Kit+Incluido",
+        "alt": "Kit de instalación completo",
+        "descripcion": "Todos los accesorios incluidos: cables, conectores, esquema de instalación"
+      },
+      {
+        "posicion": 7,
+        "tipo": "infografia",
+        "url": "https://via.placeholder.com/1000x1000?text=Ahorro+Anual",
+        "alt": "Calculadora de ahorro anual",
+        "descripcion": "Gráfico del ahorro proyectado a 25 años"
+      }
+    ],
+
+    "bullet_points": [
+      {
+        "numero": 1,
+        "titulo": "Alta Eficiencia del 22%",
+        "descripcion": "Tecnología monocristalina de grado profesional que genera más energía por metro cuadrado, maximizando tu producción incluso en días nublados"
+      },
+      {
+        "numero": 2,
+        "titulo": "Potencia de 500W",
+        "descripcion": "Genera hasta 500 vatios pico en condiciones óptimas, ideal para casas de 3-5 habitaciones o pequeños negocios"
+      },
+      {
+        "numero": 3,
+        "titulo": "Garantía Premium 25 Años",
+        "descripcion": "Cobertura garantizada por defectos de fabricación, performance garantizado 80% de capacidad después de 25 años"
+      },
+      {
+        "numero": 4,
+        "titulo": "Resistencia Extrema",
+        "descripcion": "Marco de aluminio anodizado + vidrio templado, soporta granizo, vientos de 200+ km/h, nieve acumulada de 5,400 Pa"
+      },
+      {
+        "numero": 5,
+        "titulo": "ROI Rápido",
+        "descripcion": "Se recupera la inversión en 5-7 años según consumo local, luego generas 20 años de energía prácticamente gratis"
+      },
+      {
+        "numero": 6,
+        "titulo": "Sustentabilidad Comprobada",
+        "descripcion": "Reduce tu huella de carbono en 60 toneladas durante su vida útil, equivalente a plantar 1,000 árboles"
+      },
+      {
+        "numero": 7,
+        "titulo": "Instalación Simple",
+        "descripcion": "Incluye kit completo de montaje, cables MC4, conectores, manual en español + acceso a soporte técnico 24/7"
+      }
+    ],
+
+    "especificaciones_tecnicas": {
+      "potencia_nominal": "500W",
+      "tipo_celula": "Monocristalina de silicio de grado A",
+      "eficiencia": "22%",
+      "voltaje_circuito_abierto": "48.9V",
+      "corriente_cortocircuito": "11.6A",
+      "voltaje_mpp": "40.5V",
+      "corriente_mpp": "11.3A",
+      "dimensiones": "2.27m x 1.13m x 40mm",
+      "peso": "28kg",
+      "marco": "Aluminio anodizado de 50mm",
+      "vidrio": "Templado antirreflexivo (3.2mm)",
+      "caja_conexiones": "IP67 (resistencia agua/polvo)",
+      "conectores": "MC4 estándar industrial",
+      "temperatura_operacion": "-40°C a +85°C",
+      "coeficiente_temperatura": "-0.38%/°C",
+      "resistencia_mecanica": "Granizo hasta 35mm, vientos 200+ km/h, nieve 5,400 Pa",
+      "temperatura_maxima_modulo": "56°C (NOCT)",
+      "garantia_anos": 25,
+      "certificaciones": "IEC 61215, IEC 61730, CE, RoHS, UL 1703"
+    },
+
+    "rendimiento": {
+      "produccion_diaria_promedio": "2.5 kWh (según ubicación)",
+      "produccion_anual_promedio": "912.5 kWh (según ubicación)",
+      "ahorro_anual_promedio": "$115 USD (según tarifa local)",
+      "ahorro_25_anos": "$2,875 USD (mínimo conservador)",
+      "notas": "Cálculos basados en 5 horas de sol equivalentes diarias en zona templada"
+    },
+
+    "contenido_paquete": [
+      "1x Placa Solar SunPower 500W Monocristalina",
+      "1x Marco de aluminio anodizado preinstalado",
+      "2x Cables MC4 compatibles (3 metros cada uno)",
+      "4x Conectores MC4 (macho + hembra)",
+      "8x Soportes de montaje universales (acero galvanizado)",
+      "Pernos, tuercas y arandelas de acero inoxidable",
+      "Manual de instalación en español (con diagramas)",
+      "Esquema de conexión técnico detallado",
+      "Certificado de garantía de 25 años",
+      "Acceso online a calculadora de ROI personalizada"
+    ],
+
+    "instalacion": {
+      "dificultad": "Media - Se recomienda técnico certificado",
+      "tiempo_estimado": "4-6 horas (para 1 placa)",
+      "herramentas_necesarias": [
+        "Taladro con brocas",
+        "Destornillador Phillips y plano",
+        "Llave inglesa o juego de llaves",
+        "Multímetro (recomendado)",
+        "Escalera de seguridad"
+      ],
+      "requisitos": [
+        "Techo con orientación norte-sur o este-oeste",
+        "Mínimo 15° de inclinación óptima",
+        "Sin sombras de árboles o edificios entre 9am-3pm",
+        "Acceso seguro al techo",
+        "Inversor solar compatible (no incluido)"
+      ],
+      "considerar": "Se requiere inversor solar, regulador de carga y baterías para sistema completo (no incluidas)"
+    },
+
+    "garantia": {
+      "duracion_anos": 25,
+      "cobertura": "Defectos de fabricación, células rotas, delaminación",
+      "performance_garantizada": {
+        "ano_1": "100%",
+        "ano_5": "97%",
+        "ano_25": "80%"
+      },
+      "cobertura_adicional": "Daño por granizo, roturas por accidente, deterioro prematuro",
+      "transferible": true,
+      "requisitos": "Instalación por técnico certificado (se recomienda)", 
+      "proceso_reclamacion": "Contactar soporte, enviar fotos, envío prepagado"
+    },
+
+    "palabras_clave": [
+      "paneles solares",
+      "placas solares",
+      "energía solar",
+      "energía renovable",
+      "panel solar 500w",
+      "monocristalino",
+      "generador solar",
+      "sistema solar casa",
+      "electricidad renovable",
+      "energía sustentable",
+      "energía limpia",
+      "ahorro electricidad",
+      "independencia energética",
+      "solar panel residential",
+      "inversor compatible",
+      "instalacion placas solares"
+    ],
+
+    "calificaciones": {
+      "promedio": 4.9,
+      "sobre": 5,
+      "total_resenas": 347,
+      "distribucion": {
+        "5_estrellas": 320,
+        "4_estrellas": 22,
+        "3_estrellas": 3,
+        "2_estrellas": 2,
+        "1_estrella": 0
+      },
+      "resenas_destacadas": [
+        "Excelente calidad, reducí mi factura 75% en el primer año",
+        "Instalación sencilla, llegó bien empacado",
+        "Después de 3 años sigue generando como el primer día",
+        "El mejor inversor que hice para mi casa"
+      ]
+    },
+
+    "promociones": {
+      "activa": true,
+      "tipo": "descuento_porcentaje",
+      "valor": 27,
+      "codigo_cupon": "SOLAR2025",
+      "descuento_cupon": 0.10,
+      "descripcion": "10% adicional con código SOLAR2025",
+      "fecha_inicio": "2026-01-13",
+      "fecha_fin": "2026-03-13",
+      "stock_limitado": true,
+      "unidades_disponibles": 45,
+      "oferta_extra": "Envío gratis + Kit de limpieza panel solar + Guía instalación premium"
+    },
+
+    "envio": {
+      "gratuito": true,
+      "tiempo_entrega": "7-10 dias habiles",
+      "cobertura": "Todo el país",
+      "seguimiento": true,
+      "asegurado": true,
+      "seguro_cobertura": "$500 USD",
+      "embalaje": "Caja de madera reforzada + espuma + protección anti-impactos",
+      "notas": "Producto frágil - manejo con cuidado, firmar al recibir"
+    },
+
+    "seo": {
+      "meta_description": "Placa Solar 500W monocristalina para casas - Energía renovable y sustentable - Garantía 25 años - Ahorra hasta 80% en electricidad",
+      "url_amigable": "placa-solar-500w-monocristalina-energia-renovable",
+      "tags": ["paneles-solares", "energía-renovable", "sustentable", "500w", "monocristalino"],
+      "long_tail_keywords": [
+        "panel solar 500w para casa",
+        "placa solar sustentable económica",
+        "mejor panel solar calidad precio",
+        "instalacion paneles solares casa",
+        "ahorrar electricidad con energia solar",
+        "panel solar con garantia 25 anos"
+      ]
+    },
+
+    "audiencia_objetivo": {
+      "perfil_1": {
+        "nombre": "Ama de Casa Consciente",
+        "edad": "35-55 años",
+        "ubicacion": "Zona urbana/suburbana",
+        "motivacion": "Reducir gastos de electricidad + Sustentabilidad",
+        "presupuesto": "3,000-8,000 USD sistema completo"
+      },
+      "perfil_2": {
+        "nombre": "Emprendedor Eco-Consciente",
+        "edad": "25-45 años",
+        "ubicacion": "Cualquier zona",
+        "motivacion": "Independencia energética + Imagen de marca",
+        "presupuesto": "5,000-15,000 USD sistema completo"
+      },
+      "perfil_3": {
+        "nombre": "Propietario Inteligente",
+        "edad": "40-65 años",
+        "ubicacion": "Zonas rurales/fincas",
+        "motivacion": "Ahorro a largo plazo + Inversión",
+        "presupuesto": "10,000-30,000 USD sistema completo"
+      }
+    },
+
+    "ventajas_competitivas": {
+      "eficiencia": "22% vs 18-20% de competencia",
+      "precio": "27% menos que marcas similares",
+      "garantia": "25 años vs 10-15 años estándar",
+      "soporte": "24/7 en español vs solo email",
+      "certificaciones": "Todas las normas internacionales",
+      "roi": "5-7 años vs 8-10 años promedio"
+    },
+
+    "objeciones_frecuentes": [
+      {
+        "objecion": "¿Funciona en días nublados?",
+        "respuesta": "Sí, aunque con 40-60% menos eficiencia. Con nuestra tecnología, sigue generando bien incluso en clima nublado"
+      },
+      {
+        "objecion": "¿Cuánto dura realmente?",
+        "respuesta": "Mínimo 25 años. Después sigue funcionando (rendimiento garantizado del 80% a año 25)"
+      },
+      {
+        "objecion": "¿Es difícil instalar?",
+        "respuesta": "Nosotros incluimos kit completo y soporte. Se recomienda técnico certificado (4-6 horas de trabajo)"
+      },
+      {
+        "objecion": "¿Qué pasa si llueve o hay granizo?",
+        "respuesta": "Resistencia certificada: granizo hasta 35mm, vientos 200+ km/h, nieve 5,400 Pa. Está diseñado para durar"
+      },
+      {
+        "objecion": "¿Es realmente sustentable?",
+        "respuesta": "Se recupera energía invertida en fabricación en 2-3 años. Luego genera energía limpia 22 años más"
+      }
+    ]
+  }
+}
