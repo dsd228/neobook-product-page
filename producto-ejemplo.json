@@ -7,6 +7,40 @@
     "categoria": "Electrónica > Audio > Auriculares Bluetooth",
     "subcategoria": "Auriculares over-ear",
     "descripcion_corta": "Auriculares premium con cancelación de ruido activa y 40 horas de batería",
+    "descripcion_larga": "Los Auriculares Bluetooth XYZ Pro están diseñados para quienes no aceptan compromisos en sonido, comodidad y autonomía.",
+    "precio": {
+      "moneda": "USD",
+      "precio_actual": 149.99,
+      "precio_original": 199.99,
+      "descuento_porcentaje": 25,
+      "con_iva": true
+    },
+    "imagenes": [
+      { "posicion": 1, "tipo": "principal", "url": "https://via.placeholder.com/1000x1000?text=Auricular+Principal", "alt": "Auriculares XYZ Pro - Producto Principal" },
+      { "posicion": 2, "tipo": "angulo", "url": "https://via.placeholder.com/1000x1000?text=Vista+Lateral", "alt": "Vista lateral" },
+      { "posicion": 3, "tipo": "uso", "url": "https://via.placeholder.com/1000x1000?text=En+Uso", "alt": "Persona usando los auriculares" }
+    ],
+    "bullet_points": [
+      { "numero": 1, "titulo": "Cancelación de Ruido Activa", "descripcion": "Tecnología que reduce ruido ambiente hasta 99%" },
+      { "numero": 2, "titulo": "Batería Ultra Larga", "descripcion": "Hasta 40 horas de reproducción" }
+    ],
+    "especificaciones_tecnicas": { "tipo_conexion": "Bluetooth 5.0 + Cable auxiliar 3.5mm", "autonomia_bateria": "40 horas (ANC desactivado) / 30 horas (ANC activado)", "tiempo_carga": "2 horas" },
+    "garantia": { "duracion_meses": 24, "politica_devolucion": "30 días sin preguntas" },
+    "promociones": { "activa": true, "tipo": "descuento_porcentaje", "valor": 25, "codigo_cupon": "XYZPRO30", "descuento_cupon": 0.25, "fecha_inicio": "2026-01-13", "fecha_fin": "2026-02-13", "stock_limitado": true, "unidades_disponibles": 150 },
+    "envio": { "gratuito": true, "tiempo_entrega": "3-5 dias habiles", "cobertura": "Todo el país" },
+    "stock": 150,
+    "seo": { "meta_description": "Auriculares XYZ Pro con cancelación de ruido activa, 40 horas de batería y garantía 2 años.", "url_amigable": "auriculares-bluetooth-xyz-pro-cancelacion-ruido" }
+  }
+}
+{
+  "producto": {
+    "id": "AURICULAR-XYZ-001",
+    "titulo": "Auriculares Bluetooth XYZ Pro con Cancelación de Ruido - 40H Batería - Impermeables IPX4",
+    "marca": "XYZ",
+    "modelo": "Pro",
+    "categoria": "Electrónica > Audio > Auriculares Bluetooth",
+    "subcategoria": "Auriculares over-ear",
+    "descripcion_corta": "Auriculares premium con cancelación de ruido activa y 40 horas de batería",
     "descripcion_larga": "Los Auriculares Bluetooth XYZ Pro están diseñados para quienes no aceptan compromisos en sonido, comodidad y autonomía. Ya sea que trabajes desde casa, viajes constantemente o disfrutes de la música en todo momento, estos auriculares ofrecen la experiencia de audio premium que mereces.",
     
     "precio": {

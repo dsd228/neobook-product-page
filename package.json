@@ -1,0 +1,14 @@
+{
+  "name": "amazon-product-page-audit",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "npx http-server -p 8080 -c-1",
+    "axe": "node tools/run-axe.js"
+  },
+  "devDependencies": {
+    "@axe-core/puppeteer": "^4.0.2",
+    "puppeteer": "^20.0.0",
+    "http-server": "^14.1.1"
+  }
+}

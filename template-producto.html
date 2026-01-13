@@ -1,6 +1,148 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ficha de Producto Amazon - Template</title>
+  <meta name="description" content="Ficha de producto optimizada para Amazon - plantilla responsive">
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="Auriculares Bluetooth XYZ Pro">
+  <meta property="og:description" content="Cancelación de Ruido Activa + 40 Horas de Batería">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Auricular+Principal">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Auriculares Bluetooth XYZ Pro",
+    "image": [
+      "https://via.placeholder.com/1000x1000?text=Auricular+Principal"
+    ],
+    "description": "Auriculares premium con cancelación de ruido activa y 40 horas de batería",
+    "sku": "AURICULAR-XYZ-001",
+    "mpn": "XYZ-PRO",
+    "brand": {
+      "@type": "Brand",
+      "name": "XYZ"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "",
+      "priceCurrency": "USD",
+      "price": "149.99",
+      "priceValidUntil": "2026-02-13",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "1234"
+    }
+  }
+  </script>
+</head>
+<body>
+  <main class="container" aria-labelledby="product-title">
+    <header class="product-header">
+      <h1 id="product-title">Auriculares Bluetooth XYZ Pro</h1>
+      <p class="lead">Cancelación de Ruido Activa + 40 Horas de Batería</p>
+    </header>
+
+    <section class="product-content" aria-describedby="product-desc">
+      <aside class="product-images" aria-label="Galería de imágenes">
+                <div class="main-image" id="mainImage">
+                    <img src="https://via.placeholder.com/800x800?text=Auricular+Principal"
+                             srcset="https://via.placeholder.com/400x400?text=Auricular+Principal 400w, https://via.placeholder.com/800x800?text=Auricular+Principal 800w, https://via.placeholder.com/1200x1200?text=Auricular+Principal 1200w"
+                             sizes="(max-width:768px) 100vw, 50vw"
+                             alt="Auriculares XYZ Pro - Producto Principal" loading="lazy">
+                </div>
+        <div class="thumbnails" role="list">
+                    <button class="thumbnail" data-src="https://via.placeholder.com/800x800?text=Angulo+1" aria-label="Vista 1">
+                        <img src="https://via.placeholder.com/100x100?text=Angulo+1"
+                                 srcset="https://via.placeholder.com/100x100?text=Angulo+1 100w, https://via.placeholder.com/200x200?text=Angulo+1 200w"
+                                 sizes="50px" alt="Vista 1" loading="lazy">
+                    </button>
+                    <button class="thumbnail" data-src="https://via.placeholder.com/800x800?text=Angulo+2" aria-label="Vista 2">
+                        <img src="https://via.placeholder.com/100x100?text=Angulo+2"
+                                 srcset="https://via.placeholder.com/100x100?text=Angulo+2 100w, https://via.placeholder.com/200x200?text=Angulo+2 200w"
+                                 sizes="50px" alt="Vista 2" loading="lazy">
+                    </button>
+                    <button class="thumbnail" data-src="https://via.placeholder.com/800x800?text=En+Uso" aria-label="En uso">
+                        <img src="https://via.placeholder.com/100x100?text=En+Uso"
+                                 srcset="https://via.placeholder.com/100x100?text=En+Uso 100w, https://via.placeholder.com/200x200?text=En+Uso 200w"
+                                 sizes="50px" alt="En uso" loading="lazy">
+                    </button>
+                    <button class="thumbnail" data-src="https://via.placeholder.com/800x800?text=Detalle" aria-label="Detalle">
+                        <img src="https://via.placeholder.com/100x100?text=Detalle"
+                                 srcset="https://via.placeholder.com/100x100?text=Detalle 100w, https://via.placeholder.com/200x200?text=Detalle 200w"
+                                 sizes="50px" alt="Detalle" loading="lazy">
+                    </button>
+        </div>
+      </aside>
+
+      <section class="product-info">
+        <div class="rating" aria-hidden="true">
+          <div class="stars">★★★★★</div>
+          <div class="rating-text">4.8/5 (1,234 reseñas)</div>
+        </div>
+
+        <div class="price-section" role="region" aria-label="Precio">
+          <div class="price-label">Precio</div>
+          <div>
+            <span class="price-current">$149.99</span>
+            <span class="discount-badge">-25%</span>
+          </div>
+          <div class="price-original">Precio original: $199.99</div>
+        </div>
+
+        <div class="buttons">
+          <button class="btn btn-primary" id="addToCart">🛒 Añadir al Carrito</button>
+          <button class="btn btn-secondary">❤️ Añadir a Lista</button>
+        </div>
+
+        <div class="bullet-points" aria-labelledby="bp-title">
+          <h3 id="bp-title">Características Principales</h3>
+          <ul>
+            <li><strong>Cancelación de Ruido Activa:</strong> Tecnología de última generación que reduce ruido ambiente hasta 99%</li>
+            <li><strong>Batería Ultra Larga:</strong> Hasta 40 horas de reproducción</li>
+            <li><strong>Diseño Premium:</strong> Aleación de aluminio con piel sintética ergonómica</li>
+            <li><strong>Micrófono Dual:</strong> Llamadas cristalinas con cancelación de ruido ambiental</li>
+            <li><strong>Bluetooth 5.0:</strong> Emparejamiento instantáneo</li>
+            <li><strong>Garantía 2 Años:</strong> Cobertura completa y devolución en 30 días</li>
+          </ul>
+        </div>
+      </section>
+    </section>
+
+    <section class="full-description" id="product-desc">
+      <h2>Descripción Completa del Producto</h2>
+      <p>Los <strong>Auriculares Bluetooth XYZ Pro</strong> están diseñados para quienes no aceptan compromisos en sonido, comodidad y autonomía.</p>
+
+      <h3>Especificaciones Técnicas</h3>
+      <table class="specs-table" role="table">
+        <tr><th>Característica</th><th>Especificación</th></tr>
+        <tr><td>Tipo de Conexión</td><td>Bluetooth 5.0 + Cable auxiliar 3.5mm (incluido)</td></tr>
+        <tr><td>Autonomía</td><td>40 horas (ANC desactivado) / 30 horas (ANC activado)</td></tr>
+        <tr><td>Tiempo de Carga</td><td>2 horas (USB-C rápido)</td></tr>
+        <tr><td>Impermeabilidad</td><td>IPX4</td></tr>
+        <tr><td>Peso</td><td>250g</td></tr>
+      </table>
+
+      <h3>Servicio Postventa y Soporte</h3>
+      <p>Contacta: soporte (ejemplo) — reemplaza con tus datos reales.</p>
+    </section>
+
+    <footer class="footer">
+      <p>🚚 Envío gratis | ✅ 100% original | MIT License</p>
+    </footer>
+  </main>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha de Producto Amazon - Template</title>
@@ -322,6 +464,34 @@
             }
         }
 
+        .contact-form-section {
+            background: #f8f9fa;
+            padding: 40px;
+            margin: 40px 0 0 0;
+            text-align: center;
+        }
+
+        .contact-form-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .contact-form-section p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
         .footer {
             background: #f0f0f0;
             padding: 20px;
@@ -488,6 +658,15 @@
 
             <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 4px;">
                 <p style="margin: 0; color: #856404;"><strong>💡 Oferta Limitada:</strong> Compra hoy y recibe cupón descuento para otros productos XYZ (código: XYZPRO30)</p>
+            </div>
+        </div>
+
+        <!-- FORMULARIO DE CONTACTO -->
+        <div class="contact-form-section">
+            <h3>📝 ¿Necesitas un Template Así Para Tu Producto?</h3>
+            <p>Completa el formulario y te contactaremos para crear la página perfecta para tu negocio</p>
+            <div class="form-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScesCXetLBZY3tk0kkjQdroI38qxHy3sWanojk-MBSssAW_MQ/viewform?embedded=true" width="100%" height="650" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
             </div>
         </div>
 

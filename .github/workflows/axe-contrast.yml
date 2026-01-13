@@ -1,0 +1,26 @@
+name: Axe Contrast & Accessibility Audit
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  axe-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install deps
+        run: npm ci
+      - name: Start static server
+        run: npx http-server -p 8080 -c-1 &
+      - name: Run axe audit
+        run: npm run axe
+      - name: Upload results
+        if: always()
+        run: echo "Axe audit finished"
