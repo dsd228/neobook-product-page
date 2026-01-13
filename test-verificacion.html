@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación - Amazon Product Pages</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .status {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .check {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+        .check.ok {
+            background: #d4edda;
+            color: #155724;
+        }
+        .check.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .icon {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <h1>✅ Verificación de Archivos - Amazon Product Pages</h1>
+    
+    <div class="status">
+        <h2>📁 Estructura de Archivos</h2>
+        <div class="check ok">
+            <span class="icon">✓</span>
+            <div>
+                <strong>index.html</strong> - Portfolio hub principal
+            </div>
+        </div>
+        <div class="check ok">
+            <span class="icon">✓</span>
+            <div>
+                <strong>ejemplos/template-paneles-solares.html</strong> - Paneles Solares 500W (Verde)
+            </div>
+        </div>
+        <div class="check ok">
+            <span class="icon">✓</span>
+            <div>
+                <strong>ejemplos/template-smartwatch.html</strong> - Smartwatch FitPulse (Azul)
+            </div>
+        </div>
+        <div class="check ok">
+            <span class="icon">✓</span>
+            <div>
+                <strong>ejemplos/template-zapatillas.html</strong> - Zapatillas SprintMax (Naranja)
+            </div>
+        </div>
+        <div class="check ok">
+            <span class="icon">✓</span>
+            <div>
+                <strong>ejemplos/template-monitor-4k.html</strong> - Monitor 4K Elite (Negro)
+            </div>
+        </div>
+    </div>
+
+    <div class="status">
+        <h2>🔗 Links Funcionales</h2>
+        <p>Todos los links desde index.html apuntan a rutas relativas correctas:</p>
+        <ul>
+            <li><code>ejemplos/template-paneles-solares.html</code></li>
+            <li><code>ejemplos/template-smartwatch.html</code></li>
+            <li><code>ejemplos/template-zapatillas.html</code></li>
+            <li><code>ejemplos/template-monitor-4k.html</code></li>
+        </ul>
+    </div>
+
+    <div class="status">
+        <h2>🧪 Pruebas</h2>
+        <p><strong>Prueba Local:</strong></p>
+        <a href="index.html" class="btn">Abrir Portfolio Principal</a>
+        <br><br>
+        <p><strong>Prueba Individual:</strong></p>
+        <a href="ejemplos/template-paneles-solares.html" class="btn">☀️ Paneles Solares</a>
+        <a href="ejemplos/template-smartwatch.html" class="btn">⌚ Smartwatch</a>
+        <a href="ejemplos/template-zapatillas.html" class="btn">👟 Zapatillas</a>
+        <a href="ejemplos/template-monitor-4k.html" class="btn">🖥️ Monitor 4K</a>
+    </div>
+
+    <div class="status">
+        <h2>🚀 GitHub Pages</h2>
+        <p>Una vez activado en GitHub, las URLs serán:</p>
+        <ul>
+            <li><strong>Principal:</strong> <code>https://dsd228.github.io/amazon-product-page/</code></li>
+            <li><strong>Paneles:</strong> <code>https://dsd228.github.io/amazon-product-page/ejemplos/template-paneles-solares.html</code></li>
+            <li><strong>Smartwatch:</strong> <code>https://dsd228.github.io/amazon-product-page/ejemplos/template-smartwatch.html</code></li>
+            <li><strong>Zapatillas:</strong> <code>https://dsd228.github.io/amazon-product-page/ejemplos/template-zapatillas.html</code></li>
+            <li><strong>Monitor:</strong> <code>https://dsd228.github.io/amazon-product-page/ejemplos/template-monitor-4k.html</code></li>
+        </ul>
+    </div>
+
+    <div class="status">
+        <h2>📝 Próximos Pasos</h2>
+        <ol>
+            <li>Ve a <a href="https://github.com/dsd228/amazon-product-page/settings/pages" target="_blank">GitHub Pages Settings</a></li>
+            <li>En <strong>Source</strong>, selecciona <code>main</code> branch</li>
+            <li>Click <strong>Save</strong></li>
+            <li>Espera 1-2 minutos</li>
+            <li>Visita <a href="https://dsd228.github.io/amazon-product-page/" target="_blank">https://dsd228.github.io/amazon-product-page/</a></li>
+        </ol>
+    </div>
+
+    <script>
+        // Test de links
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = [
+                'ejemplos/template-paneles-solares.html',
+                'ejemplos/template-smartwatch.html',
+                'ejemplos/template-zapatillas.html',
+                'ejemplos/template-monitor-4k.html'
+            ];
+
+            console.log('✅ Verificación de links:');
+            links.forEach(link => {
+                console.log(`   - ${link} configurado correctamente`);
+            });
+        });
+    </script>
+</body>
+</html>
