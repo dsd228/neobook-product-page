@@ -1,0 +1,330 @@
+{
+  "producto": {
+    "id": "ZAPATILLAS-SPRINT-MAX-001",
+    "titulo": "Zapatillas Running SprintMax Ultra - Tecnología AeroFoam - Peso 185g - Para Maratones y Carreras Competitivas",
+    "marca": "SprintMax",
+    "modelo": "Ultra Series",
+    "categoria": "Deportes y Aire Libre > Calzado deportivo > Zapatillas para correr",
+    "subcategoria": "Zapatillas de running profesionales",
+    "descripcion_corta": "Zapatillas de carrrera ultraligeras con tecnología de amortiguación AeroFoam para máximo rendimiento en competencias",
+    "descripcion_larga": "Las Zapatillas SprintMax Ultra son la elección de atletas profesionales que compiten en maratones y carreras de 5K. Diseñadas con espuma propulsora AeroFoam, pesan solo 185g y ofrecen el equilibrio perfecto entre comodidad, peso y velocidad. Utilizadas en 47 maratones internacionales por corredores élite.",
+    
+    "precio": {
+      "moneda": "USD",
+      "precio_actual": 129.99,
+      "precio_original": 179.99,
+      "descuento_porcentaje": 28,
+      "con_iva": false,
+      "notas": "Incluye 2 pares de plantillas personalizables"
+    },
+
+    "imagenes": [
+      {
+        "posicion": 1,
+        "tipo": "principal",
+        "url": "https://via.placeholder.com/1000x1000?text=Zapatilla+SprintMax",
+        "alt": "Zapatillas SprintMax Ultra - Vista Principal",
+        "descripcion": "Zapatilla lateral mostrando diseño aerodinámico y tecnología"
+      },
+      {
+        "posicion": 2,
+        "tipo": "angulo",
+        "url": "https://via.placeholder.com/1000x1000?text=Vista+Frontal",
+        "alt": "Vista frontal de la zapatilla",
+        "descripcion": "Frente mostrando tecnología de amortiguación visible"
+      },
+      {
+        "posicion": 3,
+        "tipo": "uso",
+        "url": "https://via.placeholder.com/1000x1000?text=Corredor+Velocista",
+        "alt": "Atleta usando zapatillas en carrera competitiva",
+        "descripcion": "Corredor profesional en acción durante maratón"
+      },
+      {
+        "posicion": 4,
+        "tipo": "detalle",
+        "url": "https://via.placeholder.com/1000x1000?text=Suela+Tecnologia",
+        "alt": "Detalle de la suela y sistema de amortiguación",
+        "descripcion": "Close-up mostrando tecnología AeroFoam en la suela"
+      },
+      {
+        "posicion": 5,
+        "tipo": "comparacion",
+        "url": "https://via.placeholder.com/1000x1000?text=Peso+Comparacion",
+        "alt": "Comparación de peso - 185g vs competencia",
+        "descripcion": "Infografía mostrando ultra ligereza del producto"
+      },
+      {
+        "posicion": 6,
+        "tipo": "contenido",
+        "url": "https://via.placeholder.com/1000x1000?text=Colores+Disponibles",
+        "alt": "Todos los colores disponibles",
+        "descripcion": "Gama completa de colores: Negro, Blanco, Naranja, Azul"
+      },
+      {
+        "posicion": 7,
+        "tipo": "infografia",
+        "url": "https://via.placeholder.com/1000x1000?text=Tecnologia+Aerofom",
+        "alt": "Infografía de tecnología AeroFoam",
+        "descripcion": "Explicación visual de las 3 capas de amortiguación"
+      }
+    ],
+
+    "bullet_points": [
+      {
+        "numero": 1,
+        "titulo": "Ultraligeras 185g",
+        "descripcion": "Las más ligeras del mercado, reducen fatiga en tobillos y caderas durante carreras largas, ideal para maratones"
+      },
+      {
+        "numero": 2,
+        "titulo": "Tecnología AeroFoam",
+        "descripcion": "Espuma patentada de 3 capas: absorción de impacto + propulsión + estabilidad lateral, usada en Olimpiadas"
+      },
+      {
+        "numero": 3,
+        "titulo": "Drop 10mm Óptimo",
+        "descripcion": "Diferencia talón-punta perfecta para corredores de media-larga distancia, reduciendo tensión de tendón de Aquiles"
+      },
+      {
+        "numero": 4,
+        "titulo": "Mesh Transpirable",
+        "descripcion": "Tejido de nylon japones de última generación que permite máxima ventilación sin perder estructura"
+      },
+      {
+        "numero": 5,
+        "titulo": "Suela Carbono",
+        "descripcion": "Placa de fibra de carbono en el arco del pie proporciona rigidez controlada y máxima eficiencia energética"
+      },
+      {
+        "numero": 6,
+        "titulo": "Certificación IAAF",
+        "descripcion": "Aprobado por la Federación Internacional de Atletismo para competencias oficiales, usadas en 47 maratones"
+      },
+      {
+        "numero": 7,
+        "titulo": "Garantía Rendimiento",
+        "descripcion": "Más de 800km de uso sin pérdida de amortiguación, 1 año de garantía + cambio gratis si se rompen"
+      }
+    ],
+
+    "especificaciones_tecnicas": {
+      "peso": "185g (talla 42) - Las más ligeras del mercado",
+      "drop": "10mm (talón 30mm, punta 20mm)",
+      "ancho_horma": "Estándar (disponible ancho medio)",
+      "suela": "Goma continental + placa carbono",
+      "puntera": "Refuerzo protector anti-rozadura",
+      "mediasuela": "Espuma AeroFoam 3 capas patentada",
+      "horma": "Anatomía de pie humano optimizada",
+      "transpiracion": "Mesh japones + rejillas de ventilación",
+      "costuras": "Termoselladas (sin costuras expuestas)",
+      "plantilla": "Plantilla de contorno removible + plantilla plana alternativa incluida",
+      "ojetes": "Metal reforzado (no se rompen)",
+      "contraparte": "Refuerzo TPU premium",
+      "talones": "Contrafuerte anatomico con gel de impacto",
+      "material_externo": "Tela sintetica japones + malla tecnica",
+      "material_interno": "Forro de mesh suave libre de costuras",
+      "colores_disponibles": ["Negro Speed", "Blanco Elite", "Naranja Fuego", "Azul Volt"],
+      "sistemas_certificados": "IAAF, ISO 5272, RoHS",
+      "rango_distancia_optimo": "5K a Maratón (42km)",
+      "tipo_pisada": "Neutral y sobrepronación leve"
+    },
+
+    "rendimiento_tecnico": {
+      "tiempo_rom": "Mejor para 5K-10K: sub 20min/5K",
+      "amortiguacion_nivel": "Media (balance velocidad-proteccion)",
+      "durabilidad_km": "800+ km sin pérdida significativa",
+      "velocidad_rating": "9/10 para carreras competitivas",
+      "comodidad_larga_distancia": "9/10 (incluso después 40km)",
+      "flexibilidad_plantilla": "8/10 (buena rigidez en arco)",
+      "respuesta_giro": "Excelente por placa de carbono",
+      "traccion_humedo": "8/10 (suela continental premium)"
+    },
+
+    "contenido_paquete": [
+      "1x Par Zapatillas SprintMax Ultra",
+      "1x Plantilla de contorno anatómico removible",
+      "1x Plantilla plana alternativa",
+      "1x Caja premium de presentación",
+      "1x Bolsa de algodón para viaje",
+      "1x Guía de cuidado y mantenimiento",
+      "1x Manual de ajuste de plantillas",
+      "1x Código acceso a app SprintMax (análisis de carrera)",
+      "Acceso a comunidad de corredores SprintMax"
+    ],
+
+    "tallas_disponibles": {
+      "rango": "34-48",
+      "numeracion": "EUR",
+      "tabla_conversiones": {
+        "38_eur": ["5.5 US hombre", "7 US mujer"],
+        "39_eur": ["6 US hombre", "7.5 US mujer"],
+        "40_eur": ["6.5 US hombre", "8 US mujer"],
+        "41_eur": ["7 US hombre", "8.5 US mujer"],
+        "42_eur": ["8 US hombre", "9 US mujer"],
+        "43_eur": ["8.5 US hombre", "9.5 US mujer"],
+        "44_eur": ["9 US hombre", "10 US mujer"]
+      },
+      "nota": "Recomendamos una talla más grande que calzado casual"
+    },
+
+    "garantia": {
+      "duracion_anos": 1,
+      "cobertura": "Defectos de fabricación, roturas de suela, desgarre de material",
+      "uso_intenso": "800+ km garantizado sin pérdida de amortiguación",
+      "cambio_garantia": "Cambio gratis si se rompen en uso normal dentro de año",
+      "exclusiones": "Desgaste normal, mala conservación, mal almacenaje",
+      "proceso": "Foto del defecto + envío prepagado + cambio automático",
+      "transferible": false
+    },
+
+    "palabras_clave": [
+      "zapatillas running",
+      "zapatillas para correr",
+      "zapatillas maratón",
+      "zapatillas ligeras",
+      "zapatillas velocidad",
+      "running shoes",
+      "zapatillas carrera competitiva",
+      "zapatillas 5K",
+      "zapatillas profesionales",
+      "zapatillas ultraligeras",
+      "calzado deportivo",
+      "zapatillas amortiguación",
+      "zapatillas con placa carbono",
+      "mejor zapatilla correr",
+      "zapatillas IAAF aprobadas"
+    ],
+
+    "calificaciones": {
+      "promedio": 4.8,
+      "sobre": 5,
+      "total_resenas": 1247,
+      "distribucion": {
+        "5_estrellas": 1089,
+        "4_estrellas": 128,
+        "3_estrellas": 22,
+        "2_estrellas": 6,
+        "1_estrella": 2
+      },
+      "resenas_destacadas": [
+        "Increíblemente ligeras, noté la diferencia en mi tiempo de maratón",
+        "Después de 800km siguen como nuevas, muy durables",
+        "La mejor relación precio-rendimiento en zapatillas de competencia",
+        "Recomendadas por mi entrenador profesional, excelente calidad",
+        "Ganaron mi 5K local, definitivamente estas zapatillas ayudan"
+      ]
+    },
+
+    "promociones": {
+      "activa": true,
+      "tipo": "descuento_porcentaje",
+      "valor": 28,
+      "codigo_cupon": "RUNFAST15",
+      "descuento_cupon": 0.15,
+      "descripcion": "15% adicional con código RUNFAST15",
+      "fecha_inicio": "2026-01-13",
+      "fecha_fin": "2026-02-28",
+      "stock_limitado": true,
+      "unidades_disponibles": 250,
+      "oferta_extra": "Plantilla extra personalizada GRATIS + 2 pares calcetines running INCLUIDOS + Bolsa de viaje premium"
+    },
+
+    "envio": {
+      "gratuito": true,
+      "tiempo_entrega": "3-5 dias",
+      "cobertura": "Todo el país",
+      "seguimiento": true,
+      "asegurado": true,
+      "seguro_cobertura": "$200 USD",
+      "embalaje": "Caja rígida con protección interior"
+    },
+
+    "seo": {
+      "meta_description": "Zapatillas SprintMax Ultra - Ultraligeras 185g, tecnología AeroFoam, aprobadas IAAF - Perfectas para maratones y competencias",
+      "url_amigable": "zapatillas-running-sprintmax-ultra-ligeras-competencia",
+      "tags": ["zapatillas-running", "deportivas", "competencia", "maratón", "ligeras"],
+      "long_tail_keywords": [
+        "mejores zapatillas para correr maratón",
+        "zapatillas running ultra ligeras",
+        "zapatillas running carrera 5K",
+        "zapatillas profesionales atletismo",
+        "zapatilla running tecnologia carbono",
+        "zapatilla running mejor precio 2026"
+      ]
+    },
+
+    "audiencia_objetivo": {
+      "perfil_1": {
+        "nombre": "Corredor Competitivo",
+        "edad": "25-45 años",
+        "nivel": "Semimaratonistas y maratonistas",
+        "objetivo": "Mejorar tiempo de carrera",
+        "presupuesto": "100-200 USD"
+      },
+      "perfil_2": {
+        "nombre": "Aficionado Serio",
+        "edad": "30-50 años",
+        "nivel": "Entrena 3+ veces semana",
+        "objetivo": "Mejora de rendimiento y comodidad",
+        "presupuesto": "80-150 USD"
+      },
+      "perfil_3": {
+        "nombre": "Atleta Profesional",
+        "edad": "20-40 años",
+        "nivel": "Competencias officieles",
+        "objetivo": "Ventaja competitiva",
+        "presupuesto": "150-250 USD"
+      }
+    },
+
+    "ventajas_competitivas": {
+      "peso": "185g vs 220g competencia estándar",
+      "precio": "28% menos que marcas premium similares",
+      "tecnologia": "Placa carbono + AeroFoam patentada",
+      "certificaciones": "IAAF aprobadas vs marcas sin aprobación",
+      "durabilidad": "800+ km vs 600km promedio",
+      "plantillas": "2 plantillas incluidas vs 1 estándar"
+    },
+
+    "objeciones_frecuentes": [
+      {
+        "objecion": "¿Son cómodas para distancias largas?",
+        "respuesta": "Sí, amortiguación media perfecta para maratones. Muchos corredores notan comodidad incluso después 40km"
+      },
+      {
+        "objecion": "¿Duran realmente 800km?",
+        "respuesta": "Sí, garantizado. Muchos usuarios reportan que después 800km aún mantienen 80% de amortiguación"
+      },
+      {
+        "objecion": "¿Son para principiantes?",
+        "respuesta": "No, son zapatillas de competencia. Recomendamos para corredores con 6+ meses de experiencia"
+      },
+      {
+        "objecion": "¿Qué talla debo elegir?",
+        "respuesta": "Generalmente una talla más grande que calzado casual. Por ejemplo si usas 42 casual, elige 43"
+      },
+      {
+        "objecion": "¿Puedo usar para entrenamientos diarios?",
+        "respuesta": "Sí, pero están optimizadas para carreras rápidas. Para entrenamientos diarios puedes usar pero durarán menos"
+      }
+    ],
+
+    "testimonios_corredores": [
+      {
+        "nombre": "Carlos López",
+        "tipo": "Maratonista",
+        "carrera": "Maratón de Boston 2025",
+        "tiempo_personal": "Sub 3 horas",
+        "testimonio": "Mejoré mi tiempo 4 minutos en el maratón. Las zapatillas son increíblemente ligeras."
+      },
+      {
+        "nombre": "María González",
+        "tipo": "Corredora 5K",
+        "carrera": "Campeonato Nacional 5K",
+        "tiempo_personal": "18:45 min",
+        "testimonio": "Ganaron mi carrera nacional. Recomiendo 100%."
+      }
+    ]
+  }
+}
