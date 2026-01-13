@@ -1,0 +1,190 @@
+{
+  "producto": {
+    "id": "AURICULAR-XYZ-001",
+    "titulo": "Auriculares Bluetooth XYZ Pro con Cancelación de Ruido - 40H Batería - Impermeables IPX4",
+    "marca": "XYZ",
+    "modelo": "Pro",
+    "categoria": "Electrónica > Audio > Auriculares Bluetooth",
+    "subcategoria": "Auriculares over-ear",
+    "descripcion_corta": "Auriculares premium con cancelación de ruido activa y 40 horas de batería",
+    "descripcion_larga": "Los Auriculares Bluetooth XYZ Pro están diseñados para quienes no aceptan compromisos en sonido, comodidad y autonomía. Ya sea que trabajes desde casa, viajes constantemente o disfrutes de la música en todo momento, estos auriculares ofrecen la experiencia de audio premium que mereces.",
+    
+    "precio": {
+      "moneda": "USD",
+      "precio_actual": 149.99,
+      "precio_original": 199.99,
+      "descuento_porcentaje": 25,
+      "con_iva": true
+    },
+
+    "imagenes": [
+      {
+        "posicion": 1,
+        "tipo": "principal",
+        "url": "https://via.placeholder.com/1000x1000?text=Auricular+Principal",
+        "alt": "Auriculares XYZ Pro - Producto Principal",
+        "descripcion": "Fondo blanco, producto centrado, vista frontal"
+      },
+      {
+        "posicion": 2,
+        "tipo": "angulo",
+        "url": "https://via.placeholder.com/1000x1000?text=Vista+Lateral",
+        "alt": "Vista lateral de los auriculares",
+        "descripcion": "Perfil del producto mostrando el headband y almohadilla"
+      },
+      {
+        "posicion": 3,
+        "tipo": "uso",
+        "url": "https://via.placeholder.com/1000x1000?text=En+Uso",
+        "alt": "Persona usando los auriculares",
+        "descripcion": "Producto en contexto real - persona utilizando en ambiente de oficina"
+      },
+      {
+        "posicion": 4,
+        "tipo": "detalle",
+        "url": "https://via.placeholder.com/1000x1000?text=Detalle+Caracteristicas",
+        "alt": "Detalle de características especiales",
+        "descripcion": "Close-up de botones, micrófono y características especiales"
+      },
+      {
+        "posicion": 5,
+        "tipo": "comparacion",
+        "url": "https://via.placeholder.com/1000x1000?text=Comparacion+Tamaño",
+        "alt": "Comparación de tamaños",
+        "descripcion": "Auriculares junto a objeto de referencia (moneda, mano)"
+      },
+      {
+        "posicion": 6,
+        "tipo": "contenido",
+        "url": "https://via.placeholder.com/1000x1000?text=Contenido+Caja",
+        "alt": "Contenido de la caja",
+        "descripcion": "Todos los accesorios incluidos: cables, estuche, manual"
+      },
+      {
+        "posicion": 7,
+        "tipo": "infografia",
+        "url": "https://via.placeholder.com/1000x1000?text=Beneficios+Clave",
+        "alt": "Infografía de beneficios",
+        "descripcion": "Gráfico visual con características principales y beneficios"
+      }
+    ],
+
+    "bullet_points": [
+      {
+        "numero": 1,
+        "titulo": "Cancelación de Ruido Activa",
+        "descripcion": "Tecnología de última generación que reduce ruido ambiente hasta 99%, perfecta para viajes y espacios ruidosos"
+      },
+      {
+        "numero": 2,
+        "titulo": "Batería Ultra Larga",
+        "descripcion": "Hasta 40 horas de reproducción en una sola carga (30 horas con ANC activado), la más larga del mercado"
+      },
+      {
+        "numero": 3,
+        "titulo": "Diseño Premium",
+        "descripcion": "Aleación de aluminio con piel sintética ergonómica y ajustable, cómodos incluso después de 12+ horas de uso"
+      },
+      {
+        "numero": 4,
+        "titulo": "Micrófono Dual",
+        "descripcion": "Llamadas cristalinas con cancelación de ruido ambiental, ideal para conferencias y videollamadas"
+      },
+      {
+        "numero": 5,
+        "titulo": "Bluetooth 5.0",
+        "descripcion": "Emparejamiento instantáneo con hasta 8 dispositivos simultáneamente, conexión estable y sin interrupciones"
+      },
+      {
+        "numero": 6,
+        "titulo": "Garantía Premium 2 Años",
+        "descripcion": "Cobertura completa contra defectos + devolución sin preguntas en 30 días + soporte 24/7 en español"
+      },
+      {
+        "numero": 7,
+        "titulo": "Accesorios Completos",
+        "descripcion": "Incluye estuche de viaje, cables USB-C y auxiliar, manual en español, y acceso a App XYZ Pro"
+      }
+    ],
+
+    "especificaciones_tecnicas": {
+      "tipo_conexion": "Bluetooth 5.0 + Cable auxiliar 3.5mm",
+      "autonomia_bateria": "40 horas (ANC desactivado) / 30 horas (ANC activado)",
+      "tiempo_carga": "2 horas con carga rápida USB-C",
+      "rango_frecuencia": "20Hz - 20kHz",
+      "impermeabilidad": "IPX4 (resistente al sudor y salpicaduras)",
+      "peso": "250g",
+      "materiales": "Aleación de aluminio + piel sintética + plástico de ingeniería",
+      "dimensiones": "19.5 x 17 x 8.5 cm",
+      "colores_disponibles": ["Negro Midnight", "Plata Polar", "Oro Rose", "Azul Océano"],
+      "compatibilidad": "iOS, Android, Windows, macOS, Linux"
+    },
+
+    "contenido_paquete": [
+      "1x Auriculares Bluetooth XYZ Pro",
+      "1x Cable USB-C (1.5m) con carga rápida",
+      "1x Cable Auxiliar 3.5mm (para conexión alámbrica)",
+      "1x Estuche de Viaje Protector (con paño de limpieza)",
+      "1x Guía Rápida (Español/Inglés/Francés)",
+      "Acceso a App XYZ Pro (personalización de sonido + firmware updates gratuitos)"
+    ],
+
+    "garantia": {
+      "duracion_meses": 24,
+      "cobertura": "Defectos de fabricación, componentes internos, batería",
+      "politica_devolucion": "30 días sin preguntas, reembolso completo",
+      "soporte_tecnico": "24/7 en español, email + chat + WhatsApp"
+    },
+
+    "palabras_clave": [
+      "auriculares bluetooth",
+      "cancelación de ruido",
+      "auriculares inalámbricos",
+      "batería larga duración",
+      "auriculares premium",
+      "headphones ANC",
+      "auriculares gaming",
+      "auriculares trabajo",
+      "auriculares viaje"
+    ],
+
+    "calificaciones": {
+      "promedio": 4.8,
+      "sobre": 5,
+      "total_resenas": 1234,
+      "distribucion": {
+        "5_estrellas": 1050,
+        "4_estrellas": 150,
+        "3_estrellas": 25,
+        "2_estrellas": 5,
+        "1_estrella": 4
+      }
+    },
+
+    "promociones": {
+      "activa": true,
+      "tipo": "descuento_porcentaje",
+      "valor": 25,
+      "codigo_cupon": "XYZPRO30",
+      "descuento_cupon": 0.30,
+      "fecha_inicio": "2026-01-13",
+      "fecha_fin": "2026-02-13",
+      "stock_limitado": true,
+      "unidades_disponibles": 150
+    },
+
+    "envio": {
+      "gratuito": true,
+      "tiempo_entrega": "3-5 dias habiles",
+      "cobertura": "Todo el país",
+      "seguimiento": true,
+      "asegurado": true
+    },
+
+    "seo": {
+      "meta_description": "Auriculares XYZ Pro con cancelación de ruido activa, 40 horas de batería y garantía 2 años. Compra online con envío gratis.",
+      "url_amigable": "auriculares-bluetooth-xyz-pro-cancelacion-ruido",
+      "tags": ["auriculares", "bluetooth", "cancelacion-ruido", "premium", "inalambricos"]
+    }
+  }
+}

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Producto Amazon - Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .product-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .product-header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .product-header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .product-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        /* COLUMNA IZQUIERDA - IMÁGENES */
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .main-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #f0f0f0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+            overflow: hidden;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnails {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .thumbnail {
+            aspect-ratio: 1/1;
+            background: #f5f5f5;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            border-color: #667eea;
+            transform: scale(1.05);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* COLUMNA DERECHA - INFORMACIÓN */
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 18px;
+        }
+
+        .rating-text {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .price-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+        }
+
+        .price-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+        }
+
+        .price-current {
+            font-size: 32px;
+            font-weight: bold;
+            color: #c41e3a;
+            margin: 10px 0;
+        }
+
+        .price-original {
+            font-size: 16px;
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: #c41e3a;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #c41e3a;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #a01a30;
+            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .bullet-points {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        .bullet-points h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .bullet-points ul {
+            list-style: none;
+        }
+
+        .bullet-points li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .bullet-points li:last-child {
+            border-bottom: none;
+        }
+
+        .bullet-points li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* DESCRIPCIÓN LARGA */
+        .full-description {
+            padding: 40px;
+            background: #fafafa;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .full-description h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .full-description p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .specs-table th {
+            background: #f0f0f0;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .specs-table tr:hover {
+            background: #f9f9f9;
+        }
+
+        .warranty-badge {
+            display: inline-block;
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warranty-badge h4 {
+            color: #2e7d32;
+            margin-bottom: 5px;
+        }
+
+        .warranty-badge p {
+            color: #558b2f;
+            margin: 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .product-content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .thumbnails {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .product-header h1 {
+                font-size: 20px;
+            }
+
+            .price-current {
+                font-size: 24px;
+            }
+        }
+
+        .footer {
+            background: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="product-header">
+            <h1>Auriculares Bluetooth XYZ Pro</h1>
+            <p>Cancelación de Ruido Activa + 40 Horas de Batería</p>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="product-content">
+            <!-- COLUMNA IZQUIERDA: IMÁGENES -->
+            <div class="product-images">
+                <div class="main-image">
+                    <img src="https://via.placeholder.com/500x500?text=Auricular+Principal" alt="Producto Principal">
+                </div>
+                <div class="thumbnails">
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Angulo+1" alt="Vista 1">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Angulo+2" alt="Vista 2">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=En+Uso" alt="Vista 3">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Detalle" alt="Vista 4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: INFORMACIÓN -->
+            <div class="product-info">
+                <!-- CALIFICACIÓN -->
+                <div class="rating">
+                    <div class="stars">★★★★★</div>
+                    <div class="rating-text">4.8/5 (1,234 reseñas)</div>
+                </div>
+
+                <!-- PRECIO -->
+                <div class="price-section">
+                    <div class="price-label">Precio</div>
+                    <div>
+                        <span class="price-current">$149.99</span>
+                        <span class="discount-badge">-25%</span>
+                    </div>
+                    <div class="price-original">Precio original: $199.99</div>
+                </div>
+
+                <!-- BOTONES DE ACCIÓN -->
+                <div class="buttons">
+                    <button class="btn btn-primary">🛒 Añadir al Carrito</button>
+                    <button class="btn btn-secondary">❤️ Añadir a Lista</button>
+                </div>
+
+                <!-- BULLET POINTS -->
+                <div class="bullet-points">
+                    <h3>Características Principales</h3>
+                    <ul>
+                        <li><strong>Cancelación de Ruido Activa:</strong> Tecnología de última generación que reduce ruido ambiente hasta 99%</li>
+                        <li><strong>Batería Ultra Larga:</strong> Hasta 40 horas de reproducción en una sola carga</li>
+                        <li><strong>Diseño Premium:</strong> Aleación de aluminio con piel sintética ergonómica y ajustable</li>
+                        <li><strong>Micrófono Dual:</strong> Llamadas cristalinas con cancelación de ruido ambiental</li>
+                        <li><strong>Conexión Bluetooth 5.0:</strong> Emparejamiento instantáneo con hasta 8 dispositivos</li>
+                        <li><strong>Garantía 2 Años:</strong> Cobertura completa + devolución sin preguntas en 30 días</li>
+                        <li><strong>Contenido:</strong> Auriculares + cable USB-C + estuche de viaje + manual en español</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESCRIPCIÓN LARGA -->
+        <div class="full-description">
+            <h2>Descripción Completa del Producto</h2>
+            
+            <p>
+                Los <strong>Auriculares Bluetooth XYZ Pro</strong> están diseñados para quienes no aceptan compromisos en sonido, comodidad y autonomía. 
+                Ya sea que trabajes desde casa, viajes constantemente o disfrutes de la música en todo momento, estos auriculares ofrecen la experiencia de audio premium que mereces.
+            </p>
+
+            <p>
+                <strong>¿Por qué elegir XYZ Pro?</strong> En un mercado saturado de auriculares mediocres, XYZ Pro se destaca por su combinación única de:
+                batería de 40 horas (la más larga del mercado en esta categoría), cancelación de ruido activa de grado profesional, 
+                y un diseño que grita calidad sin sacrificar comodidad.
+            </p>
+
+            <h3>Especificaciones Técnicas</h3>
+            <table class="specs-table">
+                <tr>
+                    <th>Característica</th>
+                    <th>Especificación</th>
+                </tr>
+                <tr>
+                    <td>Tipo de Conexión</td>
+                    <td>Bluetooth 5.0 + Cable auxiliar 3.5mm (incluido)</td>
+                </tr>
+                <tr>
+                    <td>Autonomía de Batería</td>
+                    <td>40 horas (ANC desactivado) / 30 horas (ANC activado)</td>
+                </tr>
+                <tr>
+                    <td>Tiempo de Carga</td>
+                    <td>2 horas (USB-C rápido)</td>
+                </tr>
+                <tr>
+                    <td>Rango de Frecuencia</td>
+                    <td>20Hz - 20kHz</td>
+                </tr>
+                <tr>
+                    <td>Impermeabilidad</td>
+                    <td>IPX4 (resistente al sudor y salpicaduras)</td>
+                </tr>
+                <tr>
+                    <td>Peso</td>
+                    <td>250g</td>
+                </tr>
+                <tr>
+                    <td>Colores Disponibles</td>
+                    <td>Negro Midnight, Plata Polar, Oro Rose, Azul Océano</td>
+                </tr>
+            </table>
+
+            <h3>¿Qué Incluye el Paquete?</h3>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li>1x Auriculares Bluetooth XYZ Pro</li>
+                <li>1x Cable USB-C (1.5m)</li>
+                <li>1x Cable Auxiliar 3.5mm (para conexión alámbrica)</li>
+                <li>1x Estuche de Viaje Protector (con paño de limpieza)</li>
+                <li>1x Guía Rápida (Español/Inglés)</li>
+                <li>Acceso a App XYZ Pro (personalización de sonido + firmware updates)</li>
+            </ul>
+
+            <div class="warranty-badge">
+                <h4>✓ Garantía Premium 2 Años</h4>
+                <p>Cobertura completa contra defectos de fabricación + Devolución sin preguntas en 30 días + Soporte técnico 24/7 en español</p>
+            </div>
+
+            <h3>Cómo Usar - Guía Rápida</h3>
+            <p>
+                <strong>Paso 1:</strong> Carga completamente los auriculares durante 2 horas usando el cable USB-C incluido.<br>
+                <strong>Paso 2:</strong> Mantén presionado el botón de encendido durante 3 segundos hasta ver la luz LED azul parpadeante.<br>
+                <strong>Paso 3:</strong> En tu dispositivo, busca "XYZ Pro" en la lista de Bluetooth y selecciona para emparejar.<br>
+                <strong>Paso 4:</strong> ¡Disfruta! Usa los botones de control táctil en el auricular para cambiar volumen, saltar canciones y activar ANC.
+            </p>
+
+            <h3>Servicio Postventa y Soporte</h3>
+            <p>
+                <strong>¿Problemas?</strong> Contáctanos 24/7 a través de:
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>📧 Email: soporte@xyzpro.com</li>
+                    <li>💬 Chat: www.xyzpro.com/chat</li>
+                    <li>📱 WhatsApp: +1 234 567 8900</li>
+                </ul>
+            </p>
+
+            <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 4px;">
+                <p style="margin: 0; color: #856404;"><strong>💡 Oferta Limitada:</strong> Compra hoy y recibe cupón descuento para otros productos XYZ (código: XYZPRO30)</p>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>🚚 Envío gratis a todo el país | ✅ 100% original con garantía | 🔒 Compra segura con encriptación</p>
+        </div>
+    </div>
+</body>
+</html>
