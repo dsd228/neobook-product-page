@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zapatillas SprintMax Ultra - Ultraligeras 185g - Carrera Competitiva - Aprobadas IAAF</title>
+    <meta name="description" content="Zapatillas running profesionales SprintMax Ultra - 185g ultraligeras, tecnología AeroFoam, placa carbono. Perfectas para maratones y competencias.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* HEADER - Tema Naranja para Deporte/Velocidad */
+        .product-header {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .product-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .product-header p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .sport-badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .sport-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .product-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        /* COLUMNA IZQUIERDA - IMÁGENES */
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .main-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #f0f0f0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+            overflow: hidden;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnails {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .thumbnail {
+            aspect-ratio: 1/1;
+            background: #f5f5f5;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            border-color: #f97316;
+            transform: scale(1.05);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* COLUMNA DERECHA - INFORMACIÓN */
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 18px;
+        }
+
+        .rating-text {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .price-section {
+            background: linear-gradient(135deg, #fed7aa 0%, #fecaca 100%);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #f97316;
+        }
+
+        .price-label {
+            font-size: 12px;
+            color: #9a3412;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .price-current {
+            font-size: 32px;
+            font-weight: bold;
+            color: #b45309;
+            margin: 10px 0;
+        }
+
+        .price-original {
+            font-size: 16px;
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: #ef4444;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .tech-highlight {
+            background: #fff7ed;
+            border-left: 4px solid #f97316;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .tech-highlight strong {
+            display: block;
+            color: #b45309;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .weight-badge {
+            background: #fef3c7;
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #92400e;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #f97316;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #ea580c;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .bullet-points {
+            background: #fafaf9;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #f97316;
+        }
+
+        .bullet-points h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .bullet-points ul {
+            list-style: none;
+        }
+
+        .bullet-points li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+
+        .bullet-points li:last-child {
+            border-bottom: none;
+        }
+
+        .bullet-points li:before {
+            content: "🏃";
+            position: absolute;
+            left: 0;
+            font-size: 16px;
+        }
+
+        /* DESCRIPCIÓN LARGA */
+        .full-description {
+            padding: 40px;
+            background: #fafafa;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .full-description h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #f97316;
+            padding-bottom: 10px;
+        }
+
+        .full-description h3 {
+            font-size: 16px;
+            margin: 25px 0 15px 0;
+            color: #f97316;
+            font-weight: 600;
+        }
+
+        .full-description p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .performance-box {
+            background: white;
+            border-left: 4px solid #f97316;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .performance-box strong {
+            color: #b45309;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            background: white;
+            border-left: 4px solid #f97316;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .tech-item strong {
+            color: #b45309;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+
+        .specs-table th {
+            background: #fff7ed;
+            font-weight: bold;
+            color: #b45309;
+        }
+
+        .specs-table tr:hover {
+            background: #fafaf9;
+        }
+
+        .warranty-badge {
+            display: inline-block;
+            background: #fff7ed;
+            border-left: 4px solid #f97316;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warranty-badge h4 {
+            color: #b45309;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .warranty-badge p {
+            color: #f97316;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .promo-section {
+            background: #fef3c7;
+            border-left: 4px solid #eab308;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .promo-section h4 {
+            color: #854d0e;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .promo-section strong {
+            color: #854d0e;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .color-selector {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            align-items: center;
+        }
+
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .color-option:hover {
+            border-color: #f97316;
+            transform: scale(1.1);
+        }
+
+        .color-negro { background: #000; }
+        .color-blanco { background: #fff; border-color: #999; }
+        .color-naranja { background: #f97316; }
+        .color-azul { background: #3b82f6; }
+
+        .footer {
+            background: #fff7ed;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-highlight {
+            color: #b45309;
+            font-weight: bold;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .product-content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .thumbnails {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .product-header h1 {
+                font-size: 22px;
+            }
+
+            .price-current {
+                font-size: 24px;
+            }
+
+            .sport-badges {
+                flex-direction: column;
+            }
+
+            .sport-badge {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="product-header">
+            <h1>🏃 Zapatillas SprintMax Ultra</h1>
+            <p>Ultraligeras 185g + Tecnología AeroFoam + Placa Carbono</p>
+            <div class="sport-badges">
+                <div class="sport-badge">⚡ 185g Ultraligeras</div>
+                <div class="sport-badge">✓ IAAF Aprobadas</div>
+                <div class="sport-badge">🏅 Competencia</div>
+                <div class="sport-badge">🎯 Sub 3h Maratón</div>
+            </div>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="product-content">
+            <!-- COLUMNA IZQUIERDA: IMÁGENES -->
+            <div class="product-images">
+                <div class="main-image">
+                    <img src="https://via.placeholder.com/500x500?text=Zapatilla+SprintMax" alt="Zapatilla Principal">
+                </div>
+                <div class="thumbnails">
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Lateral" alt="Vista Lateral">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Frontal" alt="Vista Frontal">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Corredor" alt="En Acción">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Suela" alt="Suela">
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: INFORMACIÓN -->
+            <div class="product-info">
+                <!-- CALIFICACIÓN -->
+                <div class="rating">
+                    <div class="stars">★★★★★</div>
+                    <div class="rating-text">4.8/5 (1,247 reseñas verificadas)</div>
+                </div>
+
+                <!-- PRECIO -->
+                <div class="price-section">
+                    <div class="price-label">Precio Especial</div>
+                    <div>
+                        <span class="price-current">$129.99</span>
+                        <span class="discount-badge">-28%</span>
+                    </div>
+                    <div class="price-original">Precio regular: $179.99</div>
+                </div>
+
+                <!-- TECH DESTACADO -->
+                <div class="tech-highlight">
+                    <strong>⚡ Peso: 185g (Talla 42)</strong>
+                    <div class="weight-badge">Las MÁS LIGERAS del Mercado</div>
+                    <p style="margin-top: 10px; font-size: 13px;">Más de 800km garantizados sin pérdida de amortiguación</p>
+                </div>
+
+                <!-- SELECTOR DE COLORES -->
+                <div>
+                    <strong style="display: block; margin-bottom: 10px; color: #333;">Elige tu Color:</strong>
+                    <div class="color-selector">
+                        <div class="color-option color-negro" title="Negro Speed"></div>
+                        <div class="color-option color-blanco" title="Blanco Elite"></div>
+                        <div class="color-option color-naranja" title="Naranja Fuego"></div>
+                        <div class="color-option color-azul" title="Azul Volt"></div>
+                    </div>
+                </div>
+
+                <!-- BOTONES DE ACCIÓN -->
+                <div class="buttons">
+                    <button class="btn btn-primary">🛒 Comprar Ahora</button>
+                    <button class="btn btn-secondary">❤️ Guardar</button>
+                </div>
+
+                <!-- BULLET POINTS -->
+                <div class="bullet-points">
+                    <h3>⚡ Características Clave</h3>
+                    <ul>
+                        <li><strong>Ultraligeras 185g:</strong> Las más ligeras del mercado para maratones</li>
+                        <li><strong>AeroFoam Patentada:</strong> 3 capas: absorción + propulsión + estabilidad</li>
+                        <li><strong>Placa Carbono:</strong> Máxima eficiencia energética en cada paso</li>
+                        <li><strong>IAAF Aprobadas:</strong> Usadas en 47 maratones internacionales</li>
+                        <li><strong>800+ km Durables:</strong> Garantía de rendimiento sin pérdida</li>
+                        <li><strong>Drop 10mm:</strong> Perfecto para 5K, 10K y Maratón</li>
+                        <li><strong>2 Plantillas:</strong> Contorno anatómico + plana alternativa</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESCRIPCIÓN LARGA -->
+        <div class="full-description">
+            <h2>🏃 Zapatillas SprintMax Ultra - La Velocidad en Cada Zancada</h2>
+            
+            <p>
+                Las <strong>Zapatillas SprintMax Ultra</strong> son la elección de corredores profesionales que compiten en maratones internacionales. 
+                Con solo 185g de peso y tecnología propulsora AeroFoam, ofrecen el <strong>equilibrio perfecto entre velocidad, comodidad y durabilidad</strong>.
+            </p>
+
+            <h3>🎯 ¿Por Qué Elegir SprintMax Ultra?</h3>
+            <p>
+                Si buscas mejorar tu tiempo de carrera y tienes experiencia corriendo 6+ meses, estas zapatillas son tu opción. 
+                Utilizadas por atletas profesionales en <strong>47 maratones internacionales</strong>, ofrecen:
+            </p>
+
+            <div class="performance-box">
+                <strong>Ventajas Garantizadas:</strong>
+                ✓ Peso ultra reducido (185g vs 220g estándar)<br>
+                ✓ Propulsión activa en cada zancada<br>
+                ✓ 800+ km sin pérdida de amortiguación<br>
+                ✓ IAAF aprobadas para competencias<br>
+                ✓ Perfectas para 5K a Maratón<br>
+                ✓ 2 plantillas personalizables incluidas
+            </div>
+
+            <h3>⚙️ Tecnología AeroFoam - 3 Capas Inteligentes</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>CAPA 1: Absorción</strong>
+                    Espuma de amortiguación base que absorbe impacto de cada paso
+                </div>
+                <div class="tech-item">
+                    <strong>CAPA 2: Propulsión</strong>
+                    Espuma elástica que devuelve energía al despegar
+                </div>
+                <div class="tech-item">
+                    <strong>CAPA 3: Estabilidad</strong>
+                    Rigidez controlada que estabiliza el pie en giros
+                </div>
+                <div class="tech-item">
+                    <strong>PLACA CARBONO</strong>
+                    Fibra de carbono en arco del pie para máxima eficiencia
+                </div>
+            </div>
+
+            <h3>📊 Especificaciones Completas</h3>
+            <table class="specs-table">
+                <tr>
+                    <th>Especificación</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td>Peso</td>
+                    <td>185g (talla 42) - Las más ligeras del mercado</td>
+                </tr>
+                <tr>
+                    <td>Drop (Talón-Punta)</td>
+                    <td>10mm (talón 30mm, punta 20mm) - Óptimo para carreras</td>
+                </tr>
+                <tr>
+                    <td>Suela</td>
+                    <td>Goma continental premium + placa carbono</td>
+                </tr>
+                <tr>
+                    <td>Mediasuela</td>
+                    <td>AeroFoam 3 capas patentada</td>
+                </tr>
+                <tr>
+                    <td>Transpirabilidad</td>
+                    <td>Mesh japones + rejillas de ventilación</td>
+                </tr>
+                <tr>
+                    <td>Costuras</td>
+                    <td>Termoselladas sin costuras expuestas</td>
+                </tr>
+                <tr>
+                    <td>Plantilla</td>
+                    <td>2 opciones incluidas: contorno anatómico + plana</td>
+                </tr>
+                <tr>
+                    <td>Rango de Distancia</td>
+                    <td>5K a Maratón (42km)</td>
+                </tr>
+                <tr>
+                    <td>Tipo de Pisada</td>
+                    <td>Neutral y sobrepronación leve</td>
+                </tr>
+                <tr>
+                    <td>Certificaciones</td>
+                    <td>IAAF, ISO 5272, RoHS aprobadas</td>
+                </tr>
+            </table>
+
+            <h3>🏅 Certificaciones y Aprobaciones</h3>
+            <p>
+                <strong>IAAF Aprobadas:</strong> Aprobadas por la Federación Internacional de Atletismo para competencias oficiales.<br>
+                <strong>Usadas en 47 Maratones:</strong> Utilizadas por atletas profesionales en Boston, Chicago, Tokio, Berlín y más.<br>
+                <strong>Garantía de Rendimiento:</strong> 800+ km sin pérdida significativa de amortiguación.
+            </p>
+
+            <h3>📦 ¿Qué Incluye?</h3>
+            <ul style="margin-left: 20px; line-height: 2;">
+                <li>✓ 1x Par Zapatillas SprintMax Ultra</li>
+                <li>✓ Plantilla contorno anatómico removible</li>
+                <li>✓ Plantilla plana alternativa</li>
+                <li>✓ Caja premium de presentación</li>
+                <li>✓ Bolsa de algodón para viaje</li>
+                <li>✓ Guía completa de cuidado</li>
+                <li>✓ Manual de ajuste de plantillas</li>
+                <li>✓ Acceso a app SprintMax (análisis de carrera)</li>
+                <li>✓ Comunidad de corredores SprintMax</li>
+            </ul>
+
+            <h3>💭 Testimonios de Corredores Reales</h3>
+            <div style="background: white; padding: 15px; border-left: 4px solid #f97316; margin: 10px 0; border-radius: 4px;">
+                <strong>⭐⭐⭐⭐⭐ "Mejoraron mi maratón 4 minutos"</strong><br>
+                <em>"No podía creer la diferencia. Son increíblemente ligeras pero con excelente amortiguación. Recomendadas 100%."</em><br>
+                - Carlos López, Maratonista
+            </div>
+
+            <div style="background: white; padding: 15px; border-left: 4px solid #f97316; margin: 10px 0; border-radius: 4px;">
+                <strong>⭐⭐⭐⭐⭐ "Ganaron mi 5K nacional"</strong><br>
+                <em>"Después de probar 5 marcas diferentes, SprintMax es la mejor. La placa carbono se siente en cada paso."</em><br>
+                - María González, Corredora 5K
+            </div>
+
+            <h3>🎁 Promoción Limitada - Enero 2026</h3>
+            <div class="promo-section">
+                <h4>⏰ OFERTA ESPECIAL CORREDORES</h4>
+                <strong>28% de descuento: $129.99 (de $179.99)</strong><br>
+                <strong>+ 15% adicional con código RUNFAST15</strong><br>
+                ✓ Plantilla extra personalizada GRATIS<br>
+                ✓ 2 pares calcetines running INCLUIDOS<br>
+                ✓ Bolsa de viaje premium INCLUIDA<br>
+                ✓ Envío GRATIS a todo el país<br>
+                📦 Stock limitado: 250 pares disponibles
+            </div>
+
+            <h3>❓ Preguntas Frecuentes</h3>
+            <div style="background: white; padding: 15px; border-left: 4px solid #f97316; margin: 10px 0; border-radius: 4px;">
+                <strong>¿Son cómodas para distancias largas?</strong><br>
+                Sí, con amortiguación media perfecta para maratones. Muchos corredores notan comodidad incluso después 40km de carrera.
+            </div>
+
+            <div style="background: white; padding: 15px; border-left: 4px solid #f97316; margin: 10px 0; border-radius: 4px;">
+                <strong>¿Duran realmente 800km?</strong><br>
+                Sí, garantizado. Muchos usuarios reportan que después 800km mantienen 80% de amortiguación original.
+            </div>
+
+            <div style="background: white; padding: 15px; border-left: 4px solid #f97316; margin: 10px 0; border-radius: 4px;">
+                <strong>¿Qué talla debo elegir?</strong><br>
+                Generalmente una talla más grande que calzado casual. Por ejemplo si usas 42 casual, elige 43 en running.
+            </div>
+
+            <div style="background: white; padding: 15px; border-left: 4px solid #f97316; margin: 10px 0; border-radius: 4px;">
+                <strong>¿Para qué nivel de corredor?</strong><br>
+                Para corredores con 6+ meses de experiencia. Si eres principiante, recomendamos modelos con más amortiguación.
+            </div>
+
+            <h3>🛡️ Garantía 1 Año + 800km Durabilidad</h3>
+            <div class="warranty-badge">
+                <h4>✓ Garantía Completa</h4>
+                <p>✓ 800km de uso sin pérdida de amortiguación</p>
+                <p>✓ Cambio gratis si se rompen en uso normal</p>
+                <p>✓ Defectos de fabricación cubiertos</p>
+                <p>✓ Soporte técnico al running 24/7</p>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>🚚 <span class="footer-highlight">Envío GRATIS</span> | 
+               ✅ <span class="footer-highlight">100% Original</span> | 
+               🔒 <span class="footer-highlight">Compra Segura</span> | 
+               ☎️ <span class="footer-highlight">Soporte 24/7</span> | 
+               🏆 <span class="footer-highlight">IAAF Aprobadas</span></p>
+            <p style="margin-top: 10px;">Zapatillas profesionales para corredores serios • SprintMax Ultra</p>
+        </div>
+    </div>
+</body>
+</html>

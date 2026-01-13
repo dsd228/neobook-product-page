@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartwatch FitPulse Pro X1 - Monitor Cardíaco Preciso + GPS - 14 Días Batería</title>
+    <meta name="description" content="Smartwatch deportivo premium con monitor cardíaco FDA, GPS triple, 14 días batería, IP68. Perfecto para correr y entrenamientos.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* HEADER - Tema Azul para Deporte/Fitness */
+        .product-header {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .product-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .product-header p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .product-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        /* COLUMNA IZQUIERDA - IMÁGENES */
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .main-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #f0f0f0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+            overflow: hidden;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnails {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .thumbnail {
+            aspect-ratio: 1/1;
+            background: #f5f5f5;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            border-color: #3b82f6;
+            transform: scale(1.05);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* COLUMNA DERECHA - INFORMACIÓN */
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 18px;
+        }
+
+        .rating-text {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .price-section {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .price-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .price-current {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1e40af;
+            margin: 10px 0;
+        }
+
+        .price-original {
+            font-size: 16px;
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: #ef4444;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .specs-highlight {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .specs-highlight strong {
+            display: block;
+            color: #1e40af;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .battery-indicator {
+            background: linear-gradient(to right, #3b82f6 86%, #e0e0e0 86%);
+            height: 8px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+
+        .battery-text {
+            font-size: 12px;
+            color: #1e40af;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .bullet-points {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .bullet-points h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .bullet-points ul {
+            list-style: none;
+        }
+
+        .bullet-points li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+
+        .bullet-points li:last-child {
+            border-bottom: none;
+        }
+
+        .bullet-points li:before {
+            content: "▲";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        /* DESCRIPCIÓN LARGA */
+        .full-description {
+            padding: 40px;
+            background: #fafafa;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .full-description h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 10px;
+        }
+
+        .full-description h3 {
+            font-size: 16px;
+            margin: 25px 0 15px 0;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        .full-description p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .feature-box {
+            background: white;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .feature-box strong {
+            color: #1e40af;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+
+        .specs-table th {
+            background: #eff6ff;
+            font-weight: bold;
+            color: #1e40af;
+        }
+
+        .specs-table tr:hover {
+            background: #f9fafb;
+        }
+
+        .health-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .health-item {
+            background: white;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .health-item strong {
+            color: #1e40af;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .warranty-badge {
+            display: inline-block;
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warranty-badge h4 {
+            color: #1e40af;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .warranty-badge p {
+            color: #3b82f6;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .promo-section {
+            background: #fef3c7;
+            border-left: 4px solid #eab308;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .promo-section h4 {
+            color: #854d0e;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .promo-section strong {
+            color: #854d0e;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .footer {
+            background: #eff6ff;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-highlight {
+            color: #1e40af;
+            font-weight: bold;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .product-content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .health-features {
+                grid-template-columns: 1fr;
+            }
+
+            .thumbnails {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .product-header h1 {
+                font-size: 22px;
+            }
+
+            .price-current {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="product-header">
+            <h1>⌚ Smartwatch FitPulse Pro X1</h1>
+            <p>Monitor Cardíaco Preciso + GPS + 14 Días Batería</p>
+            <div style="margin-top: 15px;">
+                <div class="tech-badge">💓 FDA Preciso</div>
+                <div class="tech-badge">🗺️ GPS Triple</div>
+                <div class="tech-badge">🏊 IP68 Agua</div>
+            </div>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="product-content">
+            <!-- COLUMNA IZQUIERDA: IMÁGENES -->
+            <div class="product-images">
+                <div class="main-image">
+                    <img src="https://via.placeholder.com/500x500?text=Smartwatch+FitPulse" alt="Smartwatch Principal">
+                </div>
+                <div class="thumbnails">
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Vista+1" alt="Vista 1">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Vista+2" alt="Vista 2">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Corriendo" alt="Vista 3">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/100x100?text=Pantalla" alt="Vista 4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: INFORMACIÓN -->
+            <div class="product-info">
+                <!-- CALIFICACIÓN -->
+                <div class="rating">
+                    <div class="stars">★★★★★</div>
+                    <div class="rating-text">4.7/5 (892 reseñas verificadas)</div>
+                </div>
+
+                <!-- PRECIO -->
+                <div class="price-section">
+                    <div class="price-label">Precio Especial</div>
+                    <div>
+                        <span class="price-current">$179.99</span>
+                        <span class="discount-badge">-28%</span>
+                    </div>
+                    <div class="price-original">Precio regular: $249.99</div>
+                </div>
+
+                <!-- SPECS DESTACADAS -->
+                <div class="specs-highlight">
+                    <strong>🔋 Batería: 14 Días</strong>
+                    <div class="battery-indicator"></div>
+                    <div class="battery-text">La batería más larga del mercado</div>
+                </div>
+
+                <!-- BOTONES DE ACCIÓN -->
+                <div class="buttons">
+                    <button class="btn btn-primary">🛒 Comprar Ahora</button>
+                    <button class="btn btn-secondary">❤️ Guardar</button>
+                </div>
+
+                <!-- BULLET POINTS -->
+                <div class="bullet-points">
+                    <h3>⚡ Características Clave</h3>
+                    <ul>
+                        <li><strong>Monitor Cardíaco FDA:</strong> Precisión ±2 bpm, detecta arritmias</li>
+                        <li><strong>GPS Triple:</strong> GPS + GLONASS + Galileo para máxima precisión</li>
+                        <li><strong>100+ Modos Deportivos:</strong> Detección automática de actividad</li>
+                        <li><strong>SpO2 + Sueño:</strong> Monitoreo 24/7 de salud completa</li>
+                        <li><strong>Pantalla AMOLED:</strong> 1.4" resistente, colores vibrantes</li>
+                        <li><strong>Llamadas Directas:</strong> Micrófono + altavoz integrados</li>
+                        <li><strong>IP68 + 50m:</strong> Perfecto para natación y deportes acuáticos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESCRIPCIÓN LARGA -->
+        <div class="full-description">
+            <h2>📱 Smartwatch FitPulse Pro X1 - Tu Entrenador Personal en la Muñeca</h2>
+            
+            <p>
+                El <strong>FitPulse Pro X1</strong> es el compañero perfecto para atletas serios que buscan <strong>monitoreo de salud preciso</strong>, 
+                <strong>análisis detallado de entrenamientos</strong> y <strong>autonomía máxima</strong>. 
+                Con sensor cardíaco FDA registrado, GPS triple y batería de 14 días, es el único smartwatch que necesitas.
+            </p>
+
+            <h3>🎯 ¿Por Qué Necesitas Este Smartwatch?</h3>
+            <p>
+                Ya sea que corras maratones, hagas ciclismo de montaña o simplemente busques monitorear tu salud diaria, 
+                el FitPulse Pro X1 te ofrece <strong>datos profesionales</strong> que otros smartwatches no pueden proporcionar.
+            </p>
+
+            <div class="feature-box">
+                <strong>Lo que Consigues:</strong>
+                ✓ Monitoreo cardíaco con precisión médica<br>
+                ✓ GPS ultra preciso para rutas exactas<br>
+                ✓ 14 días sin cargar (vs 5-7 días competencia)<br>
+                ✓ 100+ análisis automáticos de actividades<br>
+                ✓ Análisis completo de sueño y recuperación<br>
+                ✓ Llamadas y mensajes en la muñeca
+            </div>
+
+            <h3>💓 Monitoreo de Salud Profesional</h3>
+            <div class="health-features">
+                <div class="health-item">
+                    <strong>Frecuencia Cardíaca</strong>
+                    Monitor 24/7 con precisión FDA ±2 bpm
+                </div>
+                <div class="health-item">
+                    <strong>Oxígeno en Sangre</strong>
+                    Detección automática nocturna de apnea
+                </div>
+                <div class="health-item">
+                    <strong>Sueño Inteligente</strong>
+                    Análisis REM/No-REM con recomendaciones
+                </div>
+                <div class="health-item">
+                    <strong>Estrés Real-Time</strong>
+                    Indicador y ejercicios de respiración guiados
+                </div>
+                <div class="health-item">
+                    <strong>Ciclo Menstrual</strong>
+                    Predicción y seguimiento de síntomas
+                </div>
+                <div class="health-item">
+                    <strong>Recuperación Deportiva</strong>
+                    Sugerencias basadas en datos biomédicos
+                </div>
+            </div>
+
+            <h3>🗺️ GPS de Precisión Profesional</h3>
+            <table class="specs-table">
+                <tr>
+                    <th>Función</th>
+                    <th>Detalles</th>
+                </tr>
+                <tr>
+                    <td>Sistemas de Posicionamiento</td>
+                    <td>GPS + GLONASS + Galileo (triple redundancia)</td>
+                </tr>
+                <tr>
+                    <td>Precisión de Ruta</td>
+                    <td>±5 metros en condiciones normales</td>
+                </tr>
+                <tr>
+                    <td>Guardado de Rutas</td>
+                    <td>Ilimitadas, sincronización a nube automática</td>
+                </tr>
+                <tr>
+                    <td>Mapas Integrados</td>
+                    <td>Google Maps con navegación por voz</td>
+                </tr>
+                <tr>
+                    <td>Competencias Virtuales</td>
+                    <td>Desafía amigos globalmente</td>
+                </tr>
+            </table>
+
+            <h3>🏋️ 100+ Modos de Deporte</h3>
+            <p>
+                Detección automática de: Corrida, Ciclismo (carretera/montaña), Natación, Triatlón, Yoga, Pilates, 
+                Pesas, HIIT, Fútbol, Básquetbol, Tenis, Boxeo, Senderismo, Esquí, Patinaje y mucho más.
+            </p>
+
+            <h3>🔋 Batería de 14 Días - La Mejor del Mercado</h3>
+            <div class="feature-box">
+                <strong>¿Cómo es posible?</strong><br>
+                Procesador optimizado Snapdragon Wear 4100+ + Pantalla AMOLED eficiente + Gestión inteligente de GPS = 
+                Batería que dura 2 semanas normales o 8-9 con GPS activado continuamente.
+            </div>
+
+            <h3>📊 Especificaciones Técnicas Completas</h3>
+            <table class="specs-table">
+                <tr>
+                    <th>Especificación</th>
+                    <th>Detalle</th>
+                </tr>
+                <tr>
+                    <td>Pantalla</td>
+                    <td>AMOLED 1.4" (454x454px) - Gorilla Glass 5</td>
+                </tr>
+                <tr>
+                    <td>Procesador</td>
+                    <td>Snapdragon Wear 4100+ + 1GB RAM + 8GB almacenamiento</td>
+                </tr>
+                <tr>
+                    <td>Sistema Operativo</td>
+                    <td>Wear OS 3.1 (Google)</td>
+                </tr>
+                <tr>
+                    <td>Conectividad</td>
+                    <td>Bluetooth 5.2, WiFi, NFC (Google Pay)</td>
+                </tr>
+                <tr>
+                    <td>Sensores</td>
+                    <td>8 total: cardíaco, GPS, acelerómetro, giroscopio, brújula, barómetro, temperatura, SpO2</td>
+                </tr>
+                <tr>
+                    <td>Batería</td>
+                    <td>500 mAh - 14 días normal, 8-9 días con GPS activo</td>
+                </tr>
+                <tr>
+                    <td>Resistencia</td>
+                    <td>IP68 - Sumergible hasta 50 metros</td>
+                </tr>
+                <tr>
+                    <td>Peso</td>
+                    <td>43g (sin correa) - Súper ligero</td>
+                </tr>
+                <tr>
+                    <td>Compatibilidad</td>
+                    <td>iOS 13.2+ y Android 6.0+</td>
+                </tr>
+            </table>
+
+            <h3>📦 ¿Qué Incluye el Paquete?</h3>
+            <ul style="margin-left: 20px; line-height: 2;">
+                <li>✓ 1x Smartwatch FitPulse Pro X1</li>
+                <li>✓ Correa de silicona negra (original)</li>
+                <li>✓ Correa deportiva roja extra (transpirable)</li>
+                <li>✓ Cargador magnético USB-C</li>
+                <li>✓ 2x Protectores de pantalla</li>
+                <li>✓ Estuche premium de presentación</li>
+                <li>✓ Manual en español detallado</li>
+                <li>✓ Acceso premium app FitPulse (3 meses gratis)</li>
+                <li>✓ Soporte técnico 24/7</li>
+            </ul>
+
+            <h3>🎁 Promoción Limitada - Solo Este Mes</h3>
+            <div class="promo-section">
+                <h4>⏰ OFERTA ESPECIAL ENERO</h4>
+                <strong>28% de descuento: $179.99 (de $249.99)</strong><br>
+                <strong>+ 20% adicional con código FITPRO20</strong><br>
+                ✓ Correa deportiva extra GRATIS<br>
+                ✓ 3 meses acceso premium INCLUIDO<br>
+                ✓ Protectores de pantalla INCLUIDOS<br>
+                ✓ Envío GRATIS<br>
+                📦 Stock limitado: 120 unidades disponibles
+            </div>
+
+            <h3>👥 Lo que Dicen los Usuarios</h3>
+            <div style="background: white; padding: 15px; border-left: 4px solid #3b82f6; margin: 10px 0; border-radius: 4px;">
+                <strong>⭐⭐⭐⭐⭐ "La batería es increíble"</strong><br>
+                <em>"Realmente dura 2 semanas, no 5-7 días como otros. Mejor smartwatch que he tenido."</em>
+            </div>
+
+            <div style="background: white; padding: 15px; border-left: 4px solid #3b82f6; margin: 10px 0; border-radius: 4px;">
+                <strong>⭐⭐⭐⭐⭐ "GPS muy preciso para correr"</strong><br>
+                <em>"Comparo mis rutas con Strava y el FitPulse es tan preciso como mi reloj Garmin profesional."</em>
+            </div>
+
+            <h3>❓ Preguntas Frecuentes</h3>
+            <div style="background: white; padding: 15px; border-left: 4px solid #3b82f6; margin: 10px 0; border-radius: 4px;">
+                <strong>¿Tan preciso como un monitor cardíaco profesional?</strong><br>
+                FDA registrado con ±2 bpm. Perfecto para deportistas, aunque los profesionales ofrecen superior precisión.
+            </div>
+
+            <div style="background: white; padding: 15px; border-left: 4px solid #3b82f6; margin: 10px 0; border-radius: 4px;">
+                <strong>¿Realmente dura 14 días?</strong><br>
+                Sí, en modo normal. Con GPS continuo: 8-9 días. Todo depende de tu uso personal.
+            </div>
+
+            <div style="background: white; padding: 15px; border-left: 4px solid #3b82f6; margin: 10px 0; border-radius: 4px;">
+                <strong>¿Puedo nadar con él?</strong><br>
+                Sí, IP68 permite buceo hasta 50 metros. Perfecto para piscina, mar, triatlón.
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>🚚 <span class="footer-highlight">Envío GRATIS</span> | 
+               ✅ <span class="footer-highlight">100% Original</span> | 
+               🔒 <span class="footer-highlight">Compra Segura</span> | 
+               ☎️ <span class="footer-highlight">Soporte 24/7</span> | 
+               🔄 <span class="footer-highlight">Garantía 18 Meses</span></p>
+        </div>
+    </div>
+</body>
+</html>
