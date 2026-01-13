@@ -1,0 +1,285 @@
+{
+  "producto": {
+    "id": "MONITOR-4K-PRO-001",
+    "titulo": "Monitor 4K Profesional 32\" - USB-C Thunderbolt 3 - 98% DCI-P3 - Para Diseño Gráfico y Edición Video",
+    "marca": "ProDisplay",
+    "modelo": "Elite 32 4K",
+    "categoria": "Electrónica > Monitores > Monitores profesionales 4K",
+    "subcategoria": "Monitor 4K profesional para creativos",
+    "descripcion_corta": "Monitor 4K profesional 32 pulgadas con cobertura DCI-P3 98%, USB-C integrado y calibración de fábrica para creativos profesionales",
+    "descripcion_larga": "El ProDisplay Elite 32 4K es la elección de diseñadores gráficos, editores de video y fotógrafos profesionales que requieren color preciso y conectividad moderna. Con 4K nativo, cobertura DCI-P3 98%, USB-C Thunderbolt 3 y certificación factory-calibrated, es el monitor definitivo para trabajo creativo profesional.",
+    
+    "precio": {
+      "moneda": "USD",
+      "precio_actual": 449.99,
+      "precio_original": 649.99,
+      "descuento_porcentaje": 31,
+      "con_iva": false,
+      "notas": "Incluye calibración de fábrica + estuche de protección"
+    },
+
+    "imagenes": [
+      {
+        "posicion": 1,
+        "tipo": "principal",
+        "url": "https://via.placeholder.com/1000x1000?text=Monitor+4K+Pro",
+        "alt": "Monitor ProDisplay Elite 32 4K - Vista Principal",
+        "descripcion": "Monitor 32 pulgadas en escritorio profesional, pantalla 4K IPS"
+      },
+      {
+        "posicion": 2,
+        "tipo": "angulo",
+        "url": "https://via.placeholder.com/1000x1000?text=Vista+Lateral",
+        "alt": "Vista lateral del monitor",
+        "descripcion": "Perfil mostrando soporte ajustable y diseño minimalista"
+      },
+      {
+        "posicion": 3,
+        "tipo": "uso",
+        "url": "https://via.placeholder.com/1000x1000?text=Uso+Profesional",
+        "alt": "Diseñador usando monitor en estudio",
+        "descripcion": "Creativo trabajando con software de edición en el monitor"
+      },
+      {
+        "posicion": 4,
+        "tipo": "detalle",
+        "url": "https://via.placeholder.com/1000x1000?text=Conexiones+USB-C",
+        "alt": "Detalle de puertos USB-C Thunderbolt",
+        "descripcion": "Close-up de puertos traseros y conectividad"
+      },
+      {
+        "posicion": 5,
+        "tipo": "comparacion",
+        "url": "https://via.placeholder.com/1000x1000?text=Comparacion+Color",
+        "alt": "Comparación de espacios de color",
+        "descripcion": "Infografía: DCI-P3 98% vs sRGB vs Adobe RGB"
+      },
+      {
+        "posicion": 6,
+        "tipo": "contenido",
+        "url": "https://via.placeholder.com/1000x1000?text=Accesorios+Incluidos",
+        "alt": "Accesorios incluidos",
+        "descripcion": "Cables, soporte, documentación y estuche de protección"
+      },
+      {
+        "posicion": 7,
+        "tipo": "infografia",
+        "url": "https://via.placeholder.com/1000x1000?text=Calibracion+IPS",
+        "alt": "Tecnología de calibración",
+        "descripcion": "Explicación visual de calibración de fábrica y precisión de color"
+      }
+    ],
+
+    "bullet_points": [
+      {
+        "numero": 1,
+        "titulo": "4K Nativo 3840x2160",
+        "descripcion": "Resolución 4K profesional con panel IPS, 60Hz, perfecta para edición de video y fotografía de alta definición"
+      },
+      {
+        "numero": 2,
+        "titulo": "Precisión de Color DCI-P3 98%",
+        "descripcion": "Cobertura de color profesional certificada, calibrada de fábrica para color exacto sin desviaciones"
+      },
+      {
+        "numero": 3,
+        "titulo": "USB-C Thunderbolt 3",
+        "descripcion": "Un único cable para video, datos y carga (100W), simplificando la conectividad del escritorio creativo"
+      },
+      {
+        "numero": 4,
+        "titulo": "Panel IPS 10-bit",
+        "descripcion": "1.07 billones de colores con panel IPS 10-bit, ángulos de visión 178° para trabajo colaborativo"
+      },
+      {
+        "numero": 5,
+        "titulo": "Luminancia 500 nits",
+        "descripcion": "Brillo máximo 500 nits con uniformidad de luminancia ±3%, visible en cualquier condición de iluminación"
+      },
+      {
+        "numero": 6,
+        "titulo": "Soporte Totalmente Ajustable",
+        "descripcion": "Altura, inclinación, rotación y pivote - ergonomía premium para jornadas de trabajo largas"
+      },
+      {
+        "numero": 7,
+        "titulo": "Certificación Factory-Calibrated",
+        "descripcion": "Calibración de fábrica documentada con reportes de color - sin necesidad de recalibración inicial"
+      }
+    ],
+
+    "especificaciones_tecnicas": {
+      "tamaño_panel": "32 pulgadas IPS",
+      "resolucion": "4K nativo - 3840 x 2160 @ 60Hz",
+      "ratio_aspecto": "16:9",
+      "densidad_pixeles": "163 PPI (claridad de cine)",
+      "tipo_panel": "IPS 10-bit (1.07B colores)",
+      "espacio_color": "DCI-P3 98%, sRGB 100%, Adobe RGB 85%",
+      "brillo_maximo": "500 nits peak (VESA DisplayHDR certified)",
+      "contraste": "1000:1 (típico)",
+      "tiempo_respuesta": "5ms (gris a gris)",
+      "angulos_vision": "178° horizontal/vertical (IPS)",
+      "calibracion": "Factory-calibrated, reportes incluidos",
+      "puertos_entrada": [
+        "2x USB-C Thunderbolt 3 (video + datos + carga 100W)",
+        "1x HDMI 2.1",
+        "1x DisplayPort 1.4"
+      ],
+      "puertos_usb": "4x USB 3.1 downstream",
+      "audio": "2x Parlantes integrados 5W",
+      "alimentacion": "100-240V, 150W máximo",
+      "dimensiones": "733 x 435 x 80 mm (sin soporte)",
+      "peso": "14kg (con soporte)",
+      "material": "Aluminio anodizado negro",
+      "soporte": "Altura ±130mm, inclinación -5/25°, rotación 90°, pivote",
+      "vesa": "100x100mm compatible",
+      "certificaciones": "VESA DisplayHDR, TÜV, CE, FCC",
+      "garantia": "3 años cobertura completa"
+    },
+
+    "rendimiento_color": {
+      "factory_calibrated": "Delta E < 2",
+      "uniformidad_brillo": "±3% en toda la pantalla",
+      "lookup_table": "16-bit LUT (65,536 tonos por canal)",
+      "calibracion_manual": "Soporta calibración externa con herramientas de color"
+    },
+
+    "contenido_paquete": [
+      "1x Monitor ProDisplay Elite 32 4K",
+      "1x Cable USB-C Thunderbolt 3 (2 metros)",
+      "1x Cable HDMI 2.1 (2 metros)",
+      "1x Cable DisplayPort 1.4 (2 metros)",
+      "1x Adaptador DisplayPort a USB-C",
+      "1x Soporte de escritorio ajustable",
+      "1x Estuche de protección premium",
+      "1x Reportes de calibración de fábrica",
+      "1x Manual técnico completo",
+      "Acceso a software de gestión de color ProDisplay",
+      "Soporte técnico prioritario 24/7"
+    ],
+
+    "compatibilidad": {
+      "mac": "MacBook Pro 15/16 (Thunderbolt 3), iMac 27/24",
+      "windows": "PC con USB-C Thunderbolt 3, HDMI 2.1 o DisplayPort 1.4",
+      "linux": "Compatible con cualquier distro con soporte video",
+      "software": "Adobe CC, Capture One, DaVinci Resolve, Final Cut Pro"
+    },
+
+    "garantia": {
+      "duracion_anos": 3,
+      "cobertura": "Defectos de fabricación, panel, componentes electrónicos",
+      "cobertura_panel": "Píxeles muertos: 0 píxeles = garantía, 1-3 = normal (no cubierto)",
+      "calibracion": "Factory-calibration válida 1 año",
+      "garantia_extendida": "Opción de 2 años adicionales por $99",
+      "proceso": "Reemplazo o reparación en 3-5 días hábiles"
+    },
+
+    "palabras_clave": [
+      "monitor 4K profesional",
+      "monitor para diseño gráfico",
+      "monitor USB-C",
+      "monitor edición video",
+      "monitor DCI-P3",
+      "monitor IPS profesional",
+      "monitor creativo",
+      "monitor calibrado",
+      "monitor Thunderbolt 3",
+      "monitor para fotógrafos",
+      "monitor 32 pulgadas",
+      "monitor factory-calibrated",
+      "mejor monitor profesional 4K",
+      "monitor para Photoshop",
+      "monitor creativos premium"
+    ],
+
+    "calificaciones": {
+      "promedio": 4.9,
+      "sobre": 5,
+      "total_resenas": 543,
+      "distribucion": {
+        "5_estrellas": 515,
+        "4_estrellas": 23,
+        "3_estrellas": 3,
+        "2_estrellas": 1,
+        "1_estrella": 1
+      },
+      "resenas_destacadas": [
+        "Color perfecto, mejor que esperaba",
+        "Calibración de fábrica impecable",
+        "USB-C Thunderbolt 3 cambió mi flujo de trabajo",
+        "Worth every penny para trabajo profesional",
+        "Recomendado por mi estudio de diseño"
+      ]
+    },
+
+    "promociones": {
+      "activa": true,
+      "tipo": "descuento_porcentaje",
+      "valor": 31,
+      "codigo_cupon": "PRODES20",
+      "descuento_cupon": 0.20,
+      "descripcion": "20% adicional con código PRODES20",
+      "fecha_inicio": "2026-01-13",
+      "fecha_fin": "2026-03-13",
+      "stock_limitado": true,
+      "unidades_disponibles": 75,
+      "oferta_extra": "Cables USB-C y HDMI INCLUIDOS + Estuche protección GRATIS + Garantía 3 años sin costo"
+    },
+
+    "envio": {
+      "gratuito": true,
+      "tiempo_entrega": "5-7 dias",
+      "cobertura": "Todo el país",
+      "seguimiento": true,
+      "asegurado": true,
+      "seguro_cobertura": "$600 USD",
+      "embalaje": "Caja reforzada con protección interior triple"
+    },
+
+    "seo": {
+      "meta_description": "Monitor 4K ProDisplay Elite 32 - USB-C Thunderbolt 3, DCI-P3 98%, factory-calibrated - Monitor profesional para creativos",
+      "url_amigable": "monitor-4k-prodisplay-elite-usb-c-profesional",
+      "tags": ["monitor-4k", "profesional", "usb-c", "dci-p3", "diseño"],
+      "long_tail_keywords": [
+        "mejor monitor 4K profesional USB-C",
+        "monitor edición video 4K calibrado",
+        "monitor para Photoshop precisión color",
+        "monitor creative professionals DCI-P3",
+        "monitor 32 pulgadas 4K Thunderbolt",
+        "monitor editores video 4K 2026"
+      ]
+    },
+
+    "audiencia_objetivo": {
+      "perfil_1": {
+        "nombre": "Diseñador Gráfico Profesional",
+        "edad": "28-45 años",
+        "experiencia": "5+ años en agencia/freelance",
+        "herramientas": "Adobe CC, Figma, software design",
+        "presupuesto": "400-700 USD"
+      },
+      "perfil_2": {
+        "nombre": "Editor de Video",
+        "edad": "25-50 años",
+        "experiencia": "Producciones profesionales",
+        "herramientas": "DaVinci Resolve, Final Cut Pro, Adobe Premiere",
+        "presupuesto": "400-800 USD"
+      },
+      "perfil_3": {
+        "nombre": "Fotógrafo Profesional",
+        "edad": "30-55 años",
+        "experiencia": "Retoque digital de alto nivel",
+        "herramientas": "Lightroom, Photoshop, Capture One",
+        "presupuesto": "350-700 USD"
+      }
+    },
+
+    "ventajas_competitivas": {
+      "color_precision": "DCI-P3 98% vs 95% competencia",
+      "usb_c": "Thunderbolt 3 integrado vs adaptador",
+      "precio": "31% menos que marcas premium similar",
+      "brillo": "500 nits vs 450 nits estándar",
+      "calibracion": "Factory-calibrated included vs extra costo"
+    }
+  }
+}
