@@ -2318,6 +2318,129 @@
             .btn { padding: var(--space-md) var(--space-lg); }
             .whatsapp-float { width: 52px; height: 52px; font-size: 24px; }
         }
+        
+        /* PROCESO ANIMACIONES */
+        @keyframes float-up {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        @keyframes pulse-circle {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(164, 210, 244, 0.7); }
+            50% { box-shadow: 0 0 0 10px rgba(164, 210, 244, 0); }
+        }
+        
+        @keyframes slide-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .proceso-circle {
+            animation: float-up 3s ease-in-out infinite;
+        }
+        
+        .proceso-circle:nth-child(1) { animation-delay: 0s; }
+        .proceso-circle:nth-child(2) { animation-delay: 0.2s; }
+        .proceso-circle:nth-child(3) { animation-delay: 0.4s; }
+        .proceso-circle:nth-child(4) { animation-delay: 0.6s; }
+        .proceso-circle:nth-child(5) { animation-delay: 0.8s; }
+        .proceso-circle:nth-child(6) { animation-delay: 1s; }
+        
+        .proceso-step {
+            animation: slide-in 0.6s ease-out backwards;
+        }
+        
+        .proceso-step:nth-child(1) { animation-delay: 0.1s; }
+        .proceso-step:nth-child(2) { animation-delay: 0.2s; }
+        .proceso-step:nth-child(3) { animation-delay: 0.3s; }
+        .proceso-step:nth-child(4) { animation-delay: 0.4s; }
+        .proceso-step:nth-child(5) { animation-delay: 0.5s; }
+        .proceso-step:nth-child(6) { animation-delay: 0.6s; }
+        
+        .design-system-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .design-principle {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 4px solid var(--acento-principal);
+            box-shadow: 0 2px 10px rgba(46, 58, 70, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .design-principle:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(46, 58, 70, 0.15);
+        }
+        
+        .design-principle h3 {
+            color: var(--acento-principal);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        
+        .design-principle p {
+            font-size: 14px;
+            color: var(--texto-secundario);
+            line-height: 1.6;
+        }
+        
+        .contact-form-simple {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(46, 58, 70, 0.1);
+        }
+        
+        .contact-form-simple input,
+        .contact-form-simple textarea {
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            border: 1px solid #E0E5EB;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+        
+        .contact-form-simple input:focus,
+        .contact-form-simple textarea:focus {
+            outline: none;
+            border-color: var(--acento-principal);
+            box-shadow: 0 0 0 3px rgba(164, 210, 244, 0.1);
+        }
+        
+        .contact-form-simple textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-submit-btn {
+            background: var(--acento-principal);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .form-submit-btn:hover {
+            background: #8EC5E8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(164, 210, 244, 0.3);
+        }
     </style>
     </style>
 </head>
@@ -2475,33 +2598,33 @@
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-                <div style="text-align: center;">
-                    <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: linear-gradient(135deg, #A4D2F4 0%, #DFF1FF 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px;">🔍</div>
+                <div style="text-align: center;" class="proceso-step">
+                    <div class="proceso-circle" style="width: 100px; height: 100px; margin: 0 auto 24px; background: linear-gradient(135deg, #A4D2F4 0%, #DFF1FF 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 44px; box-shadow: 0 4px 15px rgba(164, 210, 244, 0.3);">🔍</div>
                     <h3 style="font-size: 20px; font-weight: 700; color: var(--texto-principal); margin-bottom: 12px;">1. Investigación</h3>
                     <p style="font-size: 15px; color: var(--texto-secundario); line-height: 1.6;">User interviews, data analysis, competitive research y testing para entender el problema real.</p>
                 </div>
-                <div style="text-align: center;">
-                    <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: linear-gradient(135deg, #F7C7D2 0%, #FFE4ED 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px;">💡</div>
+                <div style="text-align: center;" class="proceso-step">
+                    <div class="proceso-circle" style="width: 100px; height: 100px; margin: 0 auto 24px; background: linear-gradient(135deg, #F7C7D2 0%, #FFE4ED 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 44px; box-shadow: 0 4px 15px rgba(247, 199, 210, 0.3);">💡</div>
                     <h3 style="font-size: 20px; font-weight: 700; color: var(--texto-principal); margin-bottom: 12px;">2. Ideación</h3>
                     <p style="font-size: 15px; color: var(--texto-secundario); line-height: 1.6;">Brainstorming iterativo, sketching y definición de soluciones viables con el equipo.</p>
                 </div>
-                <div style="text-align: center;">
-                    <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: linear-gradient(135deg, #B8E6FF 0%, #E8F5FF 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px;">🎨</div>
+                <div style="text-align: center;" class="proceso-step">
+                    <div class="proceso-circle" style="width: 100px; height: 100px; margin: 0 auto 24px; background: linear-gradient(135deg, #B8E6FF 0%, #E8F5FF 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 44px; box-shadow: 0 4px 15px rgba(184, 230, 255, 0.3);">🎨</div>
                     <h3 style="font-size: 20px; font-weight: 700; color: var(--texto-principal); margin-bottom: 12px;">3. Prototipado</h3>
                     <p style="font-size: 15px; color: var(--texto-secundario); line-height: 1.6;">Wireframes, high-fidelity mockups y prototipos interactivos en Figma.</p>
                 </div>
-                <div style="text-align: center;">
-                    <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: linear-gradient(135deg, #A4D2F4 0%, #DFF1FF 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px;">🧪</div>
+                <div style="text-align: center;" class="proceso-step">
+                    <div class="proceso-circle" style="width: 100px; height: 100px; margin: 0 auto 24px; background: linear-gradient(135deg, #A4D2F4 0%, #DFF1FF 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 44px; box-shadow: 0 4px 15px rgba(164, 210, 244, 0.3);">🧪</div>
                     <h3 style="font-size: 20px; font-weight: 700; color: var(--texto-principal); margin-bottom: 12px;">4. Testing</h3>
                     <p style="font-size: 15px; color: var(--texto-secundario); line-height: 1.6;">Usability testing, A/B testing y recolección de feedback para validar hipótesis.</p>
                 </div>
-                <div style="text-align: center;">
-                    <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: linear-gradient(135deg, #F7C7D2 0%, #FFE4ED 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px;">📈</div>
+                <div style="text-align: center;" class="proceso-step">
+                    <div class="proceso-circle" style="width: 100px; height: 100px; margin: 0 auto 24px; background: linear-gradient(135deg, #F7C7D2 0%, #FFE4ED 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 44px; box-shadow: 0 4px 15px rgba(247, 199, 210, 0.3);">📈</div>
                     <h3 style="font-size: 20px; font-weight: 700; color: var(--texto-principal); margin-bottom: 12px;">5. Medición</h3>
                     <p style="font-size: 15px; color: var(--texto-secundario); line-height: 1.6;">Análisis de métricas, KPIs y aprendizajes para mejora continua post-launch.</p>
                 </div>
-                <div style="text-align: center;">
-                    <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: linear-gradient(135deg, #B8E6FF 0%, #E8F5FF 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px;">🔄</div>
+                <div style="text-align: center;" class="proceso-step">
+                    <div class="proceso-circle" style="width: 100px; height: 100px; margin: 0 auto 24px; background: linear-gradient(135deg, #B8E6FF 0%, #E8F5FF 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 44px; box-shadow: 0 4px 15px rgba(184, 230, 255, 0.3);">🔄</div>
                     <h3 style="font-size: 20px; font-weight: 700; color: var(--texto-principal); margin-bottom: 12px;">6. Iteración</h3>
                     <p style="font-size: 15px; color: var(--texto-secundario); line-height: 1.6;">Ciclos de mejora constante basados en datos, never stop learning.</p>
                 </div>
@@ -2527,11 +2650,11 @@
                     <div class="template-content" style="padding: 25px;">
                         <div class="template-category" style="display: flex; align-items: center; gap: 8px; color: var(--acento-principal); font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">
                             <svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            <span>Diseño</span>
+                            <span>Research & Design</span>
                         </div>
-                        <h3 class="template-title" style="font-size: 22px; margin-bottom: 12px; color: var(--texto-principal);">Diseño UX/UI</h3>
+                        <h3 class="template-title" style="font-size: 22px; margin-bottom: 12px; color: var(--texto-principal);">Investigación & UX/UI</h3>
                         <ul class="template-features" style="list-style: none; padding: 0; margin-bottom: 20px;">
-                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Wireframes profesionales</span></li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>User interviews y research</span></li>
                             <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Prototipos interactivos</span></li>
                             <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Test de usabilidad</span></li>
                             <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Design Systems</span></li>
@@ -2548,14 +2671,14 @@
                     <div class="template-content" style="padding: 25px;">
                         <div class="template-category" style="display: flex; align-items: center; gap: 8px; color: var(--acento-principal); font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">
                             <svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            <span>Desarrollo</span>
+                            <span>Prototipado & Testing</span>
                         </div>
-                        <h3 class="template-title" style="font-size: 22px; margin-bottom: 12px; color: var(--texto-principal);">Páginas Web</h3>
+                        <h3 class="template-title" style="font-size: 22px; margin-bottom: 12px; color: var(--texto-principal);">Prototipado Avanzado</h3>
                         <ul class="template-features" style="list-style: none; padding: 0; margin-bottom: 20px;">
-                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Framer / Webflow</span></li>
-                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>HTML + CSS + JavaScript</span></li>
-                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Responsive Design</span></li>
-                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Performance optimizado</span></li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Figma / Framer prototipos</span></li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>User testing moderated</span></li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Feedback loops iterativos</span></li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Insights & recomendaciones</span></li>
                         </ul>
                         <a href="cotizacion.html" class="btn-buy" style="display: block; text-align: center; background: var(--acento-principal); color: var(--texto-principal); padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold;">Solicitar Presupuesto</a>
                     </div>
@@ -2569,14 +2692,14 @@
                     <div class="template-content" style="padding: 25px;">
                         <div class="template-category" style="display: flex; align-items: center; gap: 8px; color: var(--acento-principal); font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">
                             <svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            <span>Estrategia</span>
+                            <span>Medición & Optimización</span>
                         </div>
-                        <h3 class="template-title" style="font-size: 22px; margin-bottom: 12px; color: var(--texto-principal);">Consultoría Digital</h3>
+                        <h3 class="template-title" style="font-size: 22px; margin-bottom: 12px; color: var(--texto-principal);">Análisis & Growth</h3>
                         <ul class="template-features" style="list-style: none; padding: 0; margin-bottom: 20px;">
-                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Estrategia de ventas</span></li>
-                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Accesibilidad web</span></li>
-                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Optimización UX</span></li>
-                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Growth hacking</span></li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Análisis de KPIs & métricas</span></li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Heatmaps & user behavior</span></li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Roadmap de optimización</span></li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; color: var(--texto-secundario); font-size: 14px;"><svg class="icon icon-sm icon-gold" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Continuous improvement</span></li>
                         </ul>
                         <a href="cotizacion.html" class="btn-buy" style="display: block; text-align: center; background: var(--acento-principal); color: var(--texto-principal); padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold;">Solicitar Presupuesto</a>
                     </div>
@@ -2821,6 +2944,65 @@
                     <div class="sd-footer">
                         <span class="sd-note">Tip: usa contraste burdeos #6A1B2D para highlights.</span>
                         <a class="btn-mini" href="#templates" title="Ver guía de estilo híbrida">Ver guía de estilo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESIGN SYSTEM SECTION -->
+    <section style="background: linear-gradient(135deg, #F0F4F8 0%, #F5F8FB 100%); padding: 120px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 80px;">
+                <span class="eyebrow" style="display: inline-block;">Filosofía de Diseño</span>
+                <h2 style="font-family: var(--font-family-serif); font-size: 56px; font-weight: 900; margin: 20px 0; color: var(--texto-principal); letter-spacing: -0.015em;">Design System: Neumorfismo con Propósito</h2>
+                <p style="font-size: 18px; color: var(--texto-secundario); max-width: 700px; margin: 0 auto; line-height: 1.6;">Cada decisión de diseño está pensada para mejorar la usabilidad, accesibilidad y conversión. No es decoración, es estrategia.</p>
+            </div>
+
+            <div class="design-system-grid">
+                <div class="design-principle">
+                    <h3>🎨 Neumorfismo Funcional</h3>
+                    <p>El neumorfismo no es solo visual. Usamos sombras inset/offset para crear jerarquía clara, indicar estados interactivos y guiar la atención del usuario sin abrumar.</p>
+                </div>
+                <div class="design-principle">
+                    <h3>♿ Accesibilidad Prioritaria</h3>
+                    <p>Contraste WCAG AAA, targets táctiles de 48px, etiquetas semánticas, y navegación clara. La inclusión es parte del diseño desde día uno.</p>
+                </div>
+                <div class="design-principle">
+                    <h3>📊 Data-Driven Design</h3>
+                    <p>Cada iteración de diseño se valida con testing. Usamos heatmaps, user testing y A/B para tomar decisiones, no suposiciones.</p>
+                </div>
+                <div class="design-principle">
+                    <h3>⚡ Performance First</h3>
+                    <p>Animaciones suaves a 60fps, transiciones de 0.2-0.3s para feedback inmediato. La experiencia debe ser instantánea y deliciosa.</p>
+                </div>
+                <div class="design-principle">
+                    <h3>📱 Mobile-First Always</h3>
+                    <p>Comenzamos diseñando para dispositivos móviles, asegurándonos que la experiencia sea perfecta en pantallas pequeñas antes de escalar.</p>
+                </div>
+                <div class="design-principle">
+                    <h3>🎯 Conversion-Centered</h3>
+                    <p>Cada elemento tiene un propósito comercial. Colores, espaciado, CTAs y tipografía están optimizados para maximizar conversión y engagement.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 80px; padding: 40px; background: white; border-radius: 16px; border-left: 4px solid var(--acento-principal);">
+                <h3 style="font-size: 24px; color: var(--texto-principal); margin-bottom: 20px;">Paleta de Colores Inteligente</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div>
+                        <div style="width: 100%; height: 60px; background: #A4D2F4; border-radius: 8px; margin-bottom: 10px; box-shadow: 0 2px 10px rgba(164, 210, 244, 0.3);"></div>
+                        <strong style="color: var(--texto-principal);">Acento Principal</strong>
+                        <p style="font-size: 13px; color: var(--texto-secundario); margin: 5px 0;">#A4D2F4 (Celeste) - CTAs, highlights, interactividad</p>
+                    </div>
+                    <div>
+                        <div style="width: 100%; height: 60px; background: #F7C7D2; border-radius: 8px; margin-bottom: 10px; box-shadow: 0 2px 10px rgba(247, 199, 210, 0.3);"></div>
+                        <strong style="color: var(--texto-principal);">Acento Detalle</strong>
+                        <p style="font-size: 13px; color: var(--texto-secundario); margin: 5px 0;">#F7C7D2 (Rosa) - Microinteracciones, badges, secundarios</p>
+                    </div>
+                    <div>
+                        <div style="width: 100%; height: 60px; background: #F0F4F8; border-radius: 8px; margin-bottom: 10px; border: 1px solid #E0E5EB;"></div>
+                        <strong style="color: var(--texto-principal);">Fondo Principal</strong>
+                        <p style="font-size: 13px; color: var(--texto-secundario); margin: 5px 0;">#F0F4F8 - Lienzo neutral, no fatiga</p>
                     </div>
                 </div>
             </div>
@@ -3703,38 +3885,93 @@
         <h2 style="font-family: var(--font-family-serif); font-size: 56px; font-weight: 900; letter-spacing: -0.015em;">¿Listo para Transformar tu Producto?</h2>
         <p style="margin-bottom: 40px; font-size: 18px; line-height: 1.6;">Hablemos sobre cómo puedo ayudarte a resolver los retos de diseño UX/UI en tu negocio</p>
         
-        <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px;">
-            <!-- Cotización Rápida -->
-            <div style="background: rgba(164, 210, 244, 0.1); border: 2px solid var(--acento-principal); border-radius: 16px; padding: 30px; text-align: center; display: flex; flex-direction: column;">
-                <svg style="width: 48px; height: 48px; stroke: var(--acento-principal); fill: none; stroke-width: 2; margin: 0 auto 15px;" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-                <h3 style="color: var(--acento-principal); font-size: 20px; margin-bottom: 10px;">Cotización Personalizada</h3>
-                <p style="color: var(--texto-secundario); margin-bottom: 20px; font-size: 14px; flex-grow: 1;">Completa un breve formulario y recibe tu presupuesto en menos de 24h</p>
-                <a href="cotizacion.html" style="display: inline-block; background: var(--acento-principal); color: #1A2332; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s;">Solicitar Cotización</a>
+        <!-- FORMULARIO SIMPLE DE CONTACTO -->
+        <form class="contact-form-simple" onsubmit="return handleContactForm(event)">
+            <input type="text" name="name" placeholder="Tu nombre completo" required style="border-radius: 8px;">
+            <input type="email" name="email" placeholder="Tu email" required style="border-radius: 8px;">
+            <input type="text" name="company" placeholder="Tu empresa o proyecto" style="border-radius: 8px;">
+            <textarea name="message" placeholder="¿Cuál es tu reto de diseño? (Breve descripción)" required style="border-radius: 8px;"></textarea>
+            <button type="submit" class="form-submit-btn">Enviar Consulta de Diseño</button>
+        </form>
+        
+        <p style="font-size: 13px; color: var(--texto-terciario); margin-top: 20px;">Responderé en menos de 24 horas. Sin spam. Sin obligación.</p>
+        
+        <div style="margin: 60px 0 40px;" style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;">
+            <!-- Descargar Case Study Template -->
+            <div style="text-align: center;">
+                <a href="#" onclick="downloadCaseStudyTemplate()" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; background: var(--acento-principal); color: white; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; cursor: pointer;">
+                    <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Descargar Case Study Template
+                </a>
             </div>
-
-            <!-- WhatsApp Directo -->
-            <div style="background: rgba(37, 211, 102, 0.1); border: 2px solid #25D366; border-radius: 16px; padding: 30px; text-align: center; display: flex; flex-direction: column;">
-                <svg style="width: 48px; height: 48px; stroke: #25D366; fill: none; stroke-width: 2; margin: 0 auto 15px;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                <h3 style="color: #25D366; font-size: 20px; margin-bottom: 10px;">WhatsApp Directo</h3>
-                <p style="color: var(--texto-secundario); margin-bottom: 20px; font-size: 14px; flex-grow: 1;">Habla con nosotros ahora mismo y resuelve todas tus dudas</p>
-                <a href="https://wa.me/5493525300076?text=Hola! Quiero más información sobre los templates" target="_blank" style="display: inline-block; background: #25D366; color: #FFFFFF; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s;">Chatear Ahora</a>
-            </div>
-
-            <!-- Email Contacto -->
-            <div style="background: rgba(59, 130, 246, 0.1); border: 2px solid #3B82F6; border-radius: 16px; padding: 30px; text-align: center; display: flex; flex-direction: column;">
-                <svg style="width: 48px; height: 48px; stroke: #3B82F6; fill: none; stroke-width: 2; margin: 0 auto 15px;" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                <h3 style="color: #3B82F6; font-size: 20px; margin-bottom: 10px;">Envía un Email</h3>
-                <p style="color: var(--texto-secundario); margin-bottom: 20px; font-size: 14px; flex-grow: 1;">Contáctanos por correo para proyectos más complejos</p>
-                <a href="mailto:david.diaz.uxdata@gmail.com?subject=Consulta sobre Templates" style="display: inline-block; background: #3B82F6; color: #FFFFFF; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s;">Enviar Email</a>
+            <div style="text-align: center;">
+                <a href="https://wa.me/5493525300076?text=Hola! Tengo un proyecto de diseño que necesita ayuda" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; background: #25D366; color: white; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
+                    <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-3.055 2.206-4.791 5.694-4.791 9.965 0 1.71.33 3.39.989 4.99L2.070 22.5l5.313-1.794c1.429.957 3.075 1.466 4.842 1.466 5.487 0 9.955-4.467 9.955-9.954 0-2.654-.981-5.15-2.771-7.04a9.954 9.954 0 00-7.074-2.819" /></svg>
+                    Hablar por WhatsApp
+                </a>
             </div>
         </div>
-
-        <div class="hero-badges">
-            <div class="badge-item"><svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg><span>Garantía 30 días</span></div>
-            <div class="badge-item"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M3 5h14l4 5-4 5H3l-2-5Z"></path><path d="M7 5v10"></path><path d="M11 5v10"></path></svg><span>Respuesta en 24h</span></div>
-            <div class="badge-item"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5Z"></path><path d="M2 12l10 5 10-5"></path><path d="M2 17l10 5 10-5"></path></svg><span>Sin riesgos</span></div>
+        
+        <div style="margin-top: 60px; padding: 40px; background: white; border-radius: 16px;">
+            <div class="hero-badges" style="text-align: center;">
+                <div class="badge-item"><svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg><span>Garantía 30 días</span></div>
+                <div class="badge-item"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M3 5h14l4 5-4 5H3l-2-5Z"></path><path d="M7 5v10"></path><path d="M11 5v10"></path></svg><span>Respuesta en 24h</span></div>
+                <div class="badge-item"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5Z"></path><path d="M2 12l10 5 10-5"></path><path d="M2 17l10 5 10-5"></path></svg><span>Sin riesgos</span></div>
+            </div>
         </div>
     </section>
+    
+    <script>
+    function handleContactForm(event) {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const company = form.company.value;
+        const message = form.message.value;
+        
+        // Enviar por WhatsApp (alternativa si no funciona email)
+        const whatsappMessage = encodeURIComponent(`Hola! Soy ${name}, de ${company || 'mi empresa'}. Mi email: ${email}. Mi consulta: ${message}`);
+        window.open(`https://wa.me/5493525300076?text=${whatsappMessage}`, '_blank');
+        
+        // Limpiar formulario
+        form.reset();
+        return false;
+    }
+    
+    function downloadCaseStudyTemplate() {
+        // Crear un archivo PDF simple como plantilla descargable
+        const csvContent = "data:text/csv;charset=utf-8,%EF%BB%BF" + encodeURIComponent(
+            "CASE STUDY TEMPLATE - Product Design\n" +
+            "=====================================\n\n" +
+            "PROJECT NAME\n" +
+            "YOUR PROJECT NAME HERE\n\n" +
+            "CHALLENGE (El Problema)\n" +
+            "Describe the core problem your users faced\n\n" +
+            "RESEARCH (Investigación)\n" +
+            "- User interviews: X participants\n" +
+            "- Methods: heatmaps, user testing, surveys\n" +
+            "- Key insights: 3-5 bullet points\n\n" +
+            "SOLUTION (La Solución)\n" +
+            "- Key design decisions\n" +
+            "- Wireframes/prototypes approach\n" +
+            "- Technical implementation\n\n" +
+            "RESULTS (Métricas)\n" +
+            "- Conversion improvement: X%\n" +
+            "- User satisfaction: NPS/rating\n" +
+            "- Time to completion: X seconds\n" +
+            "- Other KPIs\n\n" +
+            "LESSONS LEARNED\n" +
+            "What you'd do differently next time\n"
+        );
+        const link = document.createElement("a");
+        link.setAttribute("href", csvContent);
+        link.setAttribute("download", "case-study-template.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    </script>
 
     <!-- FOOTER -->
     <footer>
