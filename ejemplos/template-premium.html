@@ -352,6 +352,146 @@
             text-transform: uppercase;
         }
 
+        /* Premium-specific: Material Details & Construction */
+        .material-showcase {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 30px 0;
+        }
+
+        .material-detail {
+            background: #f5f5f5;
+            border: 2px solid #d4af37;
+            padding: 24px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .material-detail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #1a1a1a);
+        }
+
+        .material-detail h4 {
+            color: #1a1a1a;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .material-detail p {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* Precision specs showcase */
+        .precision-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .precision-stat {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .precision-stat:hover {
+            border-color: #d4af37;
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.1);
+        }
+
+        .precision-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .precision-unit {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Professional Use Cases */
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .use-case {
+            background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #d4af37;
+            text-align: center;
+        }
+
+        .use-case-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .use-case-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Premium certification seal */
+        .certification-seal {
+            background: white;
+            border: 3px solid #d4af37;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .certification-seal-text {
+            font-size: 11px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .certification-seal-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #d4af37;
+            margin: 4px 0;
+            font-family: 'Playfair Display', serif;
+        }
+
         .footer {
             background: #1a1a1a;
             color: #d4af37;
@@ -497,6 +637,67 @@
                 Panel IPS Nanodot con ángulos imposibles de 178°, chasis de aluminio CNC de precisión suiza, 
                 y calibración automática con luz ambiental inteligente. Cada componente ha sido seleccionado para excelencia extrema.
             </p>
+
+            <h3 style="margin-top: 40px; font-size: 20px;">Detalles de Construcción Premium | Ingeniería de Precisión</h3>
+            <div class="material-showcase">
+                <div class="material-detail">
+                    <h4>Chasis de Aluminio CNC</h4>
+                    <p>Mecanizado con precisión suiza en tolerancias de ±0.1mm. Acabado anodizado negro profundo resistente a arañazos. Peso optimizado: 7.2kg de pura ingeniería.</p>
+                </div>
+                <div class="material-detail">
+                    <h4>Panel IPS Nanodot Pro</h4>
+                    <p>Tecnología de última generación con 98.5% cobertura DCI-P3. Ángulos de visión 178° sin desaturación. Garantía de precisión: Delta E menor a 2.</p>
+                </div>
+                <div class="material-detail">
+                    <h4>Cableado Integrado Premium</h4>
+                    <p>USB-C 3.1 certificado + Thunderbolt 3 integrado. DisplayPort 1.4 con HBR3. Conectores chapados en oro de 24K para máxima conductividad.</p>
+                </div>
+                <div class="material-detail">
+                    <h4>Calibración Automática Inteligente</h4>
+                    <p>Sensor de luz ambiental integrado. Calibración de fabrica con Pantone Validated. Recalibraciones automáticas cada 24 horas.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px; font-size: 20px;">Métricas de Precisión Extrema | Certificaciones</h3>
+            <div class="precision-grid">
+                <div class="precision-stat">
+                    <div class="precision-value">Δ E <2</div>
+                    <div class="precision-unit">Precisión de Color Imperceptible</div>
+                </div>
+                <div class="precision-stat">
+                    <div class="precision-value">98.5%</div>
+                    <div class="precision-unit">Cobertura DCI-P3</div>
+                </div>
+                <div class="precision-stat">
+                    <div class="precision-value">1000 nits</div>
+                    <div class="precision-unit">HDR Peak Brightness</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px; font-size: 20px;">Casos de Uso Profesionales | Donde Brilla</h3>
+            <div class="use-cases">
+                <div class="use-case">
+                    <div class="use-case-icon">📷</div>
+                    <div class="use-case-title">Fotografía Professional</div>
+                </div>
+                <div class="use-case">
+                    <div class="use-case-icon">🎨</div>
+                    <div class="use-case-title">Diseño Gráfico Avanzado</div>
+                </div>
+                <div class="use-case">
+                    <div class="use-case-icon">🎬</div>
+                    <div class="use-case-title">Colorización de Cine</div>
+                </div>
+                <div class="use-case">
+                    <div class="use-case-icon">📹</div>
+                    <div class="use-case-title">Post-Producción 4K</div>
+                </div>
+            </div>
+
+            <div class="certification-seal">
+                <div class="certification-seal-value">✓</div>
+                <div class="certification-seal-text">Pantone<br>Validated</div>
+            </div>
 
             <h3>Especificaciones Técnicas Refinadas</h3>
             <table class="specs-table">

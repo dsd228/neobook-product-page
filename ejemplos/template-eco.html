@@ -335,6 +335,104 @@
             background: #2d7a4a;
         }
 
+        /* Eco-specific: ROI Calculator */
+        .roi-calculator {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f5 100%);
+            padding: 32px;
+            border-radius: 12px;
+            border: 2px solid #4caf50;
+            margin: 30px 0;
+        }
+
+        .roi-calculator h3 {
+            color: #2d7a4a;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .calculator-input {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            padding: 12px;
+            border: 2px solid #c8e6c9;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #4caf50;
+        }
+
+        .roi-result {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-top: 20px;
+        }
+
+        .roi-result h4 {
+            color: #2d7a4a;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .roi-amount {
+            font-size: 32px;
+            font-weight: 700;
+            color: #4caf50;
+            margin: 10px 0;
+        }
+
+        /* Certificaciones destacadas */
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .cert-badge {
+            background: white;
+            padding: 16px;
+            border-radius: 10px;
+            border: 2px solid #c8e6c9;
+            text-align: center;
+        }
+
+        .cert-badge h4 {
+            font-size: 12px;
+            color: #2d7a4a;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cert-badge p {
+            font-size: 12px;
+            color: #666;
+        }
+
         @media (max-width: 768px) {
             .product-content {
                 grid-template-columns: 1fr;
@@ -424,7 +522,48 @@
         </div>
 
         <div class="full-description">
-            <h2>¿Por Qué Invertir en Energía Solar Ahora?</h2>
+            <h2>Calcula Tu Retorno de Inversión Real</h2>
+            
+            <div class="roi-calculator">
+                <h3>💡 Calculadora de ROI Personalizada</h3>
+                <div class="calculator-input">
+                    <div class="input-group">
+                        <label>Consumo Eléctrico Mensual (kWh)</label>
+                        <input type="number" id="consumption" value="500" placeholder="500">
+                    </div>
+                    <div class="input-group">
+                        <label>Tarifa Promedio ($/kWh)</label>
+                        <input type="number" id="rate" value="0.15" step="0.01" placeholder="0.15">
+                    </div>
+                </div>
+                <div class="roi-result">
+                    <h4>TU AHORRO ANUAL ESTIMADO</h4>
+                    <div class="roi-amount" id="savings">$900</div>
+                    <p id="roi-text">Con estos números, tu inversión se recupera en <strong>3.9 años</strong></p>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 40px;">Certificaciones Internacionales</h2>
+            <div class="certifications">
+                <div class="cert-badge">
+                    <h4>ISO 14001</h4>
+                    <p>Medio Ambiente</p>
+                </div>
+                <div class="cert-badge">
+                    <h4>TÜV</h4>
+                    <p>Seguridad</p>
+                </div>
+                <div class="cert-badge">
+                    <h4>IEC 61215</h4>
+                    <p>Rendimiento</p>
+                </div>
+                <div class="cert-badge">
+                    <h4>FDA</h4>
+                    <p>Energía Renovable</p>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 40px;">¿Por Qué Invertir en Energía Solar Ahora?</h2>
             
             <p>
                 La inversión en energía renovable no es solo ambientalmente responsable, es <strong>financieramente inteligente</strong>. 
@@ -459,5 +598,28 @@
     </div>
 
     <a href="../" class="back-button">← Volver al Component Book</a>
+
+    <script>
+        // ROI Calculator - Eco Template
+        const consumptionInput = document.getElementById('consumption');
+        const rateInput = document.getElementById('rate');
+        const savingsDisplay = document.getElementById('savings');
+        const roiText = document.getElementById('roi-text');
+
+        function calculateROI() {
+            const consumption = parseFloat(consumptionInput.value) || 500;
+            const rate = parseFloat(rateInput.value) || 0.15;
+            const investmentCost = 3499;
+            const annualSavings = consumption * 12 * rate;
+            const roiYears = (investmentCost / annualSavings).toFixed(1);
+
+            savingsDisplay.textContent = '$' + Math.round(annualSavings);
+            roiText.textContent = `Con estos números, tu inversión se recupera en <strong>${roiYears} años</strong>`;
+        }
+
+        consumptionInput.addEventListener('input', calculateROI);
+        rateInput.addEventListener('input', calculateROI);
+        calculateROI(); // Initialize on load
+    </script>
 </body>
 </html>

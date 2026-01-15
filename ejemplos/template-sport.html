@@ -342,6 +342,158 @@
             letter-spacing: 0.5px;
         }
 
+        /* Sports-specific: Athlete Stories */
+        .athletes-stories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .athlete-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(244, 67, 54, 0.15);
+            transition: all 0.3s;
+        }
+
+        .athlete-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(244, 67, 54, 0.25);
+        }
+
+        .athlete-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .athlete-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(244, 67, 54, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 24px;
+        }
+
+        .athlete-card:hover .play-button {
+            background: rgba(244, 67, 54, 1);
+            transform: translate(-50%, -50%) scale(1.15);
+        }
+
+        .athlete-info {
+            padding: 16px;
+        }
+
+        .athlete-info h4 {
+            color: #f44336;
+            margin-bottom: 4px;
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .athlete-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .athlete-story {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Performance Metrics */
+        .performance-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #ef5350;
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: #f44336;
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* Community section */
+        .community-cta {
+            background: linear-gradient(135deg, #f44336 0%, #c41e3a 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .community-cta h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .community-cta p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .community-button {
+            display: inline-block;
+            background: white;
+            color: #f44336;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .community-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px rgba(255,255,255,0.3);
+        }
+
         .footer {
             background: linear-gradient(135deg, #f44336 0%, #c41e3a 100%);
             color: white;
@@ -474,10 +626,10 @@
         </div>
 
         <div class="full-description">
-            <h2>🏃 ENERGÍA, COMUNIDAD, HISTORIAS REALES</h2>
+            <h2>🏃 HISTORIAS DE ATLETAS | COMUNIDAD DE RENDIMIENTO</h2>
             
             <p>
-                <strong>Zapatillas Running Pro X</strong> - Elegidas por 50K+ corredores en todo el mundo, cada una con historias de logros verificados. 
+                <strong>Zapatillas Running Pro X</strong> - Elegidas por 50K+ corredores verificados, cada uno con historias de logros documentados. 
                 Con tecnología de vanguardia y diseño ergonómico extremo, son perfectas para competencia, entrenamientos de élite 
                 o transformar tu carrera personal.
             </p>
@@ -487,6 +639,69 @@
                 mensuales con premios, accede a planes de entrenamiento de élite. Cada compra incluye 6 meses gratis de acceso a la app premium 
                 con tablas de rendimiento, análisis de datos y feedback de entrenadores certificados.
             </p>
+
+            <h3 style="margin-top: 40px; color: #f44336; text-transform: uppercase; letter-spacing: 1px;">🎯 Historias de Atletas Reales | Video Demos</h3>
+            <div class="athletes-stories">
+                <div class="athlete-card">
+                    <div class="athlete-image">
+                        <img src="https://via.placeholder.com/300x300?text=Atleta+1" alt="Atleta">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="athlete-info">
+                        <h4>Maratón 42K</h4>
+                        <div class="athlete-name">María Rodríguez</div>
+                        <div class="athlete-story">"Mejora de 45min en mi tiempo personal. Estas zapatillas cambiaron mi carrera"</div>
+                    </div>
+                </div>
+                <div class="athlete-card">
+                    <div class="athlete-image">
+                        <img src="https://via.placeholder.com/300x300?text=Atleta+2" alt="Atleta">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="athlete-info">
+                        <h4>100K Ultramaratón</h4>
+                        <div class="athlete-name">Carlos López</div>
+                        <div class="athlete-story">"Comodidad kilometraje tras kilometraje. Cero ampollas en 100km"</div>
+                    </div>
+                </div>
+                <div class="athlete-card">
+                    <div class="athlete-image">
+                        <img src="https://via.placeholder.com/300x300?text=Atleta+3" alt="Atleta">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="athlete-info">
+                        <h4>Triatlón Ironman</h4>
+                        <div class="athlete-name">Ana Martinez</div>
+                        <div class="athlete-story">"Estabilidad y tracción en todas las condiciones. ¡Imprescindible!"</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px; color: #f44336; text-transform: uppercase; letter-spacing: 1px;">📊 Tabla de Rendimiento Comprobada | Datos de Atletas</h3>
+            <div class="performance-metrics">
+                <div class="metric-card">
+                    <div class="metric-value">45min</div>
+                    <div class="metric-label">Mejora Promedio de Tiempo</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">0</div>
+                    <div class="metric-label">Ampollas Reportadas</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">97%</div>
+                    <div class="metric-label">Recomendación Atletas</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">2,400km</div>
+                    <div class="metric-label">Durabilidad Garantizada</div>
+                </div>
+            </div>
+
+            <div class="community-cta">
+                <h3>¡Únete a Nuestra Comunidad de 50K+ Atletas!</h3>
+                <p>Acceso a desafíos mensuales, planes de entrenamiento personalizados y análisis de rendimiento en tiempo real</p>
+                <a href="#" class="community-button">UNIRSE A LA COMUNIDAD GRATIS</a>
+            </div>
 
             <div class="highlight-box">
                 <p>⚡ VIDEOS DE MOVIMIENTO • 50K+ ATLETAS VERIFICADOS • COMUNIDAD CON DESAFÍOS MENSUALES • GARANTÍA 2 AÑOS + APP GRATIS</p>

@@ -356,6 +356,101 @@
             transform: translateY(-2px);
         }
 
+        /* Tech-specific: Specs Table */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .specs-table th {
+            background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+            color: white;
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .specs-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .specs-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .specs-table tr:nth-child(odd) {
+            background: #f5f5f5;
+        }
+
+        .specs-table strong {
+            color: #1976d2;
+            font-weight: 600;
+        }
+
+        /* Comparison highlight */
+        .comparison-badge {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Gallery carousel */
+        .gallery-section {
+            margin: 30px 0;
+            background: #f0f4f9;
+            padding: 24px;
+            border-radius: 12px;
+        }
+
+        .gallery-section h3 {
+            color: #1976d2;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .gallery-carousel {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1/1;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+
+        .gallery-item:hover {
+            border-color: #1976d2;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(25, 118, 210, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         @media (max-width: 768px) {
             .product-content {
                 grid-template-columns: 1fr;
@@ -455,15 +550,73 @@
                 Diseño minimalista elegante con 12 colores personalizados. Garantía premium 2 años + soporte 24/7.
             </p>
 
+            <div class="gallery-section">
+                <h3>🖼️ Galería de 360° | Todos los ángulos</h3>
+                <div class="gallery-carousel">
+                    <div class="gallery-item"><img src="https://via.placeholder.com/200x200?text=Vista+Frontal" alt="Frontal"></div>
+                    <div class="gallery-item"><img src="https://via.placeholder.com/200x200?text=Vista+Lateral" alt="Lateral"></div>
+                    <div class="gallery-item"><img src="https://via.placeholder.com/200x200?text=Pantalla" alt="Pantalla"></div>
+                    <div class="gallery-item"><img src="https://via.placeholder.com/200x200?text=Detalles" alt="Detalles"></div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px; margin-bottom: 20px;">📊 Tabla Comparativa | Specs Técnicas Detalladas</h3>
+            <table class="specs-table">
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>Ultra Pro 5</th>
+                        <th>Competencia Premium</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Procesador</strong></td>
+                        <td>Snapdragon Wear 5100+ Octa-Core<span class="comparison-badge">Líder</span></td>
+                        <td>Snapdragon Wear 5100</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RAM / Almacenamiento</strong></td>
+                        <td>2GB LPDDR5 / 16GB UFS<span class="comparison-badge">+50%</span></td>
+                        <td>1GB / 8GB</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pantalla</strong></td>
+                        <td>AMOLED 1.4" 454x454px (454 PPI)<span class="comparison-badge">Máxima Definición</span></td>
+                        <td>AMOLED 1.3" 454x454px</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Batería Real</strong></td>
+                        <td>10 días de uso real<span class="comparison-badge">+40% uso</span></td>
+                        <td>7 días</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sensores de Salud</strong></td>
+                        <td>ECG, SpO2, Ritmo, Estrés, Sueño<span class="comparison-badge">FDA</span></td>
+                        <td>ECG, SpO2, Ritmo</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conectividad</strong></td>
+                        <td>WiFi 6E, 5G independiente, NFC<span class="comparison-badge">Futuro-Proof</span></td>
+                        <td>WiFi 5, Bluetooth 5.2</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Resistencia</strong></td>
+                        <td>10 ATM + Gorilla Glass Armor<span class="comparison-badge">Máxima</span></td>
+                        <td>5 ATM + Gorilla Glass</td>
+                    </tr>
+                </tbody>
+            </table>
+
             <div class="tech-specs">
-                <h4>⚙️ Especificaciones Técnicas Premium</h4>
+                <h4>🔧 Especificaciones Técnicas Completas</h4>
                 <p><strong>Procesador:</strong> Snapdragon Wear 5100+ Octa-Core | <strong>RAM:</strong> 2GB LPDDR5 | <strong>Almacenamiento:</strong> 16GB UFS</p>
                 <p><strong>Pantalla:</strong> AMOLED 1.4" (454x454px, 454 PPI) | <strong>Batería:</strong> 500mAh (10 días real) | <strong>Peso:</strong> 51g</p>
                 <p><strong>Sensores Avanzados:</strong> GPS dual-band, Brújula, Acelerómetro, Giroscopio, Altímetro, Sensor de luz, ECG certificado FDA</p>
                 <p><strong>Conectividad Integrada:</strong> WiFi 6E, Bluetooth 5.3, 5G independiente, NFC | <strong>Resistencia:</strong> 10 ATM + Gorilla Glass Armor</p>
             </div>
 
-            <h3 style="margin-top: 30px; margin-bottom: 15px;">Contenido Premium Incluido</h3>
+            <h3 style="margin-top: 30px; margin-bottom: 15px;">📦 Contenido Premium Incluido</h3>
             <p>Smartwatch Ultra Pro 5 • 4 Correas intercambiables premium • Cable USB-C magnético carga rápida • Protector de pantalla tempered glass Gorilla • Garantía 2 años transferible • Soporte técnico 24/7 multiidioma</p>
         </div>
 
