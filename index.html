@@ -22,15 +22,16 @@
         
         /* ===== SISTEMA DESIGN TOKENS COMPLETO ===== */
         :root {
-            /* COLORES - Paleta Neumorfismo Claro Premium */
-            --fondo-principal: #ECEFF3;         /* Fondo principal - claro y elegante */
-            --fondo-secundario: #E6E9EE;        /* Cards y contenedores */
-            --texto-principal: #1A2332;         /* Títulos y textos importantes - OSCURECIDO para contraste */
-            --texto-secundario: #4A5568;        /* Descripciones y subtítulos - OSCURECIDO */
-            --texto-terciario: #718096;         /* Labels, fechas, microcopy - OSCURECIDO */
-            --acento-principal: #F2B8B5;        /* Rosa pastel - CTA y hovers */
-            --sombra-clara: rgba(255, 255, 255, 1);    /* Luz - arriba/izquierda - MÁS OPACA */
-            --sombra-oscura: rgba(163, 177, 198, 0.85); /* Profundidad - MÁS VISIBLE */
+            /* COLORES - Paleta Profesional UX/UI 2026 */
+            --fondo-principal: #F0F4F8;         /* Fondo principal - fresco y profesional */
+            --fondo-secundario: #E9EDF2;        /* Cards y contenedores */
+            --texto-principal: #2E3A46;         /* Títulos - fuerte y legible */
+            --texto-secundario: #3B4758;        /* Descripciones y subtítulos */
+            --texto-terciario: #6B7280;         /* Labels, fechas, microcopy */
+            --acento-principal: #A4D2F4;        /* Celeste pastel - CTA y elementos activos */
+            --acento-detalle: #F7C7D2;          /* Rosa suave - solo microdetalles */
+            --sombra-clara: rgba(255, 255, 255, 1);    /* Luz - arriba/izquierda */
+            --sombra-oscura: rgba(163, 177, 198, 0.85); /* Profundidad */
             --blanco-puro: #FFFFFF;
             
             /* ESPACIADO - Sistema aumentado para más aire */
@@ -51,18 +52,18 @@
             --radius-xl: 20px;     /* Cards extra grandes */
             --radius-full: 999px;
             
-            /* SOMBRAS NEUMORFISMO - 20% más perceptible para UI con presencia */
-            --shadow-sm-up: 4px 4px 12px var(--sombra-oscura), -4px -4px 12px var(--sombra-clara);
+            /* SOMBRAS NEUMORFISMO - Sutiles y funcionales */
+            --shadow-sm-up: 3px 3px 12px var(--sombra-oscura), -3px -3px 12px var(--sombra-clara);
             --shadow-sm-in: inset 2px 2px 4px var(--sombra-clara), inset -2px -2px 4px var(--sombra-oscura);
             
-            --shadow-md-up: 7px 7px 20px var(--sombra-oscura), -5px -5px 18px var(--sombra-clara);
+            --shadow-md-up: 5px 5px 18px var(--sombra-oscura), -4px -4px 16px var(--sombra-clara);
             --shadow-md-in: inset 3px 3px 8px var(--sombra-clara), inset -3px -3px 8px var(--sombra-oscura);
             
-            --shadow-lg-up: 10px 10px 30px var(--sombra-oscura), -8px -8px 26px var(--sombra-clara);
+            --shadow-lg-up: 8px 8px 26px var(--sombra-oscura), -6px -6px 22px var(--sombra-clara);
             --shadow-lg-in: inset 4px 4px 10px var(--sombra-clara), inset -4px -4px 10px var(--sombra-oscura);
             
-            --shadow-hover: 0 12px 36px rgba(163, 177, 198, 0.55);
-            --shadow-active: inset 0 3px 6px var(--sombra-clara), 0 3px 8px var(--sombra-oscura);
+            --shadow-hover: 0 10px 32px rgba(164, 210, 244, 0.4);
+            --shadow-active: inset 0 2px 5px var(--sombra-clara), 0 2px 6px var(--sombra-oscura);
             
             /* TIPOGRAFÍA - Escalas de tamaño */
             --font-family-serif: 'Playfair Display', serif;
@@ -130,7 +131,7 @@
         h2 { 
             font-size: 36px; 
             font-weight: 800; 
-            color: #0D1117;
+            color: var(--texto-principal);
             margin-bottom: 20px;
             margin-top: 32px;
             letter-spacing: -0.01em;
@@ -190,9 +191,9 @@
             position: sticky;
             top: 0;
             z-index: var(--z-sticky);
-            box-shadow: var(--shadow-sm-up);
+            box-shadow: 0 2px 12px rgba(163, 177, 198, 0.12);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(163, 177, 198, 0.15);
+            border-bottom: 1px solid rgba(164, 210, 244, 0.15);
             transition: all var(--transition-base);
         }
         .header:hover {
@@ -243,23 +244,22 @@
         }
         .header-nav a:hover::after { width: 100% }
         .header-cta {
-        .header-cta {
             background: var(--acento-principal);
-            color: var(--texto-principal);
+            color: #1A2332;
             padding: var(--space-md) var(--space-lg);
             border-radius: var(--radius-md);
             font-weight: 700;
             text-decoration: none;
             transition: all var(--transition-base);
-            box-shadow: var(--shadow-md-up);
+            box-shadow: 0 3px 14px rgba(164, 210, 244, 0.5);
             position: relative;
             overflow: hidden;
             letter-spacing: 0.5px;
         }
         .header-cta:hover {
-            background: #E89B98;
+            background: #8FC4F0;
             transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 6px 22px rgba(164, 210, 244, 0.65);
         }
 
         /* HERO NEUMORFISMO CLARO - Visual Depth */
@@ -315,8 +315,8 @@
             font-weight: 800;
             margin-bottom: 24px;
             line-height: 1.15;
-            color: #0D1117;
-            text-shadow: 0 2px 16px rgba(242, 184, 181, 0.2);
+            color: #1A2332;
+            text-shadow: 0 2px 16px rgba(164, 210, 244, 0.2);
             letter-spacing: -0.015em;
         }
         .hero-subtitle {
@@ -340,18 +340,18 @@
         .stat-item {
             text-align: center;
             padding: var(--space-lg);
-            background: rgba(242, 184, 181, 0.08);              /* Fondo sutil acento */
+            background: rgba(164, 210, 244, 0.08);
             border-radius: var(--radius-lg);
-            border: 1px solid rgba(242, 184, 181, 0.15);        /* Border sutil */
+            border: 1px solid rgba(164, 210, 244, 0.15);
             min-width: 180px;
-            box-shadow: var(--shadow-sm-up);
+            box-shadow: 0 2px 10px rgba(163, 177, 198, 0.1);
             transition: all var(--transition-base);
         }
         .stat-item:hover {
-            background: rgba(242, 184, 181, 0.12);             /* Hover */
-            border-color: rgba(242, 184, 181, 0.25);
+            background: rgba(164, 210, 244, 0.12);
+            border-color: rgba(164, 210, 244, 0.3);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md-up);
+            box-shadow: 0 4px 18px rgba(164, 210, 244, 0.2);
         }
         .stat-number {
             font-family: 'Playfair Display', serif;
@@ -363,7 +363,7 @@
             gap: 8px;
             color: var(--acento-principal);
             margin-bottom: 8px;
-            text-shadow: 0 2px 10px rgba(242, 184, 181, 0.3);
+            text-shadow: 0 2px 10px rgba(164, 210, 244, 0.3);
         }
         .stat-label {
             font-size: 13px;
@@ -409,14 +409,15 @@
         }
         .btn-primary {
             background: var(--acento-principal);
-            color: var(--texto-principal);
-            box-shadow: 0 4px 16px rgba(242, 184, 181, 0.55), var(--shadow-md-up);
-            border: 2px solid rgba(242, 184, 181, 0.5);
+            color: #1A2332;
+            box-shadow: 0 6px 20px rgba(164, 210, 244, 0.6), var(--shadow-lg-up);
+            border: 2px solid rgba(164, 210, 244, 0.6);
+            font-weight: 700;
         }
         .btn-primary:hover {
-            background: #E89B98;
+            background: #8FC4F0;
             transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(242, 184, 181, 0.65), var(--shadow-hover);
+            box-shadow: 0 10px 32px rgba(164, 210, 244, 0.75), var(--shadow-hover);
             border-color: var(--acento-principal);
         }
         .btn-primary:active {
@@ -426,15 +427,15 @@
         .btn-secondary {
             background: var(--fondo-secundario);
             color: var(--texto-principal);
-            border: 2.5px solid rgba(163, 177, 198, 0.4);
-            box-shadow: var(--shadow-sm-up);
+            border: 2px solid rgba(164, 210, 244, 0.3);
+            box-shadow: none;
         }
         .btn-secondary:hover {
             background: var(--blanco-puro);
             border-color: var(--acento-principal);
             color: var(--acento-principal);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md-up);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(164, 210, 244, 0.25);
         }
         .btn-secondary:active {
             transform: translateY(-1px);
@@ -1344,7 +1345,7 @@
         .section-header h2 {
             font-size: 38px;
             margin-bottom: 16px;
-            color: #0D1117;
+            color: #1A2332;
             font-weight: 800;
         }
         .section-header p {
@@ -1360,14 +1361,14 @@
             background: var(--fondo-secundario);
             border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--shadow-md-up);
+            box-shadow: 0 2px 12px rgba(163, 177, 198, 0.15);
             transition: all var(--transition-base);
             cursor: pointer;
-            border: 2px solid rgba(163, 177, 198, 0.3);
+            border: 1.5px solid rgba(164, 210, 244, 0.2);
         }
         .template-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 36px rgba(163, 177, 198, 0.45), var(--shadow-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(164, 210, 244, 0.35);
             border-color: var(--acento-principal);
             background: var(--blanco-puro);
         }
@@ -1513,6 +1514,70 @@
             transform: translateY(-1px);
         }
 
+        /* TENDENCIAS UX/UI 2026 */
+        .tendencias {
+            background: var(--fondo-secundario);
+            padding: 80px 20px;
+        }
+        .tendencias-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+        .tendencia-card {
+            background: var(--blanco-puro);
+            padding: 40px 28px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: all var(--transition-base);
+            border: 2px solid rgba(164, 210, 244, 0.2);
+            box-shadow: var(--shadow-md-up);
+        }
+        .tendencia-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg-up);
+            border-color: var(--acento-principal);
+        }
+        .tendencia-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background: rgba(164, 210, 244, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-base);
+        }
+        .tendencia-card:hover .tendencia-icon {
+            background: var(--acento-principal);
+            transform: scale(1.1);
+        }
+        .tendencia-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--acento-principal);
+            stroke-width: 2.5;
+            fill: none;
+            transition: stroke 0.3s;
+        }
+        .tendencia-card:hover .tendencia-icon svg {
+            stroke: #1A2332;
+        }
+        .tendencia-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--texto-principal);
+            margin-bottom: 12px;
+        }
+        .tendencia-desc {
+            font-size: 15px;
+            color: var(--texto-secundario);
+            line-height: 1.6;
+        }
+
         /* PRICING */
         .pricing {
             background: linear-gradient(180deg, var(--blanco-puro) 0%, var(--fondo-principal) 100%);
@@ -1527,26 +1592,26 @@
         }
         .pricing-card {
             background: var(--fondo-secundario);
-            border: 2px solid rgba(163, 177, 198, 0.35);
+            border: 1.5px solid rgba(164, 210, 244, 0.25);
             border-radius: var(--radius-lg);
             padding: var(--space-3xl);
             text-align: center;
             transition: all var(--transition-base);
-            box-shadow: var(--shadow-md-up);
+            box-shadow: 0 2px 12px rgba(163, 177, 198, 0.12);
             color: var(--texto-secundario);
         }
         .pricing-card:hover {
             border-color: var(--acento-principal);
-            transform: translateY(-5px);
-            box-shadow: 0 12px 36px rgba(163, 177, 198, 0.45), var(--shadow-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(164, 210, 244, 0.3);
             background: var(--blanco-puro);
         }
         .pricing-card.popular {
             border-color: var(--acento-principal);
-            border-width: 3px;
-            background: rgba(242, 184, 181, 0.08);
+            border-width: 2.5px;
+            background: rgba(164, 210, 244, 0.08);
             position: relative;
-            box-shadow: 0 6px 24px rgba(242, 184, 181, 0.35), var(--shadow-md-up);
+            box-shadow: 0 4px 20px rgba(164, 210, 244, 0.25);
         }
         .pricing-card.popular:hover {
             box-shadow: var(--shadow-hover);
@@ -2859,6 +2924,51 @@
             <div style="text-align: center; margin-top: 50px;">
                 <p style="color: var(--texto-secundario); margin-bottom: 20px; font-size: 16px;">¿Quieres resultados similares para tu producto?</p>
                 <a href="cotizacion.html" style="display: inline-block; background: var(--acento-principal); color: var(--texto-principal); padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s;">Solicitar Análisis Gratuito</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TENDENCIAS UX/UI 2026 -->
+    <section class="tendencias" id="tendencias">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Futuro del Diseño</span>
+                <h2>Tendencias UX/UI & Product Design 2026</h2>
+                <p style="color: var(--texto-secundario); font-size: 17px; max-width: 720px; margin: 0 auto;">Diseño que anticipa el futuro. Interfaces que priorizan función sobre decoración.</p>
+            </div>
+            
+            <div class="tendencias-grid">
+                <div class="tendencia-card">
+                    <div class="tendencia-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                    </div>
+                    <h3 class="tendencia-title">AI-Augmented UX</h3>
+                    <p class="tendencia-desc">Interfaces que se adaptan al usuario en tiempo real mediante IA contextual.</p>
+                </div>
+
+                <div class="tendencia-card">
+                    <div class="tendencia-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <h3 class="tendencia-title">Motion as Feedback</h3>
+                    <p class="tendencia-desc">Microinteracciones como guía de usuario, no como adorno visual.</p>
+                </div>
+
+                <div class="tendencia-card">
+                    <div class="tendencia-icon">
+                        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                    <h3 class="tendencia-title">Calm & Accessible</h3>
+                    <p class="tendencia-desc">Menos estímulo visual, más claridad y accesibilidad universal.</p>
+                </div>
+
+                <div class="tendencia-card">
+                    <div class="tendencia-icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>
+                    </div>
+                    <h3 class="tendencia-title">Neumorfismo Evolucionado</h3>
+                    <p class="tendencia-desc">Más contraste, menos decoración. Profundidad con propósito funcional.</p>
+                </div>
             </div>
         </div>
     </section>
