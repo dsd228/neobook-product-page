@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electrónica Premium & Lujo | Monitor 4K Profesional de Precisión</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Premium Pro - The ultimate in performance and design. Discover powerful features built for creative professionals.">
+    <title>Premium Pro | Professional Computing</title>
     <style>
         * {
             margin: 0;
@@ -12,751 +12,901 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #fafafa;
-            color: #1a1a1a;
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #fff;
+            color: #1d1d1d;
+            line-height: 1.5;
         }
 
-        .navbar {
-            background: white;
-            padding: 18px 40px;
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #d5d5d7;
+            padding: 0;
+        }
+
+        nav {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #e0e0e0;
+            height: 52px;
         }
 
-        .navbar-brand {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
+        .logo {
+            font-size: 20px;
             font-weight: 700;
-            color: #1a1a1a;
-            letter-spacing: 2px;
-        }
-
-        .navbar-link {
-            color: #666;
+            color: #1d1d1d;
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: color 0.3s;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .navbar-link:hover {
-            color: #1a1a1a;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-        }
-
-        .product-header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #424242 100%);
-            color: white;
-            padding: 60px 40px;
-            text-align: center;
-        }
-
-        .product-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            margin-bottom: 12px;
-            font-weight: 700;
             letter-spacing: -0.5px;
         }
 
-        .product-header p {
-            font-size: 17px;
-            opacity: 0.9;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        .product-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            padding: 60px 40px;
-        }
-
-        .product-images {
+        .nav-links {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            list-style: none;
+            gap: 32px;
+            flex: 1;
+            justify-content: center;
         }
 
-        .main-image {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: #f5f5f5;
-            border-radius: 8px;
+        .nav-links a {
+            text-decoration: none;
+            color: #1d1d1d;
+            font-size: 12px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        .nav-right {
             display: flex;
             align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 1px solid #e0e0e0;
+            gap: 16px;
         }
 
-        .main-image img {
+        .nav-back {
+            background: transparent;
+            color: #1d1d1d;
+            border: 1px solid #d5d5d7;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 12px;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-family: inherit;
+        }
+
+        .nav-back:hover {
+            background: #f5f5f7;
+            border-color: #1d1d1d;
+        }
+
+        .nav-cta {
+            background: #111;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 12px;
+            transition: background 0.3s;
+            font-family: inherit;
+        }
+
+        .nav-cta:hover {
+            background: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 980px;
+            margin: 0 auto;
+            z-index: 10;
+        }
+
+        .hero-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 21px;
+            font-weight: 400;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+        }
+
+        .btn {
+            padding: 11px 28px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 13px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: #111;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #111;
+            border: 1px solid #111;
+        }
+
+        .btn-secondary:hover {
+            background: #f5f5f7;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 1200px;
+            aspect-ratio: 16 / 10;
+            margin-top: 40px;
+        }
+
+        .hero-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .thumbnails {
+        /* Feature Sections */
+        .section {
+            padding: 120px 24px;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-        }
-
-        .thumbnail {
-            aspect-ratio: 1/1;
-            background: #f5f5f5;
-            border-radius: 6px;
-            cursor: pointer;
-            overflow: hidden;
-            border: 1px solid #e0e0e0;
-            transition: all 0.3s;
-        }
-
-        .thumbnail:hover {
-            border-color: #1a1a1a;
-        }
-
-        .product-info {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-        }
-
-        .rating {
-            display: flex;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: center;
-            gap: 12px;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .stars {
-            font-size: 18px;
-            color: #d4af37;
+        .section:nth-child(even) {
+            direction: rtl;
         }
 
-        .price-section {
-            background: #fafafa;
-            padding: 32px;
+        .section:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .section-image {
+            width: 100%;
+            aspect-ratio: 1;
+        }
+
+        .section-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             border-radius: 8px;
-            border: 1px solid #e0e0e0;
         }
 
-        .price-label {
-            font-size: 11px;
-            color: #666;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
-
-        .price-current {
-            font-family: 'Playfair Display', serif;
+        .section-content h2 {
             font-size: 48px;
             font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 8px;
+            margin-bottom: 20px;
+            line-height: 1.1;
             letter-spacing: -1px;
         }
 
-        .price-original {
-            font-size: 15px;
-            text-decoration: line-through;
-            color: #999;
+        .section-content p {
+            font-size: 17px;
             font-weight: 400;
-        }
-
-        .discount-badge {
-            display: inline-block;
-            background: #1a1a1a;
-            color: #d4af37;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 700;
-            margin-left: 12px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .btn {
-            padding: 16px 24px;
-            font-size: 14px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .btn-primary {
-            background: #1a1a1a;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #424242;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #1a1a1a;
-            border: 1px solid #1a1a1a;
-        }
-
-        .btn-secondary:hover {
-            background: #fafafa;
-        }
-
-        .features {
-            background: #fafafa;
-            padding: 28px;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .features h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 16px;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .features ul {
-            list-style: none;
-        }
-
-        .features li {
-            padding: 12px 0;
-            padding-left: 28px;
-            position: relative;
             color: #555;
-            font-size: 13px;
-            line-height: 1.6;
-            border-bottom: 1px solid #e0e0e0;
-            font-weight: 500;
-        }
-
-        .features li:last-child {
-            border-bottom: none;
-        }
-
-        .features li:before {
-            content: "◆";
-            position: absolute;
-            left: 0;
-            color: #d4af37;
-            font-size: 12px;
-        }
-
-        .full-description {
-            padding: 60px 40px;
-            background: #fafafa;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .full-description h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
             margin-bottom: 24px;
-            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .section-content a {
+            color: #111;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 17px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.3s;
+            border-bottom: 2px solid #111;
+            padding-bottom: 4px;
+        }
+
+        .section-content a:hover {
+            opacity: 0.7;
+        }
+
+        /* Design Showcase */
+        .showcase {
+            background: #f5f5f7;
+            padding: 120px 24px;
+        }
+
+        .showcase-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .showcase-title {
+            font-size: 48px;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            text-align: center;
+            margin-bottom: 80px;
+            letter-spacing: -1px;
         }
 
-        .full-description h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            margin: 32px 0 16px;
-            color: #1a1a1a;
-            font-weight: 700;
-        }
-
-        .full-description p {
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 16px;
-            font-size: 13px;
-            font-weight: 400;
-        }
-
-        .specs-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 24px 0;
-            background: white;
-        }
-
-        .specs-table th,
-        .specs-table td {
-            padding: 14px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-            font-size: 13px;
-        }
-
-        .specs-table th {
-            background: white;
-            font-weight: 700;
-            color: #1a1a1a;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .specs-table td {
-            color: #555;
-            font-weight: 400;
-        }
-
-        .luxury-badge {
-            display: inline-block;
-            background: #d4af37;
-            color: #1a1a1a;
-            padding: 16px 24px;
-            margin: 24px 0;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* Premium-specific: Material Details & Construction */
-        .material-showcase {
+        .showcase-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin: 30px 0;
+            gap: 40px;
         }
 
-        .material-detail {
-            background: #f5f5f5;
-            border: 2px solid #d4af37;
-            padding: 24px;
+        .showcase-item {
+            background: white;
             border-radius: 8px;
-            position: relative;
             overflow: hidden;
         }
 
-        .material-detail::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #d4af37, #1a1a1a);
+        .showcase-image {
+            width: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
         }
 
-        .material-detail h4 {
-            color: #1a1a1a;
-            font-size: 14px;
+        .showcase-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .showcase-content {
+            padding: 32px;
+        }
+
+        .showcase-content h3 {
+            font-size: 24px;
             font-weight: 700;
             margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .material-detail p {
-            color: #666;
-            font-size: 13px;
+        .showcase-content p {
+            font-size: 15px;
+            color: #555;
             line-height: 1.6;
         }
 
-        /* Precision specs showcase */
-        .precision-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin: 30px 0;
+        /* Specs Section */
+        .specs {
+            background: white;
+            padding: 120px 24px;
         }
 
-        .precision-stat {
+        .specs-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .specs-title {
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 80px;
+            letter-spacing: -1px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .spec-item {
+            text-align: center;
+        }
+
+        .spec-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1d1d1d;
+        }
+
+        .spec-label {
+            font-size: 13px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* Design System */
+        .design-section {
+            padding: 120px 24px;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f7 100%);
+        }
+
+        .design-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .design-title {
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .design-subtitle {
+            font-size: 17px;
+            color: #555;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .design-card {
             background: white;
-            border: 2px solid #e0e0e0;
-            padding: 20px;
+            padding: 40px;
             border-radius: 8px;
+            border: 1px solid #e5e5e7;
             text-align: center;
             transition: all 0.3s;
         }
 
-        .precision-stat:hover {
-            border-color: #d4af37;
-            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.1);
+        .design-card:hover {
+            border-color: #d5d5d7;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .precision-value {
-            font-size: 24px;
+        .design-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .design-card h3 {
+            font-size: 20px;
             font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 8px;
-            font-family: 'Playfair Display', serif;
+            margin-bottom: 12px;
         }
 
-        .precision-unit {
-            font-size: 11px;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .design-card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
         }
 
-        /* Professional Use Cases */
-        .use-cases {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin: 30px 0;
-        }
-
-        .use-case {
-            background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
-            padding: 16px;
-            border-radius: 8px;
-            border-left: 4px solid #d4af37;
-            text-align: center;
-        }
-
-        .use-case-icon {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .use-case-title {
-            font-size: 12px;
-            font-weight: 700;
-            color: #1a1a1a;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Premium certification seal */
-        .certification-seal {
-            background: white;
-            border: 3px solid #d4af37;
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 20px auto;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        }
-
-        .certification-seal-text {
-            font-size: 11px;
-            font-weight: 700;
-            color: #1a1a1a;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-align: center;
-        }
-
-        .certification-seal-value {
-            font-size: 22px;
-            font-weight: 700;
-            color: #d4af37;
-            margin: 4px 0;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .footer {
-            background: #1a1a1a;
-            color: #d4af37;
-            padding: 40px;
-            text-align: center;
-            font-size: 12px;
-            letter-spacing: 0.5px;
-        }
-
-        .footer-links {
-            margin-bottom: 16px;
-        }
-
-        .footer-links a {
-            color: #d4af37;
-            text-decoration: none;
-            margin: 0 16px;
-            font-weight: 600;
-            transition: color 0.3s;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .footer-links a:hover {
+        /* Environment Section */
+        .environment {
+            padding: 120px 24px;
+            background: #111;
             color: white;
         }
 
-        .back-button {
-            display: inline-block;
-            margin: 24px 40px 0;
-            padding: 12px 24px;
-            background: #1a1a1a;
-            color: #d4af37;
-            text-decoration: none;
-            border-radius: 6px;
+        .environment-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .environment-title {
+            font-size: 48px;
             font-weight: 700;
-            transition: all 0.3s;
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: -1px;
+        }
+
+        .environment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            align-items: center;
+        }
+
+        .environment-content h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .environment-content p {
+            font-size: 17px;
+            opacity: 0.8;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .environment-image {
+            width: 100%;
+            aspect-ratio: 1;
+        }
+
+        .environment-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: white;
+            padding: 100px 24px;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .cta-section p {
+            font-size: 17px;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: #f5f5f7;
+            padding: 40px 24px;
+            border-top: 1px solid #d5d5d7;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 16px;
+            color: #1d1d1d;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col a {
+            color: #555;
+            text-decoration: none;
             font-size: 12px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.3s;
         }
 
-        .back-button:hover {
-            background: #424242;
+        .footer-col a:hover {
+            color: #1d1d1d;
         }
 
-        @media (max-width: 768px) {
-            .product-content {
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #d5d5d7;
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .section {
                 grid-template-columns: 1fr;
-                padding: 40px 20px;
+                gap: 40px;
             }
 
-            .buttons {
+            .section:nth-child(even) {
+                direction: ltr;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .section-content h2 {
+                font-size: 36px;
+            }
+
+            .showcase-grid {
                 grid-template-columns: 1fr;
             }
 
-            .product-header h1 {
+            .specs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .design-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .environment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 17px;
+            }
+
+            .section {
+                padding: 60px 16px;
+            }
+
+            .section-content h2 {
                 font-size: 28px;
             }
 
-            .price-current {
-                font-size: 36px;
+            .specs-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .design-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 0 16px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-cta {
+                padding: 6px 14px;
+                font-size: 11px;
+            }
+
+            .showcase-title,
+            .specs-title,
+            .design-title,
+            .environment-title {
+                font-size: 32px;
+            }
+
+            .cta-section h2 {
+                font-size: 32px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <div class="navbar-brand">◆ ELECTRÓNICA PREMIUM & LUJO</div>
-        <a class="navbar-link" onclick="history.back()">← Volver</a>
-    </div>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Premium Pro</a>
+            <ul class="nav-links">
+                <li><a href="#design">Design</a></li>
+                <li><a href="#specs">Specs</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#environment">Environment</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="../index.html#templates-section" class="nav-back">← Back to Demos</a>
+                <button class="nav-cta">Buy Now</button>
+            </div>
+        </nav>
+    </header>
 
-    <div class="container">
-        <div class="product-header">
-            <h1>Monitor 4K Ultra Premium - Ingeniería de Precisión</h1>
-            <p>Delta E <2 (Exactitud de color) | 1000 nits HDR | 98.5% DCI-P3 Profesional</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">INTRODUCING</div>
+            <h1 class="hero-title">Premium Pro</h1>
+            <p class="hero-subtitle">Extraordinary power. Beautiful design. Exceptional performance.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Learn more</button>
+                <button class="btn btn-secondary">Buy Now</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=700&fit=crop&q=85" alt="Premium Pro">
+            </div>
         </div>
+    </section>
 
-        <div class="product-content">
-            <div class="product-images">
-                <div class="main-image">
-                    <img src="https://via.placeholder.com/500x500?text=Monitor+4K" alt="Producto">
+    <!-- Feature Sections -->
+    <section class="section" id="design">
+        <div class="section-content">
+            <h2>Stunning Design</h2>
+            <p>Precision engineering meets elegant aesthetics. Every detail is crafted to inspire.</p>
+            <a href="#">Explore design →</a>
+        </div>
+        <div class="section-image">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=600&h=600&fit=crop&q=85" alt="Design">
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-content">
+            <h2>Powerful Performance</h2>
+            <p>Built for professionals who demand the best. Advanced technology at every level.</p>
+            <a href="#">Discover performance →</a>
+        </div>
+        <div class="section-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=600&fit=crop&q=85" alt="Performance">
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-content">
+            <h2>Seamless Integration</h2>
+            <p>Works beautifully with your entire creative workflow. Everything just works.</p>
+            <a href="#">Learn about integration →</a>
+        </div>
+        <div class="section-image">
+            <img src="https://images.unsplash.com/photo-1511376979264-c8ae135b11d0?w=600&h=600&fit=crop&q=85" alt="Integration">
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="showcase" id="features">
+        <div class="showcase-container">
+            <h2 class="showcase-title">Premium Features</h2>
+            <div class="showcase-grid">
+                <div class="showcase-item">
+                    <div class="showcase-image">
+                        <img src="https://images.unsplash.com/photo-1503387762519-52582b742d5d?w=400&h=400&fit=crop&q=85" alt="Feature">
+                    </div>
+                    <div class="showcase-content">
+                        <h3>Advanced Materials</h3>
+                        <p>Crafted from premium aluminum and glass. Designed to feel as good as it looks.</p>
+                    </div>
                 </div>
-                <div class="thumbnails">
-                    <div class="thumbnail">
-                        <img src="https://via.placeholder.com/100x100?text=Precision" alt="Precisión">
+
+                <div class="showcase-item">
+                    <div class="showcase-image">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop&q=85" alt="Feature">
                     </div>
-                    <div class="thumbnail">
-                        <img src="https://via.placeholder.com/100x100?text=Construccion" alt="Construcción">
+                    <div class="showcase-content">
+                        <h3>Remarkable Display</h3>
+                        <p>Ultra-sharp visuals with incredible color accuracy for professional work.</p>
                     </div>
-                    <div class="thumbnail">
-                        <img src="https://via.placeholder.com/100x100?text=Conectividad" alt="Conectividad">
+                </div>
+
+                <div class="showcase-item">
+                    <div class="showcase-image">
+                        <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86e81?w=400&h=400&fit=crop&q=85" alt="Feature">
                     </div>
-                    <div class="thumbnail">
-                        <img src="https://via.placeholder.com/100x100?text=Detalles" alt="Detalles Premium">
+                    <div class="showcase-content">
+                        <h3>All-Day Battery</h3>
+                        <p>Work all day without worrying about charging. Incredible battery efficiency.</p>
+                    </div>
+                </div>
+
+                <div class="showcase-item">
+                    <div class="showcase-image">
+                        <img src="https://images.unsplash.com/photo-1552083974-5dde3cf4e715?w=400&h=400&fit=crop&q=85" alt="Feature">
+                    </div>
+                    <div class="showcase-content">
+                        <h3>Thermal Design</h3>
+                        <p>Intelligent cooling keeps performance steady while staying whisper quiet.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="product-info">
-                <div class="rating">
-                    <div class="stars">★★★★★</div>
-                    <div>5.0/5 (423 profesionales verificados)</div>
+    <!-- Specs Section -->
+    <section class="specs" id="specs">
+        <div class="specs-container">
+            <h2 class="specs-title">Technical Excellence</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-value">16-core</div>
+                    <div class="spec-label">Processing Power</div>
                 </div>
-
-                <div class="price-section">
-                    <div class="price-label">Precio Exclusivo</div>
-                    <div>
-                        <span class="price-current">$1,249.99</span>
-                        <span class="discount-badge">-15% por tiempo limitado</span>
-                    </div>
-                    <div class="price-original">Precio usual: $1,470.99</div>
+                <div class="spec-item">
+                    <div class="spec-value">32GB</div>
+                    <div class="spec-label">Unified Memory</div>
                 </div>
-
-                <div class="buttons">
-                    <button class="btn btn-primary">Explorar Especificaciones Premium</button>
-                    <button class="btn btn-secondary">Consulta Técnica Gratuita</button>
+                <div class="spec-item">
+                    <div class="spec-value">1TB</div>
+                    <div class="spec-label">Storage</div>
                 </div>
+                <div class="spec-item">
+                    <div class="spec-value">20h</div>
+                    <div class="spec-label">Battery Life</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="features">
-                    <h3>Especificaciones Refinadas de Lujo</h3>
+    <!-- Design System Section -->
+    <section class="design-section">
+        <div class="design-container">
+            <h2 class="design-title">Design Philosophy</h2>
+            <p class="design-subtitle">Built with precision and care</p>
+            <div class="design-grid">
+                <div class="design-card">
+                    <div class="design-icon">✨</div>
+                    <h3>Refined</h3>
+                    <p>Every curve, every edge, every detail refined to perfection. Simplicity through careful design.</p>
+                </div>
+                <div class="design-card">
+                    <div class="design-icon">⚙️</div>
+                    <h3>Engineered</h3>
+                    <p>Precision engineering meets innovative technology. Built to last and perform.</p>
+                </div>
+                <div class="design-card">
+                    <div class="design-icon">🎯</div>
+                    <h3>Purposeful</h3>
+                    <p>Everything has a purpose. Nothing is there by accident. Function and form in harmony.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Environment Section -->
+    <section class="environment" id="environment">
+        <div class="environment-container">
+            <h2 class="environment-title">Designed for the Planet</h2>
+            <div class="environment-grid">
+                <div class="environment-content">
+                    <h3>100% Carbon Neutral</h3>
+                    <p>We're committed to creating products with zero environmental impact. Every Premium Pro is manufactured carbon neutral.</p>
+                    <p>Recycled materials, responsible sourcing, and renewable energy throughout our supply chain.</p>
+                </div>
+                <div class="environment-image">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=600&fit=crop&q=85" alt="Environment">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to Create?</h2>
+            <p>Experience the power and elegance of Premium Pro. Perfect for professionals who demand the best.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary">Buy Now</button>
+                <button class="btn btn-secondary">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Shop</h4>
                     <ul>
-                        <li><strong>Especificaciones de Precisión Extrema:</strong> Delta E <2 • 4K 3840x2160 • 1000 nits HDR</li>
-                        <li><strong>Detalles de Construcción Premium:</strong> Panel IPS Nanodot • Chasis aluminio CNC • Cableado integrado</li>
-                        <li><strong>Minimalismo Elegante + Enfoque Visual:</strong> Bisel infinito • Frame rate adaptable • Calibración automática</li>
+                        <li><a href="#">Premium Pro</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">Bundles</a></li>
+                        <li><a href="#">Compare</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Warranty</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
                     </ul>
                 </div>
             </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Premium Pro Inc. All rights reserved.</p>
+            </div>
         </div>
-
-        <div class="full-description">
-            <h2>Precisión Visual Suprema</h2>
-            
-            <p>
-                El <strong>Monitor 4K Ultra Premium</strong> representa la máxima expresión en ingeniería visual. 
-                Diseñado para profesionales que demandan precisión absoluta: fotógrafos, diseñadores gráficos, 
-                coloristas de cine y productores de contenido que comprenden que la calidad visual es rentabilidad.
-            </p>
-
-            <p>
-                <strong>Maestría en Cada Detalle:</strong> Certificado Pantone Validated con Delta E <2 (imperceptible al ojo humano). 
-                Panel IPS Nanodot con ángulos imposibles de 178°, chasis de aluminio CNC de precisión suiza, 
-                y calibración automática con luz ambiental inteligente. Cada componente ha sido seleccionado para excelencia extrema.
-            </p>
-
-            <h3 style="margin-top: 40px; font-size: 20px;">Detalles de Construcción Premium | Ingeniería de Precisión</h3>
-            <div class="material-showcase">
-                <div class="material-detail">
-                    <h4>Chasis de Aluminio CNC</h4>
-                    <p>Mecanizado con precisión suiza en tolerancias de ±0.1mm. Acabado anodizado negro profundo resistente a arañazos. Peso optimizado: 7.2kg de pura ingeniería.</p>
-                </div>
-                <div class="material-detail">
-                    <h4>Panel IPS Nanodot Pro</h4>
-                    <p>Tecnología de última generación con 98.5% cobertura DCI-P3. Ángulos de visión 178° sin desaturación. Garantía de precisión: Delta E menor a 2.</p>
-                </div>
-                <div class="material-detail">
-                    <h4>Cableado Integrado Premium</h4>
-                    <p>USB-C 3.1 certificado + Thunderbolt 3 integrado. DisplayPort 1.4 con HBR3. Conectores chapados en oro de 24K para máxima conductividad.</p>
-                </div>
-                <div class="material-detail">
-                    <h4>Calibración Automática Inteligente</h4>
-                    <p>Sensor de luz ambiental integrado. Calibración de fabrica con Pantone Validated. Recalibraciones automáticas cada 24 horas.</p>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 40px; font-size: 20px;">Métricas de Precisión Extrema | Certificaciones</h3>
-            <div class="precision-grid">
-                <div class="precision-stat">
-                    <div class="precision-value">Δ E <2</div>
-                    <div class="precision-unit">Precisión de Color Imperceptible</div>
-                </div>
-                <div class="precision-stat">
-                    <div class="precision-value">98.5%</div>
-                    <div class="precision-unit">Cobertura DCI-P3</div>
-                </div>
-                <div class="precision-stat">
-                    <div class="precision-value">1000 nits</div>
-                    <div class="precision-unit">HDR Peak Brightness</div>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 40px; font-size: 20px;">Casos de Uso Profesionales | Donde Brilla</h3>
-            <div class="use-cases">
-                <div class="use-case">
-                    <div class="use-case-icon">📷</div>
-                    <div class="use-case-title">Fotografía Professional</div>
-                </div>
-                <div class="use-case">
-                    <div class="use-case-icon">🎨</div>
-                    <div class="use-case-title">Diseño Gráfico Avanzado</div>
-                </div>
-                <div class="use-case">
-                    <div class="use-case-icon">🎬</div>
-                    <div class="use-case-title">Colorización de Cine</div>
-                </div>
-                <div class="use-case">
-                    <div class="use-case-icon">📹</div>
-                    <div class="use-case-title">Post-Producción 4K</div>
-                </div>
-            </div>
-
-            <div class="certification-seal">
-                <div class="certification-seal-value">✓</div>
-                <div class="certification-seal-text">Pantone<br>Validated</div>
-            </div>
-
-            <h3>Especificaciones Técnicas Refinadas</h3>
-            <table class="specs-table">
-                <tr>
-                    <th>Especificación</th>
-                    <th>Detalle Premium</th>
-                </tr>
-                <tr>
-                    <td>Resolución Ultra</td>
-                    <td>4K (3840 x 2160 píxeles) • 163 PPI</td>
-                </tr>
-                <tr>
-                    <td>Pantalla Profesional</td>
-                    <td>27" IPS Quantum Dot Pro • Bisel infinito</td>
-                </tr>
-                <tr>
-                    <td>Precisión de Color</td>
-                    <td>Delta E <2 • DCI-P3 98.5% • Validated Pantone</td>
-                </tr>
-                <tr>
-                    <td>Rendimiento Visual</td>
-                    <td>1000 nits HDR • Contraste 1000:1 • 4ms respuesta</td>
-                </tr>
-                <tr>
-                    <td>Conectividad Integrada</td>
-                    <td>USB-C 90W + Thunderbolt 3 + DisplayPort + HDMI 2.1</td>
-                </tr>
-                <tr>
-                    <td>Construcción Premium</td>
-                    <td>Aluminio CNC de precisión suiza • Cableado integrado • Sistema ergonómico avanzado</td>
-                </tr>
-                <tr>
-                    <td>Garantía Completa</td>
-                    <td>3 años + soporte técnico 24/7 + calibración anual</td>
-                </tr>
-            </table>
-
-            <div class="luxury-badge">
-                ◆ Certificado Pantone Validated • Calibración Profesional Incluida • Soporte Premium 24/7 • Transferible
-            </div>
-
-            <h3>Experiencia Completa Profesional</h3>
-            <p>
-                Monitor 4K Ultra Premium • Cable DisplayPort certified • Cable USB-C Thunderbolt 3 certificado • 
-                Soporte ergonómico premium ajustable • Documentación técnica profesional • Certificado de calibración de fábrica • 
-                Acceso a software ColorLogic de configuración avanzada • Garantía 3 años transferible + soporte premium
-            </p>
-        </div>
-
-        <div class="footer">
-            <div class="footer-links">
-                <a href="#">Soporte Técnico</a>
-                <a href="#">Garantía Premium</a>
-                <a href="#">Contacto Ejecutivo</a>
-            </div>
-            <p>© 2026 Premium Templates | Donde la precisión no es una opción, es un requisito</p>
-        </div>
-    </div>
-
-    <a href="../" class="back-button">← Volver al Book</a>
+    </footer>
 </body>
 </html>
