@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wearables & Gadgets Premium | Specs Detalladas y Comparativas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="The future of technology is here. Discover our revolutionary product.">
+    <title>Tech Pro - Revolutionary Technology | TechCorp</title>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&family=SF+Pro+Text:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,624 +13,824 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f0f4f9;
-            color: #1a1a1a;
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', Helvetica, Arial, sans-serif;
+            background: #fff;
+            color: #1d1d1d;
+            line-height: 1.5;
         }
 
-        .navbar {
-            background: white;
-            padding: 15px 30px;
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #d5d5d7;
+            padding: 0;
+        }
+
+        nav {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 2px solid #1976d2;
+            height: 52px;
         }
 
-        .navbar-brand {
-            font-size: 18px;
+        .logo {
+            font-size: 20px;
             font-weight: 700;
-            color: #1976d2;
-            letter-spacing: -0.5px;
-        }
-
-        .navbar-link {
-            color: #1a1a1a;
+            color: #1d1d1d;
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .navbar-link:hover {
-            color: #1976d2;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-        }
-
-        .product-header {
-            background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
-            color: white;
-            padding: 50px 40px;
-            text-align: center;
-        }
-
-        .product-header h1 {
-            font-size: 36px;
-            margin-bottom: 12px;
-            font-weight: 700;
             letter-spacing: -0.5px;
         }
 
-        .product-header p {
-            font-size: 18px;
-            opacity: 0.95;
-            font-weight: 400;
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            flex: 1;
+            justify-content: center;
         }
 
-        .product-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            padding: 50px 40px;
+        .nav-links a {
+            text-decoration: none;
+            color: #1d1d1d;
+            font-size: 12px;
+            font-weight: 500;
+            transition: opacity 0.3s;
         }
 
-        .product-images {
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-back {
+            background: transparent;
+            color: #1d1d1d;
+            border: 1px solid #d5d5d7;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 12px;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-family: inherit;
+        }
+
+        .nav-back:hover {
+            background: #f5f5f7;
+            border-color: #1d1d1d;
+        }
+
+        .nav-cta {
+            background: #0071e3;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 12px;
+            transition: background 0.3s;
+            font-family: inherit;
+        }
+
+        .nav-cta:hover {
+            background: #0077ed;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+            padding: 0;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-        }
-
-        .main-image {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%);
-            border-radius: 16px;
-            display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
             overflow: hidden;
-            border: 2px solid #bbdefb;
         }
 
-        .main-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .hero-content {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 980px;
+            margin: 0 auto;
+            z-index: 10;
         }
 
-        .thumbnails {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
-
-        .thumbnail {
-            aspect-ratio: 1/1;
-            background: #f5f5f5;
-            border-radius: 12px;
-            cursor: pointer;
-            overflow: hidden;
-            border: 2px solid #e0e0e0;
-            transition: all 0.3s;
-        }
-
-        .thumbnail:hover {
-            border-color: #1976d2;
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .rating {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 14px;
+        .hero-label {
+            font-size: 13px;
             font-weight: 500;
-        }
-
-        .stars {
-            font-size: 18px;
-            color: #ffc107;
-        }
-
-        .price-section {
-            background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%);
-            padding: 24px;
-            border-radius: 14px;
-            border-left: 5px solid #1976d2;
-        }
-
-        .price-label {
-            font-size: 12px;
-            color: #666;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .price-current {
-            font-size: 36px;
-            font-weight: 700;
-            color: #1976d2;
-            margin: 12px 0;
-            letter-spacing: -1px;
-        }
-
-        .price-original {
-            font-size: 16px;
-            text-decoration: line-through;
-            color: #999;
-            font-weight: 500;
-        }
-
-        .discount-badge {
-            display: inline-block;
-            background: #1976d2;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 700;
-            margin-left: 10px;
+            color: #555;
+            margin-bottom: 12px;
             letter-spacing: 0.5px;
         }
 
-        .buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
+        .hero-title {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 21px;
+            font-weight: 400;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
         }
 
         .btn {
-            padding: 16px 24px;
-            font-size: 15px;
+            padding: 11px 28px;
+            border-radius: 6px;
             border: none;
-            border-radius: 12px;
             cursor: pointer;
-            font-weight: 700;
+            font-weight: 500;
+            font-size: 13px;
             transition: all 0.3s;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 0.3px;
+            text-decoration: none;
+            display: inline-block;
+            font-family: inherit;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+            background: #0071e3;
             color: white;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(25, 118, 210, 0.3);
+            background: #0077ed;
         }
 
         .btn-secondary {
-            background: white;
-            color: #1976d2;
-            border: 2px solid #1976d2;
-            font-weight: 600;
+            background: transparent;
+            color: #0071e3;
+            border: 1px solid #0071e3;
         }
 
         .btn-secondary:hover {
-            background: #f0f4f9;
+            background: #f5f5f7;
         }
 
-        .features {
-            background: #f5f5f5;
-            padding: 24px;
-            border-radius: 14px;
-            border-left: 5px solid #1976d2;
-        }
-
-        .features h3 {
-            font-size: 16px;
-            margin-bottom: 16px;
-            color: #1a1a1a;
-            font-weight: 700;
-        }
-
-        .features ul {
-            list-style: none;
-        }
-
-        .features li {
-            padding: 10px 0;
-            padding-left: 28px;
-            position: relative;
-            color: #555;
-            font-size: 14px;
-            line-height: 1.6;
-            border-bottom: 1px solid #e0e0e0;
-            font-weight: 500;
-        }
-
-        .features li:last-child {
-            border-bottom: none;
-        }
-
-        .features li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #1976d2;
-            font-weight: 700;
-            font-size: 16px;
-        }
-
-        .full-description {
-            padding: 50px 40px;
-            background: #f5f5f5;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .full-description h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-            font-weight: 700;
-        }
-
-        .full-description p {
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 15px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .tech-specs {
-            background: #e3f2fd;
-            border-left: 5px solid #1976d2;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-        }
-
-        .tech-specs h4 {
-            color: #0d47a1;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .tech-specs p {
-            color: #555;
-            margin: 6px 0;
-            font-size: 14px;
-        }
-
-        .footer {
-            background: #1976d2;
-            color: white;
-            padding: 30px 40px;
-            text-align: center;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .footer-links {
-            margin-bottom: 15px;
-        }
-
-        .footer-links a {
-            color: #bbdefb;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .back-button {
-            display: inline-block;
-            margin: 20px 40px 0;
-            padding: 10px 20px;
-            background: #1976d2;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 700;
-            transition: all 0.3s;
-            font-size: 14px;
-            letter-spacing: 0.3px;
-        }
-
-        .back-button:hover {
-            background: #0d47a1;
-            transform: translateY(-2px);
-        }
-
-        /* Tech-specific: Specs Table */
-        .specs-table {
+        .hero-image {
             width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            max-width: 1200px;
+            aspect-ratio: 16 / 10;
+            margin-top: 40px;
         }
 
-        .specs-table th {
-            background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
-            color: white;
-            padding: 16px 20px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .specs-table td {
-            padding: 16px 20px;
-            border-bottom: 1px solid #e0e0e0;
-            color: #555;
-            font-size: 14px;
-        }
-
-        .specs-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .specs-table tr:nth-child(odd) {
-            background: #f5f5f5;
-        }
-
-        .specs-table strong {
-            color: #1976d2;
-            font-weight: 600;
-        }
-
-        /* Comparison highlight */
-        .comparison-badge {
-            display: inline-block;
-            background: #e3f2fd;
-            color: #1976d2;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        /* Gallery carousel */
-        .gallery-section {
-            margin: 30px 0;
-            background: #f0f4f9;
-            padding: 24px;
-            border-radius: 12px;
-        }
-
-        .gallery-section h3 {
-            color: #1976d2;
-            margin-bottom: 16px;
-            font-size: 16px;
-        }
-
-        .gallery-carousel {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-        }
-
-        .gallery-item {
-            aspect-ratio: 1/1;
-            background: white;
-            border-radius: 8px;
-            border: 2px solid #e0e0e0;
-            cursor: pointer;
-            transition: all 0.3s;
-            overflow: hidden;
-        }
-
-        .gallery-item:hover {
-            border-color: #1976d2;
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(25, 118, 210, 0.2);
-        }
-
-        .gallery-item img {
+        .hero-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        @media (max-width: 768px) {
-            .product-content {
+        /* Section Divider */
+        .section {
+            padding: 120px 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section:nth-child(even) {
+            direction: rtl;
+        }
+
+        .section:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .section-image {
+            width: 100%;
+            aspect-ratio: 1;
+        }
+
+        .section-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .section-content h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .section-content p {
+            font-size: 17px;
+            font-weight: 400;
+            color: #555;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .section-content a {
+            color: #0071e3;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 17px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.3s;
+        }
+
+        .section-content a:hover {
+            opacity: 0.7;
+        }
+
+        /* Specs Section */
+        .specs {
+            background: #f5f5f7;
+            padding: 120px 24px;
+        }
+
+        .specs-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .specs-title {
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 80px;
+            letter-spacing: -1px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .spec-item {
+            text-align: center;
+        }
+
+        .spec-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1d1d1d;
+        }
+
+        .spec-label {
+            font-size: 13px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* Technology Section */
+        .technology {
+            padding: 120px 24px;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f7 100%);
+        }
+
+        .tech-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .tech-title {
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .tech-subtitle {
+            font-size: 17px;
+            color: #555;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .tech-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e5e5e7;
+            transition: all 0.3s;
+        }
+
+        .tech-card:hover {
+            border-color: #d5d5d7;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .tech-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .tech-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .tech-card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 120px 24px;
+        }
+
+        .testimonials-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonials-title {
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 80px;
+            letter-spacing: -1px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .testimonial {
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-role {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #1d1d1d;
+            color: white;
+            padding: 120px 24px;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .cta-section p {
+            font-size: 17px;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: #1d1d1d;
+            border: none;
+        }
+
+        .btn-white:hover {
+            background: #f5f5f7;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #f5f5f7;
+            padding: 40px 24px;
+            border-top: 1px solid #d5d5d7;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 16px;
+            color: #1d1d1d;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col a {
+            color: #555;
+            text-decoration: none;
+            font-size: 12px;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #1d1d1d;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #d5d5d7;
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .section {
                 grid-template-columns: 1fr;
-                padding: 30px 20px;
+                gap: 40px;
             }
 
-            .buttons {
+            .section:nth-child(even) {
+                direction: ltr;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .section-content h2 {
+                font-size: 36px;
+            }
+
+            .specs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
                 grid-template-columns: 1fr;
             }
 
-            .product-header h1 {
-                font-size: 24px;
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .price-current {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 17px;
+            }
+
+            .section {
+                padding: 60px 16px;
+            }
+
+            .section-content h2 {
                 font-size: 28px;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 0 16px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-cta {
+                padding: 6px 14px;
+                font-size: 11px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <div class="navbar-brand">⚡ Wearables & Gadgets Premium</div>
-        <a class="navbar-link" onclick="history.back()">← Volver</a>
-    </div>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Tech Pro</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#specs">Specs</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="../index.html#templates-section" class="nav-back">← Back to Demos</a>
+                <button class="nav-cta">Buy Now</button>
+            </div>
+        </nav>
+    </header>
 
-    <div class="container">
-        <div class="product-header">
-            <h1>Smartwatch Ultra Pro 5 - Tecnología Revolucionaria</h1>
-            <p>Procesador de última generación | Pantalla AMOLED 360° | 10 días de batería</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">INTRODUCING</div>
+            <h1 class="hero-title">The future of technology is here</h1>
+            <p class="hero-subtitle">Designed for those who demand the impossible.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Learn more</button>
+                <button class="btn btn-secondary">Pre-order Now</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86e81?w=1200&h=700&fit=crop&q=85" alt="Tech Pro Device">
+            </div>
         </div>
+    </section>
 
-        <div class="product-content">
-            <div class="product-images">
-                <div class="main-image">
-                    <img src="https://via.placeholder.com/500x500?text=Smartwatch" alt="Producto">
+    <!-- Feature Sections -->
+    <section class="section" id="features">
+        <div class="section-content">
+            <h2>Performance Without Compromise</h2>
+            <p>Lightning-fast processor, all-day battery, and advanced thermal management. The power you need with the efficiency you expect.</p>
+            <a href="#">Explore performance →</a>
+        </div>
+        <div class="section-image">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=600&fit=crop&q=85" alt="Performance">
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-content">
+            <h2>Revolutionary Display</h2>
+            <p>Immersive visuals with our ProMotion technology. 120Hz refresh rate delivers buttery smooth scrolling and incredible responsiveness.</p>
+            <a href="#">Discover the display →</a>
+        </div>
+        <div class="section-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=600&fit=crop&q=85" alt="Display">
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-content">
+            <h2>Advanced Camera System</h2>
+            <p>Professional-grade photography and videography in your pocket. Computational photography makes every shot extraordinary.</p>
+            <a href="#">See what's possible →</a>
+        </div>
+        <div class="section-image">
+            <img src="https://images.unsplash.com/photo-1511376979264-c8ae135b11d0?w=600&h=600&fit=crop&q=85" alt="Camera">
+        </div>
+    </section>
+
+    <!-- Specs Section -->
+    <section class="specs" id="specs">
+        <div class="specs-container">
+            <h2 class="specs-title">Technical Specifications</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-value">12-core</div>
+                    <div class="spec-label">Neural Engine</div>
                 </div>
-                <div class="thumbnails">
-                    <div class="thumbnail">
-                        <img src="https://via.placeholder.com/100x100?text=Pantalla+AMOLED" alt="Pantalla">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="https://via.placeholder.com/100x100?text=Specs+Tecnicas" alt="Specs">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="https://via.placeholder.com/100x100?text=Colores" alt="Colores">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="https://via.placeholder.com/100x100?text=Apps" alt="Apps">
-                    </div>
+                <div class="spec-item">
+                    <div class="spec-value">120Hz</div>
+                    <div class="spec-label">ProMotion Display</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-value">5nm</div>
+                    <div class="spec-label">Process Technology</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-value">22h</div>
+                    <div class="spec-label">Battery Life</div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="product-info">
-                <div class="rating">
-                    <div class="stars">★★★★★</div>
-                    <div>5.0/5 (892 reseñas verificadas)</div>
+    <!-- Technology Section -->
+    <section class="technology" id="technology">
+        <div class="tech-container">
+            <h2 class="tech-title">Built on Innovation</h2>
+            <p class="tech-subtitle">Every component designed to work in harmony</p>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Next-generation processor delivers groundbreaking speed and power efficiency for seamless performance.</p>
                 </div>
-
-                <div class="price-section">
-                    <div class="price-label">Precio</div>
-                    <div>
-                        <span class="price-current">$249.99</span>
-                        <span class="discount-badge">-20%</span>
-                    </div>
-                    <div class="price-original">Precio original: $312.99</div>
+                <div class="tech-card">
+                    <div class="tech-icon">🎥</div>
+                    <h3>Pro Cameras</h3>
+                    <p>Advanced optical system with computational photography that captures stunning images in any light.</p>
                 </div>
-
-                <div class="buttons">
-                    <button class="btn btn-primary">� Ver Comparativa de Specs</button>
-                    <button class="btn btn-secondary">🖼️ Galería 360° de Colores</button>
+                <div class="tech-card">
+                    <div class="tech-icon">🔋</div>
+                    <h3>All-Day Battery</h3>
+                    <p>Intelligent power management keeps you going throughout the day and into the night.</p>
                 </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🛡️</div>
+                    <h3>Privacy & Security</h3>
+                    <p>Industry-leading security features protect your data with hardware-based security keys.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🌐</div>
+                    <h3>5G Connectivity</h3>
+                    <p>Ultra-fast 5G networks enable next-generation experiences with blazing-fast speeds.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">♿</div>
+                    <h3>Accessibility</h3>
+                    <p>Designed for everyone. Powerful accessibility features empower people of all abilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="features">
-                    <h3>✓ Especificaciones Técnicas Detalladas</h3>
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <h2 class="testimonials-title">Loved by Professionals</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"This is the most impressive piece of technology I've ever used. The performance is incredible and the design is flawless."</p>
+                    <div class="testimonial-author">Alex Chen</div>
+                    <div class="testimonial-role">Tech Reviewer, Digital Weekly</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"As a photographer, I'm blown away by the camera system. The computational photography is a game-changer for my work."</p>
+                    <div class="testimonial-author">Sarah Martinez</div>
+                    <div class="testimonial-role">Professional Photographer</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"The battery life is unreal. I've been using it all day without worry. This is exactly what professionals need."</p>
+                    <div class="testimonial-author">James Wilson</div>
+                    <div class="testimonial-role">Software Developer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to Experience the Future?</h2>
+            <p>Pre-order now and be among the first to get Tech Pro.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-white">Pre-order Now</button>
+                <button class="btn btn-outline">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Shop</h4>
                     <ul>
-                        <li><strong>Especificaciones de Precisión:</strong> Pantalla AMOLED 360° • 1000 nits de brillo • 454 PPI</li>
-                        <li><strong>Comparativa Visual Interactiva:</strong> Vs otros wearables premium • Tabla lado a lado</li>
-                        <li><strong>Feature Showcase Dinámico:</strong> Videos de uso real • Integración con apps populares (Spotify, WhatsApp, Google Pay)</li>
+                        <li><a href="#">Tech Pro</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">Bundles</a></li>
+                        <li><a href="#">Compare</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Warranty</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
                     </ul>
                 </div>
             </div>
-        </div>
-
-        <div class="full-description">
-            <h2>Innovación Minimalista Futurista</h2>
-            
-            <p>
-                El <strong>Smartwatch Ultra Pro 5</strong> representa la perfección en diseño minimalista y tecnología futurista. 
-                Con procesador de última generación, pantalla AMOLED y conectividad 5G, es el único dispositivo wearable 
-                que funciona independientemente de tu smartphone. Perfecto para profesionales tech-forward y atletas de élite.
-            </p>
-
-            <p>
-                <strong>Por Qué Elegir Este Wearable:</strong> Es el único en su clase con certificación médica FDA, 
-                10 días de batería real (no 7), y compatibilidad nativa con el ecosistema completo (iOS, Android, Windows). 
-                Diseño minimalista elegante con 12 colores personalizados. Garantía premium 2 años + soporte 24/7.
-            </p>
-
-            <div class="gallery-section">
-                <h3>🖼️ Galería de 360° | Todos los ángulos</h3>
-                <div class="gallery-carousel">
-                    <div class="gallery-item"><img src="https://via.placeholder.com/200x200?text=Vista+Frontal" alt="Frontal"></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/200x200?text=Vista+Lateral" alt="Lateral"></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/200x200?text=Pantalla" alt="Pantalla"></div>
-                    <div class="gallery-item"><img src="https://via.placeholder.com/200x200?text=Detalles" alt="Detalles"></div>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TechCorp Inc. All rights reserved.</p>
             </div>
-
-            <h3 style="margin-top: 40px; margin-bottom: 20px;">📊 Tabla Comparativa | Specs Técnicas Detalladas</h3>
-            <table class="specs-table">
-                <thead>
-                    <tr>
-                        <th>Característica</th>
-                        <th>Ultra Pro 5</th>
-                        <th>Competencia Premium</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Procesador</strong></td>
-                        <td>Snapdragon Wear 5100+ Octa-Core<span class="comparison-badge">Líder</span></td>
-                        <td>Snapdragon Wear 5100</td>
-                    </tr>
-                    <tr>
-                        <td><strong>RAM / Almacenamiento</strong></td>
-                        <td>2GB LPDDR5 / 16GB UFS<span class="comparison-badge">+50%</span></td>
-                        <td>1GB / 8GB</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Pantalla</strong></td>
-                        <td>AMOLED 1.4" 454x454px (454 PPI)<span class="comparison-badge">Máxima Definición</span></td>
-                        <td>AMOLED 1.3" 454x454px</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Batería Real</strong></td>
-                        <td>10 días de uso real<span class="comparison-badge">+40% uso</span></td>
-                        <td>7 días</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Sensores de Salud</strong></td>
-                        <td>ECG, SpO2, Ritmo, Estrés, Sueño<span class="comparison-badge">FDA</span></td>
-                        <td>ECG, SpO2, Ritmo</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Conectividad</strong></td>
-                        <td>WiFi 6E, 5G independiente, NFC<span class="comparison-badge">Futuro-Proof</span></td>
-                        <td>WiFi 5, Bluetooth 5.2</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Resistencia</strong></td>
-                        <td>10 ATM + Gorilla Glass Armor<span class="comparison-badge">Máxima</span></td>
-                        <td>5 ATM + Gorilla Glass</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="tech-specs">
-                <h4>🔧 Especificaciones Técnicas Completas</h4>
-                <p><strong>Procesador:</strong> Snapdragon Wear 5100+ Octa-Core | <strong>RAM:</strong> 2GB LPDDR5 | <strong>Almacenamiento:</strong> 16GB UFS</p>
-                <p><strong>Pantalla:</strong> AMOLED 1.4" (454x454px, 454 PPI) | <strong>Batería:</strong> 500mAh (10 días real) | <strong>Peso:</strong> 51g</p>
-                <p><strong>Sensores Avanzados:</strong> GPS dual-band, Brújula, Acelerómetro, Giroscopio, Altímetro, Sensor de luz, ECG certificado FDA</p>
-                <p><strong>Conectividad Integrada:</strong> WiFi 6E, Bluetooth 5.3, 5G independiente, NFC | <strong>Resistencia:</strong> 10 ATM + Gorilla Glass Armor</p>
-            </div>
-
-            <h3 style="margin-top: 30px; margin-bottom: 15px;">📦 Contenido Premium Incluido</h3>
-            <p>Smartwatch Ultra Pro 5 • 4 Correas intercambiables premium • Cable USB-C magnético carga rápida • Protector de pantalla tempered glass Gorilla • Garantía 2 años transferible • Soporte técnico 24/7 multiidioma</p>
         </div>
-
-        <div class="footer">
-            <div class="footer-links">
-                <a href="#">Soporte Técnico</a>
-                <a href="#">Garantía</a>
-                <a href="#">Contacto</a>
-            </div>
-            <p>© 2026 Tech Templates | Innovación en cada pixel</p>
-        </div>
-    </div>
-
-    <a href="../" class="back-button">← Volver al Component Book</a>
+    </footer>
 </body>
 </html>
