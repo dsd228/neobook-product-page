@@ -2772,7 +2772,7 @@
             <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
                 <span></span>
                 <span></span>
-                <span></span>
+                <span></span>https://dsd228.github.io/neobook-product-page/
             </button>
             
             <nav class="header-nav" role="navigation" aria-label="Navegación principal">
@@ -2858,6 +2858,13 @@
                 <div class="badge-item"><svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg><span>Metodología UX probada</span></div>
                 <div class="badge-item"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg><span>Design System + Prototipado</span></div>
                 <div class="badge-item"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span>Métricas & Testing</span></div>
+            </div>
+
+            <!-- SKIP TO PLANS BUTTON -->
+            <div style="margin-top: 30px; text-align: center;">
+                <a href="#servicios" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(164, 210, 244, 0.1); color: var(--acento-principal); text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 600; transition: all 0.2s ease; border: 1px solid rgba(164, 210, 244, 0.2);" onmouseover="this.style.background='rgba(164, 210, 244, 0.15)'; this.style.borderColor='rgba(164, 210, 244, 0.4)'" onmouseout="this.style.background='rgba(164, 210, 244, 0.1)'; this.style.borderColor='rgba(164, 210, 244, 0.2)'">
+                    ↓ Ver planes directamente
+                </a>
             </div>
         </div>
     </section>
@@ -5301,6 +5308,28 @@
             });
         });
     </script>
+
+    <!-- HIDDEN SECTIONS FOR SIMPLIFIED HOMEPAGE (UX OPTIMIZATION: Hide non-essential sections per 12 Laws of UX) -->
+    <style>
+        /* Hide non-essential sections to reduce cognitive load and improve conversion */
+        /* Keep visible: Hero, Quién soy, Servicios, Testimonios, Casos, Proceso, FAQ, CTA */
+        .stylebook { display: none !important; }
+        .style-designer { display: none !important; }
+        section[style*="linear-gradient(135deg, #F0F4F8"] { display: none !important; } /* DESIGN SYSTEM */
+        .amazon-playbook { display: none !important; }
+        .neobook-templates { display: none !important; }
+        .premium-guides { display: none !important; }
+        
+        /* Hide "Tendencias 2026" and "Planes Personalizados" sections */
+        section[id="tendencias"],
+        section[id="planes-personalizados"] { display: none !important; }
+        
+        /* Also hide nav links to hidden sections */
+        a[href="#amazon-playbook"],
+        a[href="#tendencias"],
+        a[href="#planes-personalizados"],
+        a[href="#estilo-designer"] { display: none !important; }
+    </style>
 
 </body>
 </html>
