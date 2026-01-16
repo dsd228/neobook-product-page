@@ -135,6 +135,19 @@
     .social-links a { color: #000; font-size: 1.25rem; transition: color 0.3s; text-decoration: none; }
     .social-links a:hover { color: #667eea; }
 
+    /* Dropdown Menu */
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-trigger { cursor: pointer; display: flex; align-items: center; gap: 6px; color: #666; font-size: 0.95rem; text-decoration: none; transition: color 0.3s; }
+    .dropdown-trigger:hover { color: #000; }
+    .dropdown-trigger::after { content: '▼'; font-size: 0.7rem; transition: transform 0.3s; }
+    .nav-dropdown:hover .dropdown-trigger::after { transform: rotate(180deg); }
+    .dropdown-menu { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #e5e5e5; border-radius: 8px; min-width: 220px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s; z-index: 999; margin-top: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .dropdown-menu a { display: block; padding: 12px 20px; color: #666; text-decoration: none; transition: all 0.3s; }
+    .dropdown-menu a:hover { background: #f9f9f9; color: #000; }
+    .dropdown-menu a:first-child { border-radius: 8px 8px 0 0; }
+    .dropdown-menu a:last-child { border-radius: 0 0 8px 8px; }
+
     @media (max-width: 768px) {
       .hero-content { grid-template-columns: 1fr; gap: 40px; }
       .hero h1 { font-size: 2.5rem; }
@@ -148,7 +161,17 @@
   <div class="nav-container">
     <div class="logo">NeoProdUx</div>
     <div style="display: flex; gap: 40px; align-items: center;">
-      <a href="#servicios">Servicios</a>
+      <div class="nav-dropdown">
+        <a href="#servicios" class="dropdown-trigger">Servicios</a>
+        <div class="dropdown-menu">
+          <a href="#servicios">Diseño UI-UX</a>
+          <a href="#servicios">Diseño de aplicaciones móviles</a>
+          <a href="#servicios">Diseño de sitios web</a>
+          <a href="#servicios">Figma a HTML</a>
+          <a href="#servicios">Figma a WordPress</a>
+          <a href="#servicios">Figma a Webflow</a>
+        </div>
+      </div>
       <a href="#proyectos">Proyectos</a>
       <a href="#proceso">Proceso</a>
       <a href="#faq">FAQ</a>
