@@ -1,0 +1,28 @@
+/* Estilo para el carrusel en el hero */
+.hero-carousel {
+    perspective: 1000px;
+}
+
+.hero-carousel .carousel-item {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.hero-carousel .carousel-inner {
+    position: relative;
+    transform: rotateY(0deg);
+}
+
+.hero-carousel .carousel-item.active {
+    transform: rotateY(0deg);
+}
+
+.hero-carousel .carousel-item-next,
+.hero-carousel .carousel-item-prev {
+    transform: rotateY(90deg);
+}
+
+.hero-carousel .carousel-item-left,
+.hero-carousel .carousel-item-right {
+    transform: rotateY(-90deg);
+}
