@@ -99,11 +99,41 @@
             --z-modal: 1200;
         }
         
-        /* ACCESIBILIDAD - Focus states mejorados */
+        /* ACCESIBILIDAD - Focus states mejorados (WCAG AAA) */
         *:focus-visible {
             outline: 3px solid var(--acento-principal);
-            outline-offset: 2px;
+            outline-offset: 3px;
             border-radius: 4px;
+            box-shadow: 0 0 0 6px rgba(164, 210, 244, 0.25);
+        }
+        
+        /* Skip to main content link (accesibilidad teclado) */
+        .skip-to-main {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--acento-principal);
+            color: var(--texto-principal);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 9999;
+            border-radius: 0 0 8px 0;
+            transition: top 0.3s ease;
+        }
+        
+        .skip-to-main:focus {
+            top: 0;
+        }
+        
+        /* Mejor contraste para textos (WCAG AAA - ratio 7:1) */
+        .texto-accesible {
+            color: #1a2332;
+        }
+        
+        /* Links con contraste mejorado */
+        a {
+            transition: var(--transition-base);
         }
         
         body { 
@@ -150,8 +180,34 @@
         
         p { margin-bottom: var(--space-md); line-height: var(--line-height-relaxed); }
         
-        a { color: var(--acento-principal); text-decoration: none; transition: var(--transition-base); }
-        a:hover { color: #E89B98; }
+        /* Links navigation - no underline */
+        .header-nav a,
+        .nav-item > a,
+        .footer-grid a {
+            color: var(--acento-principal);
+            text-decoration: none;
+            transition: var(--transition-base);
+        }
+        
+        .header-nav a:hover,
+        .nav-item > a:hover,
+        .footer-grid a:hover {
+            color: #E89B98;
+        }
+        
+        /* Content links - with underline for better accessibility */
+        main a:not(.btn):not(.btn-primary):not(.btn-secondary),
+        section a:not(.btn):not(.btn-primary):not(.btn-secondary):not([class*="pricing"]):not([class*="hero"]) {
+            color: #0066cc;
+            text-decoration: underline;
+            text-decoration-color: rgba(0, 102, 204, 0.3);
+        }
+        
+        main a:not(.btn):hover,
+        section a:not(.btn):hover {
+            color: #004999;
+            text-decoration-color: rgba(0, 73, 153, 0.6);
+        }
 
         /* SISTEMA DE ICONOS SVG MINIMALISTA */
         .icon {
@@ -690,7 +746,8 @@
         }
         .btn-primary:hover {
             box-shadow: var(--shadow-lg-up);
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.02);
+            background: linear-gradient(135deg, rgba(164, 210, 244, 0.15), rgba(164, 210, 244, 0.08));
         }
         .btn-primary:active,
         .btn-primary.active {
@@ -735,30 +792,320 @@
         }
         .badge-item .icon { color: var(--acento-principal) }
 
-        @media (max-width: 768px) {
+        /* ===== RESPONSIVE DESIGN - Media Queries Optimizadas ===== */
+        
+        /* Mobile First: Base styles optimizados para móvil */
+        @media (max-width: 767px) {
+            /* Ley de Fitts: Botones táctiles mínimo 44px */
+            .btn, .btn-primary, .btn-secondary {
+                min-height: 48px;
+                padding: 16px 28px;
+                font-size: 16px;
+            }
+            
+            /* Header móvil optimizado */
+            .header {
+                padding: var(--space-md) var(--space-md);
+            }
+            
+            .logo {
+                font-size: 22px;
+            }
+            
+            /* Menú hamburguesa visible */
+            .menu-toggle {
+                display: block;
+                min-width: 44px;
+                min-height: 44px;
+            }
+            
+            .header-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--blanco-puro);
+                box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+                flex-direction: column;
+                padding: 80px 20px 20px;
+                gap: 0;
+                transition: right 0.3s ease;
+                z-index: 1000;
+                overflow-y: auto;
+            }
+            
+            .header-nav.active {
+                right: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid rgba(164, 210, 244, 0.2);
+            }
+            
+            .nav-item > a {
+                display: block;
+                padding: 16px 0;
+                font-size: 16px;
+            }
+            
+            /* Mostrar botón CTA en mobile nav */
+            .header-nav .header-cta {
+                display: block;
+                margin-top: 20px;
+                text-align: center;
+            }
+            
+            /* Dropdown en móvil */
+            .dropdown-menu {
+                position: static;
+                transform: none;
+                margin-top: 0;
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease, opacity 0.3s ease;
+                box-shadow: none;
+                border: none;
+                background: rgba(164, 210, 244, 0.05);
+            }
+            
+            .nav-item.has-dropdown.active .dropdown-menu {
+                opacity: 1;
+                max-height: 500px;
+            }
+            
+            /* Hero móvil - Ley de Hicks: Simplificación */
             .hero {
-                padding: var(--space-4xl) var(--space-md);
+                padding: 60px var(--space-md) 80px;
                 min-height: auto;
             }
-            .hero h1 { font-size: 48px; }
+            
+            .hero h1 { 
+                font-size: clamp(36px, 10vw, 48px);
+                line-height: 1.15;
+                margin-bottom: 16px;
+            }
+            
+            .hero-eyebrow {
+                font-size: 11px;
+                padding: 6px 12px;
+                margin-bottom: 16px;
+            }
+            
             .hero-subtitle {
                 font-size: 16px;
+                line-height: 1.6;
                 margin-bottom: var(--space-xl);
+                padding: 0 var(--space-sm);
             }
+            
+            /* Stats responsive */
             .hero-stats {
                 gap: var(--space-md);
-                margin: var(--space-lg) 0;
+                margin: 30px 0;
+                flex-direction: column;
             }
+            
             .stat-item {
-                min-width: 150px;
-                padding: var(--space-md);
+                min-width: 100%;
+                padding: var(--space-lg);
             }
+            
+            .stat-number {
+                font-size: 36px;
+            }
+            
+            .stat-label {
+                font-size: 12px;
+            }
+            
+            /* CTA buttons - Ley de Fitts */
             .hero-cta-row {
                 gap: var(--space-md);
                 margin-top: var(--space-xl);
+                flex-direction: column;
             }
-            section#case-studies {
-                padding: 90px 16px !important;
+            
+            .hero-cta-row .btn-primary,
+            .hero-cta-row .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            /* Tipografía móvil - Jerarquía Visual */
+            h1 { font-size: clamp(32px, 9vw, 56px); }
+            h2 { font-size: clamp(28px, 7vw, 36px); line-height: 1.2; }
+            h3 { font-size: clamp(20px, 5vw, 24px); }
+            h4 { font-size: 20px; }
+            h5 { font-size: 18px; }
+            
+            p {
+                font-size: 15px;
+                line-height: 1.65;
+            }
+            
+            /* Sections padding móvil */
+            section {
+                padding: 60px 20px;
+            }
+            
+            .section-header h2 {
+                font-size: clamp(28px, 7vw, 36px);
+                margin-bottom: 16px;
+            }
+            
+            .section-header p {
+                font-size: 16px;
+            }
+            
+            /* Case studies grid */
+            section#case-studies,
+            .portafolio {
+                padding: 60px 16px;
+            }
+            
+            /* Pricing cards móvil */
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .pricing-card {
+                padding: 32px 24px;
+            }
+            
+            /* FAQ móvil */
+            .faq-container {
+                padding: 0 var(--space-md);
+            }
+            
+            .faq-question {
+                padding: 16px;
+                font-size: 15px;
+            }
+            
+            .faq-answer {
+                padding: 16px;
+                font-size: 14px;
+            }
+            
+            /* Footer móvil */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            /* Formulario móvil */
+            .contact-form-simple > div {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .contact-form-simple input,
+            .contact-form-simple textarea {
+                font-size: 16px; /* Evita zoom en iOS */
+            }
+            
+            /* WhatsApp float móvil */
+            .whatsapp-float {
+                right: 16px;
+                bottom: 16px;
+                width: 56px;
+                height: 56px;
+            }
+        }
+        
+        /* Tablet: 768px - 1024px */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .hero h1 {
+                font-size: clamp(52px, 6vw, 64px);
+            }
+            
+            .hero-subtitle {
+                font-size: 17px;
+                max-width: 600px;
+            }
+            
+            .hero-stats {
+                gap: 30px;
+            }
+            
+            .stat-item {
+                min-width: 200px;
+            }
+            
+            h2 {
+                font-size: clamp(32px, 4vw, 42px);
+            }
+            
+            .pricing-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+            }
+            
+            .header-nav {
+                gap: 20px;
+            }
+            
+            section {
+                padding: 80px 32px;
+            }
+        }
+        
+        /* Desktop grande: 1440px+ */
+        @media (min-width: 1440px) {
+            .hero h1 {
+                font-size: 82px;
+            }
+            
+            .container,
+            .hero-content {
+                max-width: 1400px;
+            }
+            
+            .section-header h2 {
+                font-size: 64px;
+            }
+        }
+        
+        /* Landscape móvil */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                min-height: auto;
+                padding: 40px var(--space-md);
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero-stats {
+                flex-direction: row;
+                gap: 20px;
+            }
+        }
+        
+        /* Accesibilidad: Respeta preferencias de movimiento */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Dark mode support (respeta preferencias del sistema) */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --fondo-principal: #1a1f2e;
+                --fondo-secundario: #242936;
+                --texto-principal: #e9ecef;
+                --texto-secundario: #c1c7d0;
+                --texto-terciario: #8b92a0;
             }
         }
 
@@ -2775,6 +3122,8 @@
     </style>
 </head>
 <body>
+    <!-- Skip to main content (Accesibilidad para navegación por teclado) -->
+    <a href="#main-content" class="skip-to-main">Saltar al contenido principal</a>
 
     <!-- HEADER -->
     <header class="header" role="banner">
@@ -2819,7 +3168,7 @@
     </header>
 
     <!-- HERO - PRODUCT DESIGNER PORTFOLIO -->
-    <section class="hero">
+    <section class="hero" id="main-content" role="main">
         <div class="hero-content">
             <span class="hero-eyebrow">David Díaz — UX/Product Designer</span>
             <h1>Productos digitales que convierten <br/>Investigación + Diseño + Datos</h1>
