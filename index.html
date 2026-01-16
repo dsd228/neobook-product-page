@@ -67,7 +67,7 @@
     .services-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
     .service-card { background: #f9f9f9; padding: 40px; border-radius: 12px; transition: all 0.4s; border: 1px solid #e5e5e5; }
     .service-card:hover { transform: translateY(-12px); border-color: #000; background: #fff; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1); }
-    .service-icon { font-size: 2.5rem; margin-bottom: 20px; display: inline-block; }
+    .service-icon { width: 100%; height: 200px; margin-bottom: 20px; display: block; background-size: cover; background-position: center; background-repeat: no-repeat; border-radius: 8px; }
     .service-card h3 { font-size: 1.5rem; margin-bottom: 16px; color: #000; }
     .service-card p { color: #666; line-height: 1.7; font-size: 0.95rem; }
 
@@ -213,17 +213,17 @@
   </div>
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-icon">🎨</div>
+      <div class="service-icon" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=200&fit=crop');"></div>
       <h3>UX/UI Design</h3>
       <p>Investigación profunda, prototipos iterativos y diseño centrado en el usuario que convierte visitas en resultados.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">📊</div>
+      <div class="service-icon" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=200&fit=crop');"></div>
       <h3>Product Strategy</h3>
       <p>Análisis de datos, validación de mercado y roadmap basado en insights reales de usuarios y negocio.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">🔧</div>
+      <div class="service-icon" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=200&fit=crop');"></div>
       <h3>Design System</h3>
       <p>Componentes reutilizables, guías de diseño y tokens que escalan con tu producto a largo plazo.</p>
     </div>
