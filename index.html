@@ -10,1122 +10,380 @@
     @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      background: #ffffff;
-      color: #1a1a1a;
-      overflow-x: hidden;
-      font-family: 'Inter', sans-serif;
-    }
+    body { background: #ffffff; color: #1a1a1a; overflow-x: hidden; font-family: "Inter", sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: "Sora", sans-serif; font-weight: 700; }
 
-    h1, h2, h3, h4, h5, h6 { font-family: 'Sora', sans-serif; font-weight: 700; }
-
-    /* Navbar */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      padding: 16px 0;
-      transition: all 0.3s;
-    }
-
-    .nav-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
+    nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding: 16px 0; }
+    .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
     .logo { font-size: 1.3rem; font-weight: 800; color: #000; }
-
-    nav a { color: #666; font-size: 0.95rem; transition: color 0.3s; }
+    nav a { color: #666; font-size: 0.95rem; transition: color 0.3s; text-decoration: none; }
     nav a:hover { color: #000; }
-
-    .nav-cta {
-      background: #000;
-      color: #fff;
-      padding: 10px 24px;
-      border-radius: 8px;
-      transition: all 0.3s;
-    }
-
-    .nav-cta:hover {
-      background: #333;
-      transform: scale(1.05);
-    }
-
-    /* Hero Section */
-    .hero {
-      padding-top: 140px;
-      padding-bottom: 80px;
-      background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .hero-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .hero-text {
-      text-align: left;
-    }
-
-    .hero h1 {
-      font-size: 4rem;
-      line-height: 1.2;
-      margin-bottom: 24px;
-      font-weight: 800;
-      color: #000;
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      color: #666;
-      margin-bottom: 40px;
-      line-height: 1.7;
-      font-weight: 400;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 14px 32px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-
-    .btn-primary {
-      background: #000;
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: #333;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: #000;
-      border: 2px solid #000;
-    }
-
-    .btn-secondary:hover {
-      background: #000;
-      color: #fff;
-    }
-
-    /* CAROUSEL 3D ROTATIVO */
-    .hero-carousel {
-      position: relative;
-      width: 100%;
-      height: 450px;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #f0f0f0;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-      perspective: 1200px;
-    }
-
-    .carousel-container {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      animation: rotateCarousel 20s linear infinite;
-    }
-
-    @keyframes rotateCarousel {
-      0% { transform: rotateY(0deg); }
-      100% { transform: rotateY(360deg); }
-    }
-
-    .carousel-slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 120px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      backface-visibility: hidden;
-    }
-
-    /* Posicionamiento de slides en rotación 3D */
-    .carousel-slide:nth-child(1) {
-      transform: rotateY(0deg) translateZ(0);
-    }
-
-    .carousel-slide:nth-child(2) {
-      transform: rotateY(90deg) translateZ(0);
-    }
-
-    .carousel-slide:nth-child(3) {
-      transform: rotateY(180deg) translateZ(0);
-    }
-
-    .carousel-slide:nth-child(4) {
-      transform: rotateY(270deg) translateZ(0);
-    }
-
-    .carousel-dots {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 10;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.6);
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .dot.active {
-      background: #fff;
-      width: 24px;
-      border-radius: 4px;
-    }
-
-    /* Clients Marquee */
-    .clients-section {
-      padding: 60px 40px;
-      background: #f9f9f9;
-      border-top: 1px solid #e5e5e5;
-      border-bottom: 1px solid #e5e5e5;
-    }
-
-    .clients-title {
-      text-align: center;
-      color: #999;
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 30px;
-      letter-spacing: 0.5px;
-    }
-
-    .marquee-wrapper {
-      overflow: hidden;
-    }
-
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-
-    .marquee {
-      display: flex;
-      gap: 40px;
-      animation: marquee 40s linear infinite;
-    }
-
-    .marquee-item {
-      white-space: nowrap;
-      color: #999;
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
-
-    /* Stats */
-    .stats {
-      padding: 60px 40px;
-      background: #fff;
-      border-bottom: 1px solid #e5e5e5;
-    }
-
-    .stats-grid {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      text-align: center;
-    }
-
-    .stat-item h3 {
-      font-size: 3.5rem;
-      color: #000;
-      margin-bottom: 12px;
-      font-weight: 800;
-    }
-
-    .stat-item p {
-      color: #666;
-      font-size: 1rem;
-      font-weight: 500;
-    }
-
-    /* Services */
-    .services {
-      padding: 100px 40px;
-      background: #fff;
-    }
-
-    .section-title {
-      max-width: 1400px;
-      margin: 0 auto 60px;
-    }
-
-    .section-title h2 {
-      font-size: 3.5rem;
-      color: #000;
-      margin-bottom: 16px;
-      line-height: 1.2;
-      font-weight: 800;
-    }
-
-    .section-title p {
-      color: #666;
-      font-size: 1.15rem;
-      max-width: 500px;
-      line-height: 1.6;
-    }
-
-    .services-grid {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-    }
-
-    .service-card {
-      background: #f9f9f9;
-      padding: 40px;
-      border-radius: 12px;
-      transition: all 0.4s;
-      border: 1px solid #e5e5e5;
-    }
-
-    .service-card:hover {
-      transform: translateY(-12px);
-      border-color: #000;
-      background: #fff;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-    }
-
-    .service-icon {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      display: inline-block;
-    }
-
-    .service-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-      color: #000;
-      font-weight: 700;
-    }
-
-    .service-card p {
-      color: #666;
-      line-height: 1.7;
-      font-size: 0.95rem;
-    }
-
-    /* Projects */
-    .projects {
-      padding: 100px 40px;
-      background: #f9f9f9;
-      border-bottom: 1px solid #e5e5e5;
-    }
-
-    .projects-grid {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .project-card {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #e5e5e5;
-      transition: all 0.4s;
-      cursor: pointer;
-    }
-
-    .project-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-      border-color: #000;
-    }
-
-    .project-image {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 80px;
-      overflow: hidden;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .project-content {
-      padding: 24px;
-    }
-
-    .project-tag {
-      display: inline-block;
-      background: #f0f0f0;
-      color: #666;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-    }
-
-    .project-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 12px;
-      color: #000;
-      font-weight: 700;
-    }
-
-    .project-card p {
-      color: #666;
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-
-    /* Process */
-    .process {
-      padding: 100px 40px;
-      background: #fff;
-    }
-
-    .process-grid {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 32px;
-    }
-
-    .process-step {
-      text-align: center;
-    }
-
-    .step-number {
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: #000;
-      margin-bottom: 16px;
-    }
-
-    .process-step h3 {
-      font-size: 1.3rem;
-      margin-bottom: 12px;
-      color: #000;
-      font-weight: 700;
-    }
-
-    .process-step p {
-      color: #666;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    /* Testimonials */
-    .testimonials {
-      padding: 100px 40px;
-      background: #f9f9f9;
-      border-bottom: 1px solid #e5e5e5;
-    }
-
-    .testimonials-grid {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-    }
-
-    .testimonial-card {
-      background: #fff;
-      padding: 40px;
-      border-radius: 12px;
-      border: 1px solid #e5e5e5;
-      transition: all 0.4s;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-    }
-
-    .rating {
-      color: #fbbf24;
-      margin-bottom: 16px;
-      font-size: 1.1rem;
-    }
-
-    .testimonial-text {
-      color: #333;
-      font-style: italic;
-      margin-bottom: 20px;
-      line-height: 1.8;
-    }
-
-    .testimonial-author {
-      font-weight: 600;
-      color: #000;
-      margin-bottom: 4px;
-    }
-
-    .testimonial-role {
-      color: #999;
-      font-size: 0.9rem;
-    }
-
-    /* FAQ */
-    .faq {
-      padding: 100px 40px;
-      background: #fff;
-    }
-
-    .faq-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    details {
-      margin-bottom: 16px;
-    }
-
-    details summary {
-      cursor: pointer;
-      padding: 24px;
-      background: #f9f9f9;
-      border: 1px solid #e5e5e5;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      user-select: none;
-      transition: all 0.3s;
-    }
-
-    details summary:hover {
-      background: #fff;
-      border-color: #000;
-    }
-
-    details summary::after {
-      content: '+';
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
-
-    details[open] summary::after {
-      content: '−';
-    }
-
-    details[open] summary {
-      background: #fff;
-      border-color: #000;
-    }
-
-    details p {
-      padding: 24px;
-      color: #666;
-      line-height: 1.8;
-    }
-
-    /* Blog */
-    .blog {
-      padding: 100px 40px;
-      background: #f9f9f9;
-      border-bottom: 1px solid #e5e5e5;
-    }
-
-    .blog-grid {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-    }
-
-    .blog-card {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #e5e5e5;
-      transition: all 0.4s;
-    }
-
-    .blog-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-    }
-
-    .blog-image {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 60px;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .blog-content {
-      padding: 24px;
-    }
-
-    .blog-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-      color: #000;
-      font-weight: 700;
-    }
-
-    .blog-card p {
-      color: #666;
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-
-    /* CTA */
-    .cta {
-      padding: 80px 40px;
-      background: #000;
-      color: #fff;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: 2.5rem;
-      margin-bottom: 24px;
-      font-weight: 800;
-    }
-
-    .cta p {
-      font-size: 1.1rem;
-      color: #ccc;
-      margin-bottom: 40px;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .cta-buttons .btn {
-      background: #fff;
-      color: #000;
-    }
-
-    .cta-buttons .btn:hover {
-      background: #e5e5e5;
-    }
-
-    /* Footer */
-    footer {
-      background: #f9f9f9;
-      padding: 60px 40px;
-      border-top: 1px solid #e5e5e5;
-    }
-
-    .footer-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-
-    .footer-section h3 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #000;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .footer-section ul {
-      list-style: none;
-    }
-
-    .footer-section li {
-      margin-bottom: 12px;
-    }
-
-    .footer-section a {
-      color: #666;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.3s;
-    }
-
-    .footer-section a:hover {
-      color: #000;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #e5e5e5;
-      padding-top: 40px;
-      text-align: center;
-      color: #999;
-      font-size: 0.9rem;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .social-links a {
-      color: #000;
-      font-size: 1.25rem;
-      transition: color 0.3s;
-    }
-
-    .social-links a:hover {
-      color: #667eea;
-    }
+    .nav-cta { background: #000; color: #fff; padding: 10px 24px; border-radius: 8px; transition: all 0.3s; }
+    .nav-cta:hover { background: #333; transform: scale(1.05); }
+
+    .hero { padding-top: 140px; padding-bottom: 80px; background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%); overflow: hidden; }
+    .hero-content { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero-text { text-align: left; }
+    .hero h1 { font-size: 4rem; line-height: 1.2; margin-bottom: 24px; font-weight: 800; color: #000; }
+    .hero p { font-size: 1.15rem; color: #666; margin-bottom: 40px; line-height: 1.7; }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn { padding: 14px 32px; border-radius: 8px; font-weight: 600; transition: all 0.3s; border: none; cursor: pointer; font-size: 1rem; }
+    .btn-primary { background: #000; color: #fff; }
+    .btn-primary:hover { background: #333; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
+    .btn-secondary { background: transparent; color: #000; border: 2px solid #000; }
+    .btn-secondary:hover { background: #000; color: #fff; }
+
+    /* CAROUSEL 3D */
+    .hero-carousel { position: relative; width: 100%; height: 450px; border-radius: 16px; overflow: hidden; background: #f0f0f0; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12); perspective: 1200px; }
+    .carousel-container { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; animation: rotateCarousel 20s linear infinite; }
+    @keyframes rotateCarousel { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
+    .carousel-slide { position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; background-repeat: no-repeat; backface-visibility: hidden; }
+    .carousel-slide:nth-child(1) { transform: rotateY(0deg) translateZ(0); }
+    .carousel-slide:nth-child(2) { transform: rotateY(90deg) translateZ(0); }
+    .carousel-slide:nth-child(3) { transform: rotateY(180deg) translateZ(0); }
+    .carousel-slide:nth-child(4) { transform: rotateY(270deg) translateZ(0); }
+    .carousel-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.6); cursor: pointer; transition: all 0.3s; }
+    .dot.active { background: #fff; width: 24px; border-radius: 4px; }
+
+    .clients-section { padding: 60px 40px; background: #f9f9f9; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }
+    .clients-title { text-align: center; color: #999; font-size: 0.95rem; font-weight: 600; margin-bottom: 30px; letter-spacing: 0.5px; }
+    .marquee-wrapper { overflow: hidden; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+    .marquee { display: flex; gap: 40px; animation: marquee 40s linear infinite; }
+    .marquee-item { white-space: nowrap; color: #999; font-weight: 500; font-size: 0.95rem; }
+
+    .stats { padding: 60px 40px; background: #fff; border-bottom: 1px solid #e5e5e5; }
+    .stats-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
+    .stat-item h3 { font-size: 3.5rem; color: #000; margin-bottom: 12px; font-weight: 800; }
+    .stat-item p { color: #666; font-size: 1rem; font-weight: 500; }
+
+    .services { padding: 100px 40px; background: #fff; }
+    .section-title { max-width: 1400px; margin: 0 auto 60px; }
+    .section-title h2 { font-size: 3.5rem; color: #000; margin-bottom: 16px; line-height: 1.2; }
+    .section-title p { color: #666; font-size: 1.15rem; max-width: 500px; line-height: 1.6; }
+    .services-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+    .service-card { background: #f9f9f9; padding: 40px; border-radius: 12px; transition: all 0.4s; border: 1px solid #e5e5e5; }
+    .service-card:hover { transform: translateY(-12px); border-color: #000; background: #fff; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1); }
+    .service-icon { font-size: 2.5rem; margin-bottom: 20px; display: inline-block; }
+    .service-card h3 { font-size: 1.5rem; margin-bottom: 16px; color: #000; }
+    .service-card p { color: #666; line-height: 1.7; font-size: 0.95rem; }
+
+    .projects { padding: 100px 40px; background: #f9f9f9; border-bottom: 1px solid #e5e5e5; }
+    .projects-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .project-card { background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e5e5e5; transition: all 0.4s; cursor: pointer; }
+    .project-card:hover { transform: translateY(-12px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1); border-color: #000; }
+    .project-image { width: 100%; height: 200px; background: linear-gradient(135deg, #667eea, #764ba2); background-size: cover; background-position: center; overflow: hidden; }
+    .project-content { padding: 24px; }
+    .project-tag { display: inline-block; background: #f0f0f0; color: #666; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; }
+    .project-card h3 { font-size: 1.3rem; margin-bottom: 12px; color: #000; }
+    .project-card p { color: #666; font-size: 0.9rem; line-height: 1.5; }
+
+    .process { padding: 100px 40px; background: #fff; }
+    .process-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px; }
+    .process-step { text-align: center; }
+    .step-number { font-size: 3.5rem; font-weight: 800; color: #000; margin-bottom: 16px; }
+    .process-step h3 { font-size: 1.3rem; margin-bottom: 12px; color: #000; }
+    .process-step p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+
+    .testimonials { padding: 100px 40px; background: #f9f9f9; border-bottom: 1px solid #e5e5e5; }
+    .testimonials-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+    .testimonial-card { background: #fff; padding: 40px; border-radius: 12px; border: 1px solid #e5e5e5; transition: all 0.4s; }
+    .testimonial-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1); }
+    .rating { color: #fbbf24; margin-bottom: 16px; font-size: 1.1rem; }
+    .testimonial-text { color: #333; font-style: italic; margin-bottom: 20px; line-height: 1.8; }
+    .testimonial-author { font-weight: 600; color: #000; margin-bottom: 4px; }
+    .testimonial-role { color: #999; font-size: 0.9rem; }
+
+    .faq { padding: 100px 40px; background: #fff; }
+    .faq-container { max-width: 800px; margin: 0 auto; }
+    details { margin-bottom: 16px; }
+    details summary { cursor: pointer; padding: 24px; background: #f9f9f9; border: 1px solid #e5e5e5; border-radius: 8px; font-weight: 600; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; user-select: none; transition: all 0.3s; }
+    details summary:hover { background: #fff; border-color: #000; }
+    details summary::after { content: '+'; font-weight: bold; font-size: 1.5rem; }
+    details[open] summary::after { content: '−'; }
+    details[open] summary { background: #fff; border-color: #000; }
+    details p { padding: 24px; color: #666; line-height: 1.8; }
+
+    .blog { padding: 100px 40px; background: #f9f9f9; border-bottom: 1px solid #e5e5e5; }
+    .blog-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+    .blog-card { background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e5e5e5; transition: all 0.4s; }
+    .blog-card:hover { transform: translateY(-12px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1); }
+    .blog-image { width: 100%; height: 200px; background: linear-gradient(135deg, #667eea, #764ba2); background-size: cover; background-position: center; }
+    .blog-content { padding: 24px; }
+    .blog-card h3 { font-size: 1.25rem; margin-bottom: 12px; color: #000; }
+    .blog-card p { color: #666; font-size: 0.9rem; line-height: 1.6; }
+
+    .cta { padding: 80px 40px; background: #000; color: #fff; text-align: center; }
+    .cta h2 { font-size: 2.5rem; margin-bottom: 24px; }
+    .cta p { font-size: 1.1rem; color: #ccc; margin-bottom: 40px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-buttons .btn { background: #fff; color: #000; }
+    .cta-buttons .btn:hover { background: #e5e5e5; }
+
+    footer { background: #f9f9f9; padding: 60px 40px; border-top: 1px solid #e5e5e5; }
+    .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .footer-section h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 20px; color: #000; text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-section ul { list-style: none; }
+    .footer-section li { margin-bottom: 12px; }
+    .footer-section a { color: #666; text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+    .footer-section a:hover { color: #000; }
+    .footer-bottom { border-top: 1px solid #e5e5e5; padding-top: 40px; text-align: center; color: #999; font-size: 0.9rem; }
+    .social-links { display: flex; gap: 20px; justify-content: center; margin-top: 20px; }
+    .social-links a { color: #000; font-size: 1.25rem; transition: color 0.3s; text-decoration: none; }
+    .social-links a:hover { color: #667eea; }
 
     @media (max-width: 768px) {
-      .hero-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero-carousel {
-        height: 300px;
-      }
+      .hero-content { grid-template-columns: 1fr; gap: 40px; }
+      .hero h1 { font-size: 2.5rem; }
+      .hero-carousel { height: 300px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <div class="logo">NeoProdUx</div>
-      <div style="display: flex; gap: 40px; align-items: center;">
-        <a href="#servicios" style="text-decoration: none;">Servicios</a>
-        <a href="#proyectos" style="text-decoration: none;">Proyectos</a>
-        <a href="#proceso" style="text-decoration: none;">Proceso</a>
-        <a href="#faq" style="text-decoration: none;">FAQ</a>
-        <a href="#contacto" class="nav-cta" style="text-decoration: none;">Contacto</a>
-      </div>
+<nav>
+  <div class="nav-container">
+    <div class="logo">NeoProdUx</div>
+    <div style="display: flex; gap: 40px; align-items: center;">
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto" class="nav-cta">Contacto</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1>Diseño de Productos que Generan Resultados</h1>
-        <p>UX/UI design, product strategy y análisis de datos. Transformamos desafíos en oportunidades de crecimiento.</p>
-        <div class="hero-buttons">
-          <button class="btn btn-primary">Ver Proyectos</button>
-          <button class="btn btn-secondary">Agendar Llamada</button>
-        </div>
-      </div>
-
-      <!-- CAROUSEL 3D ROTATIVO -->
-      <div class="hero-carousel">
-        <div class="carousel-container">
-          <div class="carousel-slide" style="background: linear-gradient(135deg, #667eea, #764ba2);">🐕</div>
-          <div class="carousel-slide" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">📊</div>
-          <div class="carousel-slide" style="background: linear-gradient(135deg, #f43f5e, #e11d48);">🛍️</div>
-          <div class="carousel-slide" style="background: linear-gradient(135deg, #3b82f6, #1e40af);">🎓</div>
-        </div>
-        <div class="carousel-dots" id="carousel-dots"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Clients Marquee -->
-  <section class="clients-section">
-    <div class="clients-title">CONFÍAN EN NEOPRODYUX</div>
-    <div class="marquee-wrapper">
-      <div class="marquee">
-        <span class="marquee-item">★ GitHub</span>
-        <span class="marquee-item">★ LinkedIn</span>
-        <span class="marquee-item">★ Design Community</span>
-        <span class="marquee-item">★ Tech Industry</span>
-        <span class="marquee-item">★ Global Portfolio</span>
-        <span class="marquee-item">★ GitHub</span>
-        <span class="marquee-item">★ LinkedIn</span>
-        <span class="marquee-item">★ Design Community</span>
-        <span class="marquee-item">★ Tech Industry</span>
-        <span class="marquee-item">★ Global Portfolio</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats -->
-  <section class="stats">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <h3>30+</h3>
-        <p>Proyectos en Producción</p>
-      </div>
-      <div class="stat-item">
-        <h3>5M+</h3>
-        <p>Usuarios Impactados</p>
-      </div>
-      <div class="stat-item">
-        <h3>+35%</h3>
-        <p>Mejora en Conversión</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="services" id="servicios">
-    <div class="section-title">
-      <h2>Servicios Populares</h2>
-      <p>Transforma tu presencia digital con soluciones de UX/UI estratégico basadas en datos reales</p>
-    </div>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">🎨</div>
-        <h3>UX/UI Design</h3>
-        <p>Investigación profunda, prototipos iterativos y diseño centrado en el usuario que convierte visitas en resultados.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">📊</div>
-        <h3>Product Strategy</h3>
-        <p>Análisis de datos, validación de mercado y roadmap basado en insights reales de usuarios y negocio.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">🔧</div>
-        <h3>Design System</h3>
-        <p>Componentes reutilizables, guías de diseño y tokens que escalan con tu producto a largo plazo.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section class="projects" id="proyectos">
-    <div class="section-title">
-      <h2>Hecho en NeoProdUx</h2>
-      <p>Proyectos que generaron impacto real en el negocio</p>
-    </div>
-
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=200&fit=crop');">🐕</div>
-        <div class="project-content">
-          <span class="project-tag">App Móvil</span>
-          <h3>PASEO App</h3>
-          <p>App de paseadores de mascotas con validación de identidad y tracking en tiempo real. +45K usuarios, +89% retención.</p>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-adf4e9e339b2?w=800&h=200&fit=crop');">📊</div>
-        <div class="project-content">
-          <span class="project-tag" style="background: #e0f7ff;">SaaS</span>
-          <h3>Nexus Logistics</h3>
-          <p>Dashboard B2B para logística empresarial. 200+ empresas, +40% usabilidad, -30% capacitación requerida.</p>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561911?w=800&h=200&fit=crop');">🛍️</div>
-        <div class="project-content">
-          <span class="project-tag" style="background: #ffe0e0;">E-Commerce</span>
-          <h3>La Caroyense</h3>
-          <p>Rediseño e-commerce. ↑340% conversión, ↓45% abandono de carrito, +$2.1M ingresos.</p>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=200&fit=crop');">🎓</div>
-        <div class="project-content">
-          <span class="project-tag" style="background: #e0e7ff;">Educativo</span>
-          <h3>Yale School of Art</h3>
-          <p>Rediseño web moderno. ↑60% visitas, ↑45% engagement, ↑35% aplicaciones.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Process -->
-  <section class="process" id="proceso">
-    <div class="section-title">
-      <h2>Cómo Trabajamos</h2>
-      <p>Un proceso probado para resultados excepcionales</p>
-    </div>
-
-    <div class="process-grid">
-      <div class="process-step">
-        <div class="step-number">1</div>
-        <h3>Discovery</h3>
-        <p>Entendemos tu negocio, usuarios y mercado mediante investigación profunda y análisis competitivo.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-number">2</div>
-        <h3>Strategy</h3>
-        <p>Definimos estrategia basada en insights, datos y oportunidades reales del mercado.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-number">3</div>
-        <h3>Design</h3>
-        <p>Creamos prototipos interactivos y testamos con usuarios reales para validar soluciones.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-number">4</div>
-        <h3>Optimize</h3>
-        <p>Medimos impacto, iteramos y optimizamos continuamente basado en métricas reales.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="testimonials">
-    <div class="section-title">
-      <h2>Lo que dicen nuestros clientes</h2>
-      <p>Resultados reales de productos reales</p>
-    </div>
-
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
-        <p class="testimonial-text">"El trabajo de David transformó completamente nuestro producto. +78% en retención de usuarios en 3 meses. Recomendado 100%."</p>
-        <p class="testimonial-author">CEO, Startup Tech</p>
-        <p class="testimonial-role">Founder</p>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
-        <p class="testimonial-text">"Excelente análisis de datos y propuestas de diseño. Nuestras métricas de usabilidad mejoraron +40% post-rediseño."</p>
-        <p class="testimonial-author">Product Manager, Enterprise</p>
-        <p class="testimonial-role">Product Lead</p>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="rating">⭐⭐⭐⭐⭐ 5.0</div>
-        <p class="testimonial-text">"+$2.1M en ingresos tras rediseño. El mejor ROI que hemos visto. Profesional, preciso y orientado a resultados."</p>
-        <p class="testimonial-author">Founder, E-commerce</p>
-        <p class="testimonial-role">CEO</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq" id="faq">
-    <div class="section-title" style="max-width: 800px;">
-      <h2>Preguntas Frecuentes</h2>
-    </div>
-
-    <div class="faq-container">
-      <details>
-        <summary>¿Cuál es tu proceso de diseño?</summary>
-        <p>Utilizamos un proceso iterativo basado en Design Thinking: Discovery → Strategy → Design → Validation → Optimization. Cada fase está fundamentada en investigación real y datos del usuario.</p>
-      </details>
-
-      <details>
-        <summary>¿Cómo garantizas resultados measurables?</summary>
-        <p>Todo proyecto tiene KPIs claros desde el inicio. Medimos conversión, retención, satisfacción y ROI. Mostro los números reales, no promesas bonitas.</p>
-      </details>
-
-      <details>
-        <summary>¿Puedo solicitar cambios después de terminar?</summary>
-        <p>Sí. Las iteraciones basadas en feedback real son parte fundamental del proceso. Trabajamos hasta que los resultados cumplan los objetivos definidos.</p>
-      </details>
-
-      <details>
-        <summary>¿Qué herramientas utilizas?</summary>
-        <p>Figma para diseño, Python/SQL para análisis, Power BI para reporting, Git para versionamiento. Las mejores herramientas para cada fase del proyecto.</p>
-      </details>
-
-      <details>
-        <summary>¿Trabajas con equipos remotos?</summary>
-        <p>100% remoto. Timezone flexible. Comunicación clara y documentación detallada. Estoy acostumbrado a colaborar con equipos globales.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- Blog -->
-  <section class="blog">
-    <div class="section-title">
-      <h2>¿Qué hay de Tendencia?</h2>
-      <p>Insights y tips sobre diseño, UX y producto</p>
-    </div>
-
-    <div class="blog-grid">
-      <div class="blog-card">
-        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1455165814004-1126614d8d3f?w=800&h=200&fit=crop');">📝</div>
-        <div class="blog-content">
-          <h3>Guía Completa de UX Research</h3>
-          <p>Metodologías modernas para entender realmente a tus usuarios y validar tus soluciones.</p>
-        </div>
-      </div>
-
-      <div class="blog-card">
-        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-adf4e9e339b2?w=800&h=200&fit=crop');">📊</div>
-        <div class="blog-content">
-          <h3>Métricas que Importan</h3>
-          <p>Cómo medir el impacto real de tus decisiones de diseño en el negocio.</p>
-        </div>
-      </div>
-
-      <div class="blog-card">
-        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=200&fit=crop');">💡</div>
-        <div class="blog-content">
-          <h3>5 Errores de UX Comunes</h3>
-          <p>Y cómo evitarlos en tu próximo proyecto de diseño.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta" id="contacto">
-    <h2>¿Necesitas un Producto que Crezca?</h2>
-    <p>Hablemos sobre tu desafío. Agendar una llamada rápida o envíame un email.</p>
-    <div class="cta-buttons">
-      <button class="btn btn-primary">Agendar Llamada</button>
-      <button class="btn btn-secondary">Enviar Email</button>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-section">
-        <h3>Compañía</h3>
-        <ul>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#proceso">Proceso</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-section">
-        <h3>Redes</h3>
-        <ul>
-          <li><a href="https://linkedin.com/in/david-sebastian-diaz" target="_blank">LinkedIn</a></li>
-          <li><a href="https://github.com/dsd228" target="_blank">GitHub</a></li>
-          <li><a href="https://dribbble.com" target="_blank">Dribbble</a></li>
-          <li><a href="https://behance.net" target="_blank">Behance</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-section">
-        <h3>Contacto</h3>
-        <ul>
-          <li><a href="mailto:david.diaz.uxdata@gmail.com">Email</a></li>
-          <li><a href="https://calendly.com/david-sebastian-diaz" target="_blank">Calendly</a></li>
-          <li>100% Remoto</li>
-        </ul>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Diseño de Productos que Generan Resultados</h1>
+      <p>UX/UI design, product strategy y análisis de datos. Transformamos desafíos en oportunidades de crecimiento.</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary">Ver Proyectos</button>
+        <button class="btn btn-secondary">Agendar Llamada</button>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <p>© 2026 NeoProdUx. All Rights Reserved.</p>
-      <div class="social-links">
-        <a href="https://linkedin.com/in/david-sebastian-diaz" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/dsd228" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://dribbble.com" target="_blank"><i class="fab fa-dribbble"></i></a>
-        <a href="https://behance.net" target="_blank"><i class="fab fa-behance"></i></a>
+    <div class="hero-carousel">
+      <div class="carousel-container">
+        <div class="carousel-slide" style="background-image: url('./images/Home16Pro2.png');"></div>
+        <div class="carousel-slide" style="background-image: url('./images/Desktop8.png');"></div>
+        <div class="carousel-slide" style="background-image: url('./images/Home.png');"></div>
+        <div class="carousel-slide" style="background-image: url('./images/HomeDesktop2.jpg');"></div>
+      </div>
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
+  </div>
+</section>
+
+<section class="clients-section">
+  <div class="clients-title">CONFÍAN EN NEOPRODYUX</div>
+  <div class="marquee-wrapper">
+    <div class="marquee">
+      <span class="marquee-item">★ GitHub</span>
+      <span class="marquee-item">★ LinkedIn</span>
+      <span class="marquee-item">★ Design Community</span>
+      <span class="marquee-item">★ Tech Industry</span>
+      <span class="marquee-item">★ Global Portfolio</span>
+      <span class="marquee-item">★ GitHub</span>
+      <span class="marquee-item">★ LinkedIn</span>
+      <span class="marquee-item">★ Design Community</span>
+      <span class="marquee-item">★ Tech Industry</span>
+      <span class="marquee-item">★ Global Portfolio</span>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat-item"><h3>30+</h3><p>Proyectos en Producción</p></div>
+    <div class="stat-item"><h3>5M+</h3><p>Usuarios Impactados</p></div>
+    <div class="stat-item"><h3>+35%</h3><p>Mejora en Conversión</p></div>
+  </div>
+</section>
+
+<section class="services" id="servicios">
+  <div class="section-title">
+    <h2>Servicios Populares</h2>
+    <p>Transforma tu presencia digital con soluciones de UX/UI estratégico basadas en datos reales</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <h3>UX/UI Design</h3>
+      <p>Investigación profunda, prototipos iterativos y diseño centrado en el usuario que convierte visitas en resultados.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <h3>Product Strategy</h3>
+      <p>Análisis de datos, validación de mercado y roadmap basado en insights reales de usuarios y negocio.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <h3>Design System</h3>
+      <p>Componentes reutilizables, guías de diseño y tokens que escalan con tu producto a largo plazo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="proyectos">
+  <div class="section-title">
+    <h2>Hecho en NeoProdUx</h2>
+    <p>Proyectos que generaron impacto real en el negocio</p>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=200&fit=crop');"></div>
+      <div class="project-content">
+        <span class="project-tag">App Móvil</span>
+        <h3>PASEO App</h3>
+        <p>App de paseadores de mascotas con validación de identidad y tracking en tiempo real. +45K usuarios, +89% retención.</p>
       </div>
     </div>
-  </footer>
+    <div class="project-card">
+      <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-adf4e9e339b2?w=800&h=200&fit=crop');"></div>
+      <div class="project-content">
+        <span class="project-tag" style="background: #e0f7ff;">SaaS</span>
+        <h3>Nexus Logistics</h3>
+        <p>Dashboard B2B para logística empresarial. 200+ empresas, +40% usabilidad, -30% capacitación requerida.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561911?w=800&h=200&fit=crop');"></div>
+      <div class="project-content">
+        <span class="project-tag" style="background: #ffe0e0;">E-Commerce</span>
+        <h3>La Caroyense</h3>
+        <p>Rediseño e-commerce. ↑340% conversión, ↓45% abandono de carrito, +$2.1M ingresos.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=200&fit=crop');"></div>
+      <div class="project-content">
+        <span class="project-tag" style="background: #e0e7ff;">Educativo</span>
+        <h3>Yale School of Art</h3>
+        <p>Rediseño web moderno. ↑60% visitas, ↑45% engagement, ↑35% aplicaciones.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dotsContainer = document.getElementById('carousel-dots');
+<section class="process" id="proceso">
+  <div class="section-title">
+    <h2>Cómo Trabajamos</h2>
+    <p>Un proceso probado para resultados excepcionales</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-step"><div class="step-number">1</div><h3>Discovery</h3><p>Entendemos tu negocio, usuarios y mercado mediante investigación profunda y análisis competitivo.</p></div>
+    <div class="process-step"><div class="step-number">2</div><h3>Strategy</h3><p>Definimos estrategia basada en insights, datos y oportunidades reales del mercado.</p></div>
+    <div class="process-step"><div class="step-number">3</div><h3>Design</h3><p>Creamos prototipos interactivos y testamos con usuarios reales para validar soluciones.</p></div>
+    <div class="process-step"><div class="step-number">4</div><h3>Optimize</h3><p>Medimos impacto, iteramos y optimizamos continuamente basado en métricas reales.</p></div>
+  </div>
+</section>
 
-    slides.forEach((_, index) => {
-      const dot = document.createElement('div');
-      dot.className = `dot ${index === 0 ? 'active' : ''}`;
-      dotsContainer.appendChild(dot);
+<section class="testimonials">
+  <div class="section-title">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <p>Resultados reales de productos reales</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card"><div class="rating">⭐⭐⭐⭐⭐ 5.0</div><p class="testimonial-text">"El trabajo de David transformó completamente nuestro producto. +78% en retención de usuarios en 3 meses. Recomendado 100%."</p><p class="testimonial-author">CEO, Startup Tech</p><p class="testimonial-role">Founder</p></div>
+    <div class="testimonial-card"><div class="rating">⭐⭐⭐⭐⭐ 5.0</div><p class="testimonial-text">"Excelente análisis de datos y propuestas de diseño. Nuestras métricas de usabilidad mejoraron +40% post-rediseño."</p><p class="testimonial-author">Product Manager, Enterprise</p><p class="testimonial-role">Product Lead</p></div>
+    <div class="testimonial-card"><div class="rating">⭐⭐⭐⭐⭐ 5.0</div><p class="testimonial-text">"+$2.1M en ingresos tras rediseño. El mejor ROI que hemos visto. Profesional, preciso y orientado a resultados."</p><p class="testimonial-author">Founder, E-commerce</p><p class="testimonial-role">CEO</p></div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="section-title" style="max-width: 800px;"><h2>Preguntas Frecuentes</h2></div>
+  <div class="faq-container">
+    <details><summary>¿Cuál es tu proceso de diseño?</summary><p>Utilizamos un proceso iterativo basado en Design Thinking: Discovery → Strategy → Design → Validation → Optimization. Cada fase está fundamentada en investigación real y datos del usuario.</p></details>
+    <details><summary>¿Cómo garantizas resultados measurables?</summary><p>Todo proyecto tiene KPIs claros desde el inicio. Medimos conversión, retención, satisfacción y ROI. Mostro los números reales, no promesas bonitas.</p></details>
+    <details><summary>¿Puedo solicitar cambios después de terminar?</summary><p>Sí. Las iteraciones basadas en feedback real son parte fundamental del proceso. Trabajamos hasta que los resultados cumplan los objetivos definidos.</p></details>
+    <details><summary>¿Qué herramientas utilizas?</summary><p>Figma para diseño, Python/SQL para análisis, Power BI para reporting, Git para versionamiento. Las mejores herramientas para cada fase del proyecto.</p></details>
+    <details><summary>¿Trabajas con equipos remotos?</summary><p>100% remoto. Timezone flexible. Comunicación clara y documentación detallada. Estoy acostumbrado a colaborar con equipos globales.</p></details>
+  </div>
+</section>
+
+<section class="blog">
+  <div class="section-title">
+    <h2>¿Qué hay de Tendencia?</h2>
+    <p>Insights y tips sobre diseño, UX y producto</p>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card"><div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1455165814004-1126614d8d3f?w=800&h=200&fit=crop');"></div><div class="blog-content"><h3>Guía Completa de UX Research</h3><p>Metodologías modernas para entender realmente a tus usuarios y validar tus soluciones.</p></div></div>
+    <div class="blog-card"><div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-adf4e9e339b2?w=800&h=200&fit=crop');"></div><div class="blog-content"><h3>Métricas que Importan</h3><p>Cómo medir el impacto real de tus decisiones de diseño en el negocio.</p></div></div>
+    <div class="blog-card"><div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=200&fit=crop');"></div><div class="blog-content"><h3>5 Errores de UX Comunes</h3><p>Y cómo evitarlos en tu próximo proyecto de diseño.</p></div></div>
+  </div>
+</section>
+
+<section class="cta" id="contacto">
+  <h2>¿Necesitas un Producto que Crezca?</h2>
+  <p>Hablemos sobre tu desafío. Agendar una llamada rápida o envíame un email.</p>
+  <div class="cta-buttons">
+    <button class="btn btn-primary">Agendar Llamada</button>
+    <button class="btn btn-secondary">Enviar Email</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Compañía</h3>
+      <ul><li><a href="#servicios">Servicios</a></li><li><a href="#proyectos">Proyectos</a></li><li><a href="#proceso">Proceso</a></li><li><a href="#faq">FAQ</a></li></ul>
+    </div>
+    <div class="footer-section">
+      <h3>Redes</h3>
+      <ul><li><a href="https://linkedin.com/in/david-sebastian-diaz" target="_blank">LinkedIn</a></li><li><a href="https://github.com/dsd228" target="_blank">GitHub</a></li><li><a href="https://dribbble.com" target="_blank">Dribbble</a></li><li><a href="https://behance.net" target="_blank">Behance</a></li></ul>
+    </div>
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <ul><li><a href="mailto:david.diaz.uxdata@gmail.com">Email</a></li><li><a href="https://calendly.com/david-sebastian-diaz" target="_blank">Calendly</a></li><li>100% Remoto</li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 NeoProdUx. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/david-sebastian-diaz" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/dsd228" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://dribbble.com" target="_blank"><i class="fab fa-dribbble"></i></a>
+      <a href="https://behance.net" target="_blank"><i class="fab fa-behance"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const slides = document.querySelectorAll(''.carousel-slide'');
+  const dotsContainer = document.getElementById(''carousel-dots'');
+  slides.forEach((_, index) => {
+    const dot = document.createElement(''div'');
+    dot.className = `dot ${index === 0 ? ''active'' : ''''}`;
+    dotsContainer.appendChild(dot);
+  });
+  document.querySelectorAll(''a[href^="#"]'').forEach(anchor => {
+    anchor.addEventListener(''click'', function (e) {
+      const href = this.getAttribute(''href'');
+      if (href !== ''#'' && document.querySelector(href)) {
+        e.preventDefault();
+        document.querySelector(href).scrollIntoView({ behavior: ''smooth'' });
+      }
     });
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href !== '#' && document.querySelector(href)) {
-          e.preventDefault();
-          document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
-        }
-      });
+  });
+  document.querySelectorAll(''.btn'').forEach(btn => {
+    btn.addEventListener(''click'', function() {
+      const text = this.textContent;
+      if (text.includes(''Proyectos'')) {
+        document.querySelector(''#proyectos'').scrollIntoView({ behavior: ''smooth'' });
+      } else if (text.includes(''Llamada'')) {
+        window.open(''https://calendly.com/david-sebastian-diaz'', ''_blank'');
+      } else if (text.includes(''Email'')) {
+        window.location.href = ''mailto:david.diaz.uxdata@gmail.com'';
+      }
     });
+  });
+</script>
 
-    // Button clicks
-    document.querySelectorAll('.btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const text = this.textContent;
-        if (text.includes('Proyectos')) {
-          document.querySelector('#proyectos').scrollIntoView({ behavior: 'smooth' });
-        } else if (text.includes('Llamada')) {
-          window.open('https://calendly.com/david-sebastian-diaz', '_blank');
-        } else if (text.includes('Email')) {
-          window.location.href = 'mailto:david.diaz.uxdata@gmail.com';
-        }
-      });
-    });
-  </script>
 </body>
 </html>
