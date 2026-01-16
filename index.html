@@ -107,7 +107,7 @@
             box-shadow: 0 0 0 6px rgba(164, 210, 244, 0.25);
         }
         
-        /* Skip to main content link (accesibilidad teclado) */
+        /* Skip to main content link (keyboard accessibility) */
         .skip-to-main {
             position: absolute;
             top: -100px;
@@ -720,6 +720,7 @@
             color: var(--texto-principal);
             position: relative;
             box-shadow: var(--shadow-md-up);
+            will-change: transform;
         }
         .btn-primary::before {
             content: '';
@@ -794,16 +795,16 @@
 
         /* ===== RESPONSIVE DESIGN - Media Queries Optimizadas ===== */
         
-        /* Mobile First: Base styles optimizados para móvil */
+        /* Mobile First: Base styles optimized for mobile */
         @media (max-width: 767px) {
-            /* Ley de Fitts: Botones táctiles mínimo 44px */
+            /* Fitts' Law: Touch targets minimum 44px */
             .btn, .btn-primary, .btn-secondary {
                 min-height: 48px;
                 padding: 16px 28px;
                 font-size: 16px;
             }
             
-            /* Header móvil optimizado */
+            /* Mobile header optimized */
             .header {
                 padding: var(--space-md) var(--space-md);
             }
@@ -812,7 +813,7 @@
                 font-size: 22px;
             }
             
-            /* Menú hamburguesa visible */
+            /* Hamburger menu visible */
             .menu-toggle {
                 display: block;
                 min-width: 44px;
@@ -858,7 +859,7 @@
                 text-align: center;
             }
             
-            /* Dropdown en móvil */
+            /* Dropdown on mobile */
             .dropdown-menu {
                 position: static;
                 transform: none;
@@ -877,7 +878,7 @@
                 max-height: 500px;
             }
             
-            /* Hero móvil - Ley de Hicks: Simplificación */
+            /* Mobile hero - Hicks' Law: Simplification */
             .hero {
                 padding: 60px var(--space-md) 80px;
                 min-height: auto;
@@ -935,7 +936,7 @@
                 justify-content: center;
             }
             
-            /* Tipografía móvil - Jerarquía Visual */
+            /* Mobile typography - Visual Hierarchy */
             h1 { font-size: clamp(32px, 9vw, 56px); }
             h2 { font-size: clamp(28px, 7vw, 36px); line-height: 1.2; }
             h3 { font-size: clamp(20px, 5vw, 24px); }
@@ -947,7 +948,7 @@
                 line-height: 1.65;
             }
             
-            /* Sections padding móvil */
+            /* Sections padding mobile */
             section {
                 padding: 60px 20px;
             }
@@ -967,7 +968,7 @@
                 padding: 60px 16px;
             }
             
-            /* Pricing cards móvil */
+            /* Pricing cards mobile */
             .pricing-grid {
                 grid-template-columns: 1fr;
                 gap: 24px;
@@ -977,7 +978,7 @@
                 padding: 32px 24px;
             }
             
-            /* FAQ móvil */
+            /* FAQ mobile */
             .faq-container {
                 padding: 0 var(--space-md);
             }
@@ -992,23 +993,23 @@
                 font-size: 14px;
             }
             
-            /* Footer móvil */
+            /* Footer mobile */
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 32px;
             }
             
-            /* Formulario móvil */
+            /* Form mobile */
             .contact-form-simple > div {
                 grid-template-columns: 1fr !important;
             }
             
             .contact-form-simple input,
             .contact-form-simple textarea {
-                font-size: 16px; /* Evita zoom en iOS */
+                font-size: 16px; /* Prevents iOS zoom on input focus */
             }
             
-            /* WhatsApp float móvil */
+            /* WhatsApp float mobile */
             .whatsapp-float {
                 right: 16px;
                 bottom: 16px;
@@ -1070,7 +1071,7 @@
             }
         }
         
-        /* Landscape móvil */
+        /* Mobile landscape */
         @media (max-height: 600px) and (orientation: landscape) {
             .hero {
                 min-height: auto;
