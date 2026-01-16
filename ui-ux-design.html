@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseño UX/UI Services - NeoProdUx</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #000;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e5e5;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      color: #000;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: #667eea;
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-trigger {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      color: #000;
+      transition: color 0.3s;
+    }
+
+    .dropdown-trigger:hover {
+      color: #667eea;
+    }
+
+    .dropdown-trigger::after {
+      content: '▼';
+      font-size: 0.6rem;
+      transition: transform 0.3s;
+    }
+
+    .nav-dropdown:hover .dropdown-trigger::after {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 0.5rem 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s;
+      min-width: 200px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin-top: 0.5rem;
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 0.75rem 1.5rem;
+      color: #000;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f5f5f5;
+      color: #667eea;
+      padding-left: 2rem;
+    }
+
+    .cta-button {
+      background: #000;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      transition: all 0.3s;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .cta-button:hover {
+      background: #667eea;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero-service {
+      padding-top: 8rem;
+      padding-bottom: 4rem;
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    }
+
+    .hero-service h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero-service p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    /* Stats Section */
+    .stats-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      padding: 3rem 2rem;
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #667eea;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      border-color: #667eea;
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.1);
+      transform: translateY(-8px);
+    }
+
+    .service-card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      color: #000;
+    }
+
+    .service-card p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    /* Process Section */
+    .process-section {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+
+    .process-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .process-title h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .process-title p {
+      color: #666;
+      font-size: 1.05rem;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .process-step {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      border-left: 4px solid #667eea;
+      transition: all 0.3s;
+    }
+
+    .process-step:hover {
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .step-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #667eea;
+      margin-bottom: 0.5rem;
+    }
+
+    .process-step h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .process-step p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    /* Benefits Section */
+    .benefits-section {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .benefits-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .benefits-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .benefits-content p {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .benefit-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+    }
+
+    .benefit-text h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .benefit-text p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .benefits-image {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Tools Section */
+    .tools-section {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+
+    .tools-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tools-title h2 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .tool-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #e5e5e5;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .tool-item:hover {
+      border-color: #667eea;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .tool-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tool-item h4 {
+      font-size: 1rem;
+      color: #000;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #000 0%, #333 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      background: #764ba2;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      padding: 0.9rem 2rem;
+      border: 2px solid white;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #000;
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      color: white;
+      padding: 3rem 2rem;
+      border-top: 1px solid #333;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #999;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .footer-col a:hover {
+      color: #667eea;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #333;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-service h1 {
+        font-size: 2rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-container {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-container">
+      <div style="font-size: 1.3rem; font-weight: 700;">NeoProdUx</div>
+      <div class="nav-links">
+        <div class="nav-dropdown">
+          <a href="#" class="dropdown-trigger">Servicios</a>
+          <div class="dropdown-menu">
+            <a href="ui-ux-design.html">Diseño UI-UX</a>
+            <a href="#">Diseño de aplicaciones móviles</a>
+            <a href="#">Diseño de sitios web</a>
+            <a href="#">Figma a HTML</a>
+            <a href="#">Figma a WordPress</a>
+            <a href="#">Figma a Webflow</a>
+          </div>
+        </div>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto" class="cta-button">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-service">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+      <h1>Diseño UX/UI Services</h1>
+      <p>Creamos experiencias digitales excepcionales que transforman ideas en interfaces intuitivas, atractivas y funcionales. Nuestro equipo de diseñadores expertos trabaja contigo desde la investigación hasta la entrega final.</p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="#contacto" class="btn-primary">Comenzar Proyecto</a>
+        <a href="#servicios" class="btn-secondary">Ver Servicios</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stat-item">
+      <div class="stat-number">15,000+</div>
+      <div class="stat-label">Diseños Completados</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">300+</div>
+      <div class="stat-label">Clientes Satisfechos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">10+</div>
+      <div class="stat-label">Años de Experiencia</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">360+</div>
+      <div class="stat-label">Proyectos Completados</div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="servicios" style="padding: 4rem 2rem; background: white;">
+    <div style="max-width: 1200px; margin: 0 auto; margin-bottom: 3rem;">
+      <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Nuestros Servicios de Diseño UX/UI</h2>
+      <p style="color: #666; font-size: 1.05rem; max-width: 700px;">Desbloqueamos el poder del diseño cautivador que resuena effortlessly con tu audiencia. Nuestros servicios de UI/UX expertamente elaborados son el ingrediente secreto para crear experiencias digitales memorables.</p>
+    </div>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-card-icon">
+          <i class="fas fa-pen-ruler"></i>
+        </div>
+        <h3>Wireframes</h3>
+        <p>Estructuras visuales claras que definen la disposición y funcionalidad de tus proyectos digitales. Creamos wireframes detallados que sirven como base sólida para el desarrollo.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon">
+          <i class="fas fa-cube"></i>
+        </div>
+        <h3>Prototipos Interactivos</h3>
+        <p>Prototipos funcionales y clickeables que permiten validar conceptos antes del desarrollo. Nuestros prototipos están listos para testing y retroalimentación de usuarios.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3>User Testing</h3>
+        <p>Evaluamos tus diseños con usuarios reales para identificar oportunidades de mejora. Recopilamos insights valiosos que optimizan la experiencia del usuario.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <h3>Estrategia UI-UX</h3>
+        <p>Desarrollamos estrategias de diseño alineadas con tus objetivos de negocio. Combinamos research, datos y creatividad para resultados excepcionales.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <h3>Diseño Web</h3>
+        <p>Sitios web modernos, responsivos y optimizados para conversión. Cada píxel está pensado para captar la atención y guiar al usuario al éxito.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3>Diseño de Aplicaciones Móviles</h3>
+        <p>Interfaces intuitivas para iOS y Android. Nos especializamos en crear experiencias móviles que generan engagement y retención de usuarios.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process-section" id="proceso">
+    <div class="process-title">
+      <h2>Nuestro Proceso de Diseño</h2>
+      <p>Un enfoque metodológico que garantiza resultados excepcionales en cada proyecto</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-number">01</div>
+        <h4>Ideación</h4>
+        <p>Entendemos tus objetivos y necesidades. Colaboramos contigo para definir la visión del proyecto y alinearnos en expectativas.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">02</div>
+        <h4>Research</h4>
+        <p>Investigamos tu audiencia, mercado y competencia. Los datos y insights guían nuestras decisiones de diseño.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">03</div>
+        <h4>Diseño</h4>
+        <p>Creamos diseños visuales cautivadores que combinan estrategia con creatividad. Cada elemento tiene propósito.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">04</div>
+        <h4>Desarrollo</h4>
+        <p>Convertimos diseños en interfaces funcionales. Trabajamos con front-end developers para implementación pixel-perfect.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">05</div>
+        <h4>Testing de Usuarios</h4>
+        <p>Validamos con usuarios reales. Identificamos friction points y oportunidades de optimización basadas en comportamiento.</p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">06</div>
+        <h4>Entrega</h4>
+        <p>Lanzamos diseños pulidos y de alto rendimiento. Aseguramos que todo cumpla con estándares de calidad y objetivos de negocio.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="benefits-container">
+      <div class="benefits-content">
+        <h2>Beneficios de Nuestros Servicios de Diseño UX/UI</h2>
+        <p>Nuestros diseños son como un libro cautivador: intuitivos, visualmente atractivos y dejan una impresión duradera. Permitimos que tu historia de negocio cobre vida.</p>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="benefit-text">
+            <h4>Enfoque Centrado en el Usuario</h4>
+            <p>Colocamos a los usuarios en el centro. Nuestro proceso está fundamentado en investigación para crear interfaces intuitivas y accesibles.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="benefit-text">
+            <h4>Experiencia Comprobada</h4>
+            <p>Más de 10 años trabajando con startups hasta grandes empresas. Nuestro expertise nos permite llevar cualquier idea a la vida.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="benefit-text">
+            <h4>Expertise Amplio</h4>
+            <p>Nuestro equipo ha diseñado sitios web y aplicaciones móviles simples y complejas en múltiples industrias: salud, retail, finanzas, seguros.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="benefit-text">
+            <h4>Estándares Internacionales</h4>
+            <p>Utilizamos un proceso probado en el tiempo. Realizamos revisiones de diseño detalladas y aplicamos las mejores prácticas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="benefits-image">
+        <div style="text-align: center;">
+          <i class="fas fa-pencil-ruler" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
+          <p>Diseño Estratégico & Creativo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools Section -->
+  <section class="tools-section">
+    <div class="tools-title">
+      <h2>Stack Tecnológico que Utilizamos</h2>
+      <p>Herramientas profesionales para resultados excepcionales</p>
+    </div>
+
+    <div class="tools-grid">
+      <div class="tool-item">
+        <div class="tool-icon">📐</div>
+        <h4>Figma</h4>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">✎️</div>
+        <h4>Adobe XD</h4>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">🖼️</div>
+        <h4>Photoshop</h4>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">🗺️</div>
+        <h4>Miro</h4>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">✨</div>
+        <h4>Jitter</h4>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">🎬</div>
+        <h4>Framer</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2>¿Listo para Transformar tu Visión?</h2>
+    <p>Asociate con nuestro equipo de expertos en UI/UX para crear experiencias digitales excepcionales que cautiven a tu audiencia y generen resultados.</p>
+    <div class="cta-buttons">
+      <a href="#contacto" class="btn-primary">Comenzar Proyecto</a>
+      <a href="#" class="btn-secondary">Ver Portafolio</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <a href="#">Sobre Nosotros</a>
+        <a href="#">Portafolio</a>
+        <a href="#">Blog</a>
+        <a href="#">Contacto</a>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <a href="ui-ux-design.html">Diseño UI-UX</a>
+        <a href="#">Diseño de Aplicaciones</a>
+        <a href="#">Diseño Web</a>
+        <a href="#">Figma a HTML</a>
+      </div>
+      <div class="footer-col">
+        <h4>Recursos</h4>
+        <a href="#">Blog</a>
+        <a href="#">Recursos Figma</a>
+        <a href="#">Plantillas</a>
+        <a href="#">Guías</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="mailto:info@neoprodux.com">info@neoprodux.com</a>
+        <a href="#">+1 (555) 123-4567</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NeoProdUx. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
