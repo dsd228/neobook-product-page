@@ -1,14 +1,1 @@
-<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="gCaroyense" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f43f5e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e11d48;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <rect width="400" height="400" fill="url(#gCaroyense)"/>
-  <rect x="60" y="80" width="280" height="240" rx="15" fill="none" stroke="#fff" stroke-width="8" opacity="0.9"/>
-  <circle cx="100" cy="140" r="18" fill="#fff" opacity="0.8"/>
-  <circle cx="200" cy="140" r="18" fill="#fff" opacity="0.8"/>
-  <circle cx="300" cy="140" r="18" fill="#fff" opacity="0.8"/>
-  <rect x="80" y="190" width="240" height="90" rx="10" fill="#fff" opacity="0.7"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><defs><linearGradient id="gCaroyense" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" style="stop-color:#f43f5e;stop-opacity:1"/><stop offset="100%" style="stop-color:#e11d48;stop-opacity:1"/></linearGradient></defs><rect width="400" height="400" fill="url(#gCaroyense)"/><rect width="280" height="240" x="60" y="80" fill="none" stroke="#fff" stroke-width="8" opacity=".9" rx="15"/><circle cx="100" cy="140" r="18" fill="#fff" opacity=".8"/><circle cx="200" cy="140" r="18" fill="#fff" opacity=".8"/><circle cx="300" cy="140" r="18" fill="#fff" opacity=".8"/><rect width="240" height="90" x="80" y="190" fill="#fff" opacity=".7" rx="10"/></svg>
