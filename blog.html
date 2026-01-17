@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog NeoProdUx - UX/UI, Producto y Design to Code</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Inter", sans-serif; color: #1a1a1a; background: #f7f7f7; }
+    a { text-decoration: none; color: inherit; }
+    header { background: linear-gradient(135deg, #0f0f0f, #1a1a1a); color: #fff; padding: 28px 24px 52px; position: relative; overflow: hidden; }
+    nav { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-family: "Sora", sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .nav-links a { color: #dcdcdc; font-size: 0.95rem; }
+    .nav-links a:hover { color: #fff; }
+    .hero { max-width: 1200px; margin: 36px auto 0; padding: 0 0 12px; text-align: left; }
+    .hero h1 { font-family: "Sora", sans-serif; font-size: 2.6rem; margin-bottom: 12px; }
+    .hero p { color: #dcdcdc; font-size: 1.05rem; max-width: 780px; line-height: 1.7; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: rgba(255,255,255,0.08); color: #fff; font-weight: 600; margin-bottom: 12px; font-size: 0.9rem; }
+    main { max-width: 1200px; margin: -48px auto 0; padding: 0 24px 80px; position: relative; }
+    .section-head { margin-bottom: 18px; font-family: "Sora", sans-serif; font-size: 2rem; color: #0f0f0f; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+    .card { background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid #e5e5e5; display: flex; flex-direction: column; transition: transform 0.25s ease, box-shadow 0.25s ease; min-height: 320px; }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 18px 38px rgba(0,0,0,0.08); }
+    .thumb { width: 100%; height: 200px; background-size: cover; background-position: center; }
+    .card-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .meta { color: #888; font-size: 0.9rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    .title { font-family: "Sora", sans-serif; font-size: 1.2rem; color: #0f0f0f; line-height: 1.5; }
+    .excerpt { color: #555; line-height: 1.6; font-size: 0.98rem; flex: 1; }
+    .link { color: #ff6b35; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+    .cta { margin-top: 32px; padding: 20px 22px; border-radius: 14px; background: #0f0f0f; color: #fff; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; justify-content: space-between; }
+    .cta .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn { padding: 12px 16px; border-radius: 10px; font-weight: 600; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s, box-shadow 0.2s; }
+    .btn-primary { background: linear-gradient(135deg, #ff6b35, #ff8c42); color: #fff; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,107,53,0.25); }
+    .btn-secondary { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); }
+    .btn-secondary:hover { border-color: #fff; transform: translateY(-2px); }
+    footer { text-align: center; padding: 40px 16px 56px; color: #777; font-size: 0.95rem; }
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 2.1rem; }
+      header { padding: 24px 16px 44px; }
+      main { padding: 0 16px 56px; margin-top: -36px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a class="brand" href="index.html">NeoProdUx</a>
+      <div class="nav-links">
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#proyectos">Proyectos</a>
+        <a href="index.html#proceso">Proceso</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="contact.html">Contacto</a>
+      </div>
+    </nav>
+    <div class="hero">
+      <div class="badge">Blog NeoProdUx · UX/UI · Producto · Code</div>
+      <h1>Ideas accionables para diseño, research y entrega a producción</h1>
+      <p>Guías, checklists y patrones que usamos con clientes para mover métricas reales: conversión, retención y velocidad de entrega.</p>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="section-head">Most Recent Articles</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="thumb" style="background-image:url('https://uistudioz.com/wp-content/uploads/2025/09/From-Idea-to-Prototype-%E2%80%93-Master-Figma-Make-with-AI.png');"></div>
+        <div class="card-body">
+          <div class="meta">18 Sep 2025 · Design to Code</div>
+          <div class="title">Mastering Figma Make: From Prompt to Prototype (2025 Complete Guide)</div>
+          <p class="excerpt">El playbook 2025 para pasar de idea a prototipo en Figma Make con IA sin perder control del design system.</p>
+          <a class="link" href="blog-figma-make.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:url('https://uistudioz.com/wp-content/uploads/2025/09/Avoid-These-7-UX-Errors-in-Grocery-Apps.png');"></div>
+        <div class="card-body">
+          <div class="meta">01 Sep 2025 · Product UX</div>
+          <div class="title">7 UX Mistakes That Can Break a Grocery Delivery App</div>
+          <p class="excerpt">Evita los patrones que destruyen conversión en onboarding, búsqueda y checkout de apps de supermercado.</p>
+          <a class="link" href="blog-grocery-ux.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:url('https://uistudioz.com/wp-content/uploads/2025/08/Framer-Website-Design-Trends-You-Cant-Miss.png');"></div>
+        <div class="card-body">
+          <div class="meta">22 Ago 2025 · Web · Framer</div>
+          <div class="title">10 Framer Website Design Trends to Watch in 2025</div>
+          <p class="excerpt">Tendencias de interacción, performance y bloques reusables para sitios creados en Framer este año.</p>
+          <a class="link" href="blog-framer-trends.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#dfe9f3,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">24 Jul 2025 · Handoff</div>
+          <div class="title">Top Figma to HTML Conversion Tools and Plugins in 2025</div>
+          <p class="excerpt">Herramientas y plugins 2025 para exportar Figma a HTML con precisión y limpieza en el código final.</p>
+          <a class="link" href="blog-figma-to-html-tools.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#f8d7da,#fff);"></div>
+        <div class="card-body">
+          <div class="meta">18 Jul 2025 · Frontend</div>
+          <div class="title">Convert PSD to HTML Like a Pro: Step-by-Step 2025 Guide</div>
+          <p class="excerpt">Proceso completo y checklist técnico para convertir PSD a HTML con semántica y responsive impecable.</p>
+          <a class="link" href="blog-psd-to-html-guide.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#d1e9ff,#f7fbff);"></div>
+        <div class="card-body">
+          <div class="meta">11 Jul 2025 · Product UX</div>
+          <div class="title">UX Best Practices for Designing a Dog Walking App Users Adore</div>
+          <p class="excerpt">Patrones de confianza, seguimiento en vivo y pagos claros para apps de paseo de mascotas.</p>
+          <a class="link" href="blog-dog-walking-ux.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#ffe8cc,#fff5e6);"></div>
+        <div class="card-body">
+          <div class="meta">04 Jul 2025 · Food Delivery</div>
+          <div class="title">Top 10 Inspiring Food Delivery App UI/UX Examples for 2025</div>
+          <p class="excerpt">Referencia visual y de flujos para que tu app de delivery destaque en retención y ticket promedio.</p>
+          <a class="link" href="blog-food-delivery-ui-examples.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#e0ecff,#f7f9ff);"></div>
+        <div class="card-body">
+          <div class="meta">01 Jul 2025 · Mobility</div>
+          <div class="title">Top Must-Have Features in Fuel Delivery App Design for 2025</div>
+          <p class="excerpt">Checklist de features clave para apps de combustible on-demand: seguridad, rutas y pricing dinámico.</p>
+          <a class="link" href="blog-fuel-delivery-features.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#ffe6e6,#fff);"></div>
+        <div class="card-body">
+          <div class="meta">23 Jun 2025 · Web UX</div>
+          <div class="title">Top Restaurant Website Design Elements and Tips</div>
+          <p class="excerpt">Elementos UX para reservas, menús y delivery que convierten visitas en clientes recurrentes.</p>
+          <a class="link" href="blog-restaurant-website-tips.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#d9e4ff,#eef2ff);"></div>
+        <div class="card-body">
+          <div class="meta">20 Jun 2025 · Mobility</div>
+          <div class="title">Taxi App Design Trends to Watch in 2025</div>
+          <p class="excerpt">UI minimalista, voz y confianza para la nueva generación de apps de ride-hailing.</p>
+          <a class="link" href="blog-taxi-app-trends-2025.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#f0f4ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">16 Jun 2025 · iOS</div>
+          <div class="title">Top iOS App UI Design Tools in 2025</div>
+          <p class="excerpt">Stack actualizado: Figma, Sketch y alternativas para entregar UI nativa lista para dev.</p>
+          <a class="link" href="blog-ios-design-tools-2025.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#fff3d9,#fff);"></div>
+        <div class="card-body">
+          <div class="meta">06 Jun 2025 · Food Delivery</div>
+          <div class="title">How to Design a Food Delivery App?</div>
+          <p class="excerpt">Consejos del equipo para flujos de búsqueda, carrito y programas de lealtad que elevan el LTV.</p>
+          <a class="link" href="blog-design-food-delivery-app.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#e8f5ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">29 Abr 2025 · Web</div>
+          <div class="title">How to Redesign Your Website for Maximum Impact</div>
+          <p class="excerpt">Pasos concretos para rediseñar con foco en velocidad, SEO y conversiones.</p>
+          <a class="link" href="blog-website-redesign-guide.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#e7f7ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">24 Mar 2025 · Tools</div>
+          <div class="title">Canva vs Figma: Which Design Tool is Right for You in 2025?</div>
+          <p class="excerpt">Comparativa honesta de flujos, colaboración y costos para elegir la mejor herramienta.</p>
+          <a class="link" href="blog-canva-vs-figma-2025.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#eef2ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">28 Feb 2025 · Collaboration</div>
+          <div class="title">Figma Best Practices for Collaborative Design Teams</div>
+          <p class="excerpt">Normas de trabajo compartido, componentes y versionado para equipos distribuidos.</p>
+          <a class="link" href="blog-figma-collaboration-best-practices.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#f7f7f7,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">25 Oct 2024 · Agencies</div>
+          <div class="title">Top 10 UX Design Agencies to Work With – September 2024</div>
+          <p class="excerpt">Selección de agencias UX que destacan por resultados medibles y colaboración.</p>
+          <a class="link" href="blog-ux-agencies-2024.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#e8f0ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">24 Oct 2024 · Mobile</div>
+          <div class="title">Mobile UI/UX: The Design Trends Shaping 2024</div>
+          <p class="excerpt">Tendencias clave en microinteracciones, accesibilidad y velocidad para mobile 2024.</p>
+          <a class="link" href="blog-mobile-uiux-trends-2024.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#f8f8f8,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">18 Oct 2024 · Handoff</div>
+          <div class="title">How to Export Adobe XD to HTML</div>
+          <p class="excerpt">Guía detallada para pasar de XD a HTML manteniendo fidelidad visual y semántica.</p>
+          <a class="link" href="blog-export-xd-to-html.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#fffaf0,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">15 Oct 2024 · WordPress</div>
+          <div class="title">Top Tools and Resources for Converting PSD to WordPress</div>
+          <p class="excerpt">Stack recomendado para llevar PSD a WordPress con performance y SEO listos.</p>
+          <a class="link" href="blog-psd-to-wordpress-tools.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#eef6ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">08 Oct 2024 · Data Viz</div>
+          <div class="title">Best Dashboard Design Examples: UI/UX for Data Visualization</div>
+          <p class="excerpt">Ejemplos de dashboards que equilibran claridad, jerarquía y accionabilidad.</p>
+          <a class="link" href="blog-dashboard-design-examples-2024.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#f5f7ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">20 Sep 2024 · UX</div>
+          <div class="title">Top UI/UX Design Tips To Follow in 2025</div>
+          <p class="excerpt">Consejos accionables para preparar tu producto para las expectativas 2025.</p>
+          <a class="link" href="blog-uiux-design-tips-2025.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#fff6e8,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">06 Sep 2024 · Partners</div>
+          <div class="title">How to Select the Ideal UI/UX Design Partner for Your Business</div>
+          <p class="excerpt">Checklist para evaluar proveedores: procesos, métricas y calidad de entrega.</p>
+          <a class="link" href="blog-select-uiux-partner.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#ecf6ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">04 Sep 2024 · Webflow</div>
+          <div class="title">Websites Built with Webflow: Inspiration for Your Next Project</div>
+          <p class="excerpt">Galería de sitios Webflow con buenas prácticas de performance y SEO.</p>
+          <a class="link" href="blog-webflow-inspiration.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#f8fbff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">08 Ago 2024 · Web Platforms</div>
+          <div class="title">Webflow vs WordPress: Which is Right for Your Project in 2024?</div>
+          <p class="excerpt">Comparativa de stack, costos y mantenimiento para decidir la plataforma correcta.</p>
+          <a class="link" href="blog-webflow-vs-wordpress-2024.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#f1faff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">08 Ago 2024 · Agencies</div>
+          <div class="title">Top Webflow Development Agencies in 2024</div>
+          <p class="excerpt">Agencias Webflow destacadas por velocidad de entrega y calidad visual.</p>
+          <a class="link" href="blog-webflow-agencies-2024.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#eaf5ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">22 Mar 2024 · Handoff</div>
+          <div class="title">Exporting Figma Designs to HTML: A Step-by-Step Guide</div>
+          <p class="excerpt">Paso a paso para exportar Figma a HTML sin perder consistencia visual.</p>
+          <a class="link" href="blog-export-figma-to-html.html">Leer artículo →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#fff5f0,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">22 Mar 2024 · Webflow</div>
+          <div class="title">How to Use a Plugin to Convert Figma Designs to Webflow in 2024</div>
+          <p class="excerpt">Plugins y flujo sugerido para llevar diseños Figma a Webflow con mínimo retrabajo.</p>
+          <a class="link" href="blog-figma-to-webflow-plugin-2024.html">Leer artículo →</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="cta">
+      <div>
+        <strong>¿Necesitas un diseño a medida o llevarlo a código?</strong><br>
+        Agenda una llamada: diseñamos, probamos y entregamos producción.
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://wa.me/543525300076?text=Hola%20David,%20quiero%20hablar%20sobre%20un%20proyecto%20de%20dise%C3%B1o%20o%20code" target="_blank">Reservar llamada</a>
+        <a class="btn btn-secondary" href="contact.html">Ver contacto</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 NeoProdUx. Blog de diseño, producto y entrega a producción.</p>
+  </footer>
+</body>
+</html>
