@@ -93,30 +93,44 @@
     }
 
     .carousel-slide:nth-child(1) {
-      transform: rotateY(0deg) translateZ(350px) scale(1.1);
-      z-index: 4;
+      transform: rotateY(0deg) translateZ(380px) scale(1.05);
+      z-index: 6;
       opacity: 1;
     }
 
     .carousel-slide:nth-child(2) {
-      transform: rotateY(90deg) translateZ(350px) scale(0.85);
-      z-index: 3;
-      opacity: 0.7;
-      filter: brightness(0.7);
+      transform: rotateY(60deg) translateZ(350px) scale(0.95);
+      z-index: 5;
+      opacity: 0.9;
+      filter: brightness(0.9);
     }
 
     .carousel-slide:nth-child(3) {
-      transform: rotateY(180deg) translateZ(350px) scale(0.75);
-      z-index: 2;
-      opacity: 0.5;
-      filter: brightness(0.5);
+      transform: rotateY(120deg) translateZ(320px) scale(0.9);
+      z-index: 4;
+      opacity: 0.75;
+      filter: brightness(0.75);
     }
 
     .carousel-slide:nth-child(4) {
-      transform: rotateY(270deg) translateZ(350px) scale(0.85);
+      transform: rotateY(180deg) translateZ(300px) scale(0.9);
       z-index: 3;
-      opacity: 0.7;
-      filter: brightness(0.7);
+      opacity: 0.65;
+      filter: brightness(0.65);
+    }
+
+    .carousel-slide:nth-child(5) {
+      transform: rotateY(240deg) translateZ(320px) scale(0.95);
+      z-index: 4;
+      opacity: 0.75;
+      filter: brightness(0.8);
+    }
+
+    .carousel-slide:nth-child(6) {
+      transform: rotateY(300deg) translateZ(350px) scale(1);
+      z-index: 5;
+      opacity: 0.9;
+      filter: brightness(0.9);
     }
 
     .carousel-dots {
@@ -313,10 +327,12 @@
 
     <div class="hero-carousel">
       <div class="carousel-container">
-        <div class="carousel-slide" style="background-image: url('images/Home16Pro2.png');"></div>
-        <div class="carousel-slide" style="background-image: url('images/Desktop%20-%208.png');"></div>
-        <div class="carousel-slide" style="background-image: url('images/EventsDesktop%20-%207.jpg');"></div>
-        <div class="carousel-slide" style="background-image: url('images/Home.png');"></div>
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80');"></div>
       </div>
       <div class="carousel-dots" id="carousel-dots"></div>
     </div>
@@ -560,11 +576,12 @@
   const dots = Array.from(dotsContainer.children);
   let currentSlide = 0;
   let autoTimer;
+  const angleStep = slides.length ? 360 / slides.length : 90;
 
   const setSlide = (index) => {
     if (!slides.length) return;
     currentSlide = (index + slides.length) % slides.length;
-    const angle = -currentSlide * 90;
+    const angle = -currentSlide * angleStep;
     carousel.style.setProperty('--angle', `${angle}deg`);
     dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentSlide));
   };
