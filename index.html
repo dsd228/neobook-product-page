@@ -7,8 +7,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2family=Sora:wght@300;400;500;600;700;800&display=swap');
-    @import url('https://fonts.googleapis.com/css2family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -23,7 +23,7 @@
     .nav-cta { background: #000; color: #fff; padding: 10px 24px; border-radius: 8px; transition: all 0.3s; }
     .nav-cta:hover { background: #333; transform: scale(1.05); }
 
-    .hero { padding-top: 140px; padding-bottom: 80px; background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%); overflow: hidden; }
+    .hero { padding-top: 140px; padding-bottom: 80px; background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%); overflow: visible; }
     .hero-content { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
     .hero-text { text-align: left; }
     .hero h1 { font-size: 4rem; line-height: 1.2; margin-bottom: 24px; font-weight: 800; color: #000; }
@@ -35,18 +35,120 @@
     .btn-secondary { background: transparent; color: #000; border: 2px solid #000; }
     .btn-secondary:hover { background: #000; color: #fff; }
 
-    /* CAROUSEL 3D */
-    .hero-carousel { position: relative; width: 100%; height: 450px; border-radius: 16px; overflow: hidden; background: #f0f0f0; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12); perspective: 1200px; }
-    .carousel-container { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; animation: rotateCarousel 20s linear infinite; }
-    @keyframes rotateCarousel { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
-    .carousel-slide { position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; background-repeat: no-repeat; backface-visibility: hidden; }
-    .carousel-slide:nth-child(1) { transform: rotateY(0deg) translateZ(0); }
-    .carousel-slide:nth-child(2) { transform: rotateY(90deg) translateZ(0); }
-    .carousel-slide:nth-child(3) { transform: rotateY(180deg) translateZ(0); }
-    .carousel-slide:nth-child(4) { transform: rotateY(270deg) translateZ(0); }
-    .carousel-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.6); cursor: pointer; transition: all 0.3s; }
-    .dot.active { background: #fff; width: 24px; border-radius: 4px; }
+    /* CAROUSEL 3D - EFECTO COVERFLOW PREMIUM */
+    .hero-carousel {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      border-radius: 20px;
+      overflow: visible;
+      perspective: 1500px;
+      background: transparent;
+    }
+
+    .carousel-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      --angle: 0deg;
+      transform: rotateY(var(--angle)) rotateX(10deg);
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      filter: drop-shadow(0 30px 80px rgba(0, 0, 0, 0.3));
+    }
+
+    .carousel-slide {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      left: 5%;
+      top: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 16px;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      backface-visibility: hidden;
+    }
+
+    .carousel-slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(0, 0, 0, 0.2) 100%
+      );
+      border-radius: 16px;
+      pointer-events: none;
+    }
+
+    .carousel-slide:nth-child(1) {
+      transform: rotateY(0deg) translateZ(350px) scale(1.1);
+      z-index: 4;
+      opacity: 1;
+    }
+
+    .carousel-slide:nth-child(2) {
+      transform: rotateY(90deg) translateZ(350px) scale(0.85);
+      z-index: 3;
+      opacity: 0.7;
+      filter: brightness(0.7);
+    }
+
+    .carousel-slide:nth-child(3) {
+      transform: rotateY(180deg) translateZ(350px) scale(0.75);
+      z-index: 2;
+      opacity: 0.5;
+      filter: brightness(0.5);
+    }
+
+    .carousel-slide:nth-child(4) {
+      transform: rotateY(270deg) translateZ(350px) scale(0.85);
+      z-index: 3;
+      opacity: 0.7;
+      filter: brightness(0.7);
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .dot.active {
+      background: #fff;
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .carousel-container {
+        transition: none;
+      }
+    }
 
     .clients-section { padding: 60px 40px; background: #f9f9f9; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }
     .clients-title { text-align: center; color: #999; font-size: 0.95rem; font-weight: 600; margin-bottom: 30px; letter-spacing: 0.5px; }
@@ -139,7 +241,7 @@
     .nav-dropdown { position: relative; display: inline-block; }
     .dropdown-trigger { cursor: pointer; display: flex; align-items: center; gap: 6px; color: #666; font-size: 0.95rem; text-decoration: none; transition: color 0.3s; }
     .dropdown-trigger:hover { color: #000; }
-    .dropdown-trigger::after { content: ''; font-size: 0.7rem; transition: transform 0.3s; }
+    .dropdown-trigger::after { content: '▾'; font-size: 0.7rem; transition: transform 0.3s; }
     .nav-dropdown:hover .dropdown-trigger::after { transform: rotate(180deg); }
     .dropdown-menu { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #e5e5e5; border-radius: 8px; min-width: 220px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s; z-index: 999; margin-top: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
     .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
@@ -194,8 +296,8 @@
     <div class="hero-carousel">
       <div class="carousel-container">
         <div class="carousel-slide" style="background-image: url('images/Home16Pro2.png');"></div>
-        <div class="carousel-slide" style="background-image: url('images/Desktop - 8.png');"></div>
-        <div class="carousel-slide" style="background-image: url('images/EventsDesktop - 7.jpg');"></div>
+        <div class="carousel-slide" style="background-image: url('images/Desktop%20-%208.png');"></div>
+        <div class="carousel-slide" style="background-image: url('images/EventsDesktop%20-%207.jpg');"></div>
         <div class="carousel-slide" style="background-image: url('images/Home.png');"></div>
       </div>
       <div class="carousel-dots" id="carousel-dots"></div>
@@ -260,7 +362,7 @@
   </div>
   <div class="projects-grid">
     <div class="project-card">
-      <div class="project-image" style="background-image: url('images/Home16 Pro - 2.png');"></div>
+      <div class="project-image" style="background-image: url('images/Home16%20Pro%20-%202.png');"></div>
       <div class="project-content">
         <span class="project-tag">App Móvil</span>
         <h3>PASEO App</h3>
@@ -276,7 +378,7 @@
       </div>
     </div>
     <div class="project-card">
-      <div class="project-image" style="background-image: url('images/Desktop - 3.png');"></div>
+      <div class="project-image" style="background-image: url('images/Desktop%20-%203.png');"></div>
       <div class="project-content">
         <span class="project-tag" style="background: #ffe0e0;">E-Commerce</span>
         <h3>La Caroyense</h3>
@@ -284,13 +386,22 @@
       </div>
     </div>
     <div class="project-card">
-      <div class="project-image" style="background-image: url('images/HomeDesktop - 2.jpg');"></div>
+      <div class="project-image" style="background-image: url('images/HomeDesktop%20-%202.jpg');"></div>
       <div class="project-content">
         <span class="project-tag" style="background: #e0e7ff;">Educativo</span>
         <h3>Yale School of Art</h3>
         <p>Rediseño web moderno. ↑60% visitas, ↑45% engagement, ↑35% aplicaciones.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="cta" style="background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%); padding: 100px 40px;">
+  <h2 style="color: #fff; margin-bottom: 24px;">¿Tiene un diseño para codificar?</h2>
+  <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Transformamos tus diseños en código limpio y funcional. Desde Figma hasta producción.</p>
+  <div class="cta-buttons">
+    <a href="contact.html" style="background: #fff; color: #FF6B35; padding: 14px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s; display: inline-block;">Empezar</a>
+    <a href="https://calendly.com/priteshsudra/new-meeting?month=2026-01" style="background: transparent; color: #fff; border: 2px solid #fff; padding: 14px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s; display: inline-block;">Reservar una llamada</a>
   </div>
 </section>
 
@@ -310,7 +421,7 @@
 <section class="testimonials">
   <div class="section-title">
     <h2>Lo que dicen nuestros clientes</h2>
-    <p>Resultados real�s de productos reales</p>
+    <p>Resultados reales de productos reales</p>
   </div>
   <div class="testimonials-grid">
     <div class="testimonial-card"><div class="rating">★★★★★ 5.0</div><p class="testimonial-text">"El trabajo de David transformó completamente nuestro producto. +78% en retención de usuarios en 3 meses. Recomendado 100%."</p><p class="testimonial-author">CEO, Startup Tech</p><p class="testimonial-role">Founder</p></div>
@@ -322,23 +433,23 @@
 <section class="faq" id="faq">
   <div class="section-title" style="max-width: 800px;"><h2>Preguntas Frecuentes</h2></div>
   <div class="faq-container">
-    <details><summary>�Cu�l es tu proce�o de dise�o</summary><p>Utilizamos un proceso iterativo basado en Design Thinking: Discovery  Strategy  Design  Validation  Optimization. Cada fase est� fundamentada en investigaci�n real y dat�s del usuario.</p></details>
-    <details><summary>�C�mo garantizas resultados measurables</summary><p>Todo proyecto tiene KPIs clar�s desde el inicio. Medimos conversi�n, retenci�n, satisfacci�n y ROI. Mostro los n�meros reales, no promesas bonitas.</p></details>
-    <details><summary>�Puedo solicitar cambi�s despu�s de terminar</summary><p>S�. Las iteraciones basadas en feedback real son parte fundamental del proceso. Trabajamos hasta que los resultados cumplan los objetiv�s definidos.</p></details>
-    <details><summary>�Qu� herramientas utilizas</summary><p>Figma para dise�o, Python/SQL para an�lisis, Power BI para reporting, Git para versionamiento. Las mejores herramientas para cada fase del proyecto.</p></details>
-    <details><summary>�Trabajas con equipos remotos</summary><p>100% remoto. Timezone flexible. Comunicaci�n clara y documentaci�n detallada. Estoy acostumbrado a colaborar con equipos globales.</p></details>
+    <details><summary>¿Cuál es tu proceso de diseño?</summary><p>Utilizamos un proceso iterativo basado en Design Thinking: Discovery → Strategy → Design → Validation → Optimization. Cada fase está fundamentada en investigación real y datos del usuario.</p></details>
+    <details><summary>¿Cómo garantizas resultados medibles?</summary><p>Todo proyecto tiene KPIs claros desde el inicio. Medimos conversión, retención, satisfacción y ROI. Muestro los números reales, no promesas bonitas.</p></details>
+    <details><summary>¿Puedo solicitar cambios después de terminar?</summary><p>Sí. Las iteraciones basadas en feedback real son parte fundamental del proceso. Trabajamos hasta que los resultados cumplan los objetivos definidos.</p></details>
+    <details><summary>¿Qué herramientas utilizas?</summary><p>Figma para diseño, Python/SQL para análisis, Power BI para reporting y Git para versionamiento. Las mejores herramientas para cada fase del proyecto.</p></details>
+    <details><summary>¿Trabajas con equipos remotos?</summary><p>100% remoto. Timezone flexible. Comunicación clara y documentación detallada. Acostumbrado a colaborar con equipos globales.</p></details>
   </div>
 </section>
 
 <section class="blog">
   <div class="section-title">
-    <h2>�Qu� hay de Tendencia</h2>
-    <p>Insights y tips sobre dise�o, UX y producto</p>
+    <h2>¿Qué hay de Tendencia?</h2>
+    <p>Insights y tips sobre diseño, UX y producto</p>
   </div>
   <div class="blog-grid">
-    <div class="blog-card"><div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978w=800&h=200&fit=crop');"></div><div class="blog-content"><h3>Gu�a Completa de UX Research</h3><p>Metodolog�as modernas para entender realmente a tus usuarios y validar tus soluciones.</p></div></div>
-    <div class="blog-card"><div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71w=800&h=200&fit=crop');"></div><div class="blog-content"><h3>Mm�tricas que Importan</h3><p>C�mo medir el impacto real de t�s decision�s de dise�o en el negocio.</p></div></div>
-    <div class="blog-card"><div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5w=800&h=200&fit=crop');"></div><div class="blog-content"><h3>5 Error�s de UX Comunes</h3><p>Y c�mo evitarlos en tu pr�ximo proyec�o de dise�o.</p></div></div>
+    <div class="blog-card"><div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=200&fit=crop');"></div><div class="blog-content"><h3>Guía Completa de UX Research</h3><p>Metodologías modernas para entender realmente a tus usuarios y validar tus soluciones.</p></div></div>
+    <div class="blog-card"><div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=200&fit=crop');"></div><div class="blog-content"><h3>Métricas que Importan</h3><p>Cómo medir el impacto real de tus decisiones de diseño en el negocio.</p></div></div>
+    <div class="blog-card"><div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=200&fit=crop');"></div><div class="blog-content"><h3>5 Errores de UX Comunes</h3><p>Y cómo evitarlos en tu próximo proyecto de diseño.</p></div></div>
   </div>
 </section>
 
@@ -354,7 +465,7 @@
 <footer>
   <div class="footer-container">
     <div class="footer-section">
-      <h3>Compa��a</h3>
+      <h3>Compañía</h3>
       <ul><li><a href="#servicios">Servicios</a></li><li><a href="#proyectos">Proyectos</a></li><li><a href="#proceso">Proceso</a></li><li><a href="#faq">FAQ</a></li></ul>
     </div>
     <div class="footer-section">
@@ -378,31 +489,76 @@
 </footer>
 
 <script>
-  const slides = document.querySelectorAll(''.carousel-slide'');
-  const dotsContainer = document.getElementById(''carousel-dots'');
+  const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+  const dotsContainer = document.getElementById('carousel-dots');
+  const carousel = document.querySelector('.carousel-container');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   slides.forEach((_, index) => {
-    const dot = document.createElement(''div'');
-    dot.className = `dot ${index === 0  ''active'' : ''''}`;
+    const dot = document.createElement('div');
+    dot.className = `dot ${index === 0 ? 'active' : ''}`;
     dotsContainer.appendChild(dot);
   });
-  document.querySelectorAll(''a[href^="#"]'').forEach(anchor => {
-    anchor.addEventListener(''click'', function (e) {
-      const href = this.getAttribute(''href'');
-      if (href !== ''#'' && document.querySelector(href)) {
+
+  const dots = Array.from(dotsContainer.children);
+  let currentSlide = 0;
+  let autoTimer;
+
+  const setSlide = (index) => {
+    if (!slides.length) return;
+    currentSlide = (index + slides.length) % slides.length;
+    const angle = -currentSlide * 90;
+    carousel.style.setProperty('--angle', `${angle}deg`);
+    dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentSlide));
+  };
+
+  const stopAuto = () => {
+    if (autoTimer) clearInterval(autoTimer);
+  };
+
+  const startAuto = () => {
+    if (prefersReducedMotion) return;
+    stopAuto();
+    autoTimer = setInterval(() => setSlide(currentSlide + 1), 4500);
+  };
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => {
+      setSlide(idx);
+      startAuto();
+    });
+  });
+
+  ['mouseenter', 'focusin'].forEach(evt => {
+    carousel.addEventListener(evt, stopAuto);
+  });
+
+  ['mouseleave', 'focusout'].forEach(evt => {
+    carousel.addEventListener(evt, startAuto);
+  });
+
+  setSlide(0);
+  startAuto();
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href !== '#' && document.querySelector(href)) {
         e.preventDefault();
-        document.querySelector(href).scrollIntoView({ behavior: ''smooth'' });
+        document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
       }
     });
   });
-  document.querySelectorAll(''.btn'').forEach(btn => {
-    btn.addEventListener(''click'', function() {
+
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', function() {
       const text = this.textContent;
-      if (text.includes(''Proyectos'')) {
-        document.querySelector(''#proyectos'').scrollIntoView({ behavior: ''smooth'' });
-      } else if (text.includes(''Llamada'')) {
-        window.open(''https://calendly.com/david-sebastian-diaz'', ''_blank'');
-      } else if (text.includes(''Email'')) {
-        window.location.href = ''mailto:david.diaz.uxdata@gmail.com'';
+      if (text.includes('Proyectos')) {
+        document.querySelector('#proyectos').scrollIntoView({ behavior: 'smooth' });
+      } else if (text.includes('Llamada')) {
+        window.open('https://calendly.com/david-sebastian-diaz', '_blank');
+      } else if (text.includes('Email')) {
+        window.location.href = 'mailto:david.diaz.uxdata@gmail.com';
       }
     });
   });
