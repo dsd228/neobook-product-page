@@ -35,47 +35,38 @@
     .btn-secondary { background: transparent; color: #000; border: 2px solid #000; }
     .btn-secondary:hover { background: #000; color: #fff; }
 
-    /* CAROUSEL 3D - ESFERA REAL */
+    /* COVERFLOW CAROUSEL - PREMIUM */
     .hero-carousel {
       position: relative;
       width: 100%;
       height: 450px;
       border-radius: 20px;
       overflow: visible;
-      perspective: 800px;
       background: transparent;
+      perspective: 1200px;
     }
 
-    .carousel-container {
+    .carousel-track {
+      position: relative;
       width: 100%;
       height: 100%;
-      position: relative;
       transform-style: preserve-3d;
-      --angle: 0deg;
-      transform: rotateY(var(--angle)) rotateX(var(--angle-x, 0deg));
-      transition: transform 0.95s cubic-bezier(0.34, 1.56, 0.64, 1);
-      filter: drop-shadow(0 50px 150px rgba(0, 0, 0, 0.45));
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .carousel-slide {
       position: absolute;
-      width: 85%;
-      height: 85%;
-      left: 7.5%;
-      top: 7.5%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 60%;
+      height: 80%;
+      left: 20%;
+      top: 10%;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       border-radius: 20px;
-      border: 2px solid rgba(255, 255, 255, 0.15);
-      box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.5),
-        inset 0 0 40px rgba(0, 0, 0, 0.1);
-      transition: all 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
-      backface-visibility: hidden;
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+      transform-origin: center center;
     }
 
     .carousel-slide::before {
@@ -88,53 +79,54 @@
         rgba(255, 255, 255, 0) 50%,
         rgba(0, 0, 0, 0.2) 100%
       );
-      border-radius: 16px;
+      border-radius: 20px;
       pointer-events: none;
     }
 
-    .carousel-slide:nth-child(1) {
-      transform: rotateY(0deg) rotateX(0deg) translateZ(280px);
-      z-index: 6;
+    /* Coverflow effect - positioning slides */
+    .carousel-slide[data-position="0"] {
+      transform: translateX(0%) translateZ(0px) rotateY(0deg) scale(1);
+      z-index: 5;
       opacity: 1;
-      filter: brightness(1);
+      filter: brightness(1) blur(0px);
     }
 
-    .carousel-slide:nth-child(2) {
-      transform: rotateY(72deg) rotateX(-35deg) translateZ(280px);
-      z-index: 4;
-      opacity: 0.85;
-      filter: brightness(0.80);
-    }
-
-    .carousel-slide:nth-child(3) {
-      transform: rotateY(144deg) rotateX(-35deg) translateZ(280px);
+    .carousel-slide[data-position="-1"] {
+      transform: translateX(-80%) translateZ(-200px) rotateY(45deg) scale(0.85);
       z-index: 3;
-      opacity: 0.80;
-      filter: brightness(0.70);
+      opacity: 0.7;
+      filter: brightness(0.75) blur(1px);
     }
 
-    .carousel-slide:nth-child(4) {
-      transform: rotateY(180deg) rotateX(0deg) translateZ(280px);
+    .carousel-slide[data-position="1"] {
+      transform: translateX(80%) translateZ(-200px) rotateY(-45deg) scale(0.85);
+      z-index: 3;
+      opacity: 0.7;
+      filter: brightness(0.75) blur(1px);
+    }
+
+    .carousel-slide[data-position="-2"],
+    .carousel-slide[data-position="2"] {
+      transform: translateX(0%) translateZ(-400px) scale(0.7);
       z-index: 1;
-      opacity: 0.65;
-      filter: brightness(0.55);
+      opacity: 0.4;
+      filter: brightness(0.6) blur(2px);
     }
 
-    .carousel-slide:nth-child(5) {
-      transform: rotateY(216deg) rotateX(35deg) translateZ(280px);
-      z-index: 3;
-      opacity: 0.80;
-      filter: brightness(0.70);
+    .carousel-slide[data-position="-3"],
+    .carousel-slide[data-position="3"],
+    .carousel-slide[data-position="-4"],
+    .carousel-slide[data-position="4"],
+    .carousel-slide[data-position="-5"],
+    .carousel-slide[data-position="5"] {
+      transform: translateX(0%) translateZ(-500px) scale(0.5);
+      z-index: 0;
+      opacity: 0;
+      filter: brightness(0.5) blur(3px);
+      pointer-events: none;
     }
 
-    .carousel-slide:nth-child(6) {
-      transform: rotateY(288deg) rotateX(35deg) translateZ(280px);
-      z-index: 4;
-      opacity: 0.85;
-      filter: brightness(0.80);
-    }
-
-    .carousel-dots {
+    .carousel-pagination {
       position: absolute;
       bottom: 20px;
       left: 50%;
@@ -144,23 +136,26 @@
       z-index: 10;
     }
 
-    .dot {
+    .carousel-pagination-bullet {
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.6);
       cursor: pointer;
       transition: all 0.3s;
+      border: none;
+      padding: 0;
     }
 
-    .dot.active {
+    .carousel-pagination-bullet.active {
       background: #fff;
       width: 24px;
       border-radius: 4px;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .carousel-container {
+      .carousel-track,
+      .carousel-slide {
         transition: none;
       }
     }
@@ -327,15 +322,15 @@
     </div>
 
     <div class="hero-carousel">
-      <div class="carousel-container">
-        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80');"></div>
-        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80');"></div>
-        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1200&q=80');"></div>
-        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80');"></div>
-        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80');"></div>
-        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80');"></div>
+      <div class="carousel-track">
+        <div class="carousel-slide" data-position="0" style="background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="carousel-slide" data-position="1" style="background-image: url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="carousel-slide" data-position="2" style="background-image: url('https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="carousel-slide" data-position="3" style="background-image: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="carousel-slide" data-position="4" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="carousel-slide" data-position="5" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80');"></div>
       </div>
-      <div class="carousel-dots" id="carousel-dots"></div>
+      <div class="carousel-pagination"></div>
     </div>
   </div>
 </section>
@@ -563,59 +558,125 @@
 </footer>
 
 <script>
-  const slides = Array.from(document.querySelectorAll('.carousel-slide'));
-  const dotsContainer = document.getElementById('carousel-dots');
-  const carousel = document.querySelector('.carousel-container');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Premium Coverflow Carousel Implementation with error handling
+  (function() {
+    'use strict';
+    
+    try {
+      const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+      const paginationContainer = document.querySelector('.carousel-pagination');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      if (!slides.length || !paginationContainer) {
+        console.warn('Carousel elements not found');
+        return;
+      }
 
-  slides.forEach((_, index) => {
-    const dot = document.createElement('div');
-    dot.className = `dot ${index === 0 ? 'active' : ''}`;
-    dotsContainer.appendChild(dot);
-  });
+      let currentIndex = 0;
+      let autoplayTimer = null;
 
-  const dots = Array.from(dotsContainer.children);
-  let currentSlide = 0;
-  let autoTimer;
-  const angleStep = slides.length ? 360 / slides.length : 90;
+      // Create pagination bullets
+      slides.forEach((_, index) => {
+        const bullet = document.createElement('button');
+        bullet.className = `carousel-pagination-bullet ${index === 0 ? 'active' : ''}`;
+        bullet.setAttribute('aria-label', `Go to slide ${index + 1}`);
+        paginationContainer.appendChild(bullet);
+      });
 
-  const setSlide = (index) => {
-    if (!slides.length) return;
-    currentSlide = (index + slides.length) % slides.length;
-    const angle = -currentSlide * angleStep;
-    const angleX = Math.sin((currentSlide / slides.length) * Math.PI * 2) * 25;
-    carousel.style.setProperty('--angle', `${angle}deg`);
-    carousel.style.setProperty('--angle-x', `${angleX}deg`);
-    dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentSlide));
-  };
+      const bullets = Array.from(paginationContainer.children);
 
-  const stopAuto = () => {
-    if (autoTimer) clearInterval(autoTimer);
-  };
+      // Update slide positions based on current index
+      function updateSlides(newIndex) {
+        if (newIndex < 0 || newIndex >= slides.length) return;
+        
+        currentIndex = newIndex;
 
-  const startAuto = () => {
-    if (prefersReducedMotion) return;
-    stopAuto();
-    autoTimer = setInterval(() => setSlide(currentSlide + 1), 4500);
-  };
+        slides.forEach((slide, index) => {
+          const position = index - currentIndex;
+          slide.setAttribute('data-position', position.toString());
+        });
 
-  dots.forEach((dot, idx) => {
-    dot.addEventListener('click', () => {
-      setSlide(idx);
-      startAuto();
-    });
-  });
+        // Update pagination
+        bullets.forEach((bullet, index) => {
+          bullet.classList.toggle('active', index === currentIndex);
+        });
+      }
 
-  ['mouseenter', 'focusin'].forEach(evt => {
-    carousel.addEventListener(evt, stopAuto);
-  });
+      // Navigate to specific slide
+      function goToSlide(index) {
+        updateSlides(index);
+        resetAutoplay();
+      }
 
-  ['mouseleave', 'focusout'].forEach(evt => {
-    carousel.addEventListener(evt, startAuto);
-  });
+      // Navigate to next slide
+      function nextSlide() {
+        const next = (currentIndex + 1) % slides.length;
+        updateSlides(next);
+      }
 
-  setSlide(0);
-  startAuto();
+      // Autoplay functionality
+      function startAutoplay() {
+        if (prefersReducedMotion) return;
+        stopAutoplay();
+        autoplayTimer = setInterval(nextSlide, 4500);
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      }
+
+      function resetAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+      }
+
+      // Event listeners for pagination bullets
+      bullets.forEach((bullet, index) => {
+        bullet.addEventListener('click', () => goToSlide(index));
+      });
+
+      // Pause/resume autoplay on hover and focus
+      const carouselElement = document.querySelector('.hero-carousel');
+      if (carouselElement) {
+        ['mouseenter', 'focusin'].forEach(evt => {
+          carouselElement.addEventListener(evt, stopAutoplay);
+        });
+
+        ['mouseleave', 'focusout'].forEach(evt => {
+          carouselElement.addEventListener(evt, startAutoplay);
+        });
+      }
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          const prev = (currentIndex - 1 + slides.length) % slides.length;
+          goToSlide(prev);
+        } else if (e.key === 'ArrowRight') {
+          const next = (currentIndex + 1) % slides.length;
+          goToSlide(next);
+        }
+      });
+
+      // Initialize
+      updateSlides(0);
+      startAutoplay();
+      
+      console.log('Coverflow carousel initialized successfully');
+      
+    } catch (error) {
+      console.error('Error initializing coverflow carousel:', error);
+      // Fallback: ensure first slide is visible
+      const firstSlide = document.querySelector('.carousel-slide');
+      if (firstSlide) {
+        firstSlide.setAttribute('data-position', '0');
+        firstSlide.style.display = 'block';
+      }
+    }
+  })();
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
