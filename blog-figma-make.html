@@ -1,319 +1,1066 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mastering Figma Make: From Prompt to Prototype (2025) | NeoProdUx Blog</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: "Inter", sans-serif; color: #1a1a1a; background: #f7f7f7; line-height: 1.7; }
-    a { text-decoration: none; color: inherit; }
-    
-    header { background: linear-gradient(135deg, #0f0f0f, #1a1a1a); color: #fff; padding: 20px 24px; position: sticky; top: 0; z-index: 100; }
-    nav { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-    .brand { font-family: "Sora", sans-serif; font-weight: 700; font-size: 1.1rem; }
-    .nav-links { display: flex; gap: 16px; }
-    .nav-links a { color: #dcdcdc; font-size: 0.95rem; }
-    .nav-links a:hover { color: #fff; }
-    
-    .hero-article { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 60px 24px 40px; color: #fff; }
-    .hero-content { max-width: 900px; margin: 0 auto; }
-    .category-tag { display: inline-block; padding: 6px 14px; background: rgba(255,255,255,0.2); border-radius: 999px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
-    .article-title { font-family: "Sora", sans-serif; font-size: 2.8rem; line-height: 1.2; margin-bottom: 20px; }
-    .article-meta { display: flex; gap: 24px; font-size: 0.95rem; opacity: 0.9; flex-wrap: wrap; }
-    
-    .featured-img { max-width: 1200px; margin: -80px auto 0; padding: 0 24px; }
-    .featured-img img { width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
-    
-    article { max-width: 800px; margin: 80px auto; padding: 0 24px; }
-    article h2 { font-family: "Sora", sans-serif; font-size: 2rem; margin: 50px 0 20px; color: #0f0f0f; }
-    article h3 { font-family: "Sora", sans-serif; font-size: 1.5rem; margin: 40px 0 15px; color: #1a1a1a; }
-    article p { font-size: 1.1rem; color: #333; margin-bottom: 20px; }
-    article ul, article ol { margin: 20px 0 20px 30px; }
-    article li { margin-bottom: 12px; font-size: 1.05rem; }
-    article strong { font-weight: 600; color: #0f0f0f; }
-    
-    .key-box { background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); border-left: 4px solid #667eea; padding: 30px; margin: 40px 0; border-radius: 12px; }
-    .key-box h3 { margin-top: 0 !important; color: #667eea; }
-    
-    blockquote { border-left: 4px solid #ff6b35; padding: 20px 30px; margin: 30px 0; background: #fff; font-style: italic; color: #555; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-    
-    .comparison-table { width: 100%; border-collapse: collapse; margin: 30px 0; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.08); }
-    .comparison-table th { background: #0f0f0f; color: #fff; padding: 16px; text-align: left; font-weight: 600; }
-    .comparison-table td { padding: 14px 16px; border-bottom: 1px solid #e5e5e5; }
-    .comparison-table tr:last-child td { border-bottom: none; }
-    
-    .checklist { background: #fff; padding: 30px; border-radius: 12px; margin: 30px 0; box-shadow: 0 2px 15px rgba(0,0,0,0.08); }
-    .checklist li { list-style: none; padding-left: 30px; position: relative; }
-    .checklist li:before { content: "✓"; position: absolute; left: 0; color: #667eea; font-weight: bold; font-size: 1.2rem; }
-    
-    .related { max-width: 1200px; margin: 80px auto; padding: 60px 24px; background: #fff; border-radius: 16px; }
-    .related h2 { font-family: "Sora", sans-serif; text-align: center; margin-bottom: 40px; }
-    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .related-card { background: #f7f7f7; border-radius: 12px; overflow: hidden; transition: transform 0.25s; cursor: pointer; }
-    .related-card:hover { transform: translateY(-6px); }
-    .related-thumb { height: 180px; background-size: cover; background-position: center; }
-    .related-body { padding: 20px; }
-    .related-title { font-weight: 600; margin-bottom: 8px; }
-    .related-date { font-size: 0.9rem; color: #888; }
-    
-    .back-link { display: inline-flex; align-items: center; gap: 8px; color: #667eea; font-weight: 600; margin-bottom: 30px; }
-    .back-link:hover { gap: 12px; }
-    
-    footer { text-align: center; padding: 40px 16px 56px; color: #777; font-size: 0.95rem; }
-    
-    @media (max-width: 768px) {
-      .article-title { font-size: 2rem; }
-      article h2 { font-size: 1.6rem; }
-      article h3 { font-size: 1.3rem; }
-      article p, article li { font-size: 1rem; }
-      .nav-links { display: none; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Figma Make: De Prompt a Prototipo | NeoProdUx</title>
+    <meta name="description" content="Guía completa para dominar Figma Make en 2025. Aprende a transformar ideas en prototipos funcionales con IA, ingeniería de prompts y técnicas profesionales.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #ffffff;
+            color: #1a1a1a;
+            font-family: "Inter", sans-serif;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Sora", sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #666;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        .nav-cta {
+            background: #000;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        /* Article Hero */
+        .article-hero {
+            padding: 140px 24px 80px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f7ff 100%);
+            text-align: center;
+        }
+
+        .article-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-eyebrow {
+            display: inline-block;
+            background: rgba(86, 124, 228, 0.1);
+            color: #567ce4;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        .article-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 24px;
+            color: #000;
+        }
+
+        .article-hero p {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            color: #999;
+            font-size: 0.95rem;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            padding: 60px 24px;
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+
+        .stat-card {
+            padding: 32px 24px;
+            background: #f8f9fa;
+            border-radius: 16px;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(86, 124, 228, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #567ce4;
+            margin-bottom: 12px;
+            font-family: "Sora", sans-serif;
+        }
+
+        .stat-text {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 24px;
+        }
+
+        .article-content h2 {
+            font-size: 2.5rem;
+            margin: 60px 0 24px;
+            color: #000;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .article-content h3 {
+            font-size: 1.8rem;
+            margin: 48px 0 20px;
+            color: #333;
+        }
+
+        .article-content p {
+            margin-bottom: 24px;
+            font-size: 1.125rem;
+            color: #444;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-left: 24px;
+            margin-bottom: 32px;
+        }
+
+        .article-content li {
+            margin-bottom: 12px;
+            color: #444;
+            font-size: 1.125rem;
+            position: relative;
+            padding-left: 8px;
+        }
+
+        .article-content strong {
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .comparison-table th {
+            background: #567ce4;
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .comparison-table tr:hover {
+            background: #f0f0f0;
+        }
+
+        /* Checklist */
+        .checklist-section {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 40px;
+            margin: 48px 0;
+            border-left: 4px solid #567ce4;
+        }
+
+        .checklist-section h3 {
+            color: #567ce4;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .checklist-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .checklist-number {
+            background: #567ce4;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Prompt Examples */
+        .prompt-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .prompt-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s;
+        }
+
+        .prompt-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .prompt-bad {
+            border-color: #ff6b6b;
+        }
+
+        .prompt-good {
+            border-color: #51cf66;
+        }
+
+        .prompt-header {
+            padding: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .prompt-bad .prompt-header {
+            background: #ff6b6b;
+        }
+
+        .prompt-good .prompt-header {
+            background: #51cf66;
+        }
+
+        .prompt-content {
+            padding: 24px;
+        }
+
+        .prompt-content p {
+            margin: 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Process Timeline */
+        .process-timeline {
+            max-width: 800px;
+            margin: 48px auto;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e5e5;
+        }
+
+        .process-step {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #567ce4;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            z-index: 2;
+            flex-shrink: 0;
+            margin-right: 30px;
+        }
+
+        .step-content {
+            flex: 1;
+            padding-top: 10px;
+        }
+
+        .step-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .step-time {
+            color: #567ce4;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* CTA Section */
+        .article-cta {
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+            margin-top: 80px;
+            border-radius: 20px;
+        }
+
+        .article-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .article-cta p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .cta-btn-primary {
+            background: #567ce4;
+            color: white;
+        }
+
+        .cta-btn-primary:hover {
+            background: #4568d1;
+            transform: translateY(-2px);
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn-secondary:hover {
+            background: white;
+            color: #000;
+        }
+
+        /* Related Articles */
+        .related-articles {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 24px;
+        }
+
+        .related-articles h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #000;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .related-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s;
+        }
+
+        .related-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #567ce4;
+        }
+
+        .related-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .related-content {
+            padding: 24px;
+        }
+
+        .related-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .related-content p {
+            color: #666;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .related-link {
+            color: #567ce4;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0f0f;
+            color: white;
+            padding: 80px 24px 40px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.25rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #567ce4;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-hero h1 { font-size: 2.5rem; }
+            .article-hero p { font-size: 1.1rem; }
+            .article-content h2 { font-size: 2rem; }
+            .article-content h3 { font-size: 1.5rem; }
+            .nav-links { display: none; }
+            .prompt-examples { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; }
+            .related-grid { grid-template-columns: 1fr; }
+            .process-timeline::before { left: 20px; }
+            .step-number { 
+                width: 50px; 
+                height: 50px; 
+                font-size: 1.2rem;
+                margin-right: 20px;
+            }
+            .checklist-section { padding: 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .stat-number { font-size: 2.5rem; }
+            .article-cta { padding: 60px 20px; }
+            .article-cta h2 { font-size: 2rem; }
+            .comparison-table { display: block; overflow-x: auto; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a class="brand" href="blog.html">NeoProdUx</a>
-      <div class="nav-links">
-        <a href="blog.html">Blog</a>
-        <a href="index.html#proyectos">Proyectos</a>
-        <a href="contact.html">Contacto</a>
-      </div>
-    </nav>
-  </header>
 
-  <section class="hero-article">
-    <div class="hero-content">
-      <div class="category-tag">Design to Code · Figma · AI</div>
-      <h1 class="article-title">Mastering Figma Make: From Prompt to Prototype (2025 Complete Guide)</h1>
-      <div class="article-meta">
-        <span><i class="far fa-calendar"></i> 18 Sep 2025</span>
-        <span><i class="far fa-clock"></i> 15 min lectura</span>
-        <span><i class="far fa-user"></i> NeoProdUx Team</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="featured-img">
-    <img src="https://uistudioz.com/wp-content/uploads/2025/09/From-Idea-to-Prototype-–-Master-Figma-Make-with-AI.png" alt="Figma Make AI Prototype">
-  </div>
-
-  <article>
-    <a href="blog.html" class="back-link"><i class="fas fa-arrow-left"></i> Volver al blog</a>
-
-    <p>El diseño cambió para siempre en 2025. Figma Make no es solo una herramienta más: es un cambio de paradigma que transforma ideas en prototipos funcionales usando lenguaje natural. Ya seas diseñador senior, PM o developer, esta guía te ayudará a dominar AI-powered prototyping y acelerar tu workflow como nunca antes.</p>
-
-    <div class="key-box">
-      <h3>🎯 Lo que aprenderás</h3>
-      <ul>
-        <li>Cómo escribir prompts efectivos que generen diseños precisos</li>
-        <li>Workflow AI-powered que acelera la creación de prototipos 70-80%</li>
-        <li>Best practices para refinar y iterar diseños generados por IA</li>
-        <li>Casos reales de uso en startups y equipos enterprise</li>
-      </ul>
-    </div>
-
-    <h2>¿Qué es Figma Make?</h2>
-    <p>Figma Make es una herramienta de diseño potenciada por IA que transforma prompts en lenguaje natural en prototipos funcionales y código production-grade. Permite a diseñadores, PMs y developers crear diseños interactivos 70-80% más rápido que los métodos tradicionales, simplemente describiendo lo que quieres construir.</p>
-
-    <h3>Beneficios clave</h3>
-    <ul>
-      <li><strong>Prompt-to-prototype</strong> en minutos, no horas</li>
-      <li><strong>Automatización de diseño con IA</strong> que mantiene consistencia de marca</li>
-      <li><strong>No requiere código</strong> para prototipos funcionales</li>
-      <li><strong>Integración perfecta</strong> con workflows Figma existentes</li>
-    </ul>
-
-    <h2>Figma Make vs Prototyping Tradicional</h2>
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Aspecto</th>
-          <th>Prototyping Tradicional</th>
-          <th>Figma Make (AI-Powered)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Tiempo al prototipo</td>
-          <td>4-8 horas para mockup básico</td>
-          <td>15-30 minutos con prompts</td>
-        </tr>
-        <tr>
-          <td>Skills técnicas requeridas</td>
-          <td>Alta proficiencia en diseño</td>
-          <td>Comunicación en lenguaje natural</td>
-        </tr>
-        <tr>
-          <td>Velocidad de iteración</td>
-          <td>Ajuste manual de elementos</td>
-          <td>Refinamiento conversacional</td>
-        </tr>
-        <tr>
-          <td>Consistencia</td>
-          <td>Depende del skill del diseñador</td>
-          <td>Design systems forzados por IA</td>
-        </tr>
-        <tr>
-          <td>Colaboración</td>
-          <td>Bottleneck dependiente del diseñador</td>
-          <td>Accesibilidad cross-team</td>
-        </tr>
-        <tr>
-          <td>Curva de aprendizaje</td>
-          <td>Meses para dominar herramientas</td>
-          <td>Horas para aprender prompt engineering</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>Quick Start: 5 cosas que hacer antes de usar Figma Make</h2>
-    <div class="checklist">
-      <ol>
-        <li><strong>Upgrade a plan pago de Figma</strong>: Las herramientas AI requieren suscripción Full seat</li>
-        <li><strong>Define tu Design System</strong>: Reúne brand colors, tipografía y component libraries para output consistente</li>
-        <li><strong>Prepara assets de contenido</strong>: Junta copy, imágenes y archivos de diseño existentes que referenciarás en prompts</li>
-        <li><strong>Escribe objetivos claros del proyecto</strong>: Define qué significa éxito para tu prototipo (user testing, stakeholder buy-in, etc.)</li>
-        <li><strong>Aprende estructura básica de prompts</strong>: Practica describir diseños con lenguaje claro y específico antes de proyectos complejos</li>
-      </ol>
-    </div>
-
-    <h2>Cómo escribir prompts efectivos</h2>
-    <p>La calidad de tu output de Figma Make se correlaciona directamente con la claridad y especificidad de tus prompts. Dominar prompt engineering para diseño requiere entender cómo la IA interpreta instrucciones y estructurar requests para resultados óptimos.</p>
-
-    <h3>Best Practices de Prompt Engineering</h3>
-
-    <h4>1. Sé específico, no vago</h4>
-    <ul>
-      <li>❌ Malo: "Crea un homepage"</li>
-      <li>✅ Bueno: "Crea un SaaS landing page con hero section mostrando value proposition headline, overview de features en 3 columnas, carousel de testimonios de clientes, y botón CTA prominente en color de marca #2563EB"</li>
-    </ul>
-
-    <h4>2. Provee contexto y constraints</h4>
-    <ul>
-      <li>Incluye audiencia target, industria y preferencias de diseño</li>
-      <li>Ejemplo: "Diseña una interfaz de reserva de citas médicas para usuarios de tercera edad, enfatizando botones grandes (mínimo 44px), colores de alto contraste, y patrones de navegación simples."</li>
-    </ul>
-
-    <h4>3. Referencia tu Design System</h4>
-    <ul>
-      <li>Siempre menciona brand colors, fonts y componentes existentes</li>
-      <li>"Usando nuestro design system establecido con color primario #2563EB y familia de font Roboto, crea..."</li>
-    </ul>
-
-    <blockquote>
-      "Los mejores prompts son específicos, contextuales e incluyen tanto requerimientos funcionales como preferencias estéticas. Piénsalo como briefear a un diseñador: cuantos más detalles proveas, mejor el outcome."
-    </blockquote>
-
-    <h2>De idea simple a prototipo complejo: Proceso paso a paso</h2>
-
-    <h3>Fase 1: Creación de fundamentos (5-10 min)</h3>
-    <ol>
-      <li>Comienza con estructura de layout core y áreas de contenido primarias</li>
-      <li>Prompt ejemplo: "Crea un mobile-first dashboard layout con navigation header, área de contenido principal, y floating action button"</li>
-      <li>Revisa output e identifica issues estructurales mayores</li>
-    </ol>
-
-    <h3>Fase 2: Población de contenido (10-15 min)</h3>
-    <ol>
-      <li>Agrega contenido específico, data y elementos interactivos</li>
-      <li>"Popula el dashboard con analytics cards mostrando monthly active users, revenue trends y top-performing content."</li>
-      <li>Asegura que la jerarquía de contenido tenga sentido para los user goals</li>
-    </ol>
-
-    <h3>Fase 3: Definición de interacciones (10-15 min)</h3>
-    <ol>
-      <li>Especifica user flows y comportamientos interactivos</li>
-      <li>"Agrega navegación entre secciones del dashboard con transiciones smooth y habilita drill-down functionality para analytics cards."</li>
-      <li>Testea interacciones dentro del preview mode de Figma</li>
-    </ol>
-
-    <h3>Fase 4: Polish y refinamiento (15-20 min)</h3>
-    <ol>
-      <li>Enfócate en enhancement visual y micro-interacciones</li>
-      <li>"Aplica spacing consistente usando sistema de grid de 8px, agrega hover states para elementos interactivos, y asegura compliance de accesibilidad."</li>
-      <li>Review final contra brand guidelines y user experience standards</li>
-    </ol>
-
-    <h2>Casos de uso reales y success stories</h2>
-
-    <h3>Desarrollo rápido de MVP para startups</h3>
-    <p>Figma Make permite que cualquiera convierta sus ideas en prototipos realistas a través de prompts en lenguaje natural, haciéndolo particularmente valioso en entornos startup donde velocidad y eficiencia de recursos son cruciales.</p>
-
-    <p><strong>Caso de estudio:</strong> Una fintech startup usó Figma Make para crear un prototipo completo de mobile banking app en solo dos días, incluyendo user onboarding, account dashboard, transaction history y fund transfer functionality. El prototipo fue suficiente para user testing y presentaciones a inversores, acelerando su timeline de desarrollo por semanas.</p>
-
-    <h3>Presentaciones a clientes y stakeholder buy-in</h3>
-    <ul>
-      <li><strong>Comunicación visual:</strong> Transforma ideas abstractas en prototipos tangibles con los que clientes pueden interactuar, reduciendo miscommunication y alineando expectativas.</li>
-      <li><strong>Iteración rápida:</strong> Incorpora feedback de cliente en tiempo real durante meetings prompting modificaciones y demostrando cambios inmediatamente.</li>
-      <li><strong>Enhancement de propuestas:</strong> Incluye prototipos funcionales en project proposals para demostrar capacidades y diferenciarte de competidores.</li>
-    </ul>
-
-    <h2>Errores comunes en Figma Make y cómo evitarlos</h2>
-
-    <h3>1. Prompts vagos que producen resultados genéricos</h3>
-    <p><strong>❌ Error:</strong> "Crea un website moderno"<br>
-    <strong>✅ Solución:</strong> "Crea un modern SaaS landing page para software de project management con hero section, feature comparison table y pricing tiers usando nuestros brand colors #2563EB y #F59E0B"</p>
-
-    <h3>2. Ignorar consistencia del Design System</h3>
-    <p><strong>❌ Error:</strong> Comenzar prompts sin referenciar brand guidelines existentes<br>
-    <strong>✅ Solución:</strong> Siempre comienza con "Usando nuestro design system con [colores específicos, fonts, spacing], crea..."</p>
-
-    <h3>3. Intentar construir todo en un prompt</h3>
-    <p><strong>❌ Error:</strong> Request de prototipos complejos multi-página en una sola conversación<br>
-    <strong>✅ Solución:</strong> Divide proyectos complejos en fases enfocadas (layout → content → interactions → polish)</p>
-
-    <h2>El futuro del diseño AI-powered</h2>
-    <p>La rápida evolución de herramientas de diseño AI-powered sugiere enhancements significativos próximos para Figma Make:</p>
-
-    <ul>
-      <li><strong>Enhanced Integration:</strong> Integración más profunda con dev tools y capacidades de generación de código para workflows design-to-development más seamless</li>
-      <li><strong>Advanced Customization:</strong> Opciones más sofisticadas de integración de design system y customización de marca para usuarios enterprise</li>
-      <li><strong>Collaborative AI:</strong> Features de colaboración AI multi-usuario habilitando prompting basado en equipo e iteración de diseño</li>
-    </ul>
-
-    <h2>Conclusión: Domina el diseño AI-powered con Figma Make</h2>
-    <p>Figma Make representa más que solo otra design tool: es un shift fundamental hacia procesos de diseño más eficientes, accesibles y colaborativos. Al dominar las técnicas de prompt engineering y best practices delineadas en esta guía, aprovecharás capacidades de AI-powered prototyping que enhancean en lugar de reemplazar la creatividad humana.</p>
-
-    <div class="key-box">
-      <h3>🎯 Key Takeaways para el éxito</h3>
-      <ul>
-        <li><strong>Start specific:</strong> Usa prompts detallados con contexto de marca desde el día uno</li>
-        <li><strong>Iterate strategically:</strong> Construye complejidad a través de fases enfocadas en lugar de requests únicos</li>
-        <li><strong>Test early and often:</strong> Usa la funcionalidad de preview de Figma para validar user flows</li>
-        <li><strong>Maintain consistency:</strong> Siempre referencia tu design system en prompts</li>
-        <li><strong>Think mobile-first:</strong> Especifica requerimientos de responsive design upfront</li>
-      </ul>
-    </div>
-
-    <p>Los equipos que invierten en Figma automation y AI design skills ahora tendrán ventajas competitivas significativas en velocidad, eficiencia y capacidad de innovación a medida que el AI-powered prototyping se convierta en el estándar de la industria.</p>
-  </article>
-
-  <section class="related">
-    <h2>Artículos relacionados</h2>
-    <div class="related-grid">
-      <div class="related-card" onclick="window.location.href='blog-grocery-ux.html'">
-        <div class="related-thumb" style="background-image:url('https://uistudioz.com/wp-content/uploads/2025/09/Avoid-These-7-UX-Errors-in-Grocery-Apps.png');"></div>
-        <div class="related-body">
-          <div class="related-title">7 UX Mistakes That Can Break a Grocery Delivery App</div>
-          <div class="related-date">01 Sep 2025</div>
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo">NeoProdUx</a>
+        <div class="nav-links">
+            <a href="index.html#servicios">Servicios</a>
+            <a href="index.html#proyectos">Proyectos</a>
+            <a href="index.html#proceso">Proceso</a>
+            <a href="index.html#faq">FAQ</a>
+            <a href="blog.html">Blog</a>
+            <a href="index.html#contacto" class="nav-cta">Contacto</a>
         </div>
-      </div>
-      <div class="related-card" onclick="window.location.href='blog-framer-trends.html'">
-        <div class="related-thumb" style="background-image:url('https://uistudioz.com/wp-content/uploads/2025/08/Framer-Website-Design-Trends-You-Cant-Miss.png');"></div>
-        <div class="related-body">
-          <div class="related-title">10 Framer Website Design Trends to Watch in 2025</div>
-          <div class="related-date">22 Ago 2025</div>
-        </div>
-      </div>
     </div>
-  </section>
+</nav>
 
-  <footer>
-    <p>© 2026 NeoProdUx. Blog de diseño, producto y entrega a producción.</p>
-  </footer>
+<article>
+    <header class="article-hero">
+        <div class="article-hero-content">
+            <span class="article-eyebrow">Figma & IA para Diseño</span>
+            <h1>Mastering Figma Make: De Prompt a Prototipo (Guía Completa 2025)</h1>
+            <p>Domina la herramienta que está revolucionando el diseño en 2025. Aprende a transformar ideas en prototipos funcionales usando IA, ingeniería de prompts y técnicas profesionales para acelerar tu workflow 10x.</p>
+            
+            <div class="article-meta">
+                <span><i class="far fa-calendar"></i> Enero 18, 2025</span>
+                <span><i class="far fa-clock"></i> 15 min lectura</span>
+                <span><i class="far fa-folder"></i> Figma, IA, Prototipado</span>
+                <span><i class="far fa-eye"></i> 3,850 vistas</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">70-80%</div>
+                <div class="stat-text">Más rápido que métodos tradicionales de prototipado</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">30 min</div>
+                <div class="stat-text">Para prototipos que antes tomaban 4-8 horas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10x</div>
+                <div class="stat-text">Aceleración en iteraciones y exploración de ideas</div>
+            </div>
+        </div>
+    </section>
+
+    <main class="article-content">
+        <p>El panorama del diseño ha cambiado fundamentalmente en 2025, y <strong>Figma Make</strong> representa un enfoque revolucionario para convertir ideas en prototipos funcionales mediante prompts de lenguaje natural. Esta guía completa te enseñará a dominar las capacidades de diseño impulsadas por IA de Figma para acelerar tu flujo de trabajo y dar vida a ideas más rápido que nunca.</p>
+        
+        <p>En <strong>NeoProdUx</strong>, hemos integrado Figma Make en nuestro proceso de diseño para proyectos como <strong>PASEO</strong> y <strong>Nexus Logistics</strong>, logrando reducir el tiempo de creación de prototipos en más del 75% mientras mantenemos la calidad y consistencia del diseño.</p>
+
+        <h2>🚀 ¿Qué es Figma Make y Por qué Revoluciona el Diseño en 2025?</h2>
+        <p>Figma Make es una herramienta de diseño impulsada por IA que transforma prompts de lenguaje natural en prototipos funcionales y código listo para producción. No es solo otra herramienta de automatización; es un cambio de paradigma fundamental que democratiza el proceso de diseño.</p>
+
+        <h3>Capacidades Impulsadas por IA</h3>
+        <ul>
+            <li><strong>Procesamiento de Lenguaje Natural</strong>: Transforma descripciones escritas en diseños visuales mediante prompts conversacionales.</li>
+            <li><strong>Refinamiento Iterativo</strong>: Modifica partes específicas de un prototipo usando instrucciones en lenguaje natural.</li>
+            <li><strong>Flexibilidad de Entradas Múltiples</strong>: Puedes comenzar desde un prompt, un archivo de Figma o una combinación de ambos.</li>
+            <li><strong>Salida Lista para Producción</strong>: Genera código funcional que cierra la brecha entre prototipo y producto final.</li>
+        </ul>
+
+        <h2>📊 Figma Make vs Prototipado Tradicional: Comparación Rápida</h2>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Prototipado Tradicional</th>
+                    <th>Figma Make (IA)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Tiempo para Prototipo</strong></td>
+                    <td>4-8 horas para mockup básico</td>
+                    <td>15-30 minutos con prompts</td>
+                </tr>
+                <tr>
+                    <td><strong>Habilidades Técnicas</strong></td>
+                    <td>Alta competencia en diseño necesaria</td>
+                    <td>Comunicación en lenguaje natural</td>
+                </tr>
+                <tr>
+                    <td><strong>Velocidad de Iteración</strong></td>
+                    <td>Ajuste manual de elementos</td>
+                    <td>Refinamiento conversacional</td>
+                </tr>
+                <tr>
+                    <td><strong>Consistencia</strong></td>
+                    <td>Depende de la habilidad del diseñador</td>
+                    <td>Sistemas de diseño reforzados por IA</td>
+                </tr>
+                <tr>
+                    <td><strong>Colaboración</strong></td>
+                    <td>Cuello de botella dependiente del diseñador</td>
+                    <td>Accesibilidad entre equipos</td>
+                </tr>
+                <tr>
+                    <td><strong>Curva de Aprendizaje</strong></td>
+                    <td>Meses para dominar herramientas</td>
+                    <td>Horas para aprender ingeniería de prompts</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="checklist-section">
+            <h3><i class="fas fa-clipboard-check"></i> Checklist Rápido: 5 Cosas Antes de Usar Figma Make</h3>
+            
+            <div class="checklist-item">
+                <div class="checklist-number">1</div>
+                <div>
+                    <h4>Actualiza a Plan Figma Pago</h4>
+                    <p>Las herramientas de IA de Figma requieren una suscripción Full seat. Esto es una inversión estratégica en las capacidades de diseño de tu equipo.</p>
+                </div>
+            </div>
+            
+            <div class="checklist-item">
+                <div class="checklist-number">2</div>
+                <div>
+                    <h4>Define tu Sistema de Diseño</h4>
+                    <p>Reúne colores de marca, tipografía y librerías de componentes para asegurar una salida de IA consistente. La preparación es clave.</p>
+                </div>
+            </div>
+            
+            <div class="checklist-item">
+                <div class="checklist-number">3</div>
+                <div>
+                    <h4>Prepara Assets de Contenido</h4>
+                    <p>Recopila copy, imágenes y cualquier archivo de diseño existente que referenciarás en tus prompts. El contexto mejora los resultados.</p>
+                </div>
+            </div>
+            
+            <div class="checklist-item">
+                <div class="checklist-number">4</div>
+                <div>
+                    <h4>Escribe Objetivos Claros</h4>
+                    <p>Define qué significa el éxito para tu prototipo (testing de usuarios, aprobación de stakeholders, etc.). Los objetivos guían los prompts.</p>
+                </div>
+            </div>
+            
+            <div class="checklist-item">
+                <div class="checklist-number">5</div>
+                <div>
+                    <h4>Aprende Estructura Básica de Prompts</h4>
+                    <p>Practica describiendo diseños en lenguaje claro y específico antes de comenzar proyectos complejos. La práctica hace al maestro.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>🎯 Dominando la Creación de Prompt a Prototipo</h2>
+
+        <h3>Escribiendo Prompts Efectivos en Lenguaje Natural</h3>
+        <p>La calidad de la salida de Figma Make se correlaciona directamente con la claridad y especificidad de tus prompts. La ingeniería de prompts para diseño requiere entender cómo la IA interpreta instrucciones.</p>
+
+        <div class="prompt-examples">
+            <div class="prompt-card prompt-bad">
+                <div class="prompt-header">
+                    <i class="fas fa-times-circle"></i>
+                    <h4>Prompt MALO (Demasiado Vago)</h4>
+                </div>
+                <div class="prompt-content">
+                    <p>"Haz una página de inicio"</p>
+                    <p style="margin-top: 12px; font-size: 0.9rem; color: #777;">❌ No hay contexto, no hay especificaciones, no hay dirección. La IA no puede leer tu mente.</p>
+                </div>
+            </div>
+            
+            <div class="prompt-card prompt-good">
+                <div class="prompt-header">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Prompt BUENO (Específico y Contextual)</h4>
+                </div>
+                <div class="prompt-content">
+                    <p>"Crea una landing page SaaS con una sección hero que incluya un headline de propuesta de valor, un resumen de características en tres columnas, un carrusel de testimonios de clientes y un botón CTA prominente en el color de marca #2563EB"</p>
+                    <p style="margin-top: 12px; font-size: 0.9rem; color: #777;">✅ Contexto claro, especificaciones detalladas, referencia a sistema de diseño.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3>Mejores Prácticas para Ingeniería de Prompts en Diseño</h3>
+        <ul>
+            <li><strong>Sé Específico, No Vago</strong>: Incluye detalles sobre layout, contenido, interacciones y estilos visuales.</li>
+            <li><strong>Proporciona Contexto y Restricciones</strong>: Menciona audiencia objetivo, industria y preferencias de diseño.</li>
+            <li><strong>Referencia tu Sistema de Diseño</strong>: Siempre menciona colores de marca, fuentes y componentes existentes.</li>
+            <li><strong>Usa Refinamiento Progresivo</strong>: Comienza con conceptos amplios, luego añade detalles específicos mediante prompts iterativos.</li>
+        </ul>
+
+        <h2>🔄 De Ideas Simples a Prototipos Complejos: Proceso Paso a Paso</h2>
+
+        <div class="process-timeline">
+            <!-- Paso 1 -->
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <div class="step-time"><i class="far fa-clock"></i> 5-10 minutos</div>
+                    <h4>Creación de la Base</h4>
+                    <p>Comienza con la estructura central del layout y las áreas de contenido primarias. Prompt ejemplo: "Crea un layout de dashboard mobile-first con encabezado de navegación, área de contenido principal y botón de acción flotante."</p>
+                </div>
+            </div>
+            <!-- Paso 2 -->
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <div class="step-time"><i class="far fa-clock"></i> 10-15 minutos</div>
+                    <h4>Población de Contenido</h4>
+                    <p>Añade contenido específico, datos y elementos interactivos. "Pobla el dashboard con tarjetas de analíticas de usuario mostrando usuarios activos mensuales, tendencias de ingresos y contenido de mejor desempeño."</p>
+                </div>
+            </div>
+            <!-- Paso 3 -->
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <div class="step-time"><i class="far fa-clock"></i> 10-15 minutos</div>
+                    <h4>Definición de Interacciones</h4>
+                    <p>Especifica flujos de usuario y comportamientos interactivos. "Añade navegación entre secciones del dashboard con transiciones suaves y habilita funcionalidad de drill-down para las tarjetas de analíticas."</p>
+                </div>
+            </div>
+            <!-- Paso 4 -->
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <div class="step-time"><i class="far fa-clock"></i> 15-20 minutos</div>
+                    <h4>Pulido y Refinamiento</h4>
+                    <p>Enfócate en mejoras visuales y micro-interacciones. "Aplica espaciado consistente usando un sistema de grid de 8px, añade estados hover para elementos interactivos y asegura cumplimiento de accesibilidad."</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>⚡ Técnicas Avanzadas de Figma Make</h2>
+
+        <h3>Integrando Diseños Existentes de Figma con Figma Make</h3>
+        <p>Una de las capacidades más poderosas de Figma Make es su habilidad para trabajar con assets y sistemas de diseño existentes. Esta integración permite a los equipos mantener consistencia mientras aprovechan la aceleración de la IA.</p>
+
+        <h3>Diseño Iterativo con Edición Selectiva de Elementos</h3>
+        <ul>
+            <li><strong>Modificaciones Dirigidas</strong>: Selecciona elementos específicos de diseño para edición aislada, permitiendo cambios quirúrgicos sin afectar todo el prototipo.</li>
+            <li><strong>Refinamiento Contextual</strong>: Haz ajustes que consideren el contexto más amplio del diseño, asegurando que los cambios se integren perfectamente.</li>
+            <li><strong>Control de Versiones</strong>: Mantén historial de diseño mediante prompts iterativos, permitiendo fácil retroceso y comparación de diferentes enfoques.</li>
+        </ul>
+
+        <h3>¿Quién Debe Usar Figma Make?</h3>
+        <ul>
+            <li><strong>Gerentes de Producto</strong>: Crean mockups rápidamente para discusiones de features y presentaciones a stakeholders.</li>
+            <li><strong>Diseñadores UX/UI</strong>: Aceleran la fase de ideación y exploran múltiples direcciones de diseño rápidamente.</li>
+            <li><strong>Desarrolladores</strong>: Cierran la brecha entre concepto y código creando prototipos funcionales.</li>
+            <li><strong>Equipos de Marketing</strong>: Generan prototipos de landing pages y materiales de campaña.</li>
+            <li><strong>Fundadores de Startups</strong>: Construyen prototipos de MVP para presentaciones a inversionistas.</li>
+        </ul>
+
+        <div class="article-cta">
+            <h2>¿Listo para Revolucionar tu Proceso de Diseño con IA?</h2>
+            <p>En <strong>NeoProdUx</strong> combinamos herramientas avanzadas como Figma Make con expertise en diseño estratégico para crear experiencias digitales excepcionales. Desde prototipado rápido hasta implementación final, te ayudamos a llevar tus ideas al siguiente nivel.</p>
+            <div class="cta-buttons">
+                <a href="https://calendly.com/david-sebastian-diaz" class="cta-btn cta-btn-primary" target="_blank">Agendar Consulta sobre Figma Make</a>
+                <a href="blog.html" class="cta-btn cta-btn-secondary">Ver Más Artículos sobre IA y Diseño</a>
+            </div>
+        </div>
+    </main>
+
+    <section class="related-articles">
+        <h2>Artículos Relacionados</h2>
+        <div class="related-grid">
+            <article class="related-card">
+                <div class="related-image" style="background-image: url('https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=200&fit=crop');"></div>
+                <div class="related-content">
+                    <h3>Top Herramientas Figma a HTML 2025</h3>
+                    <p>Guía completa de plugins y herramientas para convertir diseños de Figma a código de forma eficiente.</p>
+                    <a href="blog-figma-to-html-tools.html" class="related-link">Leer artículo →</a>
+                </div>
+            </article>
+            
+            <article class="related-card">
+                <div class="related-image" style="background-image: url('https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&h=200&fit=crop');"></div>
+                <div class="related-content">
+                    <h3>Figma a HTML: Mejores Prácticas</h3>
+                    <p>Convierte tus diseños de Figma en código HTML limpio y mantenible con estas técnicas probadas.</p>
+                    <a href="blog-figma-to-html-tools.html" class="related-link">Leer artículo →</a>
+                </div>
+            </article>
+            
+            <article class="related-card">
+                <div class="related-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=200&fit=crop');"></div>
+                <div class="related-content">
+                    <h3>Diseño de Dashboards 2025</h3>
+                    <p>Principios y ejemplos para crear paneles de control efectivos y visualmente atractivos.</p>
+                    <a href="blog-dashboard-design-examples-2024.html" class="related-link">Leer artículo →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</article>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>NeoProdUx</h3>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="index.html#proyectos">Proyectos</a></li>
+                <li><a href="index.html#proceso">Proceso</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Recursos</h3>
+            <ul>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#">Templates Gratis</a></li>
+                <li><a href="#">Guías de Diseño</a></li>
+                <li><a href="#">Herramientas</a></li>
+                <li><a href="#">Comunidad</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Legal</h3>
+            <ul>
+                <li><a href="#">Términos de Servicio</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Cookies</a></li>
+                <li><a href="#">Aviso Legal</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Contacto</h3>
+            <ul>
+                <li><a href="mailto:david.diaz.uxdata@gmail.com">david.diaz.uxdata@gmail.com</a></li>
+                <li><a href="https://calendly.com/david-sebastian-diaz">Calendly</a></li>
+                <li><a href="https://wa.me/543525300076">WhatsApp Business</a></li>
+                <li>100% Remoto • UTC-3</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>© 2025 NeoProdUx. Todos los derechos reservados. Diseño UX/UI basado en datos reales.</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/david-sebastian-diaz" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/dsd228" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://dribbble.com" target="_blank"><i class="fab fa-dribbble"></i></a>
+            <a href="https://behance.net" target="_blank"><i class="fab fa-behance"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Smooth scroll para anclas internas
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && href.startsWith('#') && document.querySelector(href)) {
+                e.preventDefault();
+                document.querySelector(href).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Efecto de aparición suave en los elementos
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Aplicar a elementos
+    document.querySelectorAll('.stat-card, .prompt-card, .process-step, .checklist-item').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(element);
+    });
+
+    // Tracking de tiempo de lectura
+    let startTime = new Date();
+    window.addEventListener('beforeunload', function() {
+        let endTime = new Date();
+        let timeSpent = Math.round((endTime - startTime) / 1000);
+        if (timeSpent > 10) {
+            console.log('Tiempo en artículo:', timeSpent, 'segundos');
+        }
+    });
+
+    // Interacción con la tabla comparativa
+    document.querySelectorAll('.comparison-table tr').forEach(row => {
+        row.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.01)';
+            this.style.transition = 'transform 0.2s';
+        });
+        row.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+</script>
+
 </body>
 </html>
