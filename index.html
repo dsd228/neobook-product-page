@@ -85,10 +85,10 @@
 
     /* Coverflow effect - positioning slides */
     .carousel-slide[data-position="0"] {
-      transform: translateX(0%) translateZ(0px) rotateY(0deg) scale(1);
+      transform: translateZ(0) rotateY(0deg) scale(1);
       z-index: 5;
       opacity: 1;
-      filter: brightness(1) blur(0px);
+      filter: brightness(1);
     }
 
     .carousel-slide[data-position="-1"] {
@@ -107,7 +107,7 @@
 
     .carousel-slide[data-position="-2"],
     .carousel-slide[data-position="2"] {
-      transform: translateX(0%) translateZ(-400px) scale(0.7);
+      transform: translateZ(-400px) scale(0.7);
       z-index: 1;
       opacity: 0.4;
       filter: brightness(0.6) blur(2px);
@@ -119,7 +119,7 @@
     .carousel-slide[data-position="4"],
     .carousel-slide[data-position="-5"],
     .carousel-slide[data-position="5"] {
-      transform: translateX(0%) translateZ(-500px) scale(0.5);
+      transform: translateZ(-500px) scale(0.5);
       z-index: 0;
       opacity: 0;
       filter: brightness(0.5) blur(3px);
@@ -674,15 +674,13 @@
       updateSlides(0);
       startAutoplay();
       
-      console.log('Coverflow carousel initialized successfully');
-      
     } catch (error) {
       console.error('Error initializing coverflow carousel:', error);
       // Fallback: ensure first slide is visible
       const firstSlide = document.querySelector('.carousel-slide');
       if (firstSlide) {
         firstSlide.setAttribute('data-position', '0');
-        firstSlide.style.display = 'block';
+        firstSlide.style.opacity = '1';
       }
     }
   })();
