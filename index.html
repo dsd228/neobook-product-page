@@ -744,21 +744,122 @@
     .testimonial-author { font-weight: 600; color: #000; margin-bottom: 4px; }
     .testimonial-role { color: #999; font-size: 0.9rem; }
 
-    /* Sección Ejemplos Amazon */
+    /* Sección Ejemplos Amazon - Carrusel Vertical */
     .ejemplos-amazon { padding: 100px 40px; background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%); }
     .ejemplos-amazon .section-title { margin-bottom: 60px; }
-    .ejemplos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; max-width: 1400px; margin: 0 auto; }
-    .ejemplo-card { background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e5e5e5; transition: all 0.3s ease; }
-    .ejemplo-card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0,0,0,0.12); }
-    .ejemplo-card-image { width: 100%; height: 220px; background: linear-gradient(135deg, #ff6b35, #ff8c42); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 3rem; position: relative; overflow: hidden; }
-    .ejemplo-card-image::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,107,53,0.8), rgba(255,140,66,0.8)); opacity: 0.1; }
-    .ejemplo-card-icon { position: relative; z-index: 1; }
-    .ejemplo-card-body { padding: 28px; }
-    .ejemplo-card h3 { font-family: "Sora", sans-serif; font-size: 1.25rem; font-weight: 700; color: #000; margin-bottom: 8px; }
-    .ejemplo-card-category { color: #ff6b35; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
-    .ejemplo-card p { color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
-    .ejemplo-card-link { display: inline-flex; align-items: center; gap: 8px; color: #ff6b35; font-weight: 600; transition: all 0.3s; }
-    .ejemplo-card-link:hover { gap: 12px; }
+    
+    .ejemplos-carousel-container { max-width: 1400px; margin: 0 auto; position: relative; overflow: hidden; }
+    .ejemplos-carousel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; animation: scrollVertical 20s linear infinite; }
+    
+    @keyframes scrollVertical {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-330px); }
+      100% { transform: translateY(0); }
+    }
+    
+    .ejemplo-card { 
+      background: #fff; 
+      border-radius: 12px; 
+      overflow: hidden; 
+      border: 1px solid #e5e5e5; 
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+    }
+    .ejemplo-card:hover { 
+      transform: translateY(-8px); 
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15); 
+    }
+    
+    .ejemplo-card-image { 
+      width: 100%; 
+      height: 200px; 
+      background: linear-gradient(135deg, #ff6b35, #ff8c42); 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      color: #fff; 
+      font-size: 3rem; 
+      position: relative; 
+      overflow: hidden; 
+    }
+    .ejemplo-card-image::before { 
+      content: ''; 
+      position: absolute; 
+      inset: 0; 
+      background: linear-gradient(135deg, rgba(0,0,0,0.1), rgba(0,0,0,0.05)); 
+    }
+    .ejemplo-card-icon { 
+      position: relative; 
+      z-index: 1; 
+      font-size: 2.5rem;
+    }
+    
+    .ejemplo-card-body { 
+      padding: 20px; 
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .ejemplo-card h3 { 
+      font-family: "Sora", sans-serif; 
+      font-size: 1.15rem; 
+      font-weight: 700; 
+      color: #000; 
+      margin-bottom: 6px; 
+    }
+    .ejemplo-card-category { 
+      color: #ff6b35; 
+      font-size: 0.8rem; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: 0.5px; 
+      margin-bottom: 10px; 
+    }
+    .ejemplo-card p { 
+      color: #666; 
+      font-size: 0.9rem; 
+      line-height: 1.5; 
+      margin-bottom: 12px; 
+      flex: 1;
+    }
+    .ejemplo-card-link { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 8px; 
+      color: #ff6b35; 
+      font-weight: 600; 
+      transition: all 0.3s; 
+      font-size: 0.95rem;
+    }
+    .ejemplo-card-link:hover { 
+      gap: 12px; 
+    }
+    
+    .ejemplos-carousel-button-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    @media (max-width: 1024px) {
+      .ejemplos-carousel { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      @keyframes scrollVertical { 
+        0% { transform: translateY(0); } 
+        50% { transform: translateY(-280px); } 
+        100% { transform: translateY(0); } 
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .ejemplos-carousel { grid-template-columns: 1fr; gap: 16px; }
+      @keyframes scrollVertical { 
+        0% { transform: translateY(0); } 
+        50% { transform: translateY(-230px); } 
+        100% { transform: translateY(0); } 
+      }
+      .ejemplo-card-image { height: 160px; }
+    }
 
     .faq { padding: 100px 40px; background: #fff; }
     .faq-container { max-width: 800px; margin: 0 auto; }
@@ -1370,80 +1471,86 @@
     <h2>📦 Ejemplos de Páginas para Vender en Amazon</h2>
     <p>Templates profesionales para maximizar conversiones en e-commerce</p>
   </div>
-  <div class="ejemplos-grid">
-    <div class="ejemplo-card">
-      <div class="ejemplo-card-image">
-        <div class="ejemplo-card-icon">💻</div>
+  
+  <div class="ejemplos-carousel-container">
+    <div class="ejemplos-carousel">
+      <!-- Row 1 -->
+      <div class="ejemplo-card">
+        <div class="ejemplo-card-image">
+          <div class="ejemplo-card-icon">💻</div>
+        </div>
+        <div class="ejemplo-card-body">
+          <p class="ejemplo-card-category">Electrónica</p>
+          <h3>Tech Products</h3>
+          <p>Template especializado para productos tecnológicos con especificaciones detalladas.</p>
+          <a href="ejemplos/template-tech.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
+        </div>
       </div>
-      <div class="ejemplo-card-body">
-        <p class="ejemplo-card-category">Electrónica</p>
-        <h3>Tech Products</h3>
-        <p>Template especializado para productos tecnológicos con especificaciones detalladas y features destacadas.</p>
-        <a href="ejemplos/template-tech.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-      </div>
-    </div>
 
-    <div class="ejemplo-card">
-      <div class="ejemplo-card-image">
-        <div class="ejemplo-card-icon">✨</div>
+      <div class="ejemplo-card">
+        <div class="ejemplo-card-image">
+          <div class="ejemplo-card-icon">✨</div>
+        </div>
+        <div class="ejemplo-card-body">
+          <p class="ejemplo-card-category">Premium</p>
+          <h3>Productos de Lujo</h3>
+          <p>Diseño elegante y sofisticado para productos premium y de alto valor.</p>
+          <a href="ejemplos/template-premium.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
+        </div>
       </div>
-      <div class="ejemplo-card-body">
-        <p class="ejemplo-card-category">Premium</p>
-        <h3>Productos de Lujo</h3>
-        <p>Diseño elegante y sofisticado para productos premium y de alto valor con énfasis en exclusividad.</p>
-        <a href="ejemplos/template-premium.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-      </div>
-    </div>
 
-    <div class="ejemplo-card">
-      <div class="ejemplo-card-image">
-        <div class="ejemplo-card-icon">🌱</div>
+      <div class="ejemplo-card">
+        <div class="ejemplo-card-image">
+          <div class="ejemplo-card-icon">🌱</div>
+        </div>
+        <div class="ejemplo-card-body">
+          <p class="ejemplo-card-category">Sustentable</p>
+          <h3>Eco-Friendly</h3>
+          <p>Template enfocado en sostenibilidad y responsabilidad ambiental.</p>
+          <a href="ejemplos/template-eco.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
+        </div>
       </div>
-      <div class="ejemplo-card-body">
-        <p class="ejemplo-card-category">Sustentable</p>
-        <h3>Eco-Friendly</h3>
-        <p>Template enfocado en sostenibilidad, materiales eco-friendly y responsabilidad ambiental.</p>
-        <a href="ejemplos/template-eco.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-      </div>
-    </div>
 
-    <div class="ejemplo-card">
-      <div class="ejemplo-card-image">
-        <div class="ejemplo-card-icon">⚽</div>
+      <!-- Row 2 -->
+      <div class="ejemplo-card">
+        <div class="ejemplo-card-image">
+          <div class="ejemplo-card-icon">⚽</div>
+        </div>
+        <div class="ejemplo-card-body">
+          <p class="ejemplo-card-category">Deportivo</p>
+          <h3>Artículos Deportivos</h3>
+          <p>Especializado en equipamiento con énfasis en performance y durabilidad.</p>
+          <a href="ejemplos/template-sport.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
+        </div>
       </div>
-      <div class="ejemplo-card-body">
-        <p class="ejemplo-card-category">Deportivo</p>
-        <h3>Artículos Deportivos</h3>
-        <p>Página especializada en equipamiento deportivo con énfasis en performance y durabilidad.</p>
-        <a href="ejemplos/template-sport.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-      </div>
-    </div>
 
-    <div class="ejemplo-card">
-      <div class="ejemplo-card-image">
-        <div class="ejemplo-card-icon">🎯</div>
+      <div class="ejemplo-card">
+        <div class="ejemplo-card-image">
+          <div class="ejemplo-card-icon">🎯</div>
+        </div>
+        <div class="ejemplo-card-body">
+          <p class="ejemplo-card-category">Estrategia</p>
+          <h3>Social Proof</h3>
+          <p>Optimizado con testimonios y ratings para aumentar confianza.</p>
+          <a href="ejemplos/estilo-social-proof.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
+        </div>
       </div>
-      <div class="ejemplo-card-body">
-        <p class="ejemplo-card-category">Estrategia</p>
-        <h3>Social Proof</h3>
-        <p>Template optimizado con testimonios y ratings para aumentar confianza y conversión.</p>
-        <a href="ejemplos/estilo-social-proof.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-      </div>
-    </div>
 
-    <div class="ejemplo-card">
-      <div class="ejemplo-card-image">
-        <div class="ejemplo-card-icon">📊</div>
-      </div>
-      <div class="ejemplo-card-body">
-        <p class="ejemplo-card-category">Data-Driven</p>
-        <h3>Estadísticas y Datos</h3>
-        <p>Diseño centrado en métricas, gráficos y pruebas que demuestran calidad y efectividad.</p>
-        <a href="ejemplos/estilo-data-driven.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
+      <div class="ejemplo-card">
+        <div class="ejemplo-card-image">
+          <div class="ejemplo-card-icon">📊</div>
+        </div>
+        <div class="ejemplo-card-body">
+          <p class="ejemplo-card-category">Data-Driven</p>
+          <h3>Estadísticas y Datos</h3>
+          <p>Diseño centrado en métricas que demuestran calidad y efectividad.</p>
+          <a href="ejemplos/estilo-data-driven.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
+        </div>
       </div>
     </div>
   </div>
-  <div style="text-align: center; margin-top: 60px;">
+
+  <div class="ejemplos-carousel-button-container">
     <a href="ejemplos-amazon.html" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #ff6b35, #ff8c42); color: #fff; border-radius: 10px; font-weight: 600; transition: all 0.3s;">Ver todos los ejemplos →</a>
   </div>
 </section>
