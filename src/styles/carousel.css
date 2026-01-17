@@ -1,45 +1,44 @@
-/* ===============================
-   CARRUSEL 3D APPLE SUPREME
-================================ */
-
+/* CAROUSEL 3D - APPLE COVERFLOW */
 .hero-carousel {
   position: relative;
   width: 100%;
-  height: 480px;
-  perspective: 1600px;
+  height: 450px;
+  perspective: 1400px;
+  overflow: visible;
 }
 
-.coverflow-track {
+.carousel-container {
   position: relative;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
 }
 
-.coverflow-card {
+.carousel-slide {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 320px;
   height: 420px;
-  border-radius: 24px;
+  transform-style: preserve-3d;
+  border-radius: 22px;
   background-size: cover;
   background-position: center;
-  transform-style: preserve-3d;
-  transition: transform 0.9s cubic-bezier(.22,.61,.36,1),
-              opacity 0.6s ease,
-              filter 0.6s ease;
   box-shadow:
-    0 40px 120px rgba(0,0,0,.45),
+    0 40px 120px rgba(0,0,0,.35),
     inset 0 0 0 1px rgba(255,255,255,.12);
+  transition:
+    transform 0.9s cubic-bezier(.22,.61,.36,1),
+    opacity 0.6s ease,
+    filter 0.6s ease;
   will-change: transform;
 }
 
-.coverflow-card::after {
+.carousel-slide::after {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 24px;
+  border-radius: inherit;
   background: linear-gradient(
     135deg,
     rgba(255,255,255,.12),
