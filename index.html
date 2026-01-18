@@ -7,6 +7,68 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* --- Estilos y Posicionamiento de Formas (Añadir al CSS) --- */
+.glass-sphere, .glass-ring {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1; /* Detrás del panel de vidrio (z-index: 2) */
+    opacity: 0.8;
+    /* Animación de movimiento */
+    animation: floatMove 25s infinite ease-in-out;
+    filter: blur(4px); /* Un pequeño blur para el efecto 3D */
+}
+
+/* Colores de las formas - Naranja/Melocotón */
+.glass-sphere {
+    background: linear-gradient(135deg, #FF6B35 0%, #FFA166 100%);
+    box-shadow: 0 0 50px rgba(255, 107, 53, 0.5);
+}
+
+.glass-ring {
+    border: 15px solid rgba(255, 107, 53, 0.7);
+    background: transparent;
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+}
+
+/* Tamaños */
+.sphere-large { width: 350px; height: 350px; }
+.sphere-medium { width: 150px; height: 150px; }
+.sphere-small { width: 80px; height: 80px; }
+.ring-large { width: 250px; height: 250px; }
+.ring-medium { width: 120px; height: 120px; }
+
+
+/* Posiciones Iniciales (Ajusta estas a tu gusto) */
+.top-right { top: 10%; right: 5%; }
+.bottom-left { bottom: 10%; left: 5%; }
+.top-left { top: 5%; left: 5%; }
+.bottom-right { bottom: 15%; right: 10%; }
+
+
+/* --- Keyframes de Animación (Añadir al CSS) --- */
+@keyframes floatMove {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.05);
+  }
+  66% {
+    transform: translate(-30px, 50px) scale(0.95);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+/* Retrasos para que no se muevan todas a la vez */
+.sphere-large { animation-duration: 30s; }
+.sphere-medium { animation-duration: 20s; animation-delay: 2s; }
+.sphere-small { animation-duration: 15s; animation-delay: 1s; }
+.ring-large { animation-duration: 28s; animation-delay: 3s; }
+.ring-medium { animation-duration: 22s; animation-delay: 4s; }
+
+
     @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
