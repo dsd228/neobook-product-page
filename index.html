@@ -101,347 +101,131 @@
     }
     /* --- Estilos de la Barra de Navegación (Añadir al CSS) --- */
 
+/* ==============================
+   NAVEGACIÓN GLASSMORPHISM
+   ============================== */
 .site-header {
-    width: 100%;
-    position: sticky; /* O 'fixed' si prefieres que esté siempre visible */
-    top: 0;
-    z-index: 1000; /* Asegura que esté por encima de todo lo demás */
-    padding: 15px 0;
-    /* Efecto Glassmorphism */
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s ease;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /* Bajamos la opacidad para que se vea el blur */
+  background: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 0;
+  transition: all 0.3s ease;
 }
 
-/* Contenedor interno para centrar y limitar ancho */
-.header-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.site-header .logo {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 1px;
+/* ==============================
+   LOGO CON EFECTO VIDRIO
+   ============================== */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-decoration: none;
+  font-family: "Sora", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.main-nav a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    font-size: 0.9rem;
-    margin-left: 30px;
-    padding: 5px 0;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-    text-transform: uppercase;
-    font-weight: 500;
+/* Las letras ahora tienen colores base para que se vean sobre fondos claros/oscuros */
+.logo .letter-n, .logo .letter-p, .logo .letter-u { color: #FF6B35; }
+.logo .letter-e, .logo .letter-r, .logo .letter-o { color: #333; }
+
+.logo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 12px;
+  z-index: -1;
+  transition: all 0.4s ease;
 }
 
-.main-nav a:hover, .main-nav a.active {
-    color: #fff;
-    border-bottom: 2px solid #FF6B35; /* El color naranja principal */
+.logo:hover { transform: translateY(-2px); }
+
+.logo:hover::before {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(255, 107, 53, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.menu-toggle {
-    display: none; /* Oculto en desktop */
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
+/* ==============================
+   ENLACES Y DROPDOWN
+   ============================== */
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
 }
 
-/* Responsive para ocultar enlaces en móvil y mostrar el botón de menú */
+.nav-links a, .dropdown-trigger {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover, .dropdown-trigger:hover {
+  color: #FF6B35;
+}
+
+.nav-cta {
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+  color: #fff !important; /* Forzar blanco */
+  padding: 10px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+/* Dropdown corregido */
+.nav-dropdown { position: relative; }
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  min-width: 200px;
+  display: none; /* Se activa con el hover del padre */
+  flex-direction: column;
+  padding: 10px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+.dropdown-menu a {
+  padding: 10px 20px;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .main-nav {
-        display: none; /* Se manejaría con JS para toggle en móvil */
-    }
-    .menu-toggle {
-        display: block;
-    }
+  .nav-links { display: none; }
+  .menu-toggle { display: block; background: none; border: none; font-size: 1.5rem; }
 }
-
-    /* ==============================
-       LOGO NARANJA CON EFECTO VIDRIO - CORREGIDO
-       ============================== */
-    .logo { 
-      font-size: 1.8rem; 
-      font-weight: 800; 
-      color: #000; 
-      letter-spacing: -0.5px; 
-      text-decoration: none;
-      font-family: "Sora", sans-serif;
-      display: inline-flex;
-      align-items: center;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      padding: 8px 16px;
-      border-radius: 12px;
-      position: relative;
-      overflow: hidden;
-      background: transparent;
-    }
-
-    /* Contenedor interno para efecto vidrio */
-    .logo::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0);
-      backdrop-filter: blur(0px);
-      -webkit-backdrop-filter: blur(0px);
-      border-radius: 12px;
-      z-index: -1;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid transparent;
-    }
-
-    /* Efecto de resplandor naranja en hover */
-    .logo::after {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, 
-        rgba(255, 107, 53, 0), 
-        rgba(255, 140, 66, 0), 
-        rgba(255, 107, 53, 0));
-      border-radius: 14px;
-      z-index: -2;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    /* Letras específicas del logo - NARANJA */
-    .logo .letter-n,
-    .logo .letter-p,
-    .logo .letter-u {
-      color: #FF6B35;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* Letras negras */
-    .logo .letter-e,
-    .logo .letter-o,
-    .logo .letter-r,
-    .logo .letter-o2,
-    .logo .letter-d,
-    .logo .letter-x {
-      color: #000000;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* HOVER EFECTO VIDRIO */
-    .logo:hover {
-      transform: translateY(-2px);
-    }
-
-    .logo:hover::before {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 107, 53, 0.2);
-      box-shadow: 
-        0 8px 32px rgba(255, 107, 53, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    }
-
-    .logo:hover::after {
-      opacity: 1;
-      background: linear-gradient(45deg, 
-        rgba(255, 107, 53, 0.2), 
-        rgba(255, 140, 66, 0.15), 
-        rgba(255, 107, 53, 0.2));
-    }
-
-    /* HOVER - Letras naranjas se vuelven más brillantes */
-    .logo:hover .letter-n,
-    .logo:hover .letter-p,
-    .logo:hover .letter-u {
-      color: #FF8C42;
-      text-shadow: 
-        0 0 20px rgba(255, 107, 53, 0.4),
-        0 0 40px rgba(255, 107, 53, 0.2);
-    }
-
-    /* HOVER - Letras negras se vuelven efecto vidrio */
-    .logo:hover .letter-e,
-    .logo:hover .letter-o,
-    .logo:hover .letter-r,
-    .logo:hover .letter-o2,
-    .logo:hover .letter-d,
-    .logo:hover .letter-x {
-      color: rgba(255, 255, 255, 0.9);
-      text-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.3),
-        0 4px 8px rgba(0, 0, 0, 0.2);
-      position: relative;
-    }
-
-    /* Efecto activo (click) */
-    .logo:active {
-      transform: translateY(0);
-    }
-
-    .logo:active::before {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 107, 53, 0.15);
-      box-shadow: 
-        0 4px 16px rgba(255, 107, 53, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    }
-
-    /* Enlaces de navegación */
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-    }
-    
-    .nav-links a { 
-      color: #555; 
-      font-size: 0.95rem; 
-      transition: color 0.3s; 
-      text-decoration: none; 
-      font-weight: 500;
-    }
-    .nav-links a:hover { 
-      color: #FF6B35; 
-    }
-    
-    .nav-cta { 
-      background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%); 
-      color: #fff; 
-      padding: 10px 24px; 
-      border-radius: 8px; 
-      transition: all 0.3s; 
-      font-weight: 600;
-      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.2);
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-    .nav-cta:hover { 
-      background: linear-gradient(135deg, #E65C00 0%, #FF6B35 100%); 
-      transform: translateY(-2px); 
-      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
-    }
-
-    /* Dropdown Menu - NARANJA */
-    .nav-dropdown { position: relative; display: inline-block; }
-    .dropdown-trigger { 
-      cursor: pointer; 
-      display: flex; 
-      align-items: center; 
-      gap: 6px; 
-      color: #555; 
-      font-size: 0.95rem; 
-      text-decoration: none; 
-      transition: color 0.3s; 
-      background: none;
-      border: none;
-      font-family: inherit;
-    }
-    .dropdown-trigger:hover { 
-      color: #FF6B35; 
-    }
-    .dropdown-trigger::after { 
-      content: '▾'; 
-      font-size: 0.7rem; 
-      transition: transform 0.3s; 
-      color: #FF6B35;
-    }
-    .nav-dropdown:hover .dropdown-trigger::after { 
-      transform: rotate(180deg); 
-      color: #FF8C42;
-    }
-    .dropdown-menu { 
-      position: absolute; 
-      top: 100%; 
-      left: 0; 
-      background: rgba(255, 255, 255, 0.95); 
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 107, 53, 0.15); 
-      border-radius: 12px; 
-      min-width: 240px; 
-      opacity: 0; 
-      visibility: hidden; 
-      transform: translateY(-10px); 
-      transition: all 0.3s; 
-      z-index: 999; 
-      margin-top: 8px; 
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
-      padding: 8px 0;
-    }
-    .nav-dropdown:hover .dropdown-menu { 
-      opacity: 1; 
-      visibility: visible; 
-      transform: translateY(0); 
-    }
-    .dropdown-menu a { 
-      display: block; 
-      padding: 12px 24px; 
-      color: #555; 
-      text-decoration: none; 
-      transition: all 0.3s; 
-      font-size: 0.9rem;
-      border-left: 3px solid transparent;
-    }
-    .dropdown-menu a:hover { 
-      background: rgba(255, 107, 53, 0.08); 
-      color: #FF6B35; 
-      border-left: 3px solid #FF6B35;
-      padding-left: 28px;
-    }
-    .dropdown-menu a:first-child { 
-      border-radius: 12px 12px 0 0; 
-    }
-    .dropdown-menu a:last-child { 
-      border-radius: 0 0 12px 12px; 
-    }
-
-    /* Responsive para logo */
-    @media (max-width: 768px) {
-      .logo {
-        font-size: 1.6rem;
-        padding: 6px 12px;
-      }
-      
-      .logo:hover::before {
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-      }
-      
-      .nav-container {
-        padding: 0 24px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .logo {
-        font-size: 1.4rem;
-        padding: 4px 10px;
-      }
-      
-      .nav-container {
-        padding: 0 16px;
-      }
-    }
 
     /* ==============================
        HERO SECTION - ESTILO GLASSMORPHISM NARANJA LÍQUIDO
@@ -1830,18 +1614,27 @@ body {
         </div>
       </div>
       <header class="site-header">
-        <div class="header-content">
-            <div class="logo">YOUR LOGO</div>
-            <nav class="main-nav">
-                <a href="#home" class="active">Home</a>
-                <a href="#about">About</a>
-                <a href="#products">Products</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <button class="menu-toggle">☰</button>
+  <div class="nav-container">
+    <a href="#" class="logo">
+      <span class="letter-n">N</span><span class="letter-e">e</span><span class="letter-p">p</span><span class="letter-u">u</span><span class="letter-r">r</span><span class="letter-o">o</span>
+    </a>
+    
+    <nav class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <div class="nav-dropdown">
+        <button class="dropdown-trigger">Servicios</button>
+        <div class="dropdown-menu">
+          <a href="#">Diseño</a>
+          <a href="#">Desarrollo</a>
         </div>
-    </header>
+      </div>
+      <a href="#" class="nav-cta">Contacto</a>
+    </nav>
+    
+    <button class="menu-toggle">☰</button>
+  </div>
+</header>
+
       <a href="#contacto">Contacto</a>
       <a href="#contacto" class="nav-cta">Agendar Llamada</a>
     </div>
