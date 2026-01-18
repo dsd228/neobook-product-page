@@ -7,68 +7,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* --- Estilos y Posicionamiento de Formas (Añadir al CSS) --- */
-.glass-sphere, .glass-ring {
-    position: absolute;
-    border-radius: 50%;
-    z-index: 1; /* Detrás del panel de vidrio (z-index: 2) */
-    opacity: 0.8;
-    /* Animación de movimiento */
-    animation: floatMove 25s infinite ease-in-out;
-    filter: blur(4px); /* Un pequeño blur para el efecto 3D */
-}
-
-/* Colores de las formas - Naranja/Melocotón */
-.glass-sphere {
-    background: linear-gradient(135deg, #FF6B35 0%, #FFA166 100%);
-    box-shadow: 0 0 50px rgba(255, 107, 53, 0.5);
-}
-
-.glass-ring {
-    border: 15px solid rgba(255, 107, 53, 0.7);
-    background: transparent;
-    box-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
-}
-
-/* Tamaños */
-.sphere-large { width: 350px; height: 350px; }
-.sphere-medium { width: 150px; height: 150px; }
-.sphere-small { width: 80px; height: 80px; }
-.ring-large { width: 250px; height: 250px; }
-.ring-medium { width: 120px; height: 120px; }
-
-
-/* Posiciones Iniciales (Ajusta estas a tu gusto) */
-.top-right { top: 10%; right: 5%; }
-.bottom-left { bottom: 10%; left: 5%; }
-.top-left { top: 5%; left: 5%; }
-.bottom-right { bottom: 15%; right: 10%; }
-
-
-/* --- Keyframes de Animación (Añadir al CSS) --- */
-@keyframes floatMove {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.05);
-  }
-  66% {
-    transform: translate(-30px, 50px) scale(0.95);
-  }
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-}
-
-/* Retrasos para que no se muevan todas a la vez */
-.sphere-large { animation-duration: 30s; }
-.sphere-medium { animation-duration: 20s; animation-delay: 2s; }
-.sphere-small { animation-duration: 15s; animation-delay: 1s; }
-.ring-large { animation-duration: 28s; animation-delay: 3s; }
-.ring-medium { animation-duration: 22s; animation-delay: 4s; }
-
-
     @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -80,90 +18,282 @@
     /* ==============================
        NAVEGACIÓN ESTILO GLASSMORPHISM
        ============================== */
-  <header class="site-header">
-  <div class="nav-container">
-    <!-- Logo con icono moderno -->
-    <a href="#" class="logo-container">
-      <div class="logo-icon">
-        <i class="fas fa-cube"></i>
-      </div>
-      <div class="logo-text">NeoProdUx</div>
-    </a>
-    
-    <!-- Menú de navegación -->
-    <nav class="nav-links">
-      <div class="nav-item">
-        <a href="#servicios" class="nav-link">
-          <i class="fas fa-palette"></i>
-          <span>Servicios</span>
-        </a>
-      </div>
-      
-      <div class="nav-item">
-        <a href="#proyectos" class="nav-link">
-          <i class="fas fa-rocket"></i>
-          <span>Proyectos</span>
-        </a>
-      </div>
-      
-      <div class="nav-item">
-        <a href="#proceso" class="nav-link">
-          <i class="fas fa-sitemap"></i>
-          <span>Proceso</span>
-        </a>
-      </div>
-      
-      <div class="nav-item">
-        <a href="#faq" class="nav-link">
-          <i class="fas fa-question-circle"></i>
-          <span>FAQ</span>
-        </a>
-      </div>
-      
-      <div class="nav-item">
-        <a href="#blog" class="nav-link">
-          <i class="fas fa-blog"></i>
-          <span>Blog</span>
-        </a>
-      </div>
-      
-      <div class="nav-item">
-        <a href="#contacto" class="nav-link nav-cta">
-          <i class="fas fa-phone-alt"></i>
-          <span>Contacto</span>
-        </a>
-      </div>
-    </nav>
-    
-    <!-- Botón menú móvil -->
-    <button class="menu-toggle" id="menuToggle">
-      <i class="fas fa-bars"></i>
-    </button>
-  </div>
-</header>
+    nav { 
+      position: fixed; 
+      top: 0; 
+      width: 100%; 
+      background: rgba(255, 255, 255, 0.95); 
+      backdrop-filter: blur(15px); 
+      -webkit-backdrop-filter: blur(15px);
+      z-index: 1000; 
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08); 
+      padding: 16px 0; 
+    }
+    .nav-container { 
+      max-width: 1400px; 
+      margin: 0 auto; 
+      padding: 0 40px; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+    .logo { 
+      font-size: 1.8rem; 
+      font-weight: 800; 
+      color: #000; 
+      letter-spacing: -0.5px; 
+      text-decoration: none;
+    }
+    nav a { 
+      color: #333; 
+      font-size: 0.95rem; 
+      transition: color 0.3s; 
+      text-decoration: none; 
+      font-weight: 500;
+    }
+    nav a:hover { 
+      color: #000; 
+    }
+    .nav-cta { 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+      color: #fff; 
+      padding: 10px 24px; 
+      border-radius: 8px; 
+      transition: all 0.3s; 
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+    }
+    .nav-cta:hover { 
+      background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%); 
+      transform: translateY(-2px); 
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+    }
 
-<!-- Hero Section - Glassmorphism Style -->
-<section class="hero-glass">
-  <!-- Formas de fondo -->
-  <div class="glass-sphere sphere-large top-right"></div>
-  <div class="glass-sphere sphere-medium bottom-left"></div>
-  <div class="glass-sphere sphere-small top-left"></div>
-  <div class="glass-ring ring-large top-left"></div>
-  <div class="glass-ring ring-medium bottom-right"></div>
+    /* ==============================
+       HERO SECTION - ESTILO GLASSMORPHISM (Como la imagen)
+       ============================== */
+    .hero-glass {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 0 24px;
+      background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    }
 
-  <div class="hero-content-glass">
-    <!-- Contenido Principal -->
-    <div class="main-content-area">
-      <h1>Diseño UX/UI<br>pensado para escalar</h1>
-      <p class="description">
-        Plantillas premium creadas con criterio de producto.
-        Claridad, foco y decisiones bien tomadas desde el inicio.
-      </p>
-      <a href="#" class="btn-glass">Acceder</a>
-    </div>
-  </div>
-</section>
+    /* Fondo con efecto de partículas sutil */
+    .hero-glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 230, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(100, 220, 255, 0.1) 0%, transparent 50%);
+      z-index: 1;
+    }
 
+    /* Contenedor de contenido con efecto glassmorphism */
+    .hero-content-glass {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-radius: 32px;
+      padding: 80px 60px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Título principal - Estilo de la imagen */
+    .hero-glass h1 {
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 24px;
+      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-glass h1 span {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+
+    /* Subtítulo */
+    .hero-glass p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 48px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 300;
+    }
+
+    /* Botón CTA - Estilo de la imagen */
+    .btn-glass {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 18px 48px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 
+        0 12px 35px rgba(102, 126, 234, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transition: left 0.7s;
+    }
+
+    .btn-glass:hover::before {
+      left: 100%;
+    }
+
+    .btn-glass:hover {
+      transform: translateY(-3px);
+      box-shadow: 
+        0 18px 50px rgba(102, 126, 234, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-glass:active {
+      transform: translateY(-1px);
+    }
+
+    /* Icono dentro del botón */
+    .btn-glass i {
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+    }
+
+    .btn-glass:hover i {
+      transform: translateX(5px);
+    }
+
+    /* Navegación en el hero */
+    .hero-nav {
+      display: flex;
+      gap: 20px;
+      margin-top: 60px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-nav a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-nav a:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content-glass {
+        padding: 60px 40px;
+        margin: 0 20px;
+        backdrop-filter: blur(20px);
+      }
+      
+      .hero-glass h1 {
+        font-size: 2.8rem;
+      }
+      
+      .hero-glass p {
+        font-size: 1.1rem;
+      }
+      
+      .btn-glass {
+        padding: 16px 40px;
+        font-size: 1rem;
+      }
+      
+      .hero-nav {
+        gap: 12px;
+        margin-top: 40px;
+      }
+      
+      .hero-nav a {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content-glass {
+        padding: 50px 30px;
+      }
+      
+      .hero-glass h1 {
+        font-size: 2.2rem;
+      }
+      
+      .btn-glass {
+        padding: 14px 32px;
+        font-size: 0.95rem;
+      }
+    }
 
     /* ==============================
        CAROUSEL 3D - COVERFLOW PREMIUM
@@ -974,7 +1104,7 @@
     .faq { padding: 100px 40px; background: #fff; }
     .faq-container { max-width: 800px; margin: 0 auto; }
     details { margin-bottom: 16px; }
-    details summary { cursor: pointer; padding: 24px; background: #f339f9; border: 1px solid #e5e9e5; border-radius: 8px; font-weight: 600; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; user-select: none; transition: all 0.3s; }
+    details summary { cursor: pointer; padding: 24px; background: #f9f9f9; border: 1px solid #e5e5e5; border-radius: 8px; font-weight: 600; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; user-select: none; transition: all 0.3s; }
     details summary:hover { background: #fff; border-color: #000; }
     details summary::after { content: '+'; font-weight: bold; font-size: 1.5rem; }
     details[open] summary::after { content: '-'; }
@@ -1252,89 +1382,49 @@
     .social-links a { color: #000; font-size: 1.25rem; transition: color 0.3s; text-decoration: none; }
     .social-links a:hover { color: #667eea; }
 
+    /* DROPDOWN MENU */
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-trigger { cursor: pointer; display: flex; align-items: center; gap: 6px; color: #666; font-size: 0.95rem; text-decoration: none; transition: color 0.3s; }
+    .dropdown-trigger:hover { color: #000; }
+    .dropdown-trigger::after { content: '▾'; font-size: 0.7rem; transition: transform 0.3s; }
+    .nav-dropdown:hover .dropdown-trigger::after { transform: rotate(180deg); }
+    .dropdown-menu { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #e5e5e5; border-radius: 8px; min-width: 220px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s; z-index: 999; margin-top: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .dropdown-menu a { display: block; padding: 12px 20px; color: #666; text-decoration: none; transition: all 0.3s; }
+    .dropdown-menu a:hover { background: #f9f9f9; color: #000; }
+    .dropdown-menu a:first-child { border-radius: 8px 8px 0 0; }
+    .dropdown-menu a:last-child { border-radius: 0 0 8px 8px; }
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
-      .nav-links {
-        gap: 20px;
-      }
-      
       .hero-content { grid-template-columns: 1fr; gap: 40px; }
       .hero h1 { font-size: 2.5rem; }
-    }
-    
-    @media (max-width: 640px) {
-      .nav-links {
-        gap: 15px;
-      }
-      
-      .nav-cta {
-        padding: 8px 16px;
-        font-size: 0.85rem;
-      }
     }
   </style>
 </head>
 <body>
 
-<!-- ==============================
-   NAVEGACIÓN ESTILO GLASSMORPHISM NARANJA
-   ============================== -->
-  
 <nav>
   <div class="nav-container">
-    <!-- Logo con efecto glassmorphism naranja -->
-    <a href="#" class="logo">
-      <span class="letter-n">N</span>
-      <span class="letter-e">e</span>
-      <span class="letter-o">o</span>
-      <span class="letter-p">P</span>
-      <span class="letter-r">r</span>
-      <span class="letter-o2">o</span>
-      <span class="letter-d">d</span>
-      <span class="letter-u">U</span>
-      <span class="letter-x">x</span>
-    </a>
-    
-    <div class="nav-links">
-      <a href="#servicios">Servicios</a>
-      <a href="#proyectos">Proyectos</a>
-      
-      <!-- Dropdown Menu -->
+    <a href="index.html" class="logo"><span style="color: #667eea;">N</span>eo<span style="color: #764ba2;">P</span>rod<span style="color: #667eea;">U</span>x</a>
+    <div style="display: flex; gap: 40px; align-items: center;">
       <div class="nav-dropdown">
-        <button class="dropdown-trigger">
-          Recursos
-        </button>
+        <a href="#servicios" class="dropdown-trigger">Servicios</a>
         <div class="dropdown-menu">
-          <a href="#blog">Blog</a>
+          <a href="ui-ux-design.html">Diseño UI-UX</a>
+          <a href="mobile-app-design.html">Diseño de aplicaciones móviles</a>
+          <a href="website-design.html">Diseño de sitios web</a>
+          <a href="figma-to-wordpress.html">Figma a WordPress</a>
+          <a href="figma-to-html.html">Figma a HTML</a>
+          <a href="figma-to-webflow.html">Figma a Webflow</a>
           <a href="ejemplos-amazon.html">Ejemplos Amazon</a>
-          <a href="#faq">FAQ</a>
-          <a href="#proceso">Proceso</a>
         </div>
       </div>
-      <header class="site-header">
-  <div class="nav-container">
-    <a href="#" class="logo">
-      <span class="letter-n">N</span><span class="letter-e">e</span><span class="letter-p">p</span><span class="letter-u">u</span><span class="letter-r">r</span><span class="letter-o">o</span>
-    </a>
-    
-    <nav class="nav-links">
-      <a href="#inicio">Inicio</a>
-      <div class="nav-dropdown">
-        <button class="dropdown-trigger">Servicios</button>
-        <div class="dropdown-menu">
-          <a href="#">Diseño</a>
-          <a href="#">Desarrollo</a>
-        </div>
-      </div>
-      <a href="#" class="nav-cta">Contacto</a>
-    </nav>
-    
-    <button class="menu-toggle">☰</button>
-  </div>
-</header>
-
-      <a href="#contacto">Contacto</a>
-      <a href="#contacto" class="nav-cta">Agendar Llamada</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#faq">FAQ</a>
+      <a href="blog.html">Blog</a>
+      <a href="#contacto" class="nav-cta">Contacto</a>
     </div>
   </div>
 </nav>
@@ -1342,48 +1432,29 @@
 <!-- Hero Section - Glassmorphism Style -->
 <section class="hero-glass">
   <div class="hero-content-glass">
-    <!-- Navegación -->
-    <nav class="hero-nav-container">
-        <div class="logo">YOUR LOGO</div>
-        <div class="nav-links">
-            <a href="#">HOME</a>
-            <a href="#">ABOUT</a>
-            <a href="#">PRODUCT</a>
-            <a href="#">SERVICE</a>
-            <a href="#">CONTACT</a>
-        </div>
-    </nav>
+    <h1>3D <span>GLASSMORPHISM</span> LANDING PAGE</h1>
     
-    <!-- Contenido Principal -->
-    <div class="main-content-area">
-        <h1>Diseño UX/UI<br>pensado para escalar</h1>
-        
-        <p>
-      Plantillas premium creadas con criterio de producto.
-      Claridad, foco y decisiones bien tomadas desde el inicio.
+    <p>
+      Diseño UX/UI premium con efecto vidrio. Interfaces modernas, elegantes y funcionales 
+      que destacan tu producto en el mercado digital.
     </p>
-        <a href="#" class="btn-glass">Acceder</a>
+    
+    <a href="#proyectos" class="btn-glass">
+      <span>QUICK HERE</span>
+      <i class="fas fa-arrow-right"></i>
+    </a>
+    
+    <div class="hero-nav">
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
     </div>
   </div>
 </section>
 
-
 <!-- Carrusel 3D Coverflow Premium -->
 <div class="hero-carousel">
-  <section class="hero-glass">
-  <!-- AÑADE ESTO AQUÍ: -->
-  <div class="glass-sphere sphere-large top-right"></div>
-  <div class="glass-sphere sphere-medium bottom-left"></div>
-  <div class="glass-sphere sphere-small top-left"></div>
-  <div class="glass-ring ring-large top-left"></div>
-  <div class="glass-ring ring-medium bottom-right"></div>
-  <!-- Fin de las formas -->
-
-  <div class="hero-content-glass">
-    <!-- ... todo el contenido del hero ... -->
-  </div>
-</section>
-
   <div class="carousel-container" id="carousel-track">
     <!-- Cards del carrusel - Mejores diseños web premium -->
     <div class="carousel-slide" data-index="0" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=90');"></div>
