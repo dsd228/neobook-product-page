@@ -18,57 +18,155 @@
     /* ==============================
        NAVEGACIÓN ESTILO GLASSMORPHISM
        ============================== */
-    nav { 
-      position: fixed; 
-      top: 0; 
-      width: 100%; 
-      background: rgba(255, 255, 255, 0.95); 
-      backdrop-filter: blur(15px); 
-      -webkit-backdrop-filter: blur(15px);
-      z-index: 1000; 
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08); 
-      padding: 16px 0; 
-    }
-    .nav-container { 
-      max-width: 1400px; 
-      margin: 0 auto; 
-      padding: 0 40px; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-    }
-    .logo { 
-      font-size: 1.8rem; 
-      font-weight: 800; 
-      color: #000; 
-      letter-spacing: -0.5px; 
-      text-decoration: none;
-    }
-    nav a { 
-      color: #333; 
-      font-size: 0.95rem; 
-      transition: color 0.3s; 
-      text-decoration: none; 
-      font-weight: 500;
-    }
-    nav a:hover { 
-      color: #000; 
-    }
-    .nav-cta { 
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-      color: #fff; 
-      padding: 10px 24px; 
-      border-radius: 8px; 
-      transition: all 0.3s; 
-      font-weight: 600;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
-    }
-    .nav-cta:hover { 
-      background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%); 
-      transform: translateY(-2px); 
-      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
-    }
+    /* ==============================
+   NAVEGACIÓN ESTILO GLASSMORPHISM NARANJA
+   ============================== */
+nav { 
+  position: fixed; 
+  top: 0; 
+  width: 100%; 
+  background: rgba(255, 255, 255, 0.98); 
+  backdrop-filter: blur(20px); 
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000; 
+  border-bottom: 1px solid rgba(255, 107, 53, 0.1); 
+  padding: 16px 0; 
+}
+.nav-container { 
+  max-width: 1400px; 
+  margin: 0 auto; 
+  padding: 0 40px; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+.logo { 
+  font-size: 1.8rem; 
+  font-weight: 800; 
+  color: #000; 
+  letter-spacing: -0.5px; 
+  text-decoration: none;
+}
+.logo span {
+  /* NARANJA: Reemplaza los lilas por naranja */
+  color: #FF6B35;
+}
+nav a { 
+  color: #555; 
+  font-size: 0.95rem; 
+  transition: color 0.3s; 
+  text-decoration: none; 
+  font-weight: 500;
+}
+nav a:hover { 
+  /* NARANJA: Color al hover */
+  color: #FF6B35; 
+}
+.nav-cta { 
+  /* NARANJA: Gradiente naranja */
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%); 
+  color: #fff; 
+  padding: 10px 24px; 
+  border-radius: 8px; 
+  transition: all 0.3s; 
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.2);
+}
+.nav-cta:hover { 
+  /* NARANJA: Gradiente más oscuro al hover */
+  background: linear-gradient(135deg, #E65C00 0%, #FF6B35 100%); 
+  transform: translateY(-2px); 
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+}
 
+/* Dropdown Menu - NARANJA */
+.nav-dropdown { position: relative; display: inline-block; }
+.dropdown-trigger { 
+  cursor: pointer; 
+  display: flex; 
+  align-items: center; 
+  gap: 6px; 
+  color: #555; 
+  font-size: 0.95rem; 
+  text-decoration: none; 
+  transition: color 0.3s; 
+}
+.dropdown-trigger:hover { 
+  /* NARANJA: Color al hover */
+  color: #FF6B35; 
+}
+.dropdown-trigger::after { 
+  content: '▾'; 
+  font-size: 0.7rem; 
+  transition: transform 0.3s; 
+  color: #FF6B35;
+}
+.nav-dropdown:hover .dropdown-trigger::after { 
+  transform: rotate(180deg); 
+  color: #FF8C42;
+}
+.dropdown-menu { 
+  position: absolute; 
+  top: 100%; 
+  left: 0; 
+  background: rgba(255, 255, 255, 0.95); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 107, 53, 0.15); 
+  border-radius: 12px; 
+  min-width: 240px; 
+  opacity: 0; 
+  visibility: hidden; 
+  transform: translateY(-10px); 
+  transition: all 0.3s; 
+  z-index: 999; 
+  margin-top: 8px; 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+  padding: 8px 0;
+}
+.nav-dropdown:hover .dropdown-menu { 
+  opacity: 1; 
+  visibility: visible; 
+  transform: translateY(0); 
+}
+.dropdown-menu a { 
+  display: block; 
+  padding: 12px 24px; 
+  color: #555; 
+  text-decoration: none; 
+  transition: all 0.3s; 
+  font-size: 0.9rem;
+  border-left: 3px solid transparent;
+}
+.dropdown-menu a:hover { 
+  /* NARANJA: Fondo y borde al hover */
+  background: rgba(255, 107, 53, 0.08); 
+  color: #FF6B35; 
+  border-left: 3px solid #FF6B35;
+  padding-left: 28px;
+}
+.dropdown-menu a:first-child { 
+  border-radius: 12px 12px 0 0; 
+}
+.dropdown-menu a:last-child { 
+  border-radius: 0 0 12px 12px; 
+}
+
+/* Para los enlaces de navegación con color naranja específico */
+nav .nav-dropdown .dropdown-trigger {
+  color: #555;
+}
+nav .nav-dropdown .dropdown-trigger:hover {
+  color: #FF6B35;
+}
+
+/* NARANJA: Para mantener consistencia en todos los enlaces */
+nav > .nav-container > div > a:not(.nav-cta) {
+  color: #555;
+}
+nav > .nav-container > div > a:not(.nav-cta):hover {
+  color: #FF6B35;
+}
     /* ==============================
    HERO SECTION - ESTILO GLASSMORPHISM NARANJA LÍQUIDO
    ============================== */
