@@ -40,16 +40,184 @@ nav {
   justify-content: space-between; 
   align-items: center; 
 }
+/* ==============================
+   LOGO NARANJA CON EFECTO VIDRIO
+   ============================== */
 .logo { 
   font-size: 1.8rem; 
   font-weight: 800; 
   color: #000; 
   letter-spacing: -0.5px; 
   text-decoration: none;
+  font-family: "Sora", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 8px 16px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
 }
-.logo span {
-  /* NARANJA: Reemplaza los lilas por naranja */
+
+/* Contenedor interno para efecto vidrio */
+.logo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 12px;
+  z-index: -1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+}
+
+/* Efecto de resplandor naranja en hover */
+.logo::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(255, 107, 53, 0), 
+    rgba(255, 140, 66, 0), 
+    rgba(255, 107, 53, 0));
+  border-radius: 14px;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Letras específicas del logo - NARANJA */
+.logo .letter-n {
   color: #FF6B35;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo .letter-p {
+  color: #FF6B35;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo .letter-u {
+  color: #FF6B35;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Letras negras */
+.logo .letter-e,
+.logo .letter-o,
+.logo .letter-r,
+.logo .letter-o2,
+.logo .letter-d,
+.logo .letter-x {
+  color: #000000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* HOVER EFECTO VIDRIO */
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo:hover::before {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(255, 107, 53, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.logo:hover::after {
+  opacity: 1;
+  background: linear-gradient(45deg, 
+    rgba(255, 107, 53, 0.2), 
+    rgba(255, 140, 66, 0.15), 
+    rgba(255, 107, 53, 0.2));
+}
+
+/* HOVER - Letras naranjas se vuelven más brillantes */
+.logo:hover .letter-n,
+.logo:hover .letter-p,
+.logo:hover .letter-u {
+  color: #FF8C42;
+  text-shadow: 
+    0 0 20px rgba(255, 107, 53, 0.4),
+    0 0 40px rgba(255, 107, 53, 0.2);
+}
+
+/* HOVER - Letras negras se vuelven efecto vidrio */
+.logo:hover .letter-e,
+.logo:hover .letter-o,
+.logo:hover .letter-r,
+.logo:hover .letter-o2,
+.logo:hover .letter-d,
+.logo:hover .letter-x {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Efecto de brillo adicional en las letras negras */
+.logo:hover .letter-e::after,
+.logo:hover .letter-o::after,
+.logo:hover .letter-r::after,
+.logo:hover .letter-o2::after,
+.logo:hover .letter-d::after,
+.logo:hover .letter-x::after {
+  content: attr(data-letter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(255, 255, 255, 0.3);
+  filter: blur(4px);
+  z-index: -1;
+}
+
+/* Efecto activo (click) */
+.logo:active {
+  transform: translateY(0);
+}
+
+.logo:active::before {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 107, 53, 0.15);
+  box-shadow: 
+    0 4px 16px rgba(255, 107, 53, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.6rem;
+    padding: 6px 12px;
+  }
+  
+  .logo:hover::before {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.4rem;
+    padding: 4px 10px;
+  }
 }
 nav a { 
   color: #555; 
@@ -1535,7 +1703,17 @@ nav > .nav-container > div > a:not(.nav-cta):hover {
 
 <nav>
   <div class="nav-container">
-    <a href="index.html" class="logo"><span style="color: #667eea;">N</span>eo<span style="color: #764ba2;">P</span>rod<span style="color: #667eea;">U</span>x</a>
+    <a href="index.html" class="logo">
+  <span class="letter-n">N</span>
+  <span class="letter-e">e</span>
+  <span class="letter-o">o</span>
+  <span class="letter-p">P</span>
+  <span class="letter-r">r</span>
+  <span class="letter-o2">o</span>
+  <span class="letter-d">d</span>
+  <span class="letter-u">U</span>
+  <span class="letter-x">x</span>
+</a>
     <div style="display: flex; gap: 40px; align-items: center;">
       <div class="nav-dropdown">
         <a href="#servicios" class="dropdown-trigger">Servicios</a>
