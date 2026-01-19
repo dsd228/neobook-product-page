@@ -3,61 +3,1547 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Motion as Feedback · Tendencias 2026</title>
+  <title>Motion as Feedback · Tendencias 2026 Premium</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --fondo-principal: #F0F4F8;
-      --fondo-secundario: #E9EDF2;
-      --acento-principal: #A4D2F4;
-      --acento-detalle: #F7C7D2;
-      --texto-principal: #2E3A46;
-      --texto-secundario: #3B4758;
+      --primary-color: #6366F1;
+      --primary-light: #818CF8;
+      --primary-dark: #4F46E5;
+      --accent-color: #F59E0B;
+      --accent-light: #FBBF24;
+      --dark-color: #0F172A;
+      --light-color: #FFFFFF;
+      --gray-50: #F8FAFC;
+      --gray-100: #F1F5F9;
+      --gray-200: #E2E8F0;
+      --gray-300: #CBD5E1;
+      --gray-400: #94A3B8;
+      --gray-500: #64748B;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --motion-color: #8B5CF6;
+      --success-color: #10B981;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+      --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.1);
+      --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.15);
+      --shadow-xl: 0 20px 50px rgba(15, 23, 42, 0.2);
+      --transition-smooth: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-bounce: 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      --transition-elastic: 1s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--fondo-principal); color: var(--texto-principal); }
-    .wrap { max-width: 960px; margin: 0 auto; padding: 32px 20px 60px; }
-    .hero {
-      background: linear-gradient(135deg, rgba(164,210,244,0.18), rgba(247,199,210,0.12));
-      border: 1.5px solid rgba(164,210,244,0.35);
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      color: var(--light-color);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Motion Header */
+    .header {
+      padding: 32px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+      transition: all var(--transition-smooth);
+    }
+
+    .header.scrolled {
+      padding: 20px 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--light-color);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary-color), var(--motion-color));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: logoPulse 3s infinite;
+    }
+
+    @keyframes logoPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--gray-400);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      transition: width 0.3s;
+    }
+
+    .nav-link:hover {
+      color: var(--light-color);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Motion Hero */
+    .motion-hero {
+      padding: 180px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .motion-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+      animation: backgroundShift 20s infinite alternate;
+    }
+
+    @keyframes backgroundShift {
+      0% { transform: translateX(0) translateY(0); }
+      100% { transform: translateX(-50px) translateY(50px); }
+    }
+
+    .hero-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary-color), var(--motion-color));
+      color: var(--light-color);
+      padding: 10px 28px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      animation: eyebrowFloat 4s infinite ease-in-out;
+    }
+
+    @keyframes eyebrowFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-title {
+      font-size: 4.5rem;
+      margin-bottom: 32px;
+      line-height: 1.05;
+      background: linear-gradient(135deg, var(--light-color), var(--gray-300));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: titleGlow 3s infinite alternate;
+    }
+
+    @keyframes titleGlow {
+      0% { text-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+      100% { text-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
+    }
+
+    .hero-subtitle {
+      font-size: 1.4rem;
+      color: var(--gray-300);
+      margin-bottom: 60px;
+      line-height: 1.7;
+      font-weight: 400;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Interactive Motion Demo */
+    .motion-demo {
+      background: rgba(30, 41, 59, 0.6);
+      border-radius: 32px;
+      padding: 60px;
+      margin: 80px 0;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .demo-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .demo-title {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    .demo-subtitle {
+      color: var(--gray-300);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .motion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .motion-card {
+      background: rgba(15, 23, 42, 0.7);
+      border-radius: 24px;
+      padding: 40px;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      transition: all var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .motion-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary-color);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .motion-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .motion-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .motion-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary-color), var(--motion-color));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light-color);
+      font-size: 2rem;
+      margin-bottom: 30px;
+      transition: all var(--transition-bounce);
+    }
+
+    .motion-card:hover .motion-icon {
+      transform: rotate(15deg) scale(1.1);
+    }
+
+    .motion-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: var(--light-color);
+    }
+
+    .motion-card p {
+      color: var(--gray-400);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    /* Interactive Elements */
+    .interactive-section {
+      padding: 100px 0;
+    }
+
+    .interactive-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .interactive-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .interactive-title {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .interactive-subtitle {
+      color: var(--gray-300);
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .interactive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .interactive-card {
+      background: rgba(30, 41, 59, 0.8);
+      border-radius: 24px;
+      padding: 40px;
+      text-align: center;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      transition: all var(--transition-smooth);
+    }
+
+    .interactive-card:hover {
+      border-color: var(--primary-color);
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Button with Motion Feedback */
+    .motion-button {
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: var(--light-color);
+      border: none;
       border-radius: 16px;
-      padding: 32px;
-      box-shadow: 0 12px 36px rgba(164,210,244,0.18);
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 30px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s;
     }
-    h1 { margin: 0 0 12px; font-size: 32px; }
-    .eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 800; font-size: 12px; color: var(--acento-principal); }
-    p.lead { margin: 0 0 14px; color: var(--texto-secundario); font-size: 17px; }
-    .hero img { width: 100%; border-radius: 14px; margin-top: 16px; box-shadow: 0 10px 32px rgba(46,58,70,0.18); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 24px; }
-    .card { background: #fff; border: 1px solid rgba(164,210,244,0.25); border-radius: 14px; padding: 18px; box-shadow: 0 8px 22px rgba(46,58,70,0.1); }
-    .card h3 { margin: 0 0 10px; font-size: 18px; color: var(--texto-principal); }
-    .card p { margin: 0; color: var(--texto-secundario); font-size: 14px; line-height: 1.55; }
-    .back { display: inline-block; margin-top: 24px; color: var(--acento-principal); text-decoration: none; font-weight: 700; }
+
+    .motion-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+    }
+
+    .motion-button:active {
+      transform: translateY(-2px) scale(0.98);
+    }
+
+    .button-ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.7);
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    /* Loading Animation */
+    .loading-demo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .loading-circle {
+      width: 80px;
+      height: 80px;
+      border: 4px solid rgba(99, 102, 241, 0.2);
+      border-top: 4px solid var(--primary-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading-dots {
+      display: flex;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      animation: dotBounce 1.4s infinite ease-in-out both;
+    }
+
+    .dot:nth-child(1) { animation-delay: -0.32s; }
+    .dot:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes dotBounce {
+      0%, 80%, 100% { transform: scale(0); }
+      40% { transform: scale(1); }
+    }
+
+    /* Toggle Switch */
+    .toggle-demo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 80px;
+      height: 40px;
+    }
+
+    .toggle-input {
+      display: none;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(99, 102, 241, 0.2);
+      transition: 0.4s;
+      border-radius: 40px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 32px;
+      width: 32px;
+      left: 4px;
+      bottom: 4px;
+      background: var(--light-color);
+      transition: 0.4s;
+      border-radius: 50%;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .toggle-input:checked + .toggle-slider {
+      background: var(--primary-color);
+    }
+
+    .toggle-input:checked + .toggle-slider:before {
+      transform: translateX(40px);
+    }
+
+    /* Progress Bar */
+    .progress-demo {
+      width: 100%;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 12px;
+      background: rgba(99, 102, 241, 0.2);
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-color), var(--motion-color));
+      border-radius: 6px;
+      width: 0%;
+      animation: progressLoad 3s infinite alternate;
+      transition: width 0.3s;
+    }
+
+    @keyframes progressLoad {
+      0% { width: 30%; }
+      100% { width: 90%; }
+    }
+
+    /* Accessibility Section */
+    .accessibility-section {
+      padding: 100px 0;
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 40px;
+      margin: 40px 0;
+    }
+
+    .accessibility-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .accessibility-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .accessibility-title {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    .accessibility-subtitle {
+      color: var(--gray-300);
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .accessibility-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .accessibility-card {
+      background: rgba(30, 41, 59, 0.6);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      transition: all var(--transition-smooth);
+    }
+
+    .accessibility-card:hover {
+      border-color: var(--motion-color);
+      transform: translateY(-5px);
+    }
+
+    .accessibility-icon {
+      font-size: 2rem;
+      color: var(--motion-color);
+      margin-bottom: 20px;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      background: linear-gradient(135deg, var(--primary-color), var(--motion-color));
+      border-radius: 40px;
+      padding: 80px 60px;
+      color: var(--light-color);
+      position: relative;
+      z-index: 1;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .cta-eyebrow {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.9;
+      display: block;
+    }
+
+    .cta-title {
+      font-size: 3rem;
+      margin-bottom: 30px;
+    }
+
+    .cta-text {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 50px;
+      line-height: 1.7;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      background: var(--light-color);
+      color: var(--primary-color);
+      padding: 22px 60px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all var(--transition-elastic);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Footer */
+    .footer {
+      padding: 80px 0 40px;
+      background: rgba(15, 23, 42, 0.95);
+      border-top: 1px solid rgba(99, 102, 241, 0.2);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .footer-text {
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 300px;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 60px;
+    }
+
+    .footer-column h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 16px;
+    }
+
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: var(--light-color);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 40px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-link {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-link:hover {
+      color: var(--light-color);
+    }
+
+    .back-link {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .back-link:hover {
+      color: var(--light-color);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .demo-title, .interactive-title, .accessibility-title {
+        font-size: 2.2rem;
+      }
+      
+      .cta-title {
+        font-size: 2.5rem;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+      
+      .header {
+        padding: 24px 0;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .hero-title {
+        font-size: 2.3rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .motion-demo {
+        padding: 40px 30px;
+      }
+      
+      .motion-grid, .interactive-grid, .accessibility-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-container {
+        padding: 60px 30px;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.9rem;
+      }
+      
+      .demo-title, .interactive-title, .accessibility-title {
+        font-size: 1.8rem;
+      }
+      
+      .motion-card, .interactive-card {
+        padding: 30px 20px;
+      }
+    }
+
+    /* Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      
+      .logo-icon,
+      .eyebrow,
+      .hero-title,
+      .motion-icon,
+      .loading-circle,
+      .loading-dots,
+      .progress-fill,
+      .backgroundShift {
+        animation: none !important;
+      }
+    }
+
+    /* Interactive Demo State Indicators */
+    .state-indicator {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .state-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gray-600);
+      transition: all 0.3s;
+    }
+
+    .state-dot.active {
+      background: var(--success-color);
+      transform: scale(1.2);
+    }
+
+    /* Hover Card Effect */
+    .hover-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hover-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .hover-card:hover::after {
+      opacity: 1;
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator {
+      position: fixed;
+      right: 32px;
+      bottom: 32px;
+      width: 50px;
+      height: 50px;
+      background: rgba(99, 102, 241, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light-color);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 900;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .scroll-indicator.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-indicator:hover {
+      background: var(--primary-color);
+      transform: scale(1.1);
+    }
+
+    /* Focus Styles for Accessibility */
+    :focus {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 3px;
+    }
+
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="hero">
-      <div class="eyebrow">Tendencias UX/UI 2026</div>
-      <h1>Motion as Feedback</h1>
-      <p class="lead">Microinteracciones que comunican estado, jerarquía y confirmación sin distraer.</p>
-      <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1400&q=80" alt="Interfaces con motion en móvil y escritorio">
-    </div>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Estados con intención</h3>
-        <p>Hover que revela affordance, tap que confirma acción, loaders que muestran progreso real.</p>
-      </div>
-      <div class="card">
-        <h3>Timing & Easing</h3>
-        <p>Transiciones cortas (120–200 ms) con curvas suaves para guiar la vista sin fricción visual.</p>
-      </div>
-      <div class="card">
-        <h3>Accesibilidad primero</h3>
-        <p>Animaciones reducibles (prefers-reduced-motion) y estados redundantes con color/ícono/texto.</p>
-      </div>
-    </div>
-
-    <a class="back" href="../index.html#tendencias">← Volver</a>
+  <!-- Scroll to Top Indicator -->
+  <div class="scroll-indicator" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
   </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../index.html" class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-wave-square"></i>
+          </div>
+          <span>MotionUX</span>
+        </a>
+        
+        <div class="nav-links">
+          <a href="#demo" class="nav-link">Demo</a>
+          <a href="#interactive" class="nav-link">Interactivo</a>
+          <a href="#accessibility" class="nav-link">Accesibilidad</a>
+          <a href="../index.html#tendencias" class="nav-link">Tendencias</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Motion Hero -->
+  <section class="motion-hero">
+    <div class="motion-background"></div>
+    <div class="container">
+      <div class="hero-container">
+        <span class="eyebrow">Tendencias UX/UI 2026</span>
+        <h1 class="hero-title">Motion as Feedback</h1>
+        <p class="hero-subtitle">
+          Microinteracciones que comunican estado, jerarquía y confirmación sin distraer. 
+          Cada animación tiene un propósito claro y mejora la experiencia del usuario.
+        </p>
+        
+        <div class="motion-demo">
+          <div class="demo-header">
+            <h2 class="demo-title">Principios del Motion Design</h2>
+            <p class="demo-subtitle">
+              Timing preciso, easing apropiado y propósito claro para cada animación
+            </p>
+          </div>
+          
+          <div class="motion-grid">
+            <div class="motion-card hover-card" data-motion="hover">
+              <div class="motion-icon">
+                <i class="fas fa-mouse-pointer"></i>
+              </div>
+              <h3>Estados con Intención</h3>
+              <p>
+                Hover que revela affordance, tap que confirma acción, loaders que muestran 
+                progreso real. Cada estado tiene una animación distintiva.
+              </p>
+              <div class="state-indicator">
+                <div class="state-dot active"></div>
+                <div class="state-dot"></div>
+                <div class="state-dot"></div>
+              </div>
+            </div>
+            
+            <div class="motion-card hover-card" data-motion="timing">
+              <div class="motion-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <h3>Timing & Easing</h3>
+              <p>
+                Transiciones cortas (120–200 ms) con curvas suaves para guiar la vista 
+                sin fricción visual. Cada easing comunica un tipo de interacción diferente.
+              </p>
+              <div class="state-indicator">
+                <div class="state-dot"></div>
+                <div class="state-dot active"></div>
+                <div class="state-dot"></div>
+              </div>
+            </div>
+            
+            <div class="motion-card hover-card" data-motion="accessibility">
+              <div class="motion-icon">
+                <i class="fas fa-universal-access"></i>
+              </div>
+              <h3>Accesibilidad Primero</h3>
+              <p>
+                Animaciones reducibles (prefers-reduced-motion) y estados redundantes 
+                con color/ícono/texto para usuarios con preferencias diferentes.
+              </p>
+              <div class="state-indicator">
+                <div class="state-dot"></div>
+                <div class="state-dot"></div>
+                <div class="state-dot active"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Motion Demos -->
+  <section class="interactive-section" id="interactive">
+    <div class="container">
+      <div class="interactive-container">
+        <div class="interactive-header">
+          <h2 class="interactive-title">Demostraciones Interactivas</h2>
+          <p class="interactive-subtitle">
+            Experimenta con diferentes tipos de feedback de movimiento
+          </p>
+        </div>
+        
+        <div class="interactive-grid">
+          <div class="interactive-card">
+            <h3>Button Feedback</h3>
+            <p>Botón con efectos de hover, click y ripple</p>
+            <button class="motion-button" id="ripple-button">
+              <span>Click Me</span>
+            </button>
+          </div>
+          
+          <div class="interactive-card">
+            <h3>Loading States</h3>
+            <p>Diferentes tipos de indicadores de carga</p>
+            <div class="loading-demo">
+              <div class="loading-circle"></div>
+              <div class="loading-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="interactive-card">
+            <h3>Toggle Switch</h3>
+            <p>Switch con animación suave</p>
+            <div class="toggle-demo">
+              <label class="toggle-switch">
+                <input type="checkbox" class="toggle-input" id="motion-toggle">
+                <span class="toggle-slider"></span>
+              </label>
+              <span id="toggle-status">Motion: Off</span>
+            </div>
+          </div>
+          
+          <div class="interactive-card">
+            <h3>Progress Feedback</h3>
+            <p>Barra de progreso animada</p>
+            <div class="progress-demo">
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <button class="motion-button" id="reset-progress">Reset Progress</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accessibility Section -->
+  <section class="accessibility-section" id="accessibility">
+    <div class="container">
+      <div class="accessibility-container">
+        <div class="accessibility-header">
+          <h2 class="accessibility-title">Accesibilidad en Motion Design</h2>
+          <p class="accessibility-subtitle">
+            Diseñando para todos los usuarios, incluyendo aquellos con preferencias de movimiento reducido
+          </p>
+        </div>
+        
+        <div class="accessibility-grid">
+          <div class="accessibility-card">
+            <div class="accessibility-icon">
+              <i class="fas fa-eye-slash"></i>
+            </div>
+            <h4>Reduced Motion</h4>
+            <p>Soporte para prefers-reduced-motion</p>
+          </div>
+          
+          <div class="accessibility-card">
+            <div class="accessibility-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <h4>Multiple Feedback</h4>
+            <p>Color, ícono y texto como redundancia</p>
+          </div>
+          
+          <div class="accessibility-card">
+            <div class="accessibility-icon">
+              <i class="fas fa-stopwatch"></i>
+            </div>
+            <h4>Timing Control</h4>
+            <p>Animaciones que respetan el tiempo del usuario</p>
+          </div>
+          
+          <div class="accessibility-card">
+            <div class="accessibility-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h4>Cognitive Load</h4>
+            <p>Animaciones que no sobrecargan cognitivamente</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-container">
+        <span class="cta-eyebrow">Implementación 2026</span>
+        <h2 class="cta-title">Eleva tu UX con Motion Design</h2>
+        <p class="cta-text">
+          Obtén acceso a bibliotecas de motion, principios de timing, y mejores prácticas 
+          para implementar feedback de movimiento que realmente mejore la experiencia.
+        </p>
+        
+        <button class="cta-button" onclick="downloadMotionKit()">
+          <i class="fas fa-download"></i>
+          Descargar Motion Kit
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <div class="footer-logo">MotionUX</div>
+          <p class="footer-text">
+            Sistema de diseño de movimiento que mejora la usabilidad, 
+            accesibilidad y experiencia emocional de las interfaces.
+          </p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+              <li><a href="#">Librerías de Motion</a></li>
+              <li><a href="#">Guías de Timing</a></li>
+              <li><a href="#">Plantillas Figma</a></li>
+              <li><a href="#">Casos de Estudio</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Tendencias</h4>
+            <ul>
+              <li><a href="../motion-feedback/index.html">Motion as Feedback</a></li>
+              <li><a href="../ai-interfaces/index.html">AI Interfaces</a></li>
+              <li><a href="../spatial-computing/index.html">Spatial Computing</a></li>
+              <li><a href="../emotional-ux/index.html">Emotional UX</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="CodePen">
+            <i class="fab fa-codepen"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Dribbble">
+            <i class="fab fa-dribbble"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        
+        <div class="copyright">
+          © 2026 MotionUX Design System · Timing: 120–200ms · Easing: cubic-bezier(0.4, 0, 0.2, 1)
+        </div>
+        
+        <a href="../index.html#tendencias" class="back-link">
+          <i class="fas fa-arrow-left"></i>
+          Volver a Tendencias
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      const scrollIndicator = document.querySelector('.scroll-indicator');
+      
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      // Show/hide scroll indicator
+      if (window.scrollY > 500) {
+        scrollIndicator.classList.add('visible');
+      } else {
+        scrollIndicator.classList.remove('visible');
+      }
+    });
+
+    // Ripple effect for buttons
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('.motion-button')) {
+        const button = e.target.closest('.motion-button');
+        createRipple(button, e);
+        
+        // Different actions for different buttons
+        if (button.id === 'ripple-button') {
+          button.innerHTML = '<i class="fas fa-check"></i> Clicked!';
+          setTimeout(() => {
+            button.innerHTML = '<span>Click Me</span>';
+          }, 1000);
+        } else if (button.id === 'reset-progress') {
+          const progressFill = document.querySelector('.progress-fill');
+          progressFill.style.animation = 'none';
+          setTimeout(() => {
+            progressFill.style.animation = 'progressLoad 3s infinite alternate';
+          }, 10);
+        }
+      }
+    });
+
+    function createRipple(button, event) {
+      const ripple = document.createElement('span');
+      const rect = button.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = event.clientX - rect.left - size / 2;
+      const y = event.clientY - rect.top - size / 2;
+      
+      ripple.classList.add('button-ripple');
+      ripple.style.width = ripple.style.height = `${size}px`;
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      
+      button.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    }
+
+    // Toggle switch interaction
+    const toggle = document.getElementById('motion-toggle');
+    const toggleStatus = document.getElementById('toggle-status');
+    
+    toggle.addEventListener('change', function() {
+      if (this.checked) {
+        toggleStatus.textContent = 'Motion: On';
+        toggleStatus.style.color = 'var(--success-color)';
+        
+        // Enable all animations
+        document.documentElement.style.setProperty('--transition-smooth', '0.6s cubic-bezier(0.4, 0, 0.2, 1)');
+        document.documentElement.style.setProperty('--transition-bounce', '0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)');
+      } else {
+        toggleStatus.textContent = 'Motion: Off';
+        toggleStatus.style.color = 'var(--gray-400)';
+        
+        // Reduce motion for demo
+        document.documentElement.style.setProperty('--transition-smooth', '0.1s linear');
+        document.documentElement.style.setProperty('--transition-bounce', '0.1s linear');
+      }
+    });
+
+    // Motion card hover states
+    const motionCards = document.querySelectorAll('.motion-card');
+    motionCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        const type = this.getAttribute('data-motion');
+        const dots = this.querySelectorAll('.state-dot');
+        
+        dots.forEach((dot, index) => {
+          setTimeout(() => {
+            dot.classList.add('active');
+          }, index * 100);
+        });
+        
+        // Different animations for different card types
+        if (type === 'hover') {
+          this.style.transform = 'translateY(-10px) rotate(1deg)';
+        } else if (type === 'timing') {
+          this.style.transform = 'translateY(-10px) scale(1.02)';
+        } else if (type === 'accessibility') {
+          this.style.transform = 'translateY(-10px)';
+        }
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        const dots = this.querySelectorAll('.state-dot');
+        dots.forEach(dot => {
+          dot.classList.remove('active');
+        });
+        
+        this.style.transform = '';
+      });
+    });
+
+    // Download motion kit
+    function downloadMotionKit() {
+      const button = event.target.closest('.cta-button');
+      const originalHTML = button.innerHTML;
+      
+      // Create special ripple
+      const ripple = document.createElement('span');
+      const rect = button.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = event.clientX - rect.left - size / 2;
+      const y = event.clientY - rect.top - size / 2;
+      
+      ripple.style.cssText = `
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(99, 102, 241, 0.7);
+        transform: scale(0);
+        animation: ripple 0.8s linear;
+        width: ${size}px;
+        height: ${size}px;
+        top: ${y}px;
+        left: ${x}px;
+        pointer-events: none;
+      `;
+      
+      button.appendChild(ripple);
+      
+      // Show downloading state
+      button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparando kit...';
+      button.disabled = true;
+      
+      // Simulate download
+      setTimeout(() => {
+        button.innerHTML = '<i class="fas fa-check"></i> ¡Kit Descargado!';
+        button.style.background = 'linear-gradient(135deg, #10B981, #059669)';
+        
+        // Show success message
+        showDownloadSuccess();
+        
+        // Reset button after 3 seconds
+        setTimeout(() => {
+          button.innerHTML = originalHTML;
+          button.disabled = false;
+          button.style.background = 'var(--light-color)';
+        }, 3000);
+      }, 2000);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 800);
+    }
+
+    function showDownloadSuccess() {
+      const modal = document.createElement('div');
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        backdrop-filter: blur(20px);
+      `;
+      
+      modal.innerHTML = `
+        <div style="
+          background: linear-gradient(135deg, var(--primary-color), var(--motion-color));
+          padding: 60px;
+          border-radius: 30px;
+          max-width: 500px;
+          text-align: center;
+          box-shadow: var(--shadow-xl);
+          border: 2px solid var(--light-color);
+          animation: motionModalAppear 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        ">
+          <div style="
+            width: 100px;
+            height: 100px;
+            background: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3rem;
+            color: var(--primary-color);
+            animation: motionIconBounce 1s infinite alternate;
+          ">
+            <i class="fas fa-download"></i>
+          </div>
+          <h2 style="color: white; margin-bottom: 20px; font-size: 2.2rem;">¡Kit Descargado!</h2>
+          <p style="color: rgba(255,255,255,0.9); margin-bottom: 20px; line-height: 1.6;">
+            Tu Motion Kit 2026 ha sido descargado. Incluye:
+          </p>
+          <div style="color: white; text-align: left; margin-bottom: 30px; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 16px;">
+            <div style="margin-bottom: 10px;"><i class="fas fa-check"></i> Librerías de animación</div>
+            <div style="margin-bottom: 10px;"><i class="fas fa-check"></i> Guías de timing</div>
+            <div style="margin-bottom: 10px;"><i class="fas fa-check"></i> Componentes Figma</div>
+            <div><i class="fas fa-check"></i> Casos de implementación</div>
+          </div>
+          <button onclick="this.parentElement.parentElement.remove()" style="
+            background: var(--light-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+          ">
+            Empezar a Implementar
+          </button>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      
+      // Add motion animations
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes motionModalAppear {
+          from {
+            opacity: 0;
+            transform: scale(0.5) rotate(-5deg);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+          }
+        }
+        
+        @keyframes motionIconBounce {
+          from { transform: translateY(0) scale(1); }
+          to { transform: translateY(-20px) scale(1.1); }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    // Scroll to top function
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Initialize with reduced motion check
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.getElementById('motion-toggle').checked = false;
+      document.getElementById('toggle-status').textContent = 'Motion: Off (Reduced)';
+      document.getElementById('toggle-status').style.color = 'var(--accent-color)';
+      
+      // Apply reduced motion styles
+      document.documentElement.style.setProperty('--transition-smooth', '0.1s linear');
+      document.documentElement.style.setProperty('--transition-bounce', '0.1s linear');
+    }
+
+    // Parallax effect for background
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+      const background = document.querySelector('.motion-background');
+      if (background) {
+        background.style.transform = `translateY(${scrolled * 0.05}px)`;
+      }
+    });
+
+    // Interactive progress bar
+    let progressValue = 30;
+    setInterval(() => {
+      if (!document.hidden) {
+        progressValue = progressValue < 90 ? progressValue + 2 : 30;
+        const progressFill = document.querySelector('.progress-fill');
+        progressFill.style.width = `${progressValue}%`;
+      }
+    }, 2000);
+  </script>
+
 </body>
 </html>
