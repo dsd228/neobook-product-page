@@ -3279,39 +3279,86 @@
     }
 
     // ========================================
-    // CTA FLOTANTE
     // ========================================
-    
-    function openCalendly() {
-      window.open('https://calendly.com/david-sebastian-diaz', '_blank');
-    }
-    
-    // Mostrar/ocultar CTA flotante en scroll
-    let lastScroll = 0;
-    const floatingCTA = document.querySelector('.floating-cta');
-    
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      
-      if (currentScroll > 500) {
-        floatingCTA.style.display = 'block';
-        setTimeout(() => {
-          floatingCTA.style.opacity = '1';
-          floatingCTA.style.transform = 'translateY(0)';
-        }, 10);
-      } else {
-        floatingCTA.style.opacity = '0';
-        floatingCTA.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-          if (currentScroll <= 500) {
-            floatingCTA.style.display = 'none';
-          }
-        }, 300);
-      }
-      
-      lastScroll = currentScroll;
-    });
+// CTA FLOTANTE CORREGIDO
+// ========================================
 
+function openCalendly() {
+  window.open('https://calendly.com/david-sebastian-diaz', '_blank');
+}
+
+// Mostrar/ocultar CTA flotante en scroll
+let lastScroll = 0;
+const floatingCTA = document.querySelector('.floating-cta');
+
+// Asegurarnos de que el CTA esté oculto al inicio
+if (floatingCTA) {
+  floatingCTA.style.display = 'none';
+  floatingCTA.style.opacity = '0';
+  floatingCTA.style.transform = 'translateY(20px)';
+  floatingCTA.style.transition = 'opacity 0.3s, transform 0.3s';
+}
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  
+  if (floatingCTA) {
+    if (currentScroll > 300) { // Reducí de 500 a 300 para que aparezca antes
+      floatingCTA.style.display = 'flex'; // Cambié a flex para mejor centrado
+      floatingCTA.style.alignItems = 'center';
+      floatingCTA.style.justifyContent = 'center';
+      
+      // Forzar reflow para que la animación funcione
+      setTimeout(() => {
+        floatingCTA.style.opacity = '1';
+        floatingCTA.style.transform = 'translateY(0)';
+      }, 10);
+    } else {
+      floatingCTA.style.opacity = '0';
+      floatingCTA.style.transform = 'translateY(20px)';
+      
+      // Ocultar completamente después de la animación
+      setTimeout(() => {
+        if (currentScroll <= 300) {
+          floatingCTA.style.display = 'none';
+        }
+      }, 300);
+    }
+  }
+  
+  lastScroll = currentScroll;
+});
+
+/* DEBUG - Temporal para verificar que el CTA existe */
+.floating-cta {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  display: none;
+  border: 3px solid red !important; /* ← Esto hará que sea visible */
+  background: yellow !important; /* ← Fondo llamativo */
+}
+
+.floating-cta-btn {
+  background: linear-gradient(135deg, #FF6B35, #FF8E53);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.floating-cta-btn:hover {
+  transform: scale(1.1);
+}
     // ========================================
     // EVENT LISTENERS GLOBALES
     // ========================================
