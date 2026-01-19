@@ -1,15 +1,1 @@
-<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0066ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0041b8;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <rect width="600" height="400" fill="url(#gradient1)"/>
-  <text x="300" y="150" font-size="48" font-weight="bold" text-anchor="middle" fill="#fff" font-family="Arial">💻</text>
-  <text x="300" y="220" font-size="32" font-weight="bold" text-anchor="middle" fill="#fff" font-family="Arial">Tech Products</text>
-  <text x="300" y="260" font-size="16" text-anchor="middle" fill="#e0e0ff" font-family="Arial">Electrónica y Tecnología</text>
-  <rect x="50" y="290" width="500" height="80" fill="rgba(255,255,255,0.1)" rx="8"/>
-  <text x="300" y="325" font-size="14" text-anchor="middle" fill="#fff" font-family="Arial">Template especializado para productos tecnológicos</text>
-  <text x="300" y="350" font-size="14" text-anchor="middle" fill="#fff" font-family="Arial">con especificaciones detalladas y features</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400"><defs><linearGradient id="gradient1" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" style="stop-color:#06f;stop-opacity:1"/><stop offset="100%" style="stop-color:#0041b8;stop-opacity:1"/></linearGradient></defs><rect width="600" height="400" fill="url(#gradient1)"/><text x="300" y="150" fill="#fff" font-family="Arial" font-size="48" font-weight="bold" text-anchor="middle">💻</text><text x="300" y="220" fill="#fff" font-family="Arial" font-size="32" font-weight="bold" text-anchor="middle">Tech Products</text><text x="300" y="260" fill="#e0e0ff" font-family="Arial" font-size="16" text-anchor="middle">Electrónica y Tecnología</text><rect width="500" height="80" x="50" y="290" fill="rgba(255,255,255,0.1)" rx="8"/><text x="300" y="325" fill="#fff" font-family="Arial" font-size="14" text-anchor="middle">Template especializado para productos tecnológicos</text><text x="300" y="350" fill="#fff" font-family="Arial" font-size="14" text-anchor="middle">con especificaciones detalladas y features</text></svg>
