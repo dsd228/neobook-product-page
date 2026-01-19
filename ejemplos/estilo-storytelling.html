@@ -3,28 +3,1794 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estilo Storytelling · Guía Visual</title>
+  <title>Storytelling · Guía Visual Premium</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    :root { --fondo:#F0F4F8; --acento:#A4D2F4; --texto:#2E3A46; --sec:#3B4758; }
-    body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--fondo);color:var(--texto);} .wrap{max-width:1040px;margin:0 auto;padding:32px 20px 72px;}
-    .hero{background:linear-gradient(135deg,rgba(164,210,244,.18),rgba(247,199,210,.12));border:1.5px solid rgba(164,210,244,.35);border-radius:16px;padding:32px;box-shadow:0 12px 36px rgba(164,210,244,.18);} h1{margin:8px 0 12px;font-size:32px;} .eyebrow{text-transform:uppercase;letter-spacing:.08em;font-weight:800;font-size:12px;color:var(--acento);} p.lead{margin:0 0 14px;color:var(--sec);font-size:17px;}
-    .hero img{width:100%;border-radius:14px;margin-top:16px;box-shadow:0 12px 32px rgba(46,58,70,.18);} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:26px;} .card{background:#fff;border:1px solid rgba(164,210,244,.25);border-radius:14px;padding:18px;box-shadow:0 8px 22px rgba(46,58,70,.1);} .card h3{margin:0 0 10px;font-size:18px;} .card p{margin:0;color:var(--sec);font-size:14px;line-height:1.55;} .back{display:inline-block;margin-top:26px;color:var(--acento);text-decoration:none;font-weight:700;}
+    :root {
+      --primary-color: #7C3AED;
+      --primary-light: #8B5CF6;
+      --primary-dark: #5B21B6;
+      --accent-color: #EC4899;
+      --dark-color: #1F2937;
+      --light-color: #FFFFFF;
+      --gray-50: #F9FAFB;
+      --gray-100: #F3F4F6;
+      --gray-200: #E5E7EB;
+      --gray-300: #D1D5DB;
+      --gray-400: #9CA3AF;
+      --gray-500: #6B7280;
+      --gray-600: #4B5563;
+      --gray-700: #374151;
+      --story-color: #111827;
+      --quote-color: #F59E0B;
+      --shadow-sm: 0 2px 4px rgba(31, 41, 55, 0.05);
+      --shadow-md: 0 4px 8px rgba(31, 41, 55, 0.1);
+      --shadow-lg: 0 10px 25px rgba(31, 41, 55, 0.15);
+      --shadow-xl: 0 20px 50px rgba(31, 41, 55, 0.2);
+      --transition-fast: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-smooth: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #FDF4FF 0%, #FCE7F3 100%);
+      color: var(--story-color);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Header Narrative */
+    .header {
+      padding: 32px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+      transition: all var(--transition-smooth);
+    }
+
+    .header.scrolled {
+      padding: 20px 0;
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--primary-color);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light-color);
+      font-size: 1.2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--gray-600);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all var(--transition-fast);
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      transition: width var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Chapter Navigation */
+    .chapter-nav {
+      position: fixed;
+      right: 32px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 900;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .chapter-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gray-300);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      position: relative;
+    }
+
+    .chapter-dot:hover {
+      transform: scale(1.5);
+      background: var(--primary-color);
+    }
+
+    .chapter-dot.active {
+      background: var(--primary-color);
+      transform: scale(1.5);
+    }
+
+    .chapter-dot::after {
+      content: attr(data-chapter);
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--dark-color);
+      color: var(--light-color);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .chapter-dot:hover::after {
+      opacity: 1;
+    }
+
+    /* Hero Story Section */
+    .story-hero {
+      padding: 180px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
+      z-index: -1;
+    }
+
+    .hero-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: var(--light-color);
+      padding: 10px 28px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      margin-bottom: 32px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--story-color), var(--gray-700));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.4rem;
+      color: var(--gray-600);
+      margin-bottom: 60px;
+      line-height: 1.7;
+      font-weight: 400;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 80px;
+    }
+
+    .story-button {
+      padding: 18px 48px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: var(--light-color);
+      box-shadow: 
+        0 15px 35px rgba(124, 58, 237, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--dark-color);
+      border: 2px solid var(--gray-200);
+      backdrop-filter: blur(10px);
+    }
+
+    .story-button:hover {
+      transform: translateY(-5px) scale(1.05);
+    }
+
+    .button-primary:hover {
+      box-shadow: 
+        0 25px 50px rgba(124, 58, 237, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--primary-color);
+      background: rgba(255, 255, 255, 1);
+    }
+
+    .hero-image {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      transition: transform var(--transition-smooth);
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Story Chapters */
+    .story-chapters {
+      padding: 120px 0;
+    }
+
+    .chapter {
+      margin-bottom: 160px;
+      scroll-margin-top: 120px;
+    }
+
+    .chapter:last-child {
+      margin-bottom: 0;
+    }
+
+    .chapter-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .chapter-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .chapter-number {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: var(--light-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .chapter-title {
+      font-size: 3rem;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    .chapter-subtitle {
+      font-size: 1.2rem;
+      color: var(--gray-600);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .chapter-content {
+      background: var(--light-color);
+      border-radius: 24px;
+      padding: 60px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--gray-200);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chapter-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+    }
+
+    .problem-section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+      color: var(--dark-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title i {
+      color: var(--accent-color);
+      font-size: 1.5rem;
+    }
+
+    .section-content {
+      font-size: 1.1rem;
+      color: var(--gray-700);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .pain-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .pain-point {
+      background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+      padding: 24px;
+      border-radius: 16px;
+      border-left: 4px solid var(--quote-color);
+    }
+
+    .pain-point i {
+      color: var(--quote-color);
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .solution-section {
+      margin-bottom: 60px;
+    }
+
+    .solution-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-top: 32px;
+    }
+
+    .solution-step {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+      color: var(--light-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-content h4 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: var(--dark-color);
+    }
+
+    .step-content p {
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+
+    .results-section {
+      background: linear-gradient(135deg, var(--gray-50), var(--light-color));
+      padding: 40px;
+      border-radius: 20px;
+      margin-top: 40px;
+      border: 1px solid var(--gray-200);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 32px;
+    }
+
+    .result-item {
+      text-align: center;
+      padding: 30px;
+      background: var(--light-color);
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-fast);
+    }
+
+    .result-item:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .result-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+      font-family: 'Merriweather', serif;
+    }
+
+    .result-label {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* Testimonials Narrative */
+    .testimonials-narrative {
+      padding: 120px 0;
+      background: linear-gradient(135deg, #F5F3FF, #EDE9FE);
+      border-radius: 40px;
+      margin: 80px 0;
+    }
+
+    .testimonials-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .testimonials-title {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    .testimonials-subtitle {
+      font-size: 1.2rem;
+      color: var(--gray-600);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .testimonial-story {
+      background: var(--light-color);
+      border-radius: 24px;
+      padding: 60px;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-story::before {
+      content: '"';
+      position: absolute;
+      top: -40px;
+      left: 40px;
+      font-size: 12rem;
+      color: var(--primary-color);
+      opacity: 0.1;
+      font-family: 'Merriweather', serif;
+    }
+
+    .testimonial-quote {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: var(--gray-700);
+      margin-bottom: 40px;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .author-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary-color);
+    }
+
+    .author-info h4 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .author-info p {
+      color: var(--gray-500);
+      font-size: 0.9rem;
+    }
+
+    /* Press Badges */
+    .press-section {
+      padding: 80px 0;
+    }
+
+    .press-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+
+    .press-item {
+      background: var(--light-color);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-fast);
+      border: 1px solid var(--gray-200);
+    }
+
+    .press-item:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-color);
+    }
+
+    .press-logo {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    .press-name {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--dark-color);
+    }
+
+    .press-quote {
+      color: var(--gray-500);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* CTA Story */
+    .cta-story {
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      background: linear-gradient(135deg, var(--story-color), #111827);
+      border-radius: 40px;
+      padding: 80px 60px;
+      color: var(--light-color);
+      position: relative;
+      z-index: 1;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .cta-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: 
+        radial-gradient(circle at 30% 30%, rgba(124, 58, 237, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(236, 72, 153, 0.15) 0%, transparent 50%);
+      animation: rotate 40s linear infinite;
+      z-index: -1;
+    }
+
+    .cta-eyebrow {
+      color: var(--primary-light);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .cta-title {
+      font-size: 3rem;
+      margin-bottom: 30px;
+    }
+
+    .cta-text {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 50px;
+      line-height: 1.7;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      background: linear-gradient(135deg, var(--accent-color), #DB2777);
+      color: var(--light-color);
+      padding: 22px 60px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all var(--transition-smooth);
+      box-shadow: 
+        0 15px 35px rgba(236, 72, 153, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 
+        0 25px 50px rgba(236, 72, 153, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    /* Footer */
+    .footer {
+      padding: 80px 0 40px;
+      background: var(--story-color);
+      color: var(--light-color);
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-logo {
+      font-family: 'Merriweather', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--light-color);
+      margin-bottom: 20px;
+    }
+
+    .footer-text {
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 300px;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 60px;
+    }
+
+    .footer-column h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 16px;
+    }
+
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color var(--transition-fast);
+    }
+
+    .footer-column a:hover {
+      color: var(--light-color);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 40px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-link {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .social-link:hover {
+      color: var(--light-color);
+    }
+
+    .back-link {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .back-link:hover {
+      color: var(--light-color);
+    }
+
+    /* Animations */
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    .animate-slide-left {
+      animation: slideInLeft 1s ease forwards;
+      opacity: 0;
+    }
+
+    .animate-slide-right {
+      animation: slideInRight 1s ease forwards;
+      opacity: 0;
+    }
+
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .chapter-title {
+        font-size: 2.5rem;
+      }
+      
+      .cta-title {
+        font-size: 2.5rem;
+      }
+      
+      .chapter-nav {
+        display: none;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+      
+      .header {
+        padding: 24px 0;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .hero-title {
+        font-size: 2.3rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .story-button {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+      
+      .chapter-title {
+        font-size: 2rem;
+      }
+      
+      .chapter-content {
+        padding: 40px 30px;
+      }
+      
+      .pain-points {
+        grid-template-columns: 1fr;
+      }
+      
+      .solution-step {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .step-number {
+        align-self: flex-start;
+      }
+      
+      .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .testimonial-story {
+        padding: 40px 30px;
+      }
+      
+      .cta-container {
+        padding: 60px 30px;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.9rem;
+      }
+      
+      .chapter-title {
+        font-size: 1.7rem;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+      
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .press-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--gray-100);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(135deg, var(--primary-dark), #DB2777);
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="hero">
-      <div class="eyebrow">Estilos de Páginas de Venta</div>
-      <h1>Storytelling</h1>
-      <p class="lead">Ficha narrativa con secuencia problema → solución → prueba social y hero lifestyle dominante.</p>
-      <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1400&q=80" alt="Storytelling UI mobile y desktop">
-    </div>
-    <div class="grid">
-      <div class="card"><h3>Hero emocional</h3><p>Imagen lifestyle, titular de problema y CTA dual (ver beneficios / comprar).</p></div>
-      <div class="card"><h3>Bloque secuencial</h3><p>Problema → solución → resultados; copy breve y bullets claros.</p></div>
-      <div class="card"><h3>Prueba social</h3><p>Testimonios arriba del fold, badges de prensa y reseñas destacadas.</p></div>
-    </div>
-    <a class="back" href="../index.html#sales-styles">← Volver</a>
+
+  <!-- Chapter Navigation -->
+  <div class="chapter-nav">
+    <div class="chapter-dot active" data-chapter="Prólogo" onclick="scrollToChapter(0)"></div>
+    <div class="chapter-dot" data-chapter="Capítulo 1" onclick="scrollToChapter(1)"></div>
+    <div class="chapter-dot" data-chapter="Capítulo 2" onclick="scrollToChapter(2)"></div>
+    <div class="chapter-dot" data-chapter="Capítulo 3" onclick="scrollToChapter(3)"></div>
+    <div class="chapter-dot" data-chapter="Epílogo" onclick="scrollToChapter(4)"></div>
   </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../index.html" class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <span>Storytelling</span>
+        </a>
+        
+        <div class="nav-links">
+          <a href="#chapter1" class="nav-link">El Problema</a>
+          <a href="#chapter2" class="nav-link">La Solución</a>
+          <a href="#chapter3" class="nav-link">Resultados</a>
+          <a href="#testimonials" class="nav-link">Historias</a>
+          <a href="../index.html#sales-styles" class="nav-link">Volver</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Story -->
+  <section class="story-hero" id="prologue">
+    <div class="story-background"></div>
+    <div class="container">
+      <div class="hero-container animate-fade-in">
+        <span class="eyebrow">Narrativa de Conversión</span>
+        <h1 class="hero-title">Storytelling · Guía Visual</h1>
+        <p class="hero-subtitle">
+          Ficha narrativa que guía al usuario en un viaje emocional: problema → solución → resultados. 
+          Cada elemento cuenta una parte de la historia que termina en transformación.
+        </p>
+        
+        <div class="hero-actions">
+          <button class="story-button button-primary animate-slide-left">
+            <i class="fas fa-play-circle"></i>
+            Comenzar Historia
+          </button>
+          <button class="story-button button-secondary animate-slide-right delay-1">
+            <i class="fas fa-shopping-cart"></i>
+            Comprar Ahora
+          </button>
+        </div>
+        
+        <div class="hero-image animate-fade-in delay-2">
+          <img 
+            src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1400&q=80" 
+            alt="Storytelling UI mobile y desktop"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 1: The Problem -->
+  <section class="story-chapters">
+    <div class="chapter" id="chapter1">
+      <div class="chapter-container">
+        <div class="chapter-header animate-fade-in">
+          <div class="chapter-number">1</div>
+          <h2 class="chapter-title">El Problema Invisible</h2>
+          <p class="chapter-subtitle">
+            Lo que nadie te dice sobre convertir visitas en clientes
+          </p>
+        </div>
+        
+        <div class="chapter-content animate-slide-left">
+          <div class="problem-section">
+            <h3 class="section-title">
+              <i class="fas fa-exclamation-triangle"></i>
+              La Realidad que Nadie Admite
+            </h3>
+            <div class="section-content">
+              <p>
+                Durante años, las empresas han estado luchando en silencio con un problema 
+                que afecta a 9 de cada 10 sitios web: la desconexión emocional con sus visitantes.
+              </p>
+              <p>
+                Los datos son claros pero aterradores: el 96% de los visitantes abandona 
+                sin convertir, no porque tu producto sea malo, sino porque no logras 
+                conectarte con su historia personal.
+              </p>
+            </div>
+            
+            <div class="pain-points">
+              <div class="pain-point animate-fade-in">
+                <i class="fas fa-chart-line"></i>
+                <h4>Conversión Baja</h4>
+                <p>Tasa de conversión promedio del 4% cuando podría ser del 20%</p>
+              </div>
+              
+              <div class="pain-point animate-fade-in delay-1">
+                <i class="fas fa-users-slash"></i>
+                <h4>Abandono Alto</h4>
+                <p>96% de visitantes se van sin tomar acción</p>
+              </div>
+              
+              <div class="pain-point animate-fade-in delay-2">
+                <i class="fas fa-money-bill-wave"></i>
+                <h4>Dinero Perdido</h4>
+                <p>Cada visitante que abandona es dinero que se escapa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 2: The Solution -->
+    <div class="chapter" id="chapter2">
+      <div class="chapter-container">
+        <div class="chapter-header animate-fade-in">
+          <div class="chapter-number">2</div>
+          <h2 class="chapter-title">La Solución Narrativa</h2>
+          <p class="chapter-subtitle">
+            Cómo transformamos visitantes en protagonistas de su propia historia
+          </p>
+        </div>
+        
+        <div class="chapter-content animate-slide-right">
+          <div class="solution-section">
+            <h3 class="section-title">
+              <i class="fas fa-lightbulb"></i>
+              El Punto de Inflexión
+            </h3>
+            <div class="section-content">
+              <p>
+                Descubrimos que cuando los visitantes se ven reflejados en una historia, 
+                su probabilidad de conversión aumenta un 317%. No se trata de vender, 
+                se trata de mostrar el camino hacia su versión mejorada.
+              </p>
+            </div>
+            
+            <div class="solution-steps">
+              <div class="solution-step animate-fade-in">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Identificación Emocional</h4>
+                  <p>
+                    Creamos contenido que refleja exactamente las frustraciones y aspiraciones 
+                    del visitante. Usamos lenguaje que resuena a nivel emocional, no solo racional.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="solution-step animate-fade-in delay-1">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Arco Narrativo</h4>
+                  <p>
+                    Diseñamos un viaje claro: situación actual → conflicto → resolución → vida mejorada. 
+                    Cada sección de la página avanza la historia de forma natural.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="solution-step animate-fade-in delay-2">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Call to Action Contextual</h4>
+                  <p>
+                    Las llamadas a acción aparecen en puntos estratégicos de la narrativa, 
+                    no como interrupciones sino como pasos naturales en el viaje del héroe.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 3: The Results -->
+    <div class="chapter" id="chapter3">
+      <div class="chapter-container">
+        <div class="chapter-header animate-fade-in">
+          <div class="chapter-number">3</div>
+          <h2 class="chapter-title">Los Resultados Transformadores</h2>
+          <p class="chapter-subtitle">
+            Historias reales de empresas que adoptaron el storytelling
+          </p>
+        </div>
+        
+        <div class="chapter-content animate-slide-left">
+          <div class="results-section">
+            <h3 class="section-title">
+              <i class="fas fa-trophy"></i>
+              El Impacto Medible
+            </h3>
+            <div class="section-content">
+              <p>
+                Las empresas que implementan storytelling estratégico no solo ven mejoras 
+                en sus métricas, sino que transforman completamente su relación con los clientes.
+              </p>
+            </div>
+            
+            <div class="results-grid">
+              <div class="result-item animate-fade-in">
+                <div class="result-value">+317%</div>
+                <div class="result-label">Conversión</div>
+              </div>
+              
+              <div class="result-item animate-fade-in delay-1">
+                <div class="result-value">-68%</div>
+                <div class="result-label">Tasa de Rebote</div>
+              </div>
+              
+              <div class="result-item animate-fade-in delay-2">
+                <div class="result-value">+4.2x</div>
+                <div class="result-label">Tiempo en Página</div>
+              </div>
+              
+              <div class="result-item animate-fade-in delay-3">
+                <div class="result-value">92%</div>
+                <div class="result-label">Satisfacción</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Narrative -->
+  <section class="testimonials-narrative" id="testimonials">
+    <div class="container">
+      <div class="testimonials-container">
+        <div class="testimonials-header animate-fade-in">
+          <h2 class="testimonials-title">Historias que Inspiran Cambio</h2>
+          <p class="testimonials-subtitle">
+            Testimonios reales de empresas que transformaron su narrativa
+          </p>
+        </div>
+        
+        <div class="testimonial-story animate-fade-in delay-1">
+          <p class="testimonial-quote">
+            "Antes del storytelling, éramos una empresa más entre miles. Después de implementar 
+            esta estrategia, nuestros clientes empezaron a decir 'esto es exactamente lo que 
+            necesitaba'. En 6 meses aumentamos nuestra conversión un 340% y lo más importante: 
+            nuestro NPS pasó de 32 a 89."
+          </p>
+          <div class="testimonial-author">
+            <img 
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" 
+              alt="Carlos Méndez"
+              class="author-avatar"
+              loading="lazy"
+            >
+            <div class="author-info">
+              <h4>Carlos Méndez</h4>
+              <p>CEO · FinTech Startup</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-story animate-fade-in delay-2">
+          <p class="testimonial-quote">
+            "Lo que más me impactó fue ver cómo nuestros visitantes pasaban de 'mirar' a 
+            'sentirse parte de'. El storytelling no solo mejoró nuestras métricas, cambió 
+            completamente la forma en que nos comunicamos. Ahora cada página cuenta una historia, 
+            y cada historia genera conexiones reales."
+          </p>
+          <div class="testimonial-author">
+            <img 
+              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" 
+              alt="Ana Rodríguez"
+              class="author-avatar"
+              loading="lazy"
+            >
+            <div class="author-info">
+              <h4>Ana Rodríguez</h4>
+              <p>Directora de Marketing · E-commerce</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Press Badges -->
+  <section class="press-section">
+    <div class="container">
+      <div class="press-grid">
+        <div class="press-item animate-fade-in">
+          <div class="press-logo">
+            <i class="fas fa-newspaper"></i>
+          </div>
+          <div class="press-name">Forbes</div>
+          <div class="press-quote">"Revolucionando la conversión digital"</div>
+        </div>
+        
+        <div class="press-item animate-fade-in delay-1">
+          <div class="press-logo">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="press-name">Product Hunt</div>
+          <div class="press-quote">"Producto del Mes · Abril 2024"</div>
+        </div>
+        
+        <div class="press-item animate-fade-in delay-2">
+          <div class="press-logo">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="press-name">G2 Crowd</div>
+          <div class="press-quote">"Leader en Conversión Emocional"</div>
+        </div>
+        
+        <div class="press-item animate-fade-in delay-3">
+          <div class="press-logo">
+            <i class="fas fa-award"></i>
+          </div>
+          <div class="press-name">Webby Awards</div>
+          <div class="press-quote">"Mejor UX Narrative 2024"</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Story -->
+  <section class="cta-story" id="epilogue">
+    <div class="container">
+      <div class="cta-container animate-fade-in">
+        <span class="cta-eyebrow">Tu Historia Comienza Aquí</span>
+        <h2 class="cta-title">Escribe el Próximo Capítulo</h2>
+        <p class="cta-text">
+          Obtén acceso completo al sistema de storytelling, incluyendo estructuras narrativas, 
+          plantillas emocionales y guías paso a paso para transformar visitantes en protagonistas 
+          de tu marca.
+        </p>
+        
+        <button class="cta-button" onclick="beginYourStory()">
+          <i class="fas fa-feather-alt"></i>
+          Comenzar Mi Historia
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <div class="footer-logo">Storytelling</div>
+          <p class="footer-text">
+            Sistema narrativo que transforma visitantes en protagonistas. 
+            Cada página cuenta una historia, cada historia genera conexión.
+          </p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Capítulos</h4>
+            <ul>
+              <li><a href="#prologue">Prólogo</a></li>
+              <li><a href="#chapter1">El Problema</a></li>
+              <li><a href="#chapter2">La Solución</a></li>
+              <li><a href="#chapter3">Resultados</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Estilos</h4>
+            <ul>
+              <li><a href="../bundle/index.html">Bundle</a></li>
+              <li><a href="../data-driven/index.html">Data-driven</a></li>
+              <li><a href="../lanzamiento/index.html">Lanzamiento</a></li>
+              <li><a href="../minimal-pro/index.html">Minimal Pro</a></li>
+              <li><a href="../social-proof/index.html">Social Proof</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Medium">
+            <i class="fab fa-medium"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+        
+        <div class="copyright">
+          © 2024 Storytelling Design System · Cada número cuenta una historia
+        </div>
+        
+        <a href="../index.html#sales-styles" class="back-link">
+          <i class="fas fa-arrow-left"></i>
+          Volver a Estilos
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      // Update chapter navigation
+      updateChapterNavigation();
+    });
+
+    // Chapter navigation
+    const chapters = document.querySelectorAll('.chapter');
+    const chapterDots = document.querySelectorAll('.chapter-dot');
+    
+    function updateChapterNavigation() {
+      const scrollPosition = window.scrollY + 200;
+      
+      chapters.forEach((chapter, index) => {
+        const chapterTop = chapter.offsetTop;
+        const chapterBottom = chapterTop + chapter.offsetHeight;
+        
+        if (scrollPosition >= chapterTop && scrollPosition < chapterBottom) {
+          chapterDots.forEach(dot => dot.classList.remove('active'));
+          chapterDots[index].classList.add('active');
+        }
+      });
+      
+      // Handle prologue and epilogue
+      const prologue = document.getElementById('prologue');
+      const epilogue = document.getElementById('epilogue');
+      
+      if (scrollPosition < prologue.offsetTop + prologue.offsetHeight) {
+        chapterDots.forEach(dot => dot.classList.remove('active'));
+        chapterDots[0].classList.add('active');
+      }
+    }
+
+    function scrollToChapter(index) {
+      let targetElement;
+      
+      if (index === 0) {
+        targetElement = document.getElementById('prologue');
+      } else if (index === 4) {
+        targetElement = document.getElementById('epilogue');
+      } else {
+        targetElement = document.getElementById(`chapter${index}`);
+      }
+      
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 100,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // Animated elements on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-slide-left, .animate-slide-right');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const delay = entry.target.classList.contains('delay-1') ? 200 :
+                         entry.target.classList.contains('delay-2') ? 400 :
+                         entry.target.classList.contains('delay-3') ? 600 : 0;
+            
+            setTimeout(() => {
+              entry.target.style.animationPlayState = 'running';
+            }, delay);
+            
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      animatedElements.forEach(el => {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
+      });
+      
+      // Interactive chapter numbers
+      const chapterNumbers = document.querySelectorAll('.chapter-number');
+      chapterNumbers.forEach(number => {
+        number.addEventListener('mouseenter', function() {
+          this.style.transform = 'rotate(360deg) scale(1.1)';
+          this.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+        });
+        
+        number.addEventListener('mouseleave', function() {
+          this.style.transform = 'rotate(0deg) scale(1)';
+        });
+      });
+      
+      // Result counters animation
+      const resultValues = document.querySelectorAll('.result-value');
+      const observerResults = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const valueElement = entry.target;
+            const finalValue = parseInt(valueElement.textContent.replace(/[^0-9]/g, ''));
+            const hasPlus = valueElement.textContent.includes('+');
+            const hasMinus = valueElement.textContent.includes('-');
+            const hasX = valueElement.textContent.includes('x');
+            const isPercentage = valueElement.textContent.includes('%');
+            
+            let currentValue = 0;
+            const increment = finalValue / 30;
+            
+            const counter = setInterval(() => {
+              currentValue += increment;
+              if (currentValue >= finalValue) {
+                valueElement.textContent = 
+                  (hasPlus ? '+' : hasMinus ? '-' : hasX ? '' : '') + 
+                  finalValue.toLocaleString() + 
+                  (hasX ? 'x' : isPercentage ? '%' : '');
+                clearInterval(counter);
+              } else {
+                valueElement.textContent = 
+                  (hasPlus ? '+' : hasMinus ? '-' : hasX ? '' : '') + 
+                  Math.floor(currentValue).toLocaleString() + 
+                  (hasX ? 'x' : isPercentage ? '%' : '');
+              }
+            }, 50);
+            
+            observerResults.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      resultValues.forEach(value => observerResults.observe(value));
+    });
+
+    // Begin Your Story button
+    function beginYourStory() {
+      const button = event.target.closest('.cta-button');
+      const originalHTML = button.innerHTML;
+      
+      // Create story ripple effect
+      const ripple = document.createElement('span');
+      const rect = button.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = event.clientX - rect.left - size / 2;
+      const y = event.clientY - rect.top - size / 2;
+      
+      ripple.style.cssText = `
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.7);
+        transform: scale(0);
+        animation: storyRipple 0.8s linear;
+        width: ${size}px;
+        height: ${size}px;
+        top: ${y}px;
+        left: ${x}px;
+        pointer-events: none;
+      `;
+      
+      button.appendChild(ripple);
+      
+      // Show story building animation
+      button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Construyendo tu historia...';
+      button.disabled = true;
+      
+      // Simulate story creation process
+      setTimeout(() => {
+        button.innerHTML = '<i class="fas fa-book"></i> Historia creada!';
+        button.style.background = 'linear-gradient(135deg, #10B981, #059669)';
+        
+        // Show story success modal
+        showStorySuccess();
+        
+        // Reset button after 3 seconds
+        setTimeout(() => {
+          button.innerHTML = originalHTML;
+          button.disabled = false;
+          button.style.background = 'linear-gradient(135deg, var(--accent-color), #DB2777)';
+        }, 3000);
+      }, 2500);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 800);
+    }
+
+    function showStorySuccess() {
+      const modal = document.createElement('div');
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.95);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        backdrop-filter: blur(10px);
+      `;
+      
+      modal.innerHTML = `
+        <div style="
+          background: linear-gradient(135deg, var(--story-color), #111827);
+          padding: 60px;
+          border-radius: 30px;
+          max-width: 500px;
+          text-align: center;
+          box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+          border: 2px solid var(--primary-color);
+          animation: storyModalAppear 0.6s ease;
+        ">
+          <div style="
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3rem;
+            color: white;
+            animation: storyBounce 1s infinite alternate;
+          ">
+            <i class="fas fa-feather-alt"></i>
+          </div>
+          <h2 style="color: white; margin-bottom: 20px; font-size: 2.2rem;">¡Tu Historia Comienza!</h2>
+          <p style="color: rgba(255,255,255,0.9); margin-bottom: 20px; line-height: 1.6;">
+            Acabamos de crear el primer capítulo de tu narrativa digital. 
+            Revisa tu email para acceder a tu kit completo de storytelling.
+          </p>
+          <p style="color: var(--primary-light); font-weight: 600; margin-bottom: 30px;">
+            <i class="fas fa-scroll"></i> Capítulo 1: La Llamada a la Aventura
+          </p>
+          <button onclick="this.parentElement.parentElement.remove()" style="
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+          ">
+            Leer Primer Capítulo
+          </button>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      
+      // Add story animations
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes storyModalAppear {
+          from {
+            opacity: 0;
+            transform: scale(0.8) translateY(50px) rotate(-5deg);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1) translateY(0) rotate(0deg);
+          }
+        }
+        
+        @keyframes storyBounce {
+          from { transform: translateY(0) rotate(0deg); }
+          to { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        @keyframes storyRipple {
+          to {
+            transform: scale(4);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    // Add story page turning sound on chapter navigation
+    const chapterLinks = document.querySelectorAll('.nav-link[href^="#chapter"], .chapter-dot');
+    chapterLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        // Create subtle page turn effect
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          document.body.style.overflow = '';
+        }, 800);
+      });
+    });
+  </script>
+
 </body>
 </html>
