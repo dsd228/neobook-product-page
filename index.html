@@ -136,133 +136,228 @@
     }
 
     /* ==============================
-       CARRUSEL 3D - COVERFLOW PREMIUM
+       CASOS DE ESTUDIO - ESTILO APPLE
        ============================== */
-    .hero-carousel {
-      position: relative;
-      width: 100%;
-      height: 500px;
+    .cases-section {
+      padding: 120px 40px;
+      background: #ffffff;
+    }
+    
+    .cases-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .cases-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    
+    .cases-header h2 {
+      font-size: 3.5rem;
+      color: #000000;
+      margin-bottom: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    
+    .cases-header p {
+      font-size: 1.25rem;
+      color: #666666;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    /* CASO INDIVIDUAL */
+    .case-study {
+      margin-bottom: 140px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    
+    .case-study:nth-child(even) .case-content {
+      order: 2;
+    }
+    
+    .case-study:nth-child(even) .case-visual {
+      order: 1;
+    }
+    
+    .case-content {
+      padding: 40px 0;
+    }
+    
+    .case-category {
+      display: inline-block;
+      background: #FF6B35;
+      color: #ffffff;
+      padding: 8px 20px;
       border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    
+    .case-title {
+      font-size: 2.8rem;
+      color: #000000;
+      margin-bottom: 30px;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    
+    .case-problem {
+      background: #f8f9fa;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      border-left: 4px solid #FF6B35;
+    }
+    
+    .case-problem h4 {
+      font-size: 1.1rem;
+      color: #FF6B35;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    
+    .case-problem p {
+      color: #666666;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    
+    .case-solution {
+      margin-bottom: 30px;
+    }
+    
+    .case-solution h4 {
+      font-size: 1.1rem;
+      color: #000000;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    
+    .case-solution p {
+      color: #666666;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    
+    .case-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .result-item {
+      text-align: center;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      border: 1px solid #e9ecef;
+    }
+    
+    .result-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #FF6B35;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+    
+    .result-label {
+      font-size: 0.9rem;
+      color: #666666;
+      font-weight: 500;
+    }
+    
+    .case-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 32px;
+      background: #000000;
+      color: #ffffff;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .case-cta:hover {
+      background: #333333;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    /* VISUAL DEL CASO */
+    .case-visual {
+      position: relative;
+      border-radius: 24px;
       overflow: hidden;
-      perspective: 1400px;
-      background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 60px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.1);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background: #f8f9fa;
     }
-
-    .carousel-container {
-      position: relative;
+    
+    .case-visual:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.15);
+    }
+    
+    .case-image {
       width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 600px;
+      object-fit: cover;
+      display: block;
     }
-
-    .carousel-slide {
+    
+    .case-overlay {
       position: absolute;
-      width: 320px;
-      height: 400px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-radius: 16px;
-      box-shadow: 
-        0 30px 80px rgba(0, 0, 0, 0.35),
-        0 10px 30px rgba(0, 0, 0, 0.22),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      transition: 
-        transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
-        opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
-        filter 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
-      will-change: transform, opacity;
-      backface-visibility: hidden;
-      cursor: pointer;
-      user-select: none;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      padding: 40px;
+      color: #ffffff;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
     }
-
-    .carousel-slide::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.15) 0%,
-        rgba(255, 255, 255, 0) 40%,
-        rgba(0, 0, 0, 0.1) 100%
-      );
-      border-radius: 16px;
-      pointer-events: none;
-      opacity: 0.8;
-    }
-
-    .carousel-slide:not(.active):hover {
-      filter: brightness(1.1) !important;
-    }
-
-    .carousel-slide.active {
-      z-index: 100;
-      transform: translate(-50%, -50%) translateZ(120px) scale(1.05);
+    
+    .case-visual:hover .case-overlay {
       opacity: 1;
-      filter: brightness(1) blur(0px);
+      transform: translateY(0);
     }
-
-    .carousel-dots {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
+    
+    .overlay-text {
+      font-size: 1rem;
+      margin-bottom: 16px;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.6;
+    }
+    
+    .overlay-cta {
+      display: inline-flex;
+      align-items: center;
       gap: 10px;
-      z-index: 200;
-      background: rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(10px);
-      padding: 8px 16px;
-      border-radius: 20px;
+      color: #FF6B35;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
     }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.5);
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .dot:hover {
-      background: rgba(255, 255, 255, 0.8);
-      transform: scale(1.2);
-    }
-
-    .dot.active {
-      background: #fff;
-      width: 28px;
-      border-radius: 4px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .carousel-slide {
-        transition: none;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero-carousel {
-        height: 380px;
-      }
-      .carousel-slide {
-        width: 260px;
-        height: 340px;
-      }
+    
+    .overlay-cta:hover {
+      gap: 15px;
     }
 
     /* ==============================
@@ -532,276 +627,6 @@
       }
     }
 
-    /* PROJECTS CAROUSEL */
-    .projects { 
-      padding: 100px 40px; 
-      border-bottom: 1px solid #e5e5e5; 
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .projects-carousel {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-      height: 650px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .projects-track {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .project-card {
-      position: absolute;
-      width: 550px;
-      background: #fff;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid #e5e5e5;
-      box-shadow: 
-        0 30px 80px rgba(0, 0, 0, 0.12),
-        0 10px 30px rgba(0, 0, 0, 0.08);
-      transition: 
-        transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
-        opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
-        filter 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-      cursor: pointer;
-      will-change: transform, opacity;
-    }
-    
-    .project-image {
-      width: 100%;
-      height: 350px;
-      background-size: cover;
-      background-position: center top;
-      background-repeat: no-repeat;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .project-image::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.03) 100%
-      );
-    }
-    
-    .project-content {
-      padding: 32px 36px 36px;
-      background: #fff;
-    }
-    
-    .project-tag {
-      display: inline-block;
-      background: #f0f0f0;
-      color: #666;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    .project-card h3 {
-      font-size: 2rem;
-      margin-bottom: 14px;
-      color: #000;
-      font-weight: 800;
-    }
-    
-    .project-card p {
-      color: #666;
-      font-size: 1rem;
-      line-height: 1.7;
-      margin: 0;
-    }
-    
-    .project-card.active {
-      z-index: 50;
-      transform: translateX(0) scale(1);
-      opacity: 1;
-      filter: blur(0px);
-    }
-    
-    .project-card:not(.active) {
-      pointer-events: none;
-    }
-    
-    .projects-nav {
-      position: absolute;
-      width: 100%;
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-      display: flex;
-      justify-content: space-between;
-      padding: 0 30px;
-      z-index: 100;
-      pointer-events: none;
-    }
-    
-    .project-nav-btn {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(30, 30, 30, 0.85) 100%);
-      backdrop-filter: blur(20px);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      box-shadow: 
-        0 12px 35px rgba(0, 0, 0, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      pointer-events: auto;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .project-nav-btn::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
-      opacity: 0;
-      transform: scale(0);
-      transition: all 0.5s;
-    }
-    
-    .project-nav-btn:hover::after {
-      opacity: 1;
-      transform: scale(1);
-    }
-    
-    .project-nav-btn:hover {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 1) 0%, rgba(50, 50, 50, 1) 100%);
-      transform: scale(1.2) translateY(-3px);
-      box-shadow: 
-        0 18px 50px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.25);
-    }
-    
-    .project-nav-btn:active {
-      transform: scale(1.1) translateY(-1px);
-    }
-    
-    .project-nav-btn i {
-      transition: transform 0.3s;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .project-nav-btn:hover i {
-      transform: scale(1.15);
-    }
-    
-    .projects-indicators {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 12px;
-      z-index: 100;
-    }
-    
-    .project-indicator {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      border: 2px solid transparent;
-    }
-    
-    .project-indicator:hover {
-      background: rgba(0, 0, 0, 0.4);
-      transform: scale(1.15);
-    }
-    
-    .project-indicator.active {
-      background: #000;
-      width: 40px;
-      border-radius: 6px;
-      border-color: rgba(0, 0, 0, 0.1);
-    }
-    
-    .projects-counter {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(10px);
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      z-index: 100;
-      letter-spacing: 1px;
-    }
-    
-    .projects-counter .current {
-      font-size: 1.3rem;
-      font-weight: 800;
-    }
-    
-    .projects-counter .total {
-      opacity: 0.6;
-    }
-    
-    @media (max-width: 768px) {
-      .projects-carousel {
-        height: 580px;
-      }
-      .project-card {
-        width: 90%;
-        max-width: 400px;
-      }
-      .project-image {
-        height: 280px;
-      }
-      .project-content {
-        padding: 24px 28px 28px;
-      }
-      .project-card h3 {
-        font-size: 1.5rem;
-      }
-      .project-card p {
-        font-size: 0.9rem;
-      }
-      .project-nav-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-      }
-      .projects-counter {
-        right: 20px;
-        top: 20px;
-      }
-    }
-
     /* SECTION CTA */
     .section-cta {
       margin-top: 64px;
@@ -912,123 +737,6 @@
     .testimonial-text { color: #333; font-style: italic; margin-bottom: 20px; line-height: 1.8; }
     .testimonial-author { font-weight: 600; color: #000; margin-bottom: 4px; }
     .testimonial-role { color: #999; font-size: 0.9rem; }
-
-    /* EJEMPLOS AMAZON */
-    .ejemplos-amazon { padding: 100px 40px; }
-    .ejemplos-amazon .section-title { margin-bottom: 60px; }
-    
-    .ejemplos-carousel-container { max-width: 1400px; margin: 0 auto; position: relative; overflow: hidden; }
-    .ejemplos-carousel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; animation: scrollVertical 20s linear infinite; }
-    
-    @keyframes scrollVertical {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-330px); }
-      100% { transform: translateY(0); }
-    }
-    
-    .ejemplo-card { 
-      background: #fff; 
-      border-radius: 12px; 
-      overflow: hidden; 
-      border: 1px solid #e5e5e5; 
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      height: fit-content;
-    }
-    .ejemplo-card:hover { 
-      transform: translateY(-8px); 
-      box-shadow: 0 25px 50px rgba(0,0,0,0.15); 
-    }
-    
-    .ejemplo-card-image { 
-      width: 100%; 
-      height: 200px; 
-      background: linear-gradient(135deg, #ff6b35, #ff8c42); 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      color: #fff; 
-      font-size: 3rem; 
-      position: relative; 
-      overflow: hidden; 
-    }
-    .ejemplo-card-image::before { 
-      content: ''; 
-      position: absolute; 
-      inset: 0; 
-      background: linear-gradient(135deg, rgba(0,0,0,0.1), rgba(0,0,0,0.05)); 
-    }
-    .ejemplo-card-icon { 
-      position: relative; 
-      z-index: 1; 
-      font-size: 2.5rem;
-    }
-    
-    .ejemplo-card-body { 
-      padding: 20px; 
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .ejemplo-card h3 { 
-      font-family: "Sora", sans-serif; 
-      font-size: 1.15rem; 
-      font-weight: 700; 
-      color: #000; 
-      margin-bottom: 6px; 
-    }
-    .ejemplo-card-category { 
-      color: #ff6b35; 
-      font-size: 0.8rem; 
-      font-weight: 600; 
-      text-transform: uppercase; 
-      letter-spacing: 0.5px; 
-      margin-bottom: 10px; 
-    }
-    .ejemplo-card p { 
-      color: #666; 
-      font-size: 0.9rem; 
-      line-height: 1.5; 
-      margin-bottom: 12px; 
-      flex: 1;
-    }
-    .ejemplo-card-link { 
-      display: inline-flex; 
-      align-items: center; 
-      gap: 8px; 
-      color: #ff6b35; 
-      font-weight: 600; 
-      transition: all 0.3s; 
-      font-size: 0.95rem;
-    }
-    .ejemplo-card-link:hover { 
-      gap: 12px; 
-    }
-    
-    .ejemplos-carousel-button-container {
-      text-align: center;
-      margin-top: 40px;
-    }
-    
-    @media (max-width: 1024px) {
-      .ejemplos-carousel { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-      @keyframes scrollVertical { 
-        0% { transform: translateY(0); } 
-        50% { transform: translateY(-280px); } 
-        100% { transform: translateY(0); } 
-      }
-    }
-    
-    @media (max-width: 640px) {
-      .ejemplos-carousel { grid-template-columns: 1fr; gap: 16px; }
-      @keyframes scrollVertical { 
-        0% { transform: translateY(0); } 
-        50% { transform: translateY(-230px); } 
-        100% { transform: translateY(0); } 
-      }
-      .ejemplo-card-image { height: 160px; }
-    }
 
     /* FAQ */
     .faq { padding: 100px 40px; }
@@ -1318,6 +1026,45 @@
       .nav-links { gap: 15px; }
       .nav-links a { font-size: 1rem; }
       .btn-acceder { font-size: 1.5rem; padding: 15px 50px; }
+      
+      /* Responsive para casos de estudio */
+      .case-study {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 80px;
+      }
+      
+      .case-study:nth-child(even) .case-content,
+      .case-study:nth-child(even) .case-visual {
+        order: initial;
+      }
+      
+      .case-title {
+        font-size: 2.2rem;
+      }
+      
+      .case-image {
+        height: 400px;
+      }
+      
+      .case-results {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .cases-header h2 {
+        font-size: 2.5rem;
+      }
+      
+      .case-title {
+        font-size: 1.8rem;
+      }
+      
+      .case-image {
+        height: 300px;
+      }
     }
   </style>
 </head>
@@ -1333,7 +1080,7 @@
       </a>
       <div class="nav-links">
         <div class="nav-dropdown">
-          <a href="#servicios" class="dropdown-trigger">Servicios</a>
+          <a href="#casos" class="dropdown-trigger">Servicios</a>
           <div class="dropdown-menu">
             <a href="ui-ux-design.html">Diseño UI-UX</a>
             <a href="mobile-app-design.html">Diseño de aplicaciones móviles</a>
@@ -1345,7 +1092,7 @@
           </div>
         </div>
         <span class="nav-separator">|</span>
-        <a href="#proyectos">Trabajos</a>
+        <a href="#casos">Casos</a>
         <span class="nav-separator">|</span>
         <a href="blog.html">Blog</a>
         <span class="nav-separator">|</span>
@@ -1358,28 +1105,234 @@
       <h1>Diseño UX/UI pensado para escalar</h1>
       <p>Diseños premium creadas con criterio de producto. Claridad, foco y decisiones bien tomadas desde el inicio.</p>
       
-      <a href="#proyectos" class="btn-acceder">
-        ACCEDER
+      <a href="#casos" class="btn-acceder">
+        VER CASOS
       </a>
     </div>
   </div>
 </section>
 
-<!-- Carrusel 3D Coverflow Premium -->
-<div class="hero-carousel">
-  <div class="carousel-container" id="carousel-track">
-    <!-- Cards del carrusel - Mejores diseños web premium -->
-    <div class="carousel-slide" data-index="0" style="background-image: url('images/Desktop - 1.png');"></div>
-    <div class="carousel-slide" data-index="1" style="background-image: url('images/Desktop - 2.png');"></div>
-    <div class="carousel-slide" data-index="2" style="background-image: url('images/Desktop - 33.png');"></div>
-    <div class="carousel-slide" data-index="3" style="background-image: url('images/Desktop - 4.png');"></div>
-    <div class="carousel-slide" data-index="4" style="background-image: url('images/Desktop - 5.png');"></div>
-    <div class="carousel-slide" data-index="5" style="background-image: url('images/Desktop - 6.png');"></div>
+<!-- Sección de Casos de Estudio - Estilo Apple -->
+<section class="cases-section" id="casos">
+  <div class="cases-container">
+    <div class="cases-header">
+      <h2>Casos que generan impacto</h2>
+      <p>4 proyectos seleccionados donde el diseño transformó resultados de negocio</p>
+    </div>
+    
+    <!-- Caso 1 -->
+    <div class="case-study">
+      <div class="case-content">
+        <span class="case-category">FinTech</span>
+        <h2 class="case-title">PayFlow Dashboard</h2>
+        
+        <div class="case-problem">
+          <h4>El problema</h4>
+          <p>Dashboard complejo que generaba fricción en usuarios no técnicos. Altas tasas de abandono en transacciones críticas.</p>
+        </div>
+        
+        <div class="case-solution">
+          <h4>La solución</h4>
+          <p>Rediseño completo con foco en simplificación visual y flujos guiados. Reducción de pasos del 60% en transacciones clave.</p>
+        </div>
+        
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-value">+75%</div>
+            <div class="result-label">Velocidad transacciones</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">-45%</div>
+            <div class="result-label">Errores de usuario</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">$5M/mes</div>
+            <div class="result-label">Procesado adicional</div>
+          </div>
+        </div>
+        
+        <a href="caso-payflow.html" class="case-cta">
+          Ver caso completo
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      
+      <div class="case-visual">
+        <img 
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=90" 
+          alt="Dashboard FinTech rediseñado"
+          class="case-image"
+        >
+        <div class="case-overlay">
+          <p class="overlay-text">Dashboard que procesa +$5M mensuales tras rediseño UX/UI</p>
+          <a href="caso-payflow.html" class="overlay-cta">
+            Ver cómo se diseñó
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Caso 2 -->
+    <div class="case-study">
+      <div class="case-content">
+        <span class="case-category">E-Commerce</span>
+        <h2 class="case-title">La Caroyense</h2>
+        
+        <div class="case-problem">
+          <h4>El problema</h4>
+          <p>Conversión baja y alto abandono de carrito. Experiencia móvil deficiente en un mercado con 70% de compras desde celular.</p>
+        </div>
+        
+        <div class="case-solution">
+          <h4>La solución</h4>
+          <p>Rediseño mobile-first con checkout optimizado en 3 pasos. Implementación de diseño sistemático y microinteracciones.</p>
+        </div>
+        
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-value">+340%</div>
+            <div class="result-label">Conversión</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">-45%</div>
+            <div class="result-label">Abandono carrito</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">+$2.1M</div>
+            <div class="result-label">Ingresos anuales</div>
+          </div>
+        </div>
+        
+        <a href="caso-caroyense.html" class="case-cta">
+          Ver caso completo
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      
+      <div class="case-visual">
+        <img 
+          src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=90" 
+          alt="E-commerce rediseñado"
+          class="case-image"
+        >
+        <div class="case-overlay">
+          <p class="overlay-text">Rediseño que multiplicó conversión 3.4x y generó +$2.1M en ingresos</p>
+          <a href="caso-caroyense.html" class="overlay-cta">
+            Ver proceso de diseño
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Caso 3 -->
+    <div class="case-study">
+      <div class="case-content">
+        <span class="case-category">HealthTech</span>
+        <h2 class="case-title">MediConnect</h2>
+        
+        <div class="case-problem">
+          <h4>El problema</h4>
+          <p>App de telemedicina con baja retención y altos tiempos de configuración. Usuarios mayores abandonaban por complejidad.</p>
+        </div>
+        
+        <div class="case-solution">
+          <h4>La solución</h4>
+          <p>Onboarding simplificado en 2 pasos. Interfaz con jerarquía visual clara y accesibilidad mejorada para todos los usuarios.</p>
+        </div>
+        
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-value">+90%</div>
+            <div class="result-label">Satisfacción</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">50K+</div>
+            <div class="result-label">Consultas/mes</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">-40%</div>
+            <div class="result-label">Tiempo espera</div>
+          </div>
+        </div>
+        
+        <a href="caso-mediconnect.html" class="case-cta">
+          Ver caso completo
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      
+      <div class="case-visual">
+        <img 
+          src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=90" 
+          alt="App de telemedicina"
+          class="case-image"
+        >
+        <div class="case-overlay">
+          <p class="overlay-text">App que redujo tiempos de espera 40% y logró 90% de satisfacción</p>
+          <a href="caso-mediconnect.html" class="overlay-cta">
+            Ver resultado final
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Caso 4 -->
+    <div class="case-study">
+      <div class="case-content">
+        <span class="case-category">Logística</span>
+        <h2 class="case-title">Nexus Logistics</h2>
+        
+        <div class="case-problem">
+          <h4>El problema</h4>
+          <p>Dashboard B2B con curva de aprendizaje empinada. Empresas requerían semanas de capacitación para uso básico.</p>
+        </div>
+        
+        <div class="case-solution">
+          <h4>La solución</h4>
+          <p>Diseño modular con progresiva disclosure. Tutoriales contextuales y patrones de interacción consistentes.</p>
+        </div>
+        
+        <div class="case-results">
+          <div class="result-item">
+            <div class="result-value">+40%</div>
+            <div class="result-label">Usabilidad</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">-30%</div>
+            <div class="result-label">Capacitación</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">200+</div>
+            <div class="result-label">Empresas cliente</div>
+          </div>
+        </div>
+        
+        <a href="caso-nexus.html" class="case-cta">
+          Ver caso completo
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      
+      <div class="case-visual">
+        <img 
+          src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=90" 
+          alt="Dashboard logística"
+          class="case-image"
+        >
+        <div class="case-overlay">
+          <p class="overlay-text">SaaS usado por 200+ empresas que redujo capacitación 30%</p>
+          <a href="caso-nexus.html" class="overlay-cta">
+            Ver detalles del proyecto
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
-  
-  <!-- Indicadores de navegación -->
-  <div class="carousel-dots" id="carousel-dots"></div>
-</div>
+</section>
 
 <!-- Stats Section -->
 <section class="stats">
@@ -1393,8 +1346,8 @@
 <!-- Sección de servicios -->
 <section class="services" id="servicios">
   <div class="section-title">
-    <h2>Servicios Populares</h2>
-    <p>Transforma tu presencia digital con soluciones de UX/UI estratégico basadas en datos reales</p>
+    <h2>Cómo trabajo</h2>
+    <p>Un proceso probado para resultados excepcionales</p>
   </div>
   
   <!-- Carrusel 3D Stack Cards -->
@@ -1491,297 +1444,6 @@
   </div>
 </section>
 
-<section class="projects" id="proyectos">
-  <div class="section-title">
-    <h2>Hecho en NeoProdUx</h2>
-    <p>Proyectos que generaron impacto real en el negocio</p>
-  </div>
-  
-  <!-- Carrusel Gallery Showcase -->
-  <div class="projects-carousel">
-    <!-- Contador de proyectos -->
-    <div class="projects-counter">
-      <span class="current" id="project-current">01</span>
-      <span class="separator"> / </span>
-      <span class="total" id="project-total">06</span>
-    </div>
-    
-    <div class="projects-track" id="projects-track">
-      <!-- Proyecto 1: PASEO App -->
-      <div class="project-card" data-index="0">
-        <div class="project-image" style="background-image: url('images/Home16%20Pro%20-%202.png');"></div>
-        <div class="project-content">
-          <span class="project-tag" style="background: #e8f5e9; color: #2e7d32;">App Móvil</span>
-          <h3>PASEO App</h3>
-          <p>App de paseadores de mascotas con validación de identidad y tracking en tiempo real. +45K usuarios, +89% retención.</p>
-        </div>
-      </div>
-      
-      <!-- Proyecto 2: Nexus Logistics -->
-      <div class="project-card" data-index="1">
-        <div class="project-image" style="background-image: url('images/Home.png');"></div>
-        <div class="project-content">
-          <span class="project-tag" style="background: #e3f2fd; color: #1565c0;">SaaS</span>
-          <h3>Nexus Logistics</h3>
-          <p>Dashboard B2B para logística empresarial. 200+ empresas, +40% usabilidad, -30% capacitación requerida.</p>
-        </div>
-      </div>
-      
-      <!-- Proyecto 3: La Caroyense -->
-      <div class="project-card" data-index="2">
-        <div class="project-image" style="background-image: url('images/Desktop%20-%203.png');"></div>
-        <div class="project-content">
-          <span class="project-tag" style="background: #fce4ec; color: #c2185b;">E-Commerce</span>
-          <h3>La Caroyense</h3>
-          <p>Rediseño e-commerce. ↑340% conversión, ↓45% abandono de carrito, +$2.1M ingresos.</p>
-        </div>
-      </div>
-      
-      <!-- Proyecto 4: Yale School of Art -->
-      <div class="project-card" data-index="3">
-        <div class="project-image" style="background-image: url('images/HomeDesktop%20-%202.jpg');"></div>
-        <div class="project-content">
-          <span class="project-tag" style="background: #f3e5f5; color: #6a1b9a;">Educativo</span>
-          <h3>Yale School of Art</h3>
-          <p>Rediseño web moderno. ↑60% visitas, ↑45% engagement, ↑35% aplicaciones.</p>
-        </div>
-      </div>
-      
-      <!-- Proyecto 5: FinTech Dashboard -->
-      <div class="project-card" data-index="4">
-        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=90');"></div>
-        <div class="project-content">
-          <span class="project-tag" style="background: #fff3e0; color: #e65100;">FinTech</span>
-          <h3>PayFlow Dashboard</h3>
-          <p>Plataforma de pagos con analytics en tiempo real. ↑75% velocidad transacciones, +$5M procesados/mes.</p>
-        </div>
-      </div>
-      
-      <!-- Proyecto 6: HealthCare App -->
-      <div class="project-card" data-index="5">
-        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=90');"></div>
-        <div class="project-content">
-          <span class="project-tag" style="background: #e0f2f1; color: #00695c;">HealthCare</span>
-          <h3>MediConnect</h3>
-          <p>Sistema de telemedicina. 50K+ consultas, ↑90% satisfacción pacientes, -40% tiempos de espera.</p>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Navegación con flechas -->
-    <div class="projects-nav">
-      <button class="project-nav-btn" id="project-prev" aria-label="Proyecto anterior">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <button class="project-nav-btn" id="project-next" aria-label="Siguiente proyecto">
-        <i class="fas fa-chevron-right"></i>
-      </button>
-    </div>
-    
-    <!-- Indicadores inferiores -->
-    <div class="projects-indicators" id="projects-indicators"></div>
-  </div>
-</section>
-
-<div class="section-cta">
-  <a href="#examples" class="btn-silent-outline">
-    Ver cómo se ve en productos reales
-  </a>
-</div>
-
-<section class="process" id="proceso">
-  <div class="section-title">
-    <h2>Cómo Trabajamos</h2>
-    <p>Un proceso probado para resultados excepcionales</p>
-  </div>
-  <div class="process-grid">
-    <div class="process-step"><div class="step-number">1</div><h3>Discovery</h3><p>Entendemos tu negocio, usuarios y mercado mediante investigación profunda y análisis competitivo.</p></div>
-    <div class="process-step"><div class="step-number">2</div><h3>Strategy</h3><p>Definimos estrategia basada en insights, datos y oportunidades reales del mercado.</p></div>
-    <div class="process-step"><div class="step-number">3</div><h3>Design</h3><p>Creamos prototipos interactivos y testamos con usuarios reales para validar soluciones.</p></div>
-    <div class="process-step"><div class="step-number">4</div><h3>Optimize</h3><p>Medimos impacto, iteramos y optimizamos continuamente basado en métricas reales.</p></div>
-  </div>
-</section>
-
-<!-- Sección Ejemplos Amazon -->
-<section class="ejemplos-amazon">
-  <div class="section-title">
-    <h2>📦 Ejemplos de Páginas para Vender en Amazon</h2>
-    <p>Templates profesionales para maximizar conversiones en e-commerce</p>
-  </div>
-  
-  <style>
-    .ejemplos-carousel-container { overflow: hidden; }
-    .ejemplos-rows { display: grid; gap: 24px; }
-    .ejemplos-rows { grid-template-rows: auto auto; }
-    .ejemplos-row { display: flex; gap: 24px; width: max-content; will-change: transform; }
-    .ejemplos-row-top { animation: scrollLeft 30s linear infinite; }
-    .ejemplos-row-bottom { animation: scrollRight 30s linear infinite; }
-    @keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    @keyframes scrollRight { from { transform: translateX(0); } to { transform: translateX(50%); } }
-    .ejemplo-card-image { position: relative; }
-    .ejemplo-card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
-    .ejemplo-card-image::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.08), rgba(0,0,0,0.04)); }
-    @media (max-width: 1024px) {
-      .ejemplos-row-top { animation-duration: 24s; }
-      .ejemplos-row-bottom { animation-duration: 24s; }
-      .ejemplo-card-img { height: 180px; }
-    }
-    @media (max-width: 640px) {
-      .ejemplos-row-top, .ejemplos-row-bottom { animation-duration: 18s; }
-      .ejemplo-card-img { height: 160px; }
-    }
-  </style>
-  <div class="ejemplos-carousel-container">
-    <div class="ejemplos-rows">
-      <!-- Fila superior (derecha → izquierda) -->
-      <div class="ejemplos-row ejemplos-row-top">
-        <!-- 3 cards (duplicadas para loop suave) -->
-        <div class="ejemplo-card">
-          <div class="ejemplo-card-image" role="img" aria-label="Productos tecnológicos">
-              <img loading="lazy" decoding="async" fetchpriority="low" referrerpolicy="no-referrer" width="1600" height="900"
-                class="ejemplo-card-img"
-                src="https://source.unsplash.com/1600x900/?technology"
-                srcset="https://source.unsplash.com/800x450/?technology 800w, https://source.unsplash.com/1200x675/?technology 1200w, https://source.unsplash.com/1600x900/?technology 1600w"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                onerror="this.onerror=null;this.src='screenshots/template-tech.svg'"
-                alt="Vista de producto tecnológico" />
-          </div>
-          <div class="ejemplo-card-body">
-            <p class="ejemplo-card-category">Electrónica</p>
-            <h3>Tech Products</h3>
-            <p>Template especializado para productos tecnológicos con especificaciones detalladas.</p>
-            <a href="ejemplos/template-tech.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-          </div>
-        </div>
-
-        <div class="ejemplo-card">
-          <div class="ejemplo-card-image" role="img" aria-label="Productos de lujo">
-              <img loading="lazy" decoding="async" fetchpriority="low" referrerpolicy="no-referrer" width="1600" height="900"
-                class="ejemplo-card-img"
-                src="https://source.unsplash.com/1600x900/?luxury"
-                srcset="https://source.unsplash.com/800x450/?luxury 800w, https://source.unsplash.com/1200x675/?luxury 1200w, https://source.unsplash.com/1600x900/?luxury 1600w"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                onerror="this.onerror=null;this.src='screenshots/template-premium.svg'"
-                alt="Detalle de producto premium" />
-          </div>
-          <div class="ejemplo-card-body">
-            <p class="ejemplo-card-category">Premium</p>
-            <h3>Productos de Lujo</h3>
-            <p>Diseño elegante y sofisticado para productos premium y de alto valor.</p>
-            <a href="ejemplos/template-premium.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-          </div>
-        </div>
-
-        <div class="ejemplo-card">
-          <div class="ejemplo-card-image" role="img" aria-label="Productos eco"><img loading="lazy" decoding="async" fetchpriority="low" referrerpolicy="no-referrer" width="1600" height="900" class="ejemplo-card-img" src="https://source.unsplash.com/1600x900/?eco,green" srcset="https://source.unsplash.com/800x450/?eco,green 800w, https://source.unsplash.com/1200x675/?eco,green 1200w, https://source.unsplash.com/1600x900/?eco,green 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" onerror="this.onerror=null;this.src='screenshots/template-eco.svg'" alt="Producto ecológico con naturaleza" /></div>
-          <div class="ejemplo-card-body">
-            <p class="ejemplo-card-category">Sustentable</p>
-            <h3>Eco-Friendly</h3>
-            <p>Template enfocado en sostenibilidad y responsabilidad ambiental.</p>
-            <a href="ejemplos/template-eco.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-          </div>
-        </div>
-
-        <!-- Duplicados -->
-        <div class="ejemplo-card">
-          <div class="ejemplo-card-image" role="img" aria-label="Productos tecnológicos"><img loading="lazy" decoding="async" fetchpriority="low" referrerpolicy="no-referrer" width="1600" height="900" class="ejemplo-card-img" src="https://source.unsplash.com/1600x900/?technology" srcset="https://source.unsplash.com/800x450/?technology 800w, https://source.unsplash.com/1200x675/?technology 1200w, https://source.unsplash.com/1600x900/?technology 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" onerror="this.onerror=null;this.src='screenshots/template-tech.svg'" alt="Vista de producto tecnológico" /></div>
-          <div class="ejemplo-card-body">
-            <p class="ejemplo-card-category">Electrónica</p>
-            <h3>Tech Products</h3>
-            <p>Template especializado para productos tecnológicos con especificaciones detalladas.</p>
-            <a href="ejemplos/template-tech.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-          </div>
-        </div>
-        <div class="ejemplo-card">
-          <div class="ejemplo-card-image" role="img" aria-label="Productos de lujo"><img loading="lazy" decoding="async" fetchpriority="low" referrerpolicy="no-referrer" width="1600" height="900" class="ejemplo-card-img" src="https://source.unsplash.com/1600x900/?luxury" srcset="https://source.unsplash.com/800x450/?luxury 800w, https://source.unsplash.com/1200x675/?luxury 1200w, https://source.unsplash.com/1600x900/?luxury 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" onerror="this.onerror=null;this.src='screenshots/template-premium.svg'" alt="Detalle de producto premium" /></div>
-          <div class="ejemplo-card-body">
-            <p class="ejemplo-card-category">Premium</p>
-            <h3>Productos de Lujo</h3>
-            <p>Diseño elegante y sofisticado para productos premium y de alto valor.</p>
-            <a href="ejemplos/template-premium.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-          </div>
-        </div>
-        <div class="ejemplo-card">
-          <div class="ejemplo-card-image" role="img" aria-label="Productos eco"><img loading="lazy" decoding="async" fetchpriority="low" referrerpolicy="no-referrer" width="1600" height="900" class="ejemplo-card-img" src="https://source.unsplash.com/1600x900/?eco,green" srcset="https://source.unsplash.com/800x450/?eco,green 800w, https://source.unsplash.com/1200x675/?eco,green 1200w, https://source.unsplash.com/1600x900/?eco,green 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" onerror="this.onerror=null;this.src='screenshots/template-eco.svg'" alt="Producto ecológico con naturaleza" /></div>
-          <div class="ejemplo-card-body">
-            <p class="ejemplo-card-category">Sustentable</p>
-            <h3>Eco-Friendly</h3>
-            <p>Template enfocado en sostenibilidad y responsabilidad ambiental.</p>
-            <a href="ejemplos/template-eco.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fila inferior (izquierda → derecha) -->
-      <div class="ejemplos-row ejemplos-row-bottom">
-        <!-- 3 cards (duplicadas para loop suave) -->
-        <div class="ejemplo-card">
-          <div class="ejemplo-card-image" role="img" aria-label="Artículos deportivos"><img loading="lazy" decoding="async" fetchpriority="low" referrerpolicy="no-referrer" width="1600" height="900" class="ejemplo-card-img" src="https://source.unsplash.com/1600x900/?sports" srcset="https://source.unsplash.com/800x450/?sports 800w, https://source.unsplash.com/1200x675/?sports 1200w, https://source.unsplash.com/1600x900/?sports 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" onerror="this.onerror=null;this.src='screenshots/template-sport.svg'" alt="Equipamiento deportivo" /></div>
-          <div class="ejemplo-card-body">
-            <p class="ejemplo-card-category">Deportivo</p>
-            <h3>Artículos Deportivos</h3>
-            <p>Especializado en equipamiento con énfasis en performance y durabilidad.</p>
-            <a href="ejemplos/template-sport.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-          </div>
-        </div>
-
-        <div class="ejemplo-card">
-          <div class="ejemplo-card-image" role="img" aria-label="Reseñas y calificaciones"><img loading="lazy" decoding="async" fetchpriority="low" referrerpolicy="no-referrer" width="1600" height="900" class="ejemplo-card-img" src="https://source.unsplash.com/1600x900/?reviews,ratings" srcset="https://source.unsplash.com/800x450/?reviews,ratings 800w, https://source.unsplash.com/1200x675/?reviews,ratings 1200w, https://source.unsplash.com/1600x900/?reviews,ratings 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" onerror="this.onerror=null;this.src='screenshots/estilo-social-proof.svg'" alt="Testimonios y valoraciones" /></div>
-          <div class="ejemplo-card-body">
-            <p class="ejemplo-card-category">Estrategia</p>
-            <h3>Social Proof</h3>
-            <p>Optimizado con testimonios y ratings para aumentar confianza.</p>
-            <a href="ejemplos/estilo-social-proof.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-          </div>
-        </div>
-
-        <div class="ejemplo-card">
-          <div class="ejemplo-card-image" role="img" aria-label="Analítica y datos"><img loading="lazy" decoding="async" fetchpriority="low" referrerpolicy="no-referrer" width="1600" height="900" class="ejemplo-card-img" src="https://source.unsplash.com/1600x900/?analytics,data" srcset="https://source.unsplash.com/800x450/?analytics,data 800w, https://source.unsplash.com/1200x675/?analytics,data 1200w, https://source.unsplash.com/1600x900/?analytics,data 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" onerror="this.onerror=null;this.src='screenshots/estilo-data-driven.svg'" alt="Gráficos y métricas" /></div>
-          <div class="ejemplo-card-body">
-            <p class="ejemplo-card-category">Data-Driven</p>
-            <h3>Estadísticas y Datos</h3>
-            <p>Diseño centrado en métricas que demuestran calidad y efectividad.</p>
-            <a href="ejemplos/estilo-data-driven.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-          </div>
-        </div>
-
-        <!-- Duplicados -->
-        <div class="ejemplo-card">
-          <div class="ejemplo-card-image" role="img" aria-label="Artículos deportivos"><img loading="lazy" decoding="async" fetchpriority="low" referrerpolicy="no-referrer" width="1600" height="900" class="ejemplo-card-img" src="https://source.unsplash.com/1600x900/?sports" srcset="https://source.unsplash.com/800x450/?sports 800w, https://source.unsplash.com/1200x675/?sports 1200w, https://source.unsplash.com/1600x900/?sports 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" onerror="this.onerror=null;this.src='screenshots/template-sport.svg'" alt="Equipamiento deportivo" /></div>
-          <div class="ejemplo-card-body">
-            <p class="ejemplo-card-category">Deportivo</p>
-            <h3>Artículos Deportivos</h3>
-            <p>Especializado en equipamiento con énfasis en performance y durabilidad.</p>
-            <a href="ejemplos/template-sport.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-          </div>
-        </div>
-        <div class="ejemplo-card">
-          <div class="ejemplo-card-image" role="img" aria-label="Reseñas y calificaciones"><img loading="lazy" decoding="async" fetchpriority="low" referrerpolicy="no-referrer" width="1600" height="900" class="ejemplo-card-img" src="https://source.unsplash.com/1600x900/?reviews,ratings" srcset="https://source.unsplash.com/800x450/?reviews,ratings 800w, https://source.unsplash.com/1200x675/?reviews,ratings 1200w, https://source.unsplash.com/1600x900/?reviews,ratings 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" onerror="this.onerror=null;this.src='screenshots/estilo-social-proof.svg'" alt="Testimonios y valoraciones" /></div>
-          <div class="ejemplo-card-body">
-            <p class="ejemplo-card-category">Estrategia</p>
-            <h3>Social Proof</h3>
-            <p>Optimizado con testimonios y ratings para aumentar confianza.</p>
-            <a href="ejemplos/estilo-social-proof.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-          </div>
-        </div>
-        <div class="ejemplo-card">
-          <div class="ejemplo-card-image" role="img" aria-label="Analítica y datos"><img loading="lazy" decoding="async" fetchpriority="low" referrerpolicy="no-referrer" width="1600" height="900" class="ejemplo-card-img" src="https://source.unsplash.com/1600x900/?analytics,data" srcset="https://source.unsplash.com/800x450/?analytics,data 800w, https://source.unsplash.com/1200x675/?analytics,data 1200w, https://source.unsplash.com/1600x900/?analytics,data 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" onerror="this.onerror=null;this.src='screenshots/estilo-data-driven.svg'" alt="Gráficos y métricas" /></div>
-          <div class="ejemplo-card-body">
-            <p class="ejemplo-card-category">Data-Driven</p>
-            <h3>Estadísticas y Datos</h3>
-            <p>Diseño centrado en métricas que demuestran calidad y efectividad.</p>
-            <a href="ejemplos/estilo-data-driven.html" class="ejemplo-card-link" target="_blank">Ver ejemplo →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="ejemplos-carousel-button-container">
-    <a href="ejemplos-amazon.html" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #ff6b35, #ff8c42); color: #fff; border-radius: 10px; font-weight: 600; transition: all 0.3s;">Ver todos los ejemplos →</a>
-  </div>
-</section>
-
 <section class="testimonials">
   <div class="section-title">
     <h2>Lo que dicen nuestros clientes</h2>
@@ -1857,39 +1519,6 @@
           <a class="post-link" href="blog-framer-trends.html">Leer artículo →</a>
         </div>
       </article>
-      
-      <!-- Artículo 4 -->
-      <article class="blog-card">
-        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=800&q=90');"></div>
-        <div class="blog-content">
-          <span class="post-date">10 Ago 2025</span>
-          <h3 class="post-title">Design System Best Practices for Scale</h3>
-          <p class="post-excerpt">Cómo construir sistemas de diseño que escalen con tu producto y equipo de desarrollo.</p>
-          <a class="post-link" href="#">Leer artículo →</a>
-        </div>
-      </article>
-      
-      <!-- Artículo 5 -->
-      <article class="blog-card">
-        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=90');"></div>
-        <div class="blog-content">
-          <span class="post-date">28 Jul 2025</span>
-          <h3 class="post-title">Mobile-First Design in 2025</h3>
-          <p class="post-excerpt">Estrategias actualizadas para diseñar aplicaciones móviles que priorizan la experiencia del usuario.</p>
-          <a class="post-link" href="#">Leer artículo →</a>
-        </div>
-      </article>
-      
-      <!-- Artículo 6 -->
-      <article class="blog-card">
-        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=90');"></div>
-        <div class="blog-content">
-          <span class="post-date">15 Jul 2025</span>
-          <h3 class="post-title">User Research Methods That Actually Work</h3>
-          <p class="post-excerpt">Métodos probados de investigación de usuarios para equipos de producto modernos.</p>
-          <a class="post-link" href="#">Leer artículo →</a>
-        </div>
-      </article>
     </div>
     
     <!-- Indicador de scroll -->
@@ -1921,7 +1550,7 @@
   <div class="footer-container">
     <div class="footer-section">
       <h3>Compañía</h3>
-      <ul><li><a href="#servicios">Servicios</a></li><li><a href="#proyectos">Proyectos</a></li><li><a href="#proceso">Proceso</a></li><li><a href="#faq">FAQ</a></li><li><a href="blog.html">Blog</a></li><li><a href="ejemplos-amazon.html">Ejemplos Amazon</a></li></ul>
+      <ul><li><a href="#servicios">Servicios</a></li><li><a href="#casos">Casos</a></li><li><a href="#proceso">Proceso</a></li><li><a href="#faq">FAQ</a></li><li><a href="blog.html">Blog</a></li><li><a href="ejemplos-amazon.html">Ejemplos Amazon</a></li></ul>
     </div>
     <div class="footer-section">
       <h3>Redes</h3>
@@ -1944,110 +1573,6 @@
 </footer>
 
 <script>
-  /* ========================================
-     COVERFLOW 3D - LÓGICA PRINCIPAL
-     ======================================== */
-  
-  const slides = Array.from(document.querySelectorAll('.carousel-slide'));
-  const dotsContainer = document.getElementById('carousel-dots');
-  const carouselTrack = document.getElementById('carousel-track');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  let currentIndex = 0;
-  const totalSlides = slides.length;
-
-  const CONFIG = {
-    slideSpacing: 180,
-    rotationAngle: 50,
-    depthOffset: -180,
-    inactiveOpacity: 0.4,
-    inactiveBlur: 2,
-    transitionDuration: 600
-  };
-
-  slides.forEach((_, index) => {
-    const dot = document.createElement('div');
-    dot.className = `dot ${index === 0 ? 'active' : ''}`;
-    dot.setAttribute('aria-label', `Ir a slide ${index + 1}`);
-    dotsContainer.appendChild(dot);
-  });
-
-  const dots = Array.from(dotsContainer.children);
-
-  function updateCarousel() {
-    slides.forEach((slide, index) => {
-      const offset = index - currentIndex;
-      const translateX = offset * CONFIG.slideSpacing;
-      const rotateY = offset * CONFIG.rotationAngle;
-      const translateZ = Math.abs(offset) > 0 ? CONFIG.depthOffset : 120;
-      const scale = Math.abs(offset) === 0 ? 1.05 : 1;
-      const opacity = Math.abs(offset) === 0 ? 1 : CONFIG.inactiveOpacity;
-      const blur = Math.abs(offset) === 0 ? 0 : CONFIG.inactiveBlur;
-      const zIndex = 100 - Math.abs(offset) * 10;
-      
-      slide.style.transform = `
-        translate(-50%, -50%)
-        translateX(${translateX}px)
-        translateZ(${translateZ}px)
-        rotateY(${rotateY}deg)
-        scale(${scale})
-      `;
-      
-      slide.style.opacity = opacity;
-      slide.style.filter = `blur(${blur}px) brightness(${opacity})`;
-      slide.style.zIndex = zIndex;
-      
-      if (index === currentIndex) {
-        slide.classList.add('active');
-      } else {
-        slide.classList.remove('active');
-      }
-    });
-
-    dots.forEach((dot, idx) => {
-      dot.classList.toggle('active', idx === currentIndex);
-    });
-  }
-
-  function goToSlide(index) {
-    currentIndex = ((index % totalSlides) + totalSlides) % totalSlides;
-    updateCarousel();
-  }
-
-  let isScrolling = false;
-  let scrollTimeout;
-
-  carouselTrack.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    
-    if (isScrolling) return;
-    isScrolling = true;
-    
-    const direction = e.deltaY > 0 ? 1 : -1;
-    goToSlide(currentIndex + direction);
-    
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      isScrolling = false;
-    }, CONFIG.transitionDuration);
-  }, { passive: false });
-
-  slides.forEach((slide, index) => {
-    slide.addEventListener('click', () => {
-      if (index !== currentIndex) {
-        goToSlide(index);
-      }
-    });
-  });
-
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      goToSlide(index);
-    });
-  });
-
-  updateCarousel();
-
   /* ========================================
      SERVICES CAROUSEL - STACK CARDS 3D
      ======================================== */
@@ -2171,136 +1696,6 @@
   startServicesAutoplay();
 
   /* ========================================
-     PROJECTS CAROUSEL - GALLERY SHOWCASE
-     ======================================== */
-  
-  const projectCards = Array.from(document.querySelectorAll('.project-card'));
-  const projectsIndicators = document.getElementById('projects-indicators');
-  const projectPrevBtn = document.getElementById('project-prev');
-  const projectNextBtn = document.getElementById('project-next');
-  const projectCurrentEl = document.getElementById('project-current');
-  const projectTotalEl = document.getElementById('project-total');
-  
-  let currentProjectIndex = 0;
-  const totalProjects = projectCards.length;
-  
-  projectTotalEl.textContent = totalProjects.toString().padStart(2, '0');
-  
-  projectCards.forEach((_, index) => {
-    const indicator = document.createElement('div');
-    indicator.className = `project-indicator ${index === 0 ? 'active' : ''}`;
-    indicator.setAttribute('aria-label', `Ir a proyecto ${index + 1}`);
-    projectsIndicators.appendChild(indicator);
-  });
-  
-  const projectIndicators = Array.from(projectsIndicators.children);
-  
-  const PROJECTS_CONFIG = {
-    sideOffset: 450,
-    sideScale: 0.85,
-    sideOpacity: 0.4,
-    sideBlur: 3,
-    transitionDuration: 800,
-    autoplayDelay: 5000
-  };
-  
-  let projectsAutoplayTimer = null;
-  
-  function updateProjectsCarousel() {
-    projectCards.forEach((card, index) => {
-      const relativePos = index - currentProjectIndex;
-      
-      if (relativePos === 0) {
-        card.classList.add('active');
-        card.style.transform = 'translateX(0) scale(1)';
-        card.style.opacity = '1';
-        card.style.filter = 'blur(0px)';
-        card.style.zIndex = '50';
-      }
-      else if (relativePos === 1) {
-        card.classList.remove('active');
-        card.style.transform = `translateX(${PROJECTS_CONFIG.sideOffset}px) scale(${PROJECTS_CONFIG.sideScale})`;
-        card.style.opacity = PROJECTS_CONFIG.sideOpacity;
-        card.style.filter = `blur(${PROJECTS_CONFIG.sideBlur}px)`;
-        card.style.zIndex = '40';
-      }
-      else if (relativePos === -1) {
-        card.classList.remove('active');
-        card.style.transform = `translateX(-${PROJECTS_CONFIG.sideOffset}px) scale(${PROJECTS_CONFIG.sideScale})`;
-        card.style.opacity = PROJECTS_CONFIG.sideOpacity;
-        card.style.filter = `blur(${PROJECTS_CONFIG.sideBlur}px)`;
-        card.style.zIndex = '40';
-      }
-      else {
-        card.classList.remove('active');
-        const direction = relativePos > 0 ? 1 : -1;
-        card.style.transform = `translateX(${direction * 800}px) scale(0.6)`;
-        card.style.opacity = '0';
-        card.style.filter = 'blur(10px)';
-        card.style.zIndex = '0';
-      }
-    });
-    
-    projectIndicators.forEach((indicator, idx) => {
-      indicator.classList.toggle('active', idx === currentProjectIndex);
-    });
-    
-    projectCurrentEl.textContent = (currentProjectIndex + 1).toString().padStart(2, '0');
-  }
-  
-  function goToProject(index) {
-    currentProjectIndex = ((index % totalProjects) + totalProjects) % totalProjects;
-    updateProjectsCarousel();
-  }
-  
-  function startProjectsAutoplay() {
-    stopProjectsAutoplay();
-    projectsAutoplayTimer = setInterval(() => {
-      goToProject(currentProjectIndex + 1);
-    }, PROJECTS_CONFIG.autoplayDelay);
-  }
-  
-  function stopProjectsAutoplay() {
-    if (projectsAutoplayTimer) {
-      clearInterval(projectsAutoplayTimer);
-      projectsAutoplayTimer = null;
-    }
-  }
-  
-  projectPrevBtn.addEventListener('click', () => {
-    goToProject(currentProjectIndex - 1);
-    startProjectsAutoplay();
-  });
-  
-  projectNextBtn.addEventListener('click', () => {
-    goToProject(currentProjectIndex + 1);
-    startProjectsAutoplay();
-  });
-  
-  projectIndicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-      goToProject(index);
-      startProjectsAutoplay();
-    });
-  });
-  
-  projectCards.forEach((card, index) => {
-    card.addEventListener('click', () => {
-      if (index !== currentProjectIndex) {
-        goToProject(index);
-        startProjectsAutoplay();
-      }
-    });
-  });
-  
-  const projectsCarousel = document.querySelector('.projects-carousel');
-  projectsCarousel.addEventListener('mouseenter', stopProjectsAutoplay);
-  projectsCarousel.addEventListener('mouseleave', startProjectsAutoplay);
-  
-  updateProjectsCarousel();
-  startProjectsAutoplay();
-
-  /* ========================================
      BLOG CAROUSEL - HORIZONTAL SCROLL
      ======================================== */
   
@@ -2404,7 +1799,7 @@
     btn.addEventListener('click', function() {
       const text = this.textContent;
       if (text.includes('Proyectos')) {
-        document.querySelector('#proyectos').scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('#casos').scrollIntoView({ behavior: 'smooth' });
       } else if (text.includes('Llamada')) {
         window.open('https://calendly.com/david-sebastian-diaz', '_blank');
       } else if (text.includes('Email')) {
