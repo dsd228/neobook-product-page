@@ -2280,21 +2280,19 @@
   </section>
 
   <!-- Formulario de Captura Premium - CORREGIDO -->
-  <section class="capture-form" id="contacto">
-    <div class="form-header">
-      <h2>¿Listo para transformar tu producto?</h2>
-      <p>Cuéntanos sobre tu proyecto y te contactaremos en menos de 24 horas con una propuesta personalizada.</p>
-    </div>
-    
-    <form id="leadForm" onsubmit="submitForm(event)">
-      <div class="form-grid">
-        <!-- Nombre completo -->
-        <div class="form-group">
-          <div class="floating-label">
-            <input type="text" id="name" name="name" required>
-            <label for="name">Nombre completo</label>
-          </div>
-        </div>
+  <div class="form-group">
+  <div class="form-field">
+    <input type="text" id="name" name="name" required>
+    <label for="name">Nombre completo</label>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="form-field textarea-field">
+    <textarea id="message" name="message" required></textarea>
+    <label for="message">¿Qué desafío quieres resolver?</label>
+  </div>
+</div>
         
         <!-- Email profesional -->
         <div class="form-group">
@@ -3055,31 +3053,34 @@
     // DROPDOWN MEJORADO - Cerrar al hacer click fuera
     // ========================================
     
-    document.addEventListener('click', function(event) {
-      const dropdowns = document.querySelectorAll('.nav-dropdown');
-      
-      dropdowns.forEach(dropdown => {
-        const isClickInside = dropdown.contains(event.target);
-        
-        if (!isClickInside) {
-          const menu = dropdown.querySelector('.dropdown-menu');
-          menu.style.opacity = '0';
-          menu.style.visibility = 'hidden';
-          menu.style.transform = 'translateX(-50%) translateY(-10px)';
-        }
-      });
+    // Inicializar floating labels
+document.addEventListener('DOMContentLoaded', function() {
+  const fields = document.querySelectorAll('.form-field input, .form-field select, .form-field textarea');
+  
+  fields.forEach(field => {
+    // Verificar si ya tiene valor
+    if (field.value) {
+      field.parentElement.classList.add('has-value');
+    }
+    
+    // Escuchar cambios
+    field.addEventListener('input', function() {
+      if (this.value) {
+        this.parentElement.classList.add('has-value');
+      } else {
+        this.parentElement.classList.remove('has-value');
+      }
     });
-
-    // Asegurar que el dropdown se cierre en mobile al seleccionar una opción
-    document.querySelectorAll('.dropdown-menu a').forEach(link => {
-      link.addEventListener('click', function() {
-        const menu = this.closest('.dropdown-menu');
-        menu.style.opacity = '0';
-        menu.style.visibility = 'hidden';
-        menu.style.transform = 'translateX(-50%) translateY(-10px)';
-      });
+    
+    field.addEventListener('focus', function() {
+      this.parentElement.classList.add('focused');
     });
-
+    
+    field.addEventListener('blur', function() {
+      this.parentElement.classList.remove('focused');
+    });
+  });
+});
   </script>
 
 </body>
