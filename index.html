@@ -66,7 +66,6 @@
       display: block;
     }
     
-    /* Fondo blanco para toda la página */
     body { 
       background: var(--light-color); 
       color: var(--dark-color); 
@@ -75,7 +74,6 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      /* cursor: none; */ /* DESACTIVADO temporalmente para ver los efectos */
     }
     
     h1, h2, h3, h4, h5, h6 { 
@@ -84,439 +82,90 @@
       line-height: 1.2;
     }
 
-    /* ==============================
-       HERO SECTION CON VIDEO FONDO Y EFECTO HOVER
-       ============================== */
-    .hero-container {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Video de fondo con efecto parallax al hover - ¡CORREGIDO! */
-    .hero-bg-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-      filter: brightness(0.7);
-      transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1) !important;
-      will-change: transform;
-    }
-
-    /* ¡ESTA ES LA CLAVE! Efecto hover CORREGIDO */
-    .hero-container:hover .hero-bg-video {
-      transform: scale(1.05) !important;
-    }
-
-    /* Capa oscura superpuesta para mejor contraste del texto */
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
-      transition: background-color 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    /* Oscurece más al hover para mejor contraste */
-    .hero-container:hover .hero-overlay {
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    /* Cursor personalizado - OCULTARLO por ahora */
-    .hero-cursor {
-      display: none !important; /* Ocultamos el cursor que molesta */
-    }
-
-    /* TARJETA DE CRISTAL CENTRAL - Mejorado con efecto hover */
-    .glass-card {
-      width: 100%;
-      max-width: 1200px;
-      min-height: 700px;
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 24px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      padding: 50px 70px;
-      overflow: hidden;
-      transition: all var(--transition-smooth);
-      z-index: 2;
-    }
-
-    .glass-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.1),
-        transparent
-      );
-      transition: left 0.7s ease;
-    }
-
-    .glass-card:hover::before {
-      left: 100%;
-    }
-
-    /* Efecto adicional en la tarjeta al hover del contenedor */
-    .hero-container:hover .glass-card {
-      transform: translateY(-5px);
-      box-shadow: 
-        0 35px 70px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-
-    /* CONTENIDO DEL HERO - Mejorado */
-    .hero-main-content {
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      z-index: 3;
-    }
-
-    .hero-main-content h1 {
-      font-size: 3.8rem;
-      color: #ffffff;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 30px;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    /* Efecto sutil en el texto al hover - ¡ACTIVADO! */
-    .hero-container:hover .hero-main-content h1 {
-      transform: translateY(-3px);
-    }
-
-    .hero-main-content p {
-      font-size: 1.4rem;
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.6;
-      margin-bottom: 50px;
-      font-weight: 500;
-      max-width: 800px;
-      transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .hero-container:hover .hero-main-content p {
-      transform: translateY(-2px);
-    }
-
-    /* BOTÓN ACCEDER - Premium */
-    .btn-acceder {
-      background: linear-gradient(135deg, #FF6B35, #FF8E53);
-      color: var(--light-color);
-      padding: 22px 85px;
-      border-radius: 50px;
-      font-size: 2rem;
-      font-weight: 700;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: all var(--transition-fast);
-      box-shadow: 
-        0 15px 35px rgba(255, 107, 53, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      border: none;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      z-index: 4;
-    }
-
-    .btn-acceder::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-      );
-      transition: left 0.6s ease;
-    }
-
-    .btn-acceder:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 
-        0 20px 40px rgba(255, 107, 53, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    }
-
-    .btn-acceder:hover::before {
-      left: 100%;
-    }
-
-    .btn-acceder i {
-      font-size: 1.5rem;
-      transition: transform var(--transition-fast);
-    }
-
-    .btn-acceder:hover i {
-      transform: translateX(5px);
-    }
-
-    /* Trust Badges en Hero */
-    .trust-badges {
-      display: flex;
-      gap: 30px;
-      margin-top: 40px;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .trust-badge {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 0.95rem;
-      font-weight: 500;
-      padding: 12px 24px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      transition: all var(--transition-fast);
-    }
-
-    .trust-badge:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-2px);
-    }
-
-    .trust-badge i {
-      font-size: 1.2rem;
-      color: var(--primary-color);
-    }
-
-    /* ==============================
-       RESPONSIVE DESIGN - ¡IMPORTANTE!
-       ============================== */
-    @media (max-width: 768px) {
-      /* Desactivar efectos hover en móviles */
-      .hero-container:hover .hero-bg-video {
-        transform: none !important;
-      }
-      
-      .hero-container:hover .hero-overlay {
-        background: rgba(0, 0, 0, 0.4);
-      }
-      
-      .hero-container:hover .glass-card {
-        transform: none;
-        box-shadow: 
-          0 25px 50px rgba(0, 0, 0, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      }
-      
-      .hero-container:hover .hero-main-content h1,
-      .hero-container:hover .hero-main-content p {
-        transform: none;
-      }
-      
-      /* En móvil: mostrar imagen en lugar de video */
-      .hero-bg-video {
-        display: none;
-      }
-      
-      .hero-container {
-        background: url('background-glass.jpg') center/cover no-repeat !important;
-      }
-      
-      .hero-overlay {
-        background: rgba(0, 0, 0, 0.5);
-      }
-    }
-
-    /* Oscurece más al hover para mejor contraste */
-    .hero-container:hover .hero-overlay {
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    /* Cursor personalizado para el efecto (opcional pero premium) */
-    .hero-cursor {
+    /* ====== NAVEGACIÓN ESTILO LANDO NORRIS ====== */
+    .nav-fixed {
       position: fixed;
-      width: 40px;
-      height: 40px;
-      border: 2px solid rgba(255, 107, 53, 0.8);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: width 0.3s, height 0.3s, border-color 0.3s;
-      mix-blend-mode: difference;
-      display: none; /* Oculto por defecto, se activa con JS */
-    }
-
-    .hero-cursor.active {
-      width: 60px;
-      height: 60px;
-      border-color: rgba(255, 107, 53, 1);
-    }
-
-    /* TARJETA DE CRISTAL CENTRAL - Mejorado con efecto hover */
-    .glass-card {
-      width: 100%;
-      max-width: 1200px;
-      min-height: 700px;
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 24px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      padding: 50px 70px;
-      overflow: hidden;
-      transition: all var(--transition-smooth);
-      z-index: 2;
-    }
-
-    .glass-card::before {
-      content: '';
-      position: absolute;
       top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.1),
-        transparent
-      );
-      transition: left 0.7s ease;
-    }
-
-    .glass-card:hover::before {
-      left: 100%;
-    }
-
-    /* Efecto adicional en la tarjeta al hover del contenedor */
-    .hero-container:hover .glass-card {
-      transform: translateY(-5px);
-      box-shadow: 
-        0 35px 70px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-
-    /* NAVEGACIÓN INTERNA - Logo en colores específicos y menú desplegable */
-    .inner-nav {
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 100px;
-      flex-wrap: wrap;
-      gap: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
     }
 
-    /* LOGO NEO-PROD-UX con colores específicos */
-    .inner-logo {
-      font-size: 2.2rem;
-      font-weight: 800;
+    .nav-scrolled {
+      background: rgba(0, 0, 0, 0.95);
+      padding: 15px 40px;
+    }
+
+    .logo-lando {
+      font-size: 1.8rem;
+      font-weight: 900;
       text-decoration: none;
       font-family: "Sora", sans-serif;
-      display: flex;
-      align-items: center;
-      gap: 0;
-      transition: transform var(--transition-fast);
       color: white;
-    }
-
-    .logo-neo {
-      color: #FF6B35; /* Naranja */
-    }
-
-    .logo-prod {
-      color: #ffffff; /* Blanco */
-    }
-
-    .logo-ux {
-      color: #FF6B35; /* Naranja */
-    }
-
-    .inner-logo:hover {
-      transform: scale(1.05);
-    }
-
-    .nav-links {
       display: flex;
-      gap: 30px;
       align-items: center;
-      flex-wrap: wrap;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-lando:hover { 
+      transform: scale(1.05); 
     }
     
-    .nav-links a {
-      color: var(--light-color);
+    .logo-neo { 
+      color: #FF6B35; 
+    }
+    
+    .logo-prod { 
+      color: #ffffff; 
+    }
+    
+    .logo-ux { 
+      color: #FF6B35; 
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.8);
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      font-family: "Sora", sans-serif;
-      transition: all var(--transition-fast);
-      padding: 8px 16px;
-      border-radius: 50px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
       position: relative;
     }
 
-    .nav-links a:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-2px);
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-color);
+      transition: width 0.3s ease;
     }
 
-    .nav-links a.active {
-      background: rgba(255, 107, 53, 0.2);
-      border: 1px solid rgba(255, 107, 53, 0.4);
+    .nav-link:hover { 
+      color: #fff; 
+    }
+    
+    .nav-link:hover::after { 
+      width: 100%; 
     }
 
-    .nav-separator { 
-      color: rgba(255, 255, 255, 0.6); 
-      font-size: 1.5rem; 
-      opacity: 0.8; 
-    }
-
-    /* DROPDOWN MENU */
+    /* ====== DROPDOWN MENU MEJORADO ====== */
     .nav-dropdown { 
       position: relative; 
       display: inline-block; 
@@ -527,12 +176,12 @@
       display: flex; 
       align-items: center; 
       gap: 6px; 
-      color: var(--light-color); 
-      font-size: 1.1rem; 
-      font-weight: 600;
-      font-family: "Sora", sans-serif;
+      color: rgba(255, 255, 255, 0.8); 
+      font-size: 0.95rem; 
+      font-weight: 500;
+      font-family: "Inter", sans-serif;
       text-decoration: none; 
-      transition: all var(--transition-fast); 
+      transition: all 0.3s ease; 
       padding: 8px 16px;
       border-radius: 50px;
       background: transparent;
@@ -540,8 +189,8 @@
     }
     
     .dropdown-trigger:hover { 
+      color: #fff;
       background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-2px);
     }
     
     .dropdown-trigger::after { 
@@ -591,7 +240,7 @@
       color: #555; 
       text-decoration: none; 
       transition: all 0.3s; 
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 500;
       border-left: 4px solid transparent;
       position: relative;
@@ -636,147 +285,245 @@
       border-radius: 0 0 16px 16px; 
     }
 
-    /* CONTENIDO DEL HERO - Mejorado */
-    .hero-main-content {
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-      flex-grow: 1;
+    /* Separador de navegación */
+    .nav-separator { 
+      color: rgba(255, 255, 255, 0.6); 
+      font-size: 1.5rem; 
+      opacity: 0.8; 
+    }
+
+    /* ====== HERO ESTILO LANDO NORRIS ====== */
+    .hero-lando {
+      position: relative;
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 100px 40px 60px;
+      background: #000;
+    }
+
+    .hero-video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      filter: brightness(0.4);
+      transition: transform 0.1s ease-out;
+    }
+
+    .hero-overlay-lando {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+      z-index: 1;
+    }
+
+    .hero-content-lando {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 30px;
+      display: block;
+    }
+
+    .hero-title-lando {
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 0.95;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-title-accent {
+      display: block;
+      background: linear-gradient(135deg, #FF6B35, #FF8E53);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle-lando {
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 900px;
+      margin: 0 auto 60px;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 25px;
       justify-content: center;
       align-items: center;
-      position: relative;
-      z-index: 3;
+      flex-wrap: wrap;
     }
 
-    .hero-main-content h1 {
-      font-size: 3.8rem;
-      color: #ffffff;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 30px;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    /* Efecto sutil en el texto al hover */
-    .hero-container:hover .hero-main-content h1 {
-      transform: translateY(-3px);
-    }
-
-    .hero-main-content p {
-      font-size: 1.4rem;
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.6;
-      margin-bottom: 50px;
-      font-weight: 500;
-      max-width: 800px;
-      transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .hero-container:hover .hero-main-content p {
-      transform: translateY(-2px);
-    }
-
-    /* BOTÓN ACCEDER - Premium con efecto hover mejorado */
-    .btn-acceder {
+    .btn-primary-lando {
       background: linear-gradient(135deg, #FF6B35, #FF8E53);
-      color: var(--light-color);
-      padding: 22px 85px;
-      border-radius: 50px;
-      font-size: 2rem;
+      color: #fff;
+      padding: 20px 50px;
+      border-radius: 8px;
+      font-size: 1.1rem;
       font-weight: 700;
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: all var(--transition-fast);
-      box-shadow: 
-        0 15px 35px rgba(255, 107, 53, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       border: none;
       cursor: pointer;
       position: relative;
       overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      z-index: 4;
     }
 
-    .btn-acceder::before {
+    .btn-primary-lando::before {
       content: '';
       position: absolute;
       top: 0;
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-      );
-      transition: left 0.6s ease;
+      background: rgba(255, 255, 255, 0.2);
+      transition: left 0.5s ease;
     }
 
-    .btn-acceder:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 
-        0 20px 40px rgba(255, 107, 53, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    .btn-primary-lando:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(255, 107, 53, 0.4);
     }
 
-    .btn-acceder:hover::before {
-      left: 100%;
+    .btn-primary-lando:hover::before { 
+      left: 100%; 
     }
 
-    .btn-acceder i {
-      font-size: 1.5rem;
-      transition: transform var(--transition-fast);
+    .btn-secondary-lando {
+      background: transparent;
+      color: #fff;
+      padding: 20px 50px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      cursor: pointer;
     }
 
-    .btn-acceder:hover i {
-      transform: translateX(5px);
+    .btn-secondary-lando:hover {
+      border-color: #FF6B35;
+      background: rgba(255, 107, 53, 0.1);
+      transform: translateY(-3px);
     }
 
-    /* Trust Badges en Hero */
-    .trust-badges {
+    .hero-stats {
       display: flex;
-      gap: 30px;
-      margin-top: 40px;
-      flex-wrap: wrap;
+      gap: 60px;
       justify-content: center;
       align-items: center;
+      margin-top: 80px;
+      flex-wrap: wrap;
     }
 
-    .trust-badge {
+    .stat-item-lando {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #FF6B35;
+      font-family: "Sora", sans-serif;
+      line-height: 1;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 0.95rem;
-      font-weight: 500;
-      padding: 12px 24px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      transition: all var(--transition-fast);
+      gap: 15px;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
-    .trust-badge:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-2px);
+    .scroll-arrow {
+      width: 24px;
+      height: 40px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      position: relative;
     }
 
-    .trust-badge i {
-      font-size: 1.2rem;
-      color: var(--primary-color);
+    .scroll-arrow::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 8px;
+      background: #FF6B35;
+      border-radius: 2px;
+      animation: scrollDown 2s infinite;
+    }
+
+    @keyframes scrollDown {
+      0%, 100% { 
+        top: 8px; 
+        opacity: 1; 
+      }
+      50% { 
+        top: 20px; 
+        opacity: 0.5; 
+      }
     }
 
     /* ==============================
-       BANDA DE CONFIANZA INMEDIATA
+       SECCIONES EXISTENTES
        ============================== */
     .trust-band {
       background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
@@ -821,9 +568,6 @@
       letter-spacing: 2px;
     }
 
-    /* ==============================
-       MINI-TESTIMONIO
-       ============================== */
     .mini-testimonial {
       background: linear-gradient(135deg, #f8f9fa, #ffffff);
       padding: 50px 40px;
@@ -852,14 +596,14 @@
       font-family: Georgia, serif;
     }
 
-    .mini-testimonial-content::before {
-      top: -20px;
-      left: 0;
+    .mini-testimonial-content::before { 
+      top: -20px; 
+      left: 0; 
     }
-
-    .mini-testimonial-content::after {
-      bottom: -40px;
-      right: 0;
+    
+    .mini-testimonial-content::after { 
+      bottom: -40px; 
+      right: 0; 
     }
 
     .mini-testimonial-author {
@@ -894,8 +638,12 @@
     }
     
     @keyframes marquee { 
-      0% { transform: translateX(0); } 
-      100% { transform: translateX(-100%); } 
+      0% { 
+        transform: translateX(0); 
+      } 
+      100% { 
+        transform: translateX(-100%); 
+      } 
     }
     
     .marquee { 
@@ -929,37 +677,57 @@
       opacity: 1;
     }
 
-    .stats { 
-      padding: 60px 40px; 
-      background: #fff; 
-      border-bottom: 1px solid #e5e5e5; 
-    }
-    
-    .stats-grid { 
-      max-width: 1400px; 
-      margin: 0 auto; 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-      gap: 40px; 
-      text-align: center; 
-    }
-    
-    .stat-item h3 { 
-      font-size: 3.5rem; 
-      color: #000; 
-      margin-bottom: 12px; 
-      font-weight: 800; 
-    }
-    
-    .stat-item p { 
-      color: #666; 
-      font-size: 1rem; 
-      font-weight: 500; 
+    .certifications-min {
+      padding: 80px 20px;
+      text-align: center;
+      background: #fff;
     }
 
-    /* ==============================
-       CTA DE REFUERZO
-       ============================== */
+    .certifications-min h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .cert-subtitle {
+      font-size: 16px;
+      opacity: 0.7;
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+
+    .cert-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto 32px;
+      max-width: 420px;
+    }
+
+    .cert-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      font-size: 16px;
+    }
+
+    .cert-icon { 
+      font-size: 14px; 
+      opacity: 0.6; 
+    }
+
+    .cert-link {
+      font-size: 14px;
+      opacity: 0.7;
+      text-decoration: none;
+      color: var(--dark-color);
+      transition: all 0.3s ease;
+    }
+
+    .cert-link:hover {
+      opacity: 1;
+      color: var(--primary-color);
+    }
+
     .reinforcement-cta {
       padding: 80px 40px;
       text-align: center;
@@ -996,9 +764,7 @@
       font-weight: 600;
       text-decoration: none;
       transition: all var(--transition-fast);
-      box-shadow: 
-        0 15px 35px rgba(255, 107, 53, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
       border: none;
       cursor: pointer;
       display: inline-flex;
@@ -1008,63 +774,26 @@
       overflow: hidden;
     }
 
+    .btn-reinforcement::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.6s ease;
+    }
+
     .btn-reinforcement:hover {
       transform: translateY(-5px) scale(1.05);
-      box-shadow: 
-        0 20px 40px rgba(255, 107, 53, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    }
-    
-    .certifications-min {
-      padding: 80px 20px;
-      text-align: center;
+      box-shadow: 0 20px 40px rgba(255, 107, 53, 0.6);
     }
 
-    .certifications-min h2 {
-      font-size: 32px;
-      margin-bottom: 12px;
+    .btn-reinforcement:hover::before {
+      left: 100%;
     }
 
-    .cert-subtitle {
-      font-size: 16px;
-      opacity: 0.7;
-      max-width: 520px;
-      margin: 0 auto 40px;
-    }
-
-    .cert-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto 32px;
-      max-width: 420px;
-    }
-
-    .cert-list li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 0;
-      font-size: 16px;
-    }
-
-    .cert-icon {
-      font-size: 14px;
-      opacity: 0.6;
-    }
-
-    .cert-link {
-      font-size: 14px;
-      opacity: 0.7;
-      text-decoration: none;
-    }
-
-    .cert-link:hover {
-      opacity: 1;
-    }
-
-    /* ==============================
-       SECCIÓN "CÓMO TRABAJO"
-       ============================== */
     .how-i-work {
       padding: 100px 40px;
       background: linear-gradient(135deg, #ffffff, #fafafa);
@@ -1139,53 +868,14 @@
       line-height: 1.6;
     }
 
-    /* ==============================
-       MICROCOPY DE SEGURIDAD
-       ============================== */
-    .security-microcopy {
-      text-align: center;
-      padding: 20px;
-      color: var(--gray-medium);
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .security-microcopy i {
-      color: var(--primary-color);
-    }
-
-    /* ==============================
-       CASOS DE ESTUDIO - Mejorados
-       ============================== */
     .cases-section {
       padding: 140px 40px;
       background: var(--light-color);
-      position: relative;
-    }
-
-    .cases-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 10% 20%, rgba(255, 107, 53, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 90% 80%, rgba(102, 126, 234, 0.03) 0%, transparent 50%);
-      pointer-events: none;
     }
 
     .cases-container {
       max-width: 1400px;
       margin: 0 auto;
-      position: relative;
-      z-index: 1;
     }
 
     .cases-header {
@@ -1198,11 +888,6 @@
       color: var(--dark-color);
       margin-bottom: 25px;
       font-weight: 800;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, var(--dark-color), var(--gray-medium));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
     }
 
     .cases-header p {
@@ -1210,26 +895,14 @@
       color: var(--gray-medium);
       max-width: 700px;
       margin: 0 auto;
-      line-height: 1.7;
     }
 
-    /* Anclas para navegación entre casos */
     .case-anchors {
-      position: sticky;
-      top: 100px;
       display: flex;
       justify-content: center;
       gap: 20px;
       margin-bottom: 60px;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 20px;
-      border-radius: 50px;
-      box-shadow: var(--shadow-sm);
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      flex-wrap: wrap;
     }
 
     .case-anchor {
@@ -1241,7 +914,6 @@
       font-weight: 600;
       font-size: 0.95rem;
       transition: all var(--transition-fast);
-      border: 2px solid transparent;
     }
 
     .case-anchor:hover,
@@ -1252,30 +924,12 @@
       box-shadow: var(--shadow-md);
     }
 
-    /* Caso individual mejorado */
     .case-study {
       margin-bottom: 160px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 100px;
       align-items: center;
-      scroll-margin-top: 150px;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s var(--transition-smooth);
-    }
-
-    .case-study.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .case-study:nth-child(even) .case-content {
-      order: 2;
-    }
-
-    .case-study:nth-child(even) .case-visual {
-      order: 1;
     }
 
     .case-content {
@@ -1290,7 +944,6 @@
       border-radius: 50px;
       font-size: 0.9rem;
       font-weight: 700;
-      letter-spacing: 0.8px;
       margin-bottom: 30px;
       text-transform: uppercase;
       box-shadow: var(--shadow-sm);
@@ -1300,13 +953,11 @@
       font-size: 3.2rem;
       color: var(--dark-color);
       margin-bottom: 35px;
-      line-height: 1.1;
       font-weight: 800;
-      letter-spacing: -0.02em;
     }
 
     .case-problem {
-      background: linear-gradient(135deg, #f8f9fa, #ffffff);
+      background: #f8f9fa;
       padding: 32px;
       border-radius: 20px;
       margin-bottom: 35px;
@@ -1324,20 +975,11 @@
       color: var(--primary-color);
       margin-bottom: 15px;
       font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .case-problem h4::before {
-      content: '⚠️';
-      font-size: 1.1rem;
     }
 
     .case-problem p {
       color: var(--gray-medium);
       line-height: 1.7;
-      font-size: 1.05rem;
     }
 
     .case-solution {
@@ -1349,20 +991,11 @@
       color: var(--dark-color);
       margin-bottom: 15px;
       font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .case-solution h4::before {
-      content: '🎯';
-      font-size: 1.1rem;
     }
 
     .case-solution p {
       color: var(--gray-medium);
       line-height: 1.7;
-      font-size: 1.05rem;
     }
 
     .case-results {
@@ -1375,23 +1008,10 @@
     .result-item {
       text-align: center;
       padding: 30px 20px;
-      background: linear-gradient(135deg, #ffffff, #f8f9fa);
+      background: #f8f9fa;
       border-radius: 16px;
-      border: 1px solid rgba(0, 0, 0, 0.05);
       box-shadow: var(--shadow-sm);
       transition: all var(--transition-fast);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .result-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     }
 
     .result-item:hover {
@@ -1404,7 +1024,6 @@
       font-weight: 800;
       color: var(--primary-color);
       margin-bottom: 12px;
-      line-height: 1;
       font-family: "Sora", sans-serif;
     }
 
@@ -1438,12 +1057,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-      );
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       transition: left 0.6s ease;
     }
 
@@ -1456,34 +1070,16 @@
       left: 100%;
     }
 
-    .case-cta i {
-      transition: transform var(--transition-fast);
-    }
-
-    .case-cta:hover i {
-      transform: translateX(8px);
-    }
-
-    /* VISUAL DEL CASO - Premium */
     .case-visual {
-      position: relative;
       border-radius: 30px;
       overflow: hidden;
       box-shadow: var(--shadow-lg);
       transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      background: linear-gradient(135deg, #f8f9fa, #ffffff);
-      transform-style: preserve-3d;
-      perspective: 1000px;
     }
 
     .case-visual:hover {
-      transform: 
-        translateY(-15px) 
-        rotateX(5deg) 
-        rotateY(-5deg);
-      box-shadow: 
-        0 50px 100px rgba(0, 0, 0, 0.15),
-        0 0 0 1px rgba(255, 107, 53, 0.1);
+      transform: translateY(-15px);
+      box-shadow: 0 50px 100px rgba(0, 0, 0, 0.15);
     }
 
     .case-image {
@@ -1491,54 +1087,8 @@
       height: 650px;
       object-fit: cover;
       display: block;
-      transition: transform 0.8s ease;
     }
 
-    .case-visual:hover .case-image {
-      transform: scale(1.05);
-    }
-
-    .case-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
-      padding: 50px 40px;
-      color: var(--light-color);
-      transform: translateY(100%);
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .case-visual:hover .case-overlay {
-      transform: translateY(0);
-    }
-
-    .overlay-text {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      color: rgba(255, 255, 255, 0.95);
-      line-height: 1.6;
-    }
-
-    .overlay-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--primary-color);
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: gap var(--transition-fast);
-    }
-
-    .overlay-cta:hover {
-      gap: 20px;
-    }
-
-    /* ==============================
-       FORMULARIO DE CAPTURA PREMIUM
-       ============================== */
     .capture-form {
       background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
       color: var(--light-color);
@@ -1546,9 +1096,7 @@
       border-radius: 40px;
       max-width: 1000px;
       margin: 100px auto;
-      box-shadow: 
-        0 40px 100px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
       position: relative;
       overflow: hidden;
     }
@@ -1599,14 +1147,8 @@
       z-index: 1;
     }
 
-    .form-group {
-      position: relative;
-      margin-bottom: 0;
-    }
-
     .form-field {
       position: relative;
-      height: 70px;
       margin-bottom: 10px;
     }
 
@@ -1614,8 +1156,7 @@
     .form-field select,
     .form-field textarea {
       width: 100%;
-      height: 60px;
-      padding: 20px 20px 10px 20px;
+      padding: 20px;
       background: rgba(255, 255, 255, 0.05);
       border: 2px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
@@ -1624,94 +1165,6 @@
       font-family: "Inter", sans-serif;
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
-      box-sizing: border-box;
-    }
-
-    .form-field label {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 1rem;
-      font-weight: 400;
-      pointer-events: none;
-      transition: all 0.3s ease;
-      transform-origin: left top;
-      z-index: 2;
-      padding: 0;
-      margin: 0;
-      background: transparent;
-    }
-
-    .form-field input:focus,
-    .form-field input:not(:placeholder-shown),
-    .form-field select:focus,
-    .form-field select:not([value=""]),
-    .form-field textarea:focus,
-    .form-field textarea:not(:placeholder-shown) {
-      padding-top: 25px;
-      padding-bottom: 5px;
-    }
-
-    .form-field input:focus + label,
-    .form-field input:not(:placeholder-shown) + label,
-    .form-field select:focus + label,
-    .form-field select:not([value=""]) + label,
-    .form-field textarea:focus + label,
-    .form-field textarea:not(:placeholder-shown) + label {
-      top: 8px;
-      left: 20px;
-      font-size: 0.75rem;
-      color: var(--primary-color);
-      transform: translateY(0);
-      background: transparent;
-      padding: 0;
-    }
-
-    .form-field.textarea-field {
-      height: auto;
-      min-height: 170px;
-    }
-
-    .form-field.textarea-field textarea {
-      height: 150px;
-      min-height: 150px;
-      padding-top: 30px;
-      resize: vertical;
-    }
-
-    .form-field.textarea-field label {
-      top: 25px;
-    }
-
-    .form-field.textarea-field textarea:focus,
-    .form-field.textarea-field textarea:not(:placeholder-shown) {
-      padding-top: 40px;
-      padding-bottom: 15px;
-    }
-
-    .form-field.textarea-field textarea:focus + label,
-    .form-field.textarea-field textarea:not(:placeholder-shown) + label {
-      top: 10px;
-    }
-
-    .form-field select {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 20px center;
-      background-size: 12px;
-      cursor: pointer;
-    }
-
-    .form-field select option {
-      background: #1a1a1a;
-      color: white;
-      padding: 10px;
-    }
-
-    .form-field select option:first-child {
-      color: rgba(255, 255, 255, 0.5);
     }
 
     .form-field input:focus,
@@ -1723,31 +1176,38 @@
       box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
     }
 
-    .form-field input::placeholder,
-    .form-field textarea::placeholder {
-      color: transparent;
-      opacity: 0;
+    .form-field textarea {
+      height: 150px;
+      resize: vertical;
     }
 
-    .form-field input:focus::placeholder,
-    .form-field textarea:focus::placeholder {
-      color: rgba(255, 255, 255, 0.3);
-      opacity: 1;
+    .form-field label {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1rem;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      transform-origin: left top;
     }
 
-    .form-group[style*="grid-column: span 2"] {
-      grid-column: span 2;
-    }
-
-    .form-group[style*="grid-column: span 2"] .form-field {
-      height: auto;
+    .form-field input:focus + label,
+    .form-field input:not(:placeholder-shown) + label,
+    .form-field select:focus + label,
+    .form-field textarea:focus + label,
+    .form-field textarea:not(:placeholder-shown) + label {
+      top: 8px;
+      font-size: 0.75rem;
+      color: var(--primary-color);
+      transform: translateY(0);
     }
 
     .form-submit {
       text-align: center;
+      margin-top: 20px;
       position: relative;
       z-index: 1;
-      margin-top: 20px;
     }
 
     .btn-submit {
@@ -1760,9 +1220,7 @@
       border: none;
       cursor: pointer;
       transition: all var(--transition-fast);
-      box-shadow: 
-        0 15px 35px rgba(255, 107, 53, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
       display: inline-flex;
       align-items: center;
       gap: 15px;
@@ -1777,20 +1235,13 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-      );
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
       transition: left 0.6s ease;
     }
 
     .btn-submit:hover {
       transform: translateY(-5px) scale(1.05);
-      box-shadow: 
-        0 25px 50px rgba(255, 107, 53, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      box-shadow: 0 25px 50px rgba(255, 107, 53, 0.6);
     }
 
     .btn-submit:hover::before {
@@ -1802,60 +1253,27 @@
       margin-top: 30px;
       color: rgba(255, 255, 255, 0.6);
       font-size: 0.9rem;
-      position: relative;
-      z-index: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
     }
 
-    .form-assurance i {
-      color: var(--primary-color);
-    }
-
-    /* ==============================
-       TESTIMONIOS PREMIUM
-       ============================== */
     .testimonials {
       padding: 140px 40px;
       background: linear-gradient(135deg, #fafafa, #ffffff);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .testimonials::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: 
-        radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 70% 70%, rgba(102, 126, 234, 0.05) 0%, transparent 50%);
-      animation: rotate 60s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
     }
 
     .section-title {
       max-width: 1400px;
       margin: 0 auto 80px;
       text-align: center;
-      position: relative;
-      z-index: 1;
     }
 
     .section-title h2 {
       font-size: 3.5rem;
       color: var(--dark-color);
       margin-bottom: 20px;
-      line-height: 1.2;
       background: linear-gradient(135deg, var(--dark-color), var(--gray-medium));
       -webkit-background-clip: text;
       background-clip: text;
@@ -1866,7 +1284,6 @@
       color: var(--gray-medium);
       font-size: 1.2rem;
       max-width: 600px;
-      line-height: 1.7;
       margin: 0 auto;
     }
 
@@ -1876,17 +1293,14 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 40px;
-      position: relative;
-      z-index: 1;
     }
 
     .testimonial-card {
-      background: rgba(255, 255, 255, 0.9);
+      background: white;
       padding: 45px;
       border-radius: 24px;
-      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: var(--shadow-md);
       transition: all var(--transition-smooth);
-      backdrop-filter: blur(10px);
       position: relative;
       overflow: hidden;
     }
@@ -1903,9 +1317,7 @@
 
     .testimonial-card:hover {
       transform: translateY(-15px);
-      box-shadow: 
-        0 30px 80px rgba(0, 0, 0, 0.1),
-        0 0 0 1px rgba(255, 107, 53, 0.1);
+      box-shadow: var(--shadow-lg);
     }
 
     .testimonial-header {
@@ -1924,10 +1336,6 @@
       padding: 3px;
     }
 
-    .testimonial-info {
-      flex: 1;
-    }
-
     .testimonial-author {
       font-weight: 700;
       color: var(--dark-color);
@@ -1938,12 +1346,6 @@
     .testimonial-role {
       color: var(--gray-medium);
       font-size: 0.95rem;
-      margin-bottom: 8px;
-    }
-
-    .company-logo {
-      height: 20px;
-      opacity: 0.7;
     }
 
     .rating {
@@ -2001,9 +1403,6 @@
       font-weight: 500;
     }
 
-    /* ==============================
-       FOOTER PREMIUM
-       ============================== */
     footer {
       padding: 80px 40px 40px;
       background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
@@ -2165,9 +1564,6 @@
       opacity: 0.7;
     }
 
-    /* ==============================
-       CTA FLOTANTE FIXED
-       ============================== */
     .floating-cta {
       position: fixed;
       bottom: 30px;
@@ -2213,12 +1609,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-      );
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
       transition: left 0.6s ease;
     }
 
@@ -2234,117 +1625,96 @@
     }
 
     /* ==============================
-       ANIMACIONES Y EFECTOS
-       ============================== */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-20px);
-      }
-    }
-
-    .animate-fade-in {
-      animation: fadeInUp 0.8s ease forwards;
-    }
-
-    .animate-float {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    /* ==============================
        RESPONSIVE DESIGN
        ============================== */
-    @media (max-width: 1200px) {
-      .hero-main-content h1 {
-        font-size: 3.2rem;
+    @media (max-width: 768px) {
+      .nav-fixed { 
+        padding: 15px 20px; 
       }
       
-      .case-title {
-        font-size: 2.8rem;
+      .nav-menu { 
+        gap: 20px; 
+        flex-wrap: wrap;
+        justify-content: flex-end;
       }
       
-      .cases-header h2 {
-        font-size: 3.2rem;
-      }
-    }
-
-    @media (max-width: 992px) {
-      .glass-card {
-        padding: 40px 30px;
-        min-height: 600px;
+      .nav-link { 
+        font-size: 0.85rem; 
       }
       
-      .hero-main-content h1 {
-        font-size: 2.8rem;
+      .dropdown-menu { 
+        position: fixed; 
+        top: auto; 
+        left: 20px; 
+        right: 20px; 
+        transform: translateY(-10px); 
+        max-width: calc(100vw - 40px); 
       }
       
-      .hero-main-content p {
-        font-size: 1.2rem;
+      .nav-dropdown:hover .dropdown-menu { 
+        transform: translateY(0); 
       }
       
-      .btn-acceder {
-        font-size: 1.6rem;
-        padding: 20px 60px;
+      .nav-separator { 
+        display: none; 
       }
       
-      .nav-links {
-        gap: 20px;
+      .hero-lando { 
+        padding: 80px 20px 40px; 
       }
       
-      .nav-links a {
+      .hero-stats { 
+        gap: 40px; 
+        margin-top: 60px; 
+      }
+      
+      .stat-number { 
+        font-size: 2.5rem; 
+      }
+      
+      .hero-cta-group { 
+        flex-direction: column; 
+        width: 100%; 
+      }
+      
+      .btn-primary-lando, .btn-secondary-lando {
+        width: 100%;
+        justify-content: center;
+        padding: 18px 40px;
         font-size: 1rem;
       }
       
-      .dropdown-menu {
-        min-width: 240px;
-        left: 0;
-        transform: translateX(0) translateY(-10px);
+      .hero-video-bg { 
+        display: none; 
       }
       
-      .nav-dropdown:hover .dropdown-menu {
-        transform: translateX(0) translateY(0);
+      .hero-lando {
+        background: url('background-glass.jpg') center/cover no-repeat !important;
+      }
+      
+      .scroll-indicator { 
+        display: none; 
       }
       
       .case-study {
         grid-template-columns: 1fr;
         gap: 60px;
-        margin-bottom: 120px;
-      }
-      
-      .case-study:nth-child(even) .case-content,
-      .case-study:nth-child(even) .case-visual {
-        order: initial;
-      }
-      
-      .case-title {
-        font-size: 2.4rem;
-      }
-      
-      .case-image {
-        height: 500px;
       }
       
       .case-results {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
       }
       
-      .case-anchors {
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding: 15px;
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-field[style*="grid-column: span 2"] {
+        grid-column: span 1 !important;
       }
       
       .floating-cta {
@@ -2357,101 +1727,42 @@
         height: 55px;
         font-size: 1.3rem;
       }
-      
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .form-group[style*="grid-column: span 2"] {
-        grid-column: span 1 !important;
-      }
     }
 
-    @media (max-width: 768px) {
-      .inner-nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 30px;
+    @media (max-width: 480px) {
+      .logo-lando { 
+        font-size: 1.4rem; 
       }
       
-      .nav-links {
+      .nav-menu { 
+        gap: 15px; 
+        justify-content: center;
         width: 100%;
-        justify-content: space-between;
+        margin-top: 10px;
       }
       
-      .nav-separator {
-        display: none;
+      .nav-link { 
+        font-size: 0.75rem; 
+      }
+      
+      .hero-title-lando {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle-lando {
+        font-size: 1.1rem;
       }
       
       .cases-header h2 {
-        font-size: 2.6rem;
-      }
-      
-      .section-title h2 {
-        font-size: 2.6rem;
+        font-size: 2.5rem;
       }
       
       .case-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       
       .case-image {
         height: 400px;
-      }
-      
-      .case-results {
-        grid-template-columns: 1fr;
-      }
-      
-      .testimonial-card {
-        padding: 30px;
-      }
-      
-      .capture-form {
-        padding: 50px 25px;
-        border-radius: 30px;
-      }
-      
-      .form-header h2 {
-        font-size: 2.4rem;
-      }
-      
-      .trust-badges {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .dropdown-menu {
-        position: fixed;
-        top: auto;
-        left: 20px;
-        right: 20px;
-        transform: translateY(-10px);
-        max-width: calc(100vw - 40px);
-      }
-      
-      .nav-dropdown:hover .dropdown-menu {
-        transform: translateY(0);
-      }
-      
-      .hero-bg-video {
-        display: none;
-      }
-      
-      .hero-container {
-        background: url('background-glass.jpg') center/cover no-repeat;
-      }
-      
-      .hero-overlay {
-        background: rgba(0, 0, 0, 0.5);
-      }
-      
-      body {
-        cursor: auto;
-      }
-      
-      .hero-cursor {
-        display: none !important;
       }
       
       .floating-cta {
@@ -2466,66 +1777,7 @@
       }
     }
 
-    @media (max-width: 480px) {
-      .hero-main-content h1 {
-        font-size: 2.2rem;
-      }
-      
-      .hero-main-content p {
-        font-size: 1.1rem;
-      }
-      
-      .btn-acceder {
-        font-size: 1.3rem;
-        padding: 18px 40px;
-      }
-      
-      .glass-card {
-        padding: 30px 20px;
-      }
-      
-      .inner-nav {
-        flex-direction: column;
-        gap: 30px;
-      }
-      
-      .nav-links {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-      }
-      
-      .cases-section,
-      .testimonials,
-      .capture-form {
-        padding: 80px 20px;
-      }
-      
-      .inner-logo {
-        font-size: 1.8rem;
-      }
-      
-      .floating-cta {
-        bottom: 10px;
-        right: 10px;
-      }
-      
-      .floating-cta-btn {
-        width: 45px;
-        height: 45px;
-        font-size: 1.1rem;
-      }
-    }
-
-    img[loading="lazy"] {
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    img[loading="lazy"].loaded {
-      opacity: 1;
-    }
-
+    /* Scrollbar personalizada */
     ::-webkit-scrollbar {
       width: 10px;
     }
@@ -2547,105 +1799,122 @@
 </head>
 <body>
 
-  <!-- Cursor personalizado para efecto premium -->
-  <div class="hero-cursor" id="heroCursor"></div>
-
-  <!-- CTA Flotante para Mobile -->
+  <!-- CTA Flotante -->
   <div class="floating-cta">
-    <button class="floating-cta-btn" onclick="openCalendly()" aria-label="Agendar reunión">
+    <button class="floating-cta-btn" onclick="window.location.href='#contacto'" aria-label="Contactar">
       <i class="fas fa-calendar-alt"></i>
     </button>
   </div>
 
-   <!-- Sección Hero con VIDEO DE FONDO y efecto hover -->
-  <section class="hero-container" id="inicio">
-    <video class="hero-bg-video" autoplay muted loop playsinline>
+  <!-- Navegación Estilo Lando Norris con Dropdown -->
+  <nav class="nav-fixed" id="navbar">
+    <a href="index.html" class="logo-lando">
+      <span class="logo-neo">Neo</span>
+      <span class="logo-prod">Prod</span>
+      <span class="logo-ux">Ux</span>
+    </a>
+    
+    <div class="nav-menu">
+      <div class="nav-dropdown">
+        <button class="dropdown-trigger">
+          Servicios
+        </button>
+        <div class="dropdown-menu">
+          <a href="ui-ux-design.html">
+            <i class="fas fa-pencil-ruler"></i>
+            Diseño UI-UX
+          </a>
+          <a href="mobile-app-design.html">
+            <i class="fas fa-mobile-alt"></i>
+            Diseño de aplicaciones móviles
+          </a>
+          <a href="website-design.html">
+            <i class="fas fa-laptop-code"></i>
+            Diseño de sitios web
+          </a>
+          <a href="figma-to-wordpress.html">
+            <i class="fab fa-wordpress"></i>
+            Figma a WordPress
+          </a>
+          <a href="figma-to-html.html">
+            <i class="fas fa-code"></i>
+            Figma a HTML
+          </a>
+          <a href="figma-to-webflow.html">
+            <i class="fas fa-wave-square"></i>
+            Figma a Webflow
+          </a>
+          <a href="ejemplos-amazon.html">
+            <i class="fab fa-amazon"></i>
+            Ejemplos Amazon
+          </a>
+        </div>
+      </div>
+      
+      <span class="nav-separator">|</span>
+      <a href="#casos" class="nav-link">Casos</a>
+      <span class="nav-separator">|</span>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <span class="nav-separator">|</span>
+      <a href="#contacto" class="nav-link">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- Hero Estilo Lando Norris -->
+  <section class="hero-lando" id="inicio">
+    <video class="hero-video-bg" autoplay muted loop playsinline id="heroVideo">
       <source src="cintas.mp4" type="video/mp4">
       <img src="background-glass.jpg" alt="Fondo NeoProdUx">
     </video>
     
-    <div class="hero-overlay"></div>
+    <div class="hero-overlay-lando"></div>
     
-    <div class="glass-card">
-      <!-- Tu contenido existente aquí -->
-      <nav class="inner-nav">
-        <a href="index.html" class="inner-logo">
-          <span class="logo-neo">Neo</span>
-          <span class="logo-prod">Prod</span>
-          <span class="logo-ux">Ux</span>
-        </a>
-        <div class="nav-links">
-          <div class="nav-dropdown">
-            <button class="dropdown-trigger">
-              Servicios
-            </button>
-            <div class="dropdown-menu">
-              <a href="ui-ux-design.html">
-                <i class="fas fa-pencil-ruler"></i>
-                Diseño UI-UX
-              </a>
-              <a href="mobile-app-design.html">
-                <i class="fas fa-mobile-alt"></i>
-                Diseño de aplicaciones móviles
-              </a>
-              <a href="website-design.html">
-                <i class="fas fa-laptop-code"></i>
-                Diseño de sitios web
-              </a>
-              <a href="figma-to-wordpress.html">
-                <i class="fab fa-wordpress"></i>
-                Figma a WordPress
-              </a>
-              <a href="figma-to-html.html">
-                <i class="fas fa-code"></i>
-                Figma a HTML
-              </a>
-              <a href="figma-to-webflow.html">
-                <i class="fas fa-wave-square"></i>
-                Figma a Webflow
-              </a>
-              <a href="ejemplos-amazon.html">
-                <i class="fab fa-amazon"></i>
-                Ejemplos Amazon
-              </a>
-            </div>
-          </div>
-          
-          <span class="nav-separator">|</span>
-          <a href="#casos">Casos</a>
-          <span class="nav-separator">|</span>
-          <a href="blog.html">Blog</a>
-          <span class="nav-separator">|</span>
-          <a href="#contacto">Contacto</a>
-        </div>
-      </nav>
-
-      <div class="hero-main-content">
-        <h1>Diseño UX/UI que convierte visitas en clientes</h1>
-        <p>Transformamos startups y negocios digitales con diseño basado en datos, aumentando conversión, claridad y experiencia de usuario.</p>
-        
-        <a href="#contacto" class="btn-acceder">
-          Solicitar auditoría UX
+    <div class="hero-content-lando">
+      <span class="hero-label">UX/UI Design Agency</span>
+      
+      <h1 class="hero-title-lando">
+        Diseño que
+        <span class="hero-title-accent">Convierte</span>
+      </h1>
+      
+      <p class="hero-subtitle-lando">
+        Transformamos startups y negocios digitales con diseño basado en datos, 
+        aumentando conversión, claridad y experiencia de usuario.
+      </p>
+      
+      <div class="hero-cta-group">
+        <a href="#contacto" class="btn-primary-lando">
+          Solicitar Auditoría UX
           <i class="fas fa-arrow-right"></i>
         </a>
+        <a href="#casos" class="btn-secondary-lando">
+          Ver Casos de Éxito
+          <i class="fas fa-play"></i>
+        </a>
+      </div>
 
-        <div class="trust-badges">
-          <div class="trust-badge">
-            <i class="fas fa-shield-alt"></i>
-            <span>100% Garantía de Satisfacción</span>
-          </div>
-          <div class="trust-badge">
-            <i class="fas fa-clock"></i>
-            <span>Entrega en 2-4 semanas</span>
-          </div>
-          <div class="trust-badge">
-            <i class="fas fa-chart-line"></i>
-            <span>+35% Conversión Promedio</span>
-          </div>
+      <div class="hero-stats">
+        <div class="stat-item-lando">
+          <span class="stat-number">30+</span>
+          <span class="stat-label">Proyectos</span>
+        </div>
+        <div class="stat-item-lando">
+          <span class="stat-number">+35%</div>
+          <span class="stat-label">Conversión</span>
+        </div>
+        <div class="stat-item-lando">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Satisfacción</span>
         </div>
       </div>
     </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
   </section>
+
   <!-- BANDA DE CONFIANZA INMEDIATA -->
   <div class="trust-band">
     <div class="trust-item">
@@ -2675,15 +1944,27 @@
       — <strong>María Rodríguez</strong>, Product Lead en E-commerce
     </div>
   </div>
-  
-  <!-- Navegación por anclas -->
-  <div class="case-anchors">
-    <a href="#caso-paseo" class="case-anchor active">PASEO FinTech</a>
-    <a href="#caso-nexus" class="case-anchor">Nexus Logistics</a>
-    <a href="#caso-caroyense" class="case-anchor">La Caroyense</a>
-    <a href="#caso-yale" class="case-anchor">Yale School</a>
-  </div>
-  
+
+  <!-- Sección de Clientes -->
+  <section class="clients-section">
+    <div class="clients-title">CONFÍAN EN NEOPRODUX</div>
+    <div class="marquee-wrapper">
+      <div class="marquee">
+        <span class="marquee-item"><i class="fab fa-github"></i> GitHub</span>
+        <span class="marquee-item"><i class="fab fa-linkedin"></i> LinkedIn</span>
+        <span class="marquee-item"><i class="fas fa-palette"></i> Design Community</span>
+        <span class="marquee-item"><i class="fas fa-microchip"></i> Tech Industry</span>
+        <span class="marquee-item"><i class="fas fa-globe"></i> Global Portfolio</span>
+        <span class="marquee-item"><i class="fab fa-github"></i> GitHub</span>
+        <span class="marquee-item"><i class="fab fa-linkedin"></i> LinkedIn</span>
+        <span class="marquee-item"><i class="fas fa-palette"></i> Design Community</span>
+        <span class="marquee-item"><i class="fas fa-microchip"></i> Tech Industry</span>
+        <span class="marquee-item"><i class="fas fa-globe"></i> Global Portfolio</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificaciones -->
   <section id="certificaciones" class="certifications-min">
     <div class="container">
       <h2>Certificaciones</h2>
@@ -2710,30 +1991,29 @@
         </li>
       </ul>
 
-      <a
-        href="https://www.credly.com/users/david-sebastian-diaz"
-        target="_blank"
-        class="cert-link"
-      >
+      <a href="https://www.credly.com/users/david-sebastian-diaz" target="_blank" class="cert-link">
         Ver credenciales verificadas en Credly →
       </a>
     </div>
   </section>
 
-  <section class="clients-section">
-    <div class="clients-title">CONFÍAN EN NEOPRODUX</div>
-    <div class="marquee-wrapper">
-      <div class="marquee">
-        <span class="marquee-item"><i class="fab fa-github"></i> GitHub</span>
-        <span class="marquee-item"><i class="fab fa-linkedin"></i> LinkedIn</span>
-        <span class="marquee-item"><i class="fas fa-palette"></i> Design Community</span>
-        <span class="marquee-item"><i class="fas fa-microchip"></i> Tech Industry</span>
-        <span class="marquee-item"><i class="fas fa-globe"></i> Global Portfolio</span>
-        <span class="marquee-item"><i class="fab fa-github"></i> GitHub</span>
-        <span class="marquee-item"><i class="fab fa-linkedin"></i> LinkedIn</span>
-        <span class="marquee-item"><i class="fas fa-palette"></i> Design Community</span>
-        <span class="marquee-item"><i class="fas fa-microchip"></i> Tech Industry</span>
-        <span class="marquee-item"><i class="fas fa-globe"></i> Global Portfolio</span>
+  <!-- SECCIÓN "CÓMO TRABAJO" -->
+  <section class="how-i-work">
+    <div class="how-i-work-container">
+      <h2 class="how-i-work-title">Cómo trabajo</h2>
+      <div class="work-steps">
+        <div class="work-step">
+          <h3 class="step-title">1. Análisis UX + datos</h3>
+          <p class="step-description">Evaluación detallada de métricas, comportamiento de usuarios y puntos de fricción para identificar oportunidades de mejora.</p>
+        </div>
+        <div class="work-step">
+          <h3 class="step-title">2. Diseño y validación</h3>
+          <p class="step-description">Creación de prototipos interactivos, testing con usuarios reales y refinamiento iterativo basado en feedback.</p>
+        </div>
+        <div class="work-step">
+          <h3 class="step-title">3. Mejora medible</h3>
+          <p class="step-description">Implementación del diseño optimizado con seguimiento de métricas clave para garantizar resultados tangibles.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -2746,8 +2026,15 @@
         <p>Proyectos seleccionados donde el diseño transformó resultados de negocio de forma medible</p>
       </div>
 
+      <div class="case-anchors">
+        <a href="#caso-paseo" class="case-anchor active">PASEO FinTech</a>
+        <a href="#caso-nexus" class="case-anchor">Nexus Logistics</a>
+        <a href="#caso-caroyense" class="case-anchor">La Caroyense</a>
+        <a href="#caso-yale" class="case-anchor">Yale School</a>
+      </div>
+
       <!-- Caso 1 -->
-      <div id="caso-paseo" class="case-study animate-fade-in">
+      <div id="caso-paseo" class="case-study">
         <div class="case-content">
           <span class="case-category">FinTech · Mobile App</span>
           <h2 class="case-title">PASEO – UX Case Study</h2>
@@ -2796,18 +2083,11 @@
             class="case-image"
             loading="lazy"
           >
-          <div class="case-overlay">
-            <p class="overlay-text">Sistema de pagos que procesa +$5M mensuales tras rediseño UX/UI</p>
-            <a href="https://dsd228.github.io/dsd228-paseo-ux-case-study/" class="overlay-cta" target="_blank">
-              Ver proceso de diseño
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
         </div>
       </div>
 
       <!-- Caso 2 -->
-      <div id="caso-nexus" class="case-study animate-fade-in">
+      <div id="caso-nexus" class="case-study">
         <div class="case-content">
           <span class="case-category">Logística · SaaS B2B</span>
           <h2 class="case-title">Nexus Logistics</h2>
@@ -2856,18 +2136,11 @@
             class="case-image"
             loading="lazy"
           >
-          <div class="case-overlay">
-            <p class="overlay-text">Plataforma SaaS que redujo el tiempo de capacitación operativa</p>
-            <a href="https://github.com/dsd228/nexus-logistics-ui" target="_blank" class="overlay-cta">
-              Ver proceso de diseño
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
         </div>
       </div>
 
       <!-- Caso 3 -->
-      <div id="caso-caroyense" class="case-study animate-fade-in">
+      <div id="caso-caroyense" class="case-study">
         <div class="case-content">
           <span class="case-category">E-Commerce · Mobile First</span>
           <h2 class="case-title">La Caroyense</h2>
@@ -2916,18 +2189,11 @@
             class="case-image"
             loading="lazy"
           >
-          <div class="case-overlay">
-            <p class="overlay-text">Rediseño enfocado en conversión y experiencia mobile</p>
-            <a href="https://github.com/dsd228/la-caroyense-ux-ui-redesign" target="_blank" class="overlay-cta">
-              Ver proceso de diseño
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
         </div>
       </div>
 
       <!-- Caso 4 -->
-      <div id="caso-yale" class="case-study animate-fade-in">
+      <div id="caso-yale" class="case-study">
         <div class="case-content">
           <span class="case-category">Education · UX Redesign</span>
           <h2 class="case-title">Yale School of Art</h2>
@@ -2976,13 +2242,6 @@
             class="case-image"
             loading="lazy"
           >
-          <div class="case-overlay">
-            <p class="overlay-text">Rediseño UX de un sitio académico complejo</p>
-            <a href="https://github.com/dsd228/yale-school-art-redesign" target="_blank" class="overlay-cta">
-              Ver proceso de diseño
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -3000,58 +2259,30 @@
     </div>
   </div>
 
-  <!-- SECCIÓN "CÓMO TRABAJO" -->
-  <section class="how-i-work">
-    <div class="how-i-work-container">
-      <h2 class="how-i-work-title">Cómo trabajo</h2>
-      <div class="work-steps">
-        <div class="work-step">
-          <h3 class="step-title">1. Análisis UX + datos</h3>
-          <p class="step-description">Evaluación detallada de métricas, comportamiento de usuarios y puntos de fricción para identificar oportunidades de mejora.</p>
-        </div>
-        <div class="work-step">
-          <h3 class="step-title">2. Diseño y validación</h3>
-          <p class="step-description">Creación de prototipos interactivos, testing con usuarios reales y refinamiento iterativo basado en feedback.</p>
-        </div>
-        <div class="work-step">
-          <h3 class="step-title">3. Mejora medible</h3>
-          <p class="step-description">Implementación del diseño optimizado con seguimiento de métricas clave para garantizar resultados tangibles.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Formulario de Captura Premium -->
-<section id="contacto">
-  <form class="capture-form" id="leadForm">
-    <div class="form-header">
-      <h2>Hablemos de tu proyecto</h2>
-      <p>Cuéntanos sobre tu negocio y te enviaremos una propuesta personalizada en 24 horas</p>
-    </div>
-    
-    <div class="form-grid">
-      <div class="form-group">
+  <section id="contacto">
+    <form class="capture-form" id="leadForm">
+      <div class="form-header">
+        <h2>Hablemos de tu proyecto</h2>
+        <p>Cuéntanos sobre tu negocio y te enviaremos una propuesta personalizada en 24 horas</p>
+      </div>
+      
+      <div class="form-grid">
         <div class="form-field">
           <input type="text" id="name" name="name" required>
           <label for="name">Nombre completo</label>
         </div>
-      </div>
-      
-      <div class="form-group">
+        
         <div class="form-field">
           <input type="email" id="email" name="email" required>
           <label for="email">Email profesional</label>
         </div>
-      </div>
-      
-      <div class="form-group">
+        
         <div class="form-field">
           <input type="text" id="company" name="company" required>
           <label for="company">Empresa / Proyecto</label>
         </div>
-      </div>
-      
-      <div class="form-group">
+        
         <div class="form-field">
           <select id="project-type" name="project-type" required>
             <option value="" disabled selected></option>
@@ -3064,32 +2295,25 @@
           </select>
           <label for="project-type">Tipo de proyecto</label>
         </div>
-      </div>
-      
-      <div class="form-group" style="grid-column: span 2;">
-        <div class="form-field textarea-field">
+        
+        <div class="form-field" style="grid-column: span 2;">
           <textarea id="message" name="message" required></textarea>
           <label for="message">¿Qué desafío quieres resolver?</label>
         </div>
       </div>
-    </div>
-    
-    <div class="form-submit">
-      <button type="submit" class="btn-submit">
-        <span>Enviar solicitud</span>
-        <i class="fas fa-paper-plane"></i>
-      </button>
-      <div class="security-microcopy">
-        <i class="fas fa-shield-alt"></i>
-        <span>Sin spam. Respuesta garantizada en 24–48 horas hábiles.</span>
+      
+      <div class="form-submit">
+        <button type="submit" class="btn-submit">
+          <span>Enviar solicitud</span>
+          <i class="fas fa-paper-plane"></i>
+        </button>
+        <div class="form-assurance">
+          <i class="fas fa-lock"></i>
+          <span>Tu información está segura. No compartimos datos con terceros.</span>
+        </div>
       </div>
-      <div class="form-assurance">
-        <i class="fas fa-lock"></i>
-        <span>Tu información está segura. No compartimos datos con terceros.</span>
-      </div>
-    </div>
-  </form>
-</section>
+    </form>
+  </section>
 
   <!-- Sección de Testimonios Premium -->
   <section class="testimonials" id="testimonios">
@@ -3108,10 +2332,6 @@
           <div class="testimonial-info">
             <p class="testimonial-author">Alex Chen</p>
             <p class="testimonial-role">CEO & Founder</p>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" 
-                 alt="Google" 
-                 class="company-logo"
-                 loading="lazy">
           </div>
         </div>
         
@@ -3152,10 +2372,6 @@
           <div class="testimonial-info">
             <p class="testimonial-author">Maria Rodriguez</p>
             <p class="testimonial-role">Product Lead</p>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" 
-                 alt="Amazon" 
-                 class="company-logo"
-                 loading="lazy">
           </div>
         </div>
         
@@ -3196,10 +2412,6 @@
           <div class="testimonial-info">
             <p class="testimonial-author">James Wilson</p>
             <p class="testimonial-role">CEO E-commerce</p>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Shopify_logo_2018.svg" 
-                 alt="Shopify" 
-                 class="company-logo"
-                 loading="lazy">
           </div>
         </div>
         
@@ -3355,29 +2567,17 @@
   <!-- JavaScript -->
   <script>
     // ========================================
-    // CURSOR PERSONALIZADO PARA EFECTO PREMIUM
+    // NAVEGACIÓN SCROLL
     // ========================================
-    const heroCursor = document.getElementById('heroCursor');
-    const heroContainer = document.querySelector('.hero-container');
+    const navbar = document.getElementById('navbar');
     
-    // Solo activar cursor personalizado en desktop
-    if (window.innerWidth > 768) {
-      heroCursor.style.display = 'block';
-      
-      document.addEventListener('mousemove', (e) => {
-        heroCursor.style.left = e.clientX + 'px';
-        heroCursor.style.top = e.clientY + 'px';
-      });
-      
-      // Activar/desactivar cursor al entrar/salir del hero
-      heroContainer.addEventListener('mouseenter', () => {
-        heroCursor.classList.add('active');
-      });
-      
-      heroContainer.addEventListener('mouseleave', () => {
-        heroCursor.classList.remove('active');
-      });
-    }
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+      }
+    });
 
     // ========================================
     // CTA FLOTANTE
@@ -3407,42 +2607,14 @@
         }
       }
       
-      initFloatingLabels();
+      initFormLabels();
       animateOnScroll();
     });
 
     // ========================================
-    // OPTIMIZACIONES DE PERFORMANCE
+    // FORMULARIO
     // ========================================
-    document.addEventListener('DOMContentLoaded', function() {
-      const images = document.querySelectorAll('img[loading="lazy"]');
-      
-      if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const img = entry.target;
-              img.classList.add('loaded');
-              observer.unobserve(img);
-            }
-          });
-        }, {
-          rootMargin: '50px 0px',
-          threshold: 0.1
-        });
-        
-        images.forEach(img => imageObserver.observe(img));
-      } else {
-        images.forEach(img => {
-          img.classList.add('loaded');
-        });
-      }
-    });
-
-    // ========================================
-    // FORMULARIO FLOATING LABELS
-    // ========================================
-    function initFloatingLabels() {
+    function initFormLabels() {
       const textareas = document.querySelectorAll('textarea');
       const inputs = document.querySelectorAll('input');
       const selects = document.querySelectorAll('select');
@@ -3491,7 +2663,7 @@
     }
 
     // ========================================
-    // NAVEGACIÓN Y SCROLL SMOOTH
+    // NAVEGACIÓN SMOOTH
     // ========================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -3505,36 +2677,23 @@
               behavior: 'smooth'
             });
             
-            document.querySelectorAll('.case-anchor').forEach(a => {
-              a.classList.remove('active');
-            });
-            this.classList.add('active');
+            // Actualizar anclas activas
+            if (href.startsWith('#caso-')) {
+              document.querySelectorAll('.case-anchor').forEach(a => {
+                a.classList.remove('active');
+              });
+              this.classList.add('active');
+            }
           }
         }
       });
     });
 
-    const caseSections = document.querySelectorAll('.case-study');
-    const caseAnchors = document.querySelectorAll('.case-anchor');
-    
-    function updateActiveCase() {
-      const scrollPos = window.scrollY + 150;
-      
-      caseSections.forEach((section, index) => {
-        const sectionTop = section.offsetTop;
-        const sectionBottom = sectionTop + section.offsetHeight;
-        
-        if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
-          caseAnchors.forEach(anchor => anchor.classList.remove('active'));
-          if (caseAnchors[index]) {
-            caseAnchors[index].classList.add('active');
-          }
-        }
-      });
-    }
-    
+    // ========================================
+    // ANIMACIONES AL SCROLL
+    // ========================================
     const animateOnScroll = () => {
-      const elements = document.querySelectorAll('.animate-fade-in');
+      const elements = document.querySelectorAll('.case-study');
       
       elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
@@ -3546,32 +2705,38 @@
       });
     };
 
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+
     // ========================================
     // FORMULARIO DE CONTACTO
     // ========================================
-    function submitForm(event) {
-      event.preventDefault();
-      
-      const form = document.getElementById('leadForm');
-      const submitBtn = form.querySelector('.btn-submit');
-      const originalText = submitBtn.innerHTML;
-      
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-      submitBtn.disabled = true;
-      
-      setTimeout(() => {
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
-        submitBtn.style.background = 'linear-gradient(135deg, #10B981, #059669)';
+    const leadForm = document.getElementById('leadForm');
+    
+    if (leadForm) {
+      leadForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const submitBtn = this.querySelector('.btn-submit');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        submitBtn.disabled = true;
         
         setTimeout(() => {
-          form.reset();
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-          submitBtn.style.background = 'linear-gradient(135deg, #FF6B35, #FF8E53)';
+          submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
+          submitBtn.style.background = 'linear-gradient(135deg, #10B981, #059669)';
           
-          showThankYouModal();
-        }, 3000);
-      }, 1500);
+          setTimeout(() => {
+            this.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            submitBtn.style.background = 'linear-gradient(135deg, #FF6B35, #FF8E53)';
+            
+            showThankYouModal();
+          }, 2000);
+        }, 1500);
+      });
     }
     
     function showThankYouModal() {
@@ -3641,25 +2806,9 @@
     }
 
     // ========================================
-    // EVENT LISTENERS GLOBALES
-    // ========================================
-    window.addEventListener('scroll', () => {
-      updateActiveCase();
-      animateOnScroll();
-    });
-    
-    window.addEventListener('load', () => {
-      animateOnScroll();
-      
-      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-        img.classList.add('loaded');
-      });
-    });
-
-    // ========================================
     // EFECTO RIPPLE EN BOTONES
     // ========================================
-    document.querySelectorAll('.btn-acceder, .case-cta, .btn-submit').forEach(button => {
+    document.querySelectorAll('.btn-primary-lando, .btn-secondary-lando, .case-cta, .btn-submit, .btn-reinforcement').forEach(button => {
       button.addEventListener('click', function(e) {
         const ripple = document.createElement('span');
         const rect = this.getBoundingClientRect();
@@ -3696,11 +2845,22 @@
           opacity: 0;
         }
       }
+      
+      .case-study {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .case-study.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     `;
     document.head.appendChild(style);
 
     // ========================================
-    // PRELOADER (OPCIONAL)
+    // PRELOADER
     // ========================================
     window.addEventListener('load', () => {
       const preloader = document.createElement('div');
@@ -3742,36 +2902,13 @@
           preloader.remove();
         }, 500);
       }, 1000);
-    });
-
-    // ========================================
-    // FORM FIELDS
-    // ========================================
-    document.addEventListener('DOMContentLoaded', function() {
-      const fields = document.querySelectorAll('.form-field input, .form-field select, .form-field textarea');
       
-      fields.forEach(field => {
-        if (field.value) {
-          field.parentElement.classList.add('has-value');
-        }
-        
-        field.addEventListener('input', function() {
-          if (this.value) {
-            this.parentElement.classList.add('has-value');
-          } else {
-            this.parentElement.classList.remove('has-value');
-          }
-        });
-        
-        field.addEventListener('focus', function() {
-          this.parentElement.classList.add('focused');
-        });
-        
-        field.addEventListener('blur', function() {
-          this.parentElement.classList.remove('focused');
-        });
+      // Cargar imágenes lazy
+      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        img.classList.add('loaded');
       });
     });
+
   </script>
 
 </body>
