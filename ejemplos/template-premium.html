@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premium Pro - The ultimate in performance and design. Discover powerful features built for creative professionals.">
-    <title>Premium Pro | Professional Computing</title>
+    <meta name="description" content="Aura Pro - The pinnacle of design and performance. For those who demand excellence.">
+    <title>Aura Pro | Where Design Meets Performance</title>
     <style>
         * {
             margin: 0;
@@ -13,328 +13,320 @@
         }
 
         html, body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background: #fff;
-            color: #1d1d1d;
-            line-height: 1.5;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #000000;
+            color: #f5f5f7;
+            line-height: 1.4;
+            overflow-x: hidden;
         }
 
-        /* Navigation */
+        ::selection {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        /* Navigation - Ultra Minimal */
         header {
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid #d5d5d7;
-            padding: 0;
+            padding: 24px 40px;
+            mix-blend-mode: difference;
+            pointer-events: none;
         }
 
-        nav {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 24px;
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 52px;
+            pointer-events: auto;
         }
 
         .logo {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1d1d1d;
+            font-size: 18px;
+            font-weight: 400;
+            color: #f5f5f7;
             text-decoration: none;
-            letter-spacing: -0.5px;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
         }
 
-        .nav-links {
+        .logo:hover {
+            opacity: 1;
+        }
+
+        .nav-menu {
             display: flex;
+            gap: 40px;
             list-style: none;
-            gap: 32px;
-            flex: 1;
-            justify-content: center;
         }
 
-        .nav-links a {
+        .nav-menu a {
+            color: #f5f5f7;
             text-decoration: none;
-            color: #1d1d1d;
             font-size: 12px;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.6;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .nav-back {
-            background: transparent;
-            color: #1d1d1d;
-            border: 1px solid #d5d5d7;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 12px;
-            transition: all 0.3s;
-            text-decoration: none;
-            font-family: inherit;
-        }
-
-        .nav-back:hover {
-            background: #f5f5f7;
-            border-color: #1d1d1d;
-        }
-
-        .nav-cta {
-            background: #111;
-            color: white;
-            border: none;
-            padding: 8px 18px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 12px;
-            transition: background 0.3s;
-            font-family: inherit;
-        }
-
-        .nav-cta:hover {
-            background: #333;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            font-weight: 400;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
             position: relative;
+        }
+
+        .nav-menu a:hover {
+            opacity: 1;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #f5f5f7;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section - Cinematic */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            filter: grayscale(100%) contrast(110%);
         }
 
         .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
-            padding: 40px 20px;
-            max-width: 980px;
-            margin: 0 auto;
-            z-index: 10;
+            padding: 0 20px;
+            max-width: 1200px;
         }
 
         .hero-label {
-            font-size: 13px;
-            font-weight: 500;
-            color: #555;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            color: rgba(245, 245, 247, 0.6);
+            margin-bottom: 30px;
+            text-transform: uppercase;
         }
 
         .hero-title {
-            font-size: 64px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            letter-spacing: -1px;
+            font-size: 96px;
+            font-weight: 300;
+            letter-spacing: -2px;
+            line-height: 0.9;
+            margin-bottom: 40px;
+            background: linear-gradient(to right, #f5f5f7, rgba(245, 245, 247, 0.7));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-subtitle {
-            font-size: 21px;
-            font-weight: 400;
-            color: #555;
-            margin-bottom: 40px;
-            line-height: 1.4;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 80px;
-        }
-
-        .btn {
-            padding: 11px 28px;
-            border-radius: 6px;
-            border: none;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 13px;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            font-family: inherit;
-        }
-
-        .btn-primary {
-            background: #111;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #333;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #111;
-            border: 1px solid #111;
-        }
-
-        .btn-secondary:hover {
-            background: #f5f5f7;
-        }
-
-        .hero-image {
-            width: 100%;
-            max-width: 1200px;
-            aspect-ratio: 16 / 10;
-            margin-top: 40px;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Feature Sections */
-        .section {
-            padding: 120px 24px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section:nth-child(even) {
-            direction: rtl;
-        }
-
-        .section:nth-child(even) > * {
-            direction: ltr;
-        }
-
-        .section-image {
-            width: 100%;
-            aspect-ratio: 1;
-        }
-
-        .section-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .section-content h2 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            letter-spacing: -1px;
-        }
-
-        .section-content p {
-            font-size: 17px;
-            font-weight: 400;
-            color: #555;
-            margin-bottom: 24px;
+            font-size: 18px;
+            font-weight: 300;
+            color: rgba(245, 245, 247, 0.7);
+            max-width: 600px;
+            margin: 0 auto 60px;
             line-height: 1.6;
         }
 
-        .section-content a {
-            color: #111;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 17px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: opacity 0.3s;
-            border-bottom: 2px solid #111;
-            padding-bottom: 4px;
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(245, 245, 247, 0.5);
+            font-size: 12px;
+            letter-spacing: 2px;
+            animation: fadeInOut 3s infinite;
         }
 
-        .section-content a:hover {
-            opacity: 0.7;
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
 
-        /* Design Showcase */
-        .showcase {
-            background: #f5f5f7;
-            padding: 120px 24px;
-        }
-
-        .showcase-container {
+        /* Section Divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(245, 245, 247, 0.1) 20%, 
+                rgba(245, 245, 247, 0.3) 50%, 
+                rgba(245, 245, 247, 0.1) 80%, 
+                transparent 100%);
+            margin: 0 auto;
             max-width: 1400px;
+        }
+
+        /* Fullscreen Sections */
+        .fullscreen-section {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 120px 40px;
+            overflow: hidden;
+        }
+
+        .section-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            filter: grayscale(100%) brightness(0.8);
+        }
+
+        .section-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 64px;
+            font-weight: 300;
+            letter-spacing: -1.5px;
+            margin-bottom: 40px;
+            line-height: 1.1;
+        }
+
+        .section-text {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(245, 245, 247, 0.7);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            max-width: 1400px;
+            margin: 120px auto;
+            padding: 0 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            color: rgba(245, 245, 247, 0.6);
+            line-height: 1.6;
+            max-width: 300px;
             margin: 0 auto;
         }
 
-        .showcase-title {
-            font-size: 48px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 80px;
-            letter-spacing: -1px;
+        /* Gallery Section */
+        .gallery {
+            padding: 120px 40px;
         }
 
-        .showcase-grid {
+        .gallery-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .showcase-item {
-            background: white;
-            border-radius: 8px;
+        .gallery-item {
+            position: relative;
             overflow: hidden;
-        }
-
-        .showcase-image {
-            width: 100%;
             aspect-ratio: 1;
-            overflow: hidden;
         }
 
-        .showcase-image img {
+        .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        .showcase-content {
-            padding: 32px;
+        .gallery-item:hover img {
+            transform: scale(1.05);
         }
 
-        .showcase-content h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 12px;
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        .showcase-content p {
-            font-size: 15px;
-            color: #555;
-            line-height: 1.6;
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-caption h3 {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .gallery-caption p {
+            font-size: 12px;
+            color: rgba(245, 245, 247, 0.7);
         }
 
         /* Specs Section */
-        .specs {
-            background: white;
-            padding: 120px 24px;
+        .specs-section {
+            padding: 120px 40px;
+            background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
         }
 
         .specs-container {
@@ -344,7 +336,7 @@
 
         .specs-title {
             font-size: 48px;
-            font-weight: 700;
+            font-weight: 300;
             text-align: center;
             margin-bottom: 80px;
             letter-spacing: -1px;
@@ -358,173 +350,99 @@
 
         .spec-item {
             text-align: center;
+            padding: 40px 20px;
+            border: 1px solid rgba(245, 245, 247, 0.1);
+            border-radius: 2px;
+            transition: border-color 0.3s ease;
+        }
+
+        .spec-item:hover {
+            border-color: rgba(245, 245, 247, 0.3);
         }
 
         .spec-value {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #1d1d1d;
+            font-size: 48px;
+            font-weight: 200;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #f5f5f7, rgba(245, 245, 247, 0.5));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .spec-label {
-            font-size: 13px;
-            color: #555;
-            font-weight: 500;
-        }
-
-        /* Design System */
-        .design-section {
-            padding: 120px 24px;
-            background: linear-gradient(135deg, #ffffff 0%, #f5f5f7 100%);
-        }
-
-        .design-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .design-title {
-            font-size: 48px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .design-subtitle {
-            font-size: 17px;
-            color: #555;
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .design-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .design-card {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            border: 1px solid #e5e5e7;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .design-card:hover {
-            border-color: #d5d5d7;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .design-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-
-        .design-card h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .design-card p {
-            font-size: 15px;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        /* Environment Section */
-        .environment {
-            padding: 120px 24px;
-            background: #111;
-            color: white;
-        }
-
-        .environment-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .environment-title {
-            font-size: 48px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 60px;
-            letter-spacing: -1px;
-        }
-
-        .environment-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 60px;
-            align-items: center;
-        }
-
-        .environment-content h3 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .environment-content p {
-            font-size: 17px;
-            opacity: 0.8;
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
-
-        .environment-image {
-            width: 100%;
-            aspect-ratio: 1;
-        }
-
-        .environment-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
+            font-size: 11px;
+            color: rgba(245, 245, 247, 0.5);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         /* CTA Section */
         .cta-section {
-            background: white;
-            padding: 100px 24px;
-            text-align: center;
-        }
-
-        .cta-container {
-            max-width: 980px;
-            margin: 0 auto;
-        }
-
-        .cta-section h2 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .cta-section p {
-            font-size: 17px;
-            color: #555;
-            margin-bottom: 40px;
-        }
-
-        .cta-buttons {
+            min-height: 80vh;
             display: flex;
-            gap: 16px;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
+            text-align: center;
+            padding: 120px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+            filter: grayscale(100%) blur(2px);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .cta-title {
+            font-size: 72px;
+            font-weight: 300;
+            letter-spacing: -2px;
+            margin-bottom: 40px;
+            line-height: 1;
+        }
+
+        .cta-text {
+            font-size: 18px;
+            color: rgba(245, 245, 247, 0.7);
+            margin-bottom: 60px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            border: 1px solid rgba(245, 245, 247, 0.3);
+            color: #f5f5f7;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            border-color: #f5f5f7;
+            background: rgba(245, 245, 247, 0.1);
         }
 
         /* Footer */
         footer {
-            background: #f5f5f7;
-            padding: 40px 24px;
-            border-top: 1px solid #d5d5d7;
+            padding: 80px 40px 40px;
+            border-top: 1px solid rgba(245, 245, 247, 0.1);
         }
 
         .footer-container {
@@ -535,15 +453,17 @@
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 60px;
+            margin-bottom: 60px;
         }
 
         .footer-col h4 {
-            font-weight: 700;
-            font-size: 13px;
-            margin-bottom: 16px;
-            color: #1d1d1d;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            color: rgba(245, 245, 247, 0.5);
         }
 
         .footer-col ul {
@@ -551,314 +471,328 @@
         }
 
         .footer-col a {
-            color: #555;
+            color: rgba(245, 245, 247, 0.7);
             text-decoration: none;
-            font-size: 12px;
+            font-size: 13px;
+            font-weight: 300;
+            margin-bottom: 15px;
             display: block;
-            margin-bottom: 12px;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
         .footer-col a:hover {
-            color: #1d1d1d;
+            color: #f5f5f7;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #d5d5d7;
-            font-size: 12px;
-            color: #999;
+            padding-top: 40px;
+            border-top: 1px solid rgba(245, 245, 247, 0.05);
+            color: rgba(245, 245, 247, 0.4);
+            font-size: 11px;
+            letter-spacing: 1px;
         }
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .section {
-                grid-template-columns: 1fr;
+            .hero-title {
+                font-size: 72px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 40px;
             }
-
-            .section:nth-child(even) {
-                direction: ltr;
-            }
-
-            .hero-title {
-                font-size: 48px;
-            }
-
-            .section-content h2 {
-                font-size: 36px;
-            }
-
-            .showcase-grid {
+            
+            .gallery-grid {
                 grid-template-columns: 1fr;
             }
-
+            
             .specs-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-
-            .design-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .environment-grid {
-                grid-template-columns: 1fr;
-            }
-
+            
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
             }
-
-            .nav-links {
-                display: none;
+            
+            .section-title {
+                font-size: 48px;
+            }
+            
+            .cta-title {
+                font-size: 56px;
             }
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
             .hero-title {
-                font-size: 32px;
+                font-size: 48px;
             }
-
+            
             .hero-subtitle {
-                font-size: 17px;
+                font-size: 16px;
             }
-
-            .section {
-                padding: 60px 16px;
+            
+            .fullscreen-section {
+                padding: 80px 20px;
             }
-
-            .section-content h2 {
-                font-size: 28px;
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
             }
-
+            
+            .gallery {
+                padding: 80px 20px;
+            }
+            
+            .specs-section {
+                padding: 80px 20px;
+            }
+            
+            .specs-title {
+                font-size: 36px;
+            }
+            
             .specs-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
             }
-
-            .design-grid {
+            
+            .cta-section {
+                padding: 80px 20px;
+            }
+            
+            .cta-title {
+                font-size: 40px;
+            }
+            
+            footer {
+                padding: 60px 20px 30px;
+            }
+            
+            .footer-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
+        }
 
-            nav {
-                padding: 0 16px;
-            }
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
 
-            .nav-links {
-                gap: 16px;
-            }
+        .loader-text {
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: rgba(245, 245, 247, 0.5);
+            animation: pulse 2s infinite;
+        }
 
-            .nav-cta {
-                padding: 6px 14px;
-                font-size: 11px;
-            }
-
-            .showcase-title,
-            .specs-title,
-            .design-title,
-            .environment-title {
-                font-size: 32px;
-            }
-
-            .cta-section h2 {
-                font-size: 32px;
-            }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-text">AURA PRO</div>
+    </div>
+
     <!-- Header -->
     <header>
-        <nav>
-            <a href="#" class="logo">Premium Pro</a>
-            <ul class="nav-links">
+        <div class="nav-container">
+            <a href="#" class="logo">AURA</a>
+            <ul class="nav-menu">
                 <li><a href="#design">Design</a></li>
-                <li><a href="#specs">Specs</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#environment">Environment</a></li>
+                <li><a href="#performance">Performance</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#specs">Specifications</a></li>
             </ul>
-            <div class="nav-right">
-                <a href="../index.html#templates-section" class="nav-back">? Back to Demos</a>
-                <button class="nav-cta">Buy Now</button>
-            </div>
-        </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=2e4c6e3efec5f9d73aa69c9c9b4a5c4f0b82d471&profile_id=164" type="video/mp4">
+        </video>
         <div class="hero-content">
-            <div class="hero-label">INTRODUCING</div>
-            <h1 class="hero-title">Premium Pro</h1>
-            <p class="hero-subtitle">Extraordinary power. Beautiful design. Exceptional performance.</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary">Learn more</button>
-                <button class="btn btn-secondary">Buy Now</button>
+            <div class="hero-label">THE ULTIMATE EXPRESSION</div>
+            <h1 class="hero-title">Aura Pro</h1>
+            <p class="hero-subtitle">
+                Where design meets performance. Crafted for those who refuse to compromise. 
+                Experience technology reimagined through the lens of artistry.
+            </p>
+        </div>
+        <div class="hero-scroll">EXPLORE</div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Design Section -->
+    <section class="fullscreen-section" id="design">
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="Design Detail" class="section-bg">
+        <div class="section-content">
+            <h2 class="section-title">Uncompromising Design</h2>
+            <p class="section-text">
+                Every curve, every surface, every material choice is a deliberate act of creation. 
+                Aura Pro represents the pinnacle of industrial design, where form follows function 
+                with elegant precision.
+            </p>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Features -->
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">⚙️</div>
+                <h3 class="feature-title">Precision Engineering</h3>
+                <p class="feature-desc">
+                    Machined from a single block of aerospace-grade aluminum. Tolerances measured in microns.
+                </p>
             </div>
-            <div class="hero-image">
-                <img src="../screenshots/template-premium.svg" alt="Template Preview">
+            <div class="feature-item">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title">Minimalist Aesthetic</h3>
+                <p class="feature-desc">
+                    Clean lines, hidden seams, and seamless integration. Beauty in simplicity.
+                </p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✨</div>
+                <h3 class="feature-title">Premium Materials</h3>
+                <p class="feature-desc">
+                    Hand-selected materials that age gracefully. Designed to last a lifetime.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Feature Sections -->
-    <section class="section" id="design">
+    <!-- Performance Section -->
+    <section class="fullscreen-section" id="performance">
+        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="Performance" class="section-bg">
         <div class="section-content">
-            <h2>Stunning Design</h2>
-            <p>Precision engineering meets elegant aesthetics. Every detail is crafted to inspire.</p>
-            <a href="#">Explore design ?</a>
-        </div>
-        <div class="section-image">
-            <img src="../screenshots/template-premium.svg" alt="Design">
+            <h2 class="section-title">Raw Performance</h2>
+            <p class="section-text">
+                Beneath the elegant exterior lies incredible power. Engineered for professionals 
+                who demand the absolute best. Performance without compromise.
+            </p>
         </div>
     </section>
 
-    <section class="section">
-        <div class="section-content">
-            <h2>Powerful Performance</h2>
-            <p>Built for professionals who demand the best. Advanced technology at every level.</p>
-            <a href="#">Discover performance ?</a>
-        </div>
-        <div class="section-image">
-            <img src="../screenshots/template-premium.svg" alt="Performance">
-        </div>
-    </section>
+    <div class="section-divider"></div>
 
-    <section class="section">
-        <div class="section-content">
-            <h2>Seamless Integration</h2>
-            <p>Works beautifully with your entire creative workflow. Everything just works.</p>
-            <a href="#">Learn about integration ?</a>
-        </div>
-        <div class="section-image">
-            <img src="../screenshots/template-premium.svg" alt="Integration">
-        </div>
-    </section>
-
-    <!-- Showcase Section -->
-    <section class="showcase" id="features">
-        <div class="showcase-container">
-            <h2 class="showcase-title">Premium Features</h2>
-            <div class="showcase-grid">
-                <div class="showcase-item">
-                    <div class="showcase-image">
-                        <img src="../screenshots/template-premium.svg" alt="Feature">
-                    </div>
-                    <div class="showcase-content">
-                        <h3>Advanced Materials</h3>
-                        <p>Crafted from premium aluminum and glass. Designed to feel as good as it looks.</p>
-                    </div>
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Design Detail">
+                <div class="gallery-caption">
+                    <h3>Design Detail</h3>
+                    <p>Precision machining and seamless construction</p>
                 </div>
-
-                <div class="showcase-item">
-                    <div class="showcase-image">
-                        <img src="../screenshots/template-premium.svg" alt="Feature">
-                    </div>
-                    <div class="showcase-content">
-                        <h3>Remarkable Display</h3>
-                        <p>Ultra-sharp visuals with incredible color accuracy for professional work.</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Display Technology">
+                <div class="gallery-caption">
+                    <h3>Display Technology</h3>
+                    <p>Ultra-high resolution with perfect color accuracy</p>
                 </div>
-
-                <div class="showcase-item">
-                    <div class="showcase-image">
-                        <img src="../screenshots/template-premium.svg" alt="Feature">
-                    </div>
-                    <div class="showcase-content">
-                        <h3>All-Day Battery</h3>
-                        <p>Work all day without worrying about charging. Incredible battery efficiency.</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Materials">
+                <div class="gallery-caption">
+                    <h3>Materials</h3>
+                    <p>Premium aluminum and glass construction</p>
                 </div>
-
-                <div class="showcase-item">
-                    <div class="showcase-image">
-                        <img src="../screenshots/template-premium.svg" alt="Feature">
-                    </div>
-                    <div class="showcase-content">
-                        <h3>Thermal Design</h3>
-                        <p>Intelligent cooling keeps performance steady while staying whisper quiet.</p>
-                    </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Engineering">
+                <div class="gallery-caption">
+                    <h3>Engineering</h3>
+                    <p>Advanced thermal management system</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Specs Section -->
-    <section class="specs" id="specs">
+    <section class="specs-section" id="specs">
         <div class="specs-container">
             <h2 class="specs-title">Technical Excellence</h2>
             <div class="specs-grid">
                 <div class="spec-item">
-                    <div class="spec-value">16-core</div>
+                    <div class="spec-value">M2 Ultra</div>
                     <div class="spec-label">Processing Power</div>
                 </div>
                 <div class="spec-item">
-                    <div class="spec-value">32GB</div>
+                    <div class="spec-value">64GB</div>
                     <div class="spec-label">Unified Memory</div>
                 </div>
                 <div class="spec-item">
-                    <div class="spec-value">1TB</div>
-                    <div class="spec-label">Storage</div>
+                    <div class="spec-value">2TB</div>
+                    <div class="spec-label">NVMe Storage</div>
                 </div>
                 <div class="spec-item">
-                    <div class="spec-value">20h</div>
+                    <div class="spec-value">32-core</div>
+                    <div class="spec-label">Graphics</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-value">6K</div>
+                    <div class="spec-label">Pro Display XDR</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-value">22h</div>
                     <div class="spec-label">Battery Life</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Design System Section -->
-    <section class="design-section">
-        <div class="design-container">
-            <h2 class="design-title">Design Philosophy</h2>
-            <p class="design-subtitle">Built with precision and care</p>
-            <div class="design-grid">
-                <div class="design-card">
-                    <div class="design-icon">?</div>
-                    <h3>Refined</h3>
-                    <p>Every curve, every edge, every detail refined to perfection. Simplicity through careful design.</p>
+                <div class="spec-item">
+                    <div class="spec-value">1.2kg</div>
+                    <div class="spec-label">Weight</div>
                 </div>
-                <div class="design-card">
-                    <div class="design-icon">??</div>
-                    <h3>Engineered</h3>
-                    <p>Precision engineering meets innovative technology. Built to last and perform.</p>
-                </div>
-                <div class="design-card">
-                    <div class="design-icon">??</div>
-                    <h3>Purposeful</h3>
-                    <p>Everything has a purpose. Nothing is there by accident. Function and form in harmony.</p>
+                <div class="spec-item">
+                    <div class="spec-value">∞</div>
+                    <div class="spec-label">Potential</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Environment Section -->
-    <section class="environment" id="environment">
-        <div class="environment-container">
-            <h2 class="environment-title">Designed for the Planet</h2>
-            <div class="environment-grid">
-                <div class="environment-content">
-                    <h3>100% Carbon Neutral</h3>
-                    <p>We're committed to creating products with zero environmental impact. Every Premium Pro is manufactured carbon neutral.</p>
-                    <p>Recycled materials, responsible sourcing, and renewable energy throughout our supply chain.</p>
-                </div>
-                <div class="environment-image">
-                    <img src="../screenshots/template-premium.svg" alt="Environment">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
+    <!-- Final CTA -->
     <section class="cta-section">
-        <div class="cta-container">
-            <h2>Ready to Create?</h2>
-            <p>Experience the power and elegance of Premium Pro. Perfect for professionals who demand the best.</p>
-            <div class="cta-buttons">
-                <button class="btn btn-primary">Buy Now</button>
-                <button class="btn btn-secondary">Learn More</button>
-            </div>
+        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="Aura Pro" class="cta-bg">
+        <div class="cta-content">
+            <h2 class="cta-title">Begin Your Journey</h2>
+            <p class="cta-text">
+                Aura Pro is more than a device—it's an extension of your creativity, 
+                a partner in your workflow, a statement of your standards. Experience 
+                technology elevated to an art form.
+            </p>
+            <a href="#" class="cta-button">Reserve Now</a>
         </div>
     </section>
 
@@ -867,47 +801,111 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Shop</h4>
+                    <h4>Product</h4>
                     <ul>
-                        <li><a href="#">Premium Pro</a></li>
+                        <li><a href="#">Aura Pro</a></li>
                         <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Bundles</a></li>
                         <li><a href="#">Compare</a></li>
+                        <li><a href="#">Configure</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Experience</h4>
+                    <ul>
+                        <li><a href="#">Studio Tours</a></li>
+                        <li><a href="#">Creator Stories</a></li>
+                        <li><a href="#">Art Gallery</a></li>
+                        <li><a href="#">Events</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Support</h4>
                     <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Professional Services</a></li>
+                        <li><a href="#">Contact</a></li>
                         <li><a href="#">Warranty</a></li>
-                        <li><a href="#">Returns</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">About Aura</a></li>
                         <li><a href="#">Careers</a></li>
+                        <li><a href="#">Sustainability</a></li>
                         <li><a href="#">Press</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">Accessibility</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Premium Pro Inc. All rights reserved.</p>
+                <p>&copy; 2026 Aura. All rights reserved. | Designed with intention.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Parallax Effect
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.section-bg, .hero-video');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-item, .spec-item, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
-
