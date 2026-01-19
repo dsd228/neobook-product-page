@@ -1,1066 +1,924 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masterclass en E-commerce | NeoProdUx Consultancy</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #000000;
-            --secondary: #111111;
-            --accent: #007AFF;
-            --accent-light: rgba(0, 122, 255, 0.1);
-            --text: #1D1D1F;
-            --text-light: #86868B;
-            --surface: #FFFFFF;
-            --surface-dark: #F5F5F7;
-            --border: #E5E5E7;
-            --success: #34C759;
-            --gradient: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: var(--text);
-            background: var(--surface);
-            line-height: 1.6;
-            font-weight: 400;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        /* Navigation - Luxury Style */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid var(--border);
-            padding: 20px 0;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Manrope', sans-serif;
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: -1px;
-            position: relative;
-        }
-
-        .logo::after {
-            content: 'CONSULTANCY';
-            position: absolute;
-            bottom: -12px;
-            left: 0;
-            font-size: 8px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            color: var(--accent);
-            opacity: 0.8;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-
-        .nav-link {
-            color: var(--text);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover {
-            color: var(--accent);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            background: var(--accent);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-cta:hover {
-            background: #0056CC;
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Hero Section - Premium */
-        .hero {
-            padding: 180px 40px 120px;
-            background: linear-gradient(135deg, #000000 0%, #111111 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            opacity: 0.2;
-            filter: grayscale(100%);
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 32px;
-            color: white;
-        }
-
-        .hero-title {
-            font-size: 64px;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -1.5px;
-            max-width: 800px;
-        }
-
-        .hero-subtitle {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 48px;
-            max-width: 600px;
-            line-height: 1.6;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 16px 32px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #0056CC;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* Section Common Styles */
-        section {
-            padding: 120px 40px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-label {
-            display: inline-block;
-            padding: 8px 20px;
-            background: var(--accent-light);
-            color: var(--accent);
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 24px;
-            letter-spacing: -1px;
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Masterclass Section */
-        .masterclass {
-            background: var(--surface);
-        }
-
-        .masterclass-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .masterclass-card {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .masterclass-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent);
-        }
-
-        .masterclass-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--accent-light);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            font-size: 24px;
-            color: var(--accent);
-        }
-
-        .masterclass-card h3 {
-            font-size: 24px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-
-        .masterclass-card p {
-            color: var(--text-light);
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
-
-        .masterclass-features {
-            list-style: none;
-            margin-top: 24px;
-        }
-
-        .masterclass-features li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-            font-size: 14px;
-            color: var(--text);
-        }
-
-        .masterclass-features li i {
-            color: var(--success);
-        }
-
-        /* Amazon Selling Guide */
-        .amazon-guide {
-            background: var(--surface-dark);
-        }
-
-        .guide-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .guide-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 60px;
-            position: relative;
-        }
-
-        .guide-steps::before {
-            content: '';
-            position: absolute;
-            left: 24px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--accent), transparent);
-            opacity: 0.2;
-        }
-
-        .guide-step {
-            display: flex;
-            gap: 40px;
-            position: relative;
-        }
-
-        .step-number {
-            width: 48px;
-            height: 48px;
-            background: var(--gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 20px;
-            flex-shrink: 0;
-            z-index: 2;
-        }
-
-        .step-content {
-            flex: 1;
-            background: white;
-            padding: 32px;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .step-content h3 {
-            font-size: 24px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-
-        .step-content p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .step-tips {
-            background: var(--accent-light);
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-
-        .step-tips h4 {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent);
-            margin-bottom: 12px;
-        }
-
-        .step-tips ul {
-            list-style: none;
-        }
-
-        .step-tips li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: var(--text);
-        }
-
-        .step-tips li i {
-            color: var(--accent);
-            margin-top: 2px;
-        }
-
-        /* Templates Gallery */
-        .templates-gallery {
-            background: white;
-        }
-
-        .gallery-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .template-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .template-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .template-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 6px 16px;
-            background: var(--accent);
-            color: white;
-            font-size: 12px;
-            font-weight: 600;
-            border-radius: 100px;
-            z-index: 2;
-        }
-
-        .template-image {
-            height: 240px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .template-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .template-card:hover .template-image img {
-            transform: scale(1.05);
-        }
-
-        .template-content {
-            padding: 32px;
-        }
-
-        .template-category {
-            display: inline-block;
-            padding: 4px 12px;
-            background: var(--accent-light);
-            color: var(--accent);
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
-        }
-
-        .template-content h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-
-        .template-content p {
-            color: var(--text-light);
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        .template-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
-
-        .template-features span {
-            padding: 4px 12px;
-            background: var(--surface-dark);
-            border-radius: 100px;
-            font-size: 12px;
-            color: var(--text-light);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            text-align: center;
-            padding: 160px 40px;
-        }
-
-        .cta-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .cta-title {
-            font-size: 56px;
-            font-weight: 800;
-            margin-bottom: 24px;
-            letter-spacing: -1px;
-        }
-
-        .cta-subtitle {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 48px;
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 80px 40px 40px;
-        }
-
-        .footer-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-col h3 {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 24px;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col li {
-            margin-bottom: 16px;
-        }
-
-        .footer-col a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-col a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-title {
-                font-size: 48px;
-            }
-            
-            .section-title {
-                font-size: 40px;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            section {
-                padding: 80px 20px;
-            }
-            
-            .hero {
-                padding: 140px 20px 80px;
-            }
-            
-            .hero-title {
-                font-size: 36px;
-            }
-            
-            .nav-container {
-                padding: 0 20px;
-            }
-            
-            .guide-step {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .cta-title {
-                font-size: 40px;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplos de Páginas para Vender en Amazon - NeoProdUx</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Inter", sans-serif; color: #1a1a1a; background: #f7f7f7; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Navigation - Premium Style */
+    nav { 
+      position: fixed; 
+      top: 0; 
+      width: 100%; 
+      background: rgba(255, 255, 255, 0.98); 
+      backdrop-filter: blur(20px); 
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 1000; 
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08); 
+      padding: 18px 0; 
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+    }
+    .nav-container { 
+      max-width: 1400px; 
+      margin: 0 auto; 
+      padding: 0 40px; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+    .logo { 
+      font-size: 1.8rem; 
+      font-weight: 800; 
+      color: #000; 
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+    .logo::after {
+      content: 'CONSULTANCY';
+      position: absolute;
+      bottom: -14px;
+      left: 0;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #007AFF;
+      opacity: 0.8;
+    }
+    nav a { 
+      color: #666; 
+      font-size: 0.95rem; 
+      font-weight: 500;
+      transition: all 0.3s; 
+      text-decoration: none; 
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+    nav a:hover { 
+      color: #007AFF; 
+      background: rgba(0, 122, 255, 0.08);
+    }
+    
+    main { 
+      max-width: 1400px; 
+      margin: 140px auto 0; 
+      padding: 0 40px 80px; 
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      text-align: center;
+      padding: 60px 0 80px;
+      margin-bottom: 60px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFF 100%);
+      border-radius: 24px;
+      border: 1px solid rgba(0, 122, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #007AFF, #5856D6, #34C759);
+    }
+    
+    .section-title { 
+      margin-bottom: 60px; 
+      text-align: center; 
+    }
+    .section-title h1 { 
+      font-family: "Sora", sans-serif; 
+      font-size: 3.5rem; 
+      font-weight: 800; 
+      margin-bottom: 16px; 
+      background: linear-gradient(135deg, #1a1a1a 0%, #007AFF 50%, #5856D6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
+    }
+    .section-title p { 
+      font-size: 1.2rem; 
+      color: #666; 
+      max-width: 700px; 
+      margin: 0 auto; 
+      line-height: 1.6;
+    }
+    
+    /* Premium Grid */
+    .grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+      gap: 32px; 
+      margin-bottom: 80px; 
+    }
+    
+    /* Premium Card Design */
+    .card { 
+      background: #fff; 
+      border-radius: 20px; 
+      overflow: hidden; 
+      border: 1px solid #e5e5e5; 
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    .card:hover { 
+      transform: translateY(-12px); 
+      box-shadow: 0 30px 60px rgba(0,0,0,0.12); 
+      border-color: #007AFF;
+    }
+    
+    /* Card Category Badge */
+    .card-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 8px 16px;
+      background: rgba(0, 122, 255, 0.1);
+      color: #007AFF;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 100px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+      z-index: 2;
+    }
+    
+    /* Card Header with Gradients */
+    .card-header { 
+      padding: 40px 32px 32px; 
+      color: #fff; 
+      position: relative;
+      overflow: hidden;
+    }
+    .card-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+      opacity: 0.95;
+    }
+    .card-header > * {
+      position: relative;
+      z-index: 1;
+    }
+    .card-header h3 { 
+      font-size: 1.5rem; 
+      font-weight: 700; 
+      margin-bottom: 12px; 
+      font-family: "Sora", sans-serif;
+    }
+    .card-header p { 
+      font-size: 1rem; 
+      opacity: 0.95; 
+      font-weight: 400;
+    }
+    
+    /* Individual Template Header Styles */
+    .template-sport .card-header::before { background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%); }
+    .template-tech .card-header::before { background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%); }
+    .template-eco .card-header::before { background: linear-gradient(135deg, #34C759 0%, #28CD41 100%); }
+    .template-premium .card-header::before { background: linear-gradient(135deg, #1a1a1a 0%, #333 100%); }
+    
+    .card-body { 
+      padding: 32px; 
+    }
+    .card-body p { 
+      font-size: 0.95rem; 
+      color: #666; 
+      margin-bottom: 24px; 
+      line-height: 1.7; 
+    }
+    
+    .card-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .card-features span {
+      padding: 6px 14px;
+      background: rgba(0, 122, 255, 0.08);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      color: #007AFF;
+      font-weight: 500;
+    }
+    .template-sport .card-features span { background: rgba(255, 107, 53, 0.1); color: #FF6B35; }
+    .template-tech .card-features span { background: rgba(0, 122, 255, 0.1); color: #007AFF; }
+    .template-eco .card-features span { background: rgba(52, 199, 89, 0.1); color: #28CD41; }
+    .template-premium .card-features span { background: rgba(26, 26, 26, 0.1); color: #1a1a1a; }
+    
+    .card-footer { 
+      padding: 0 32px 32px; 
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn { 
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px; 
+      background: #007AFF; 
+      color: #fff; 
+      border-radius: 12px; 
+      font-weight: 600; 
+      transition: all 0.3s; 
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .btn:hover { 
+      background: #0056CC; 
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3);
+    }
+    
+    .template-sport .btn { background: #FF6B35; }
+    .template-sport .btn:hover { background: #E05A2A; box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3); }
+    .template-tech .btn { background: #007AFF; }
+    .template-tech .btn:hover { background: #0056CC; box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3); }
+    .template-eco .btn { background: #34C759; }
+    .template-eco .btn:hover { background: #28CD41; box-shadow: 0 10px 30px rgba(52, 199, 89, 0.3); }
+    .template-premium .btn { background: #1a1a1a; }
+    .template-premium .btn:hover { background: #000; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+    
+    .btn-icon {
+      font-size: 1.1rem;
+      transition: transform 0.3s;
+    }
+    .btn:hover .btn-icon {
+      transform: translateX(4px);
+    }
+    
+    .category-section { 
+      margin-bottom: 100px; 
+    }
+    .category-title { 
+      font-size: 2rem; 
+      font-weight: 800; 
+      margin-bottom: 40px; 
+      padding-bottom: 16px; 
+      border-bottom: 3px solid #007AFF; 
+      font-family: "Sora", sans-serif;
+      position: relative;
+      display: inline-block;
+    }
+    .category-title::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #007AFF, #5856D6);
+      border-radius: 3px;
+    }
+    
+    footer { 
+      text-align: center; 
+      padding: 60px 20px 40px; 
+      color: #777; 
+      border-top: 1px solid #e5e5e5; 
+      background: #fff;
+      margin-top: 40px;
+    }
+    footer p {
+      font-size: 0.95rem;
+    }
+    
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: 1fr; }
+      main { margin-top: 120px; padding: 0 20px 40px; }
+      .section-title h1 { font-size: 2.2rem; }
+      nav { padding: 12px 0; }
+      .nav-container { padding: 0 20px; }
+      .card { margin-bottom: 24px; }
+    }
+    
+    /* Premium Templates Grid Section */
+    .premium-templates {
+      background: linear-gradient(135deg, #F8FAFF 0%, #FFFFFF 100%);
+      padding: 60px 40px;
+      border-radius: 24px;
+      margin: 60px 0;
+      border: 1px solid rgba(0, 122, 255, 0.1);
+    }
+    
+    .premium-templates-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .premium-templates-header h2 {
+      font-family: "Sora", sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .premium-templates-header p {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    /* Template Preview Cards */
+    .template-preview-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 122, 255, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .template-preview-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(0, 122, 255, 0.15);
+      border-color: rgba(0, 122, 255, 0.3);
+    }
+    
+    .template-preview-image {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .template-preview-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    
+    .template-preview-card:hover .template-preview-image img {
+      transform: scale(1.05);
+    }
+    
+    .template-preview-content {
+      padding: 30px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .template-preview-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(0, 122, 255, 0.1);
+      color: #007AFF;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 100px;
+      margin-bottom: 16px;
+      align-self: flex-start;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .template-preview-content h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-family: "Sora", sans-serif;
+    }
+    
+    .template-preview-content p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+      color: white;
+      padding: 80px 40px;
+      border-radius: 24px;
+      margin: 80px 0;
+      text-align: center;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      font-family: "Sora", sans-serif;
+    }
+    
+    .stat-label {
+      font-size: 1rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">NeoProdUx</a>
-            <div class="nav-actions">
-                <a href="#masterclass" class="nav-link">Masterclass</a>
-                <a href="#amazon-guide" class="nav-link">Cómo Vender</a>
-                <a href="#templates" class="nav-link">Templates</a>
-                <a href="#cta" class="nav-cta">
-                    <i class="fas fa-rocket"></i>
-                    Comenzar Ahora
-                </a>
-            </div>
+
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo" style="text-decoration: none;">NeoProdUx</a>
+    <a href="index.html" style="color: #007AFF; font-weight: 600; background: rgba(0, 122, 255, 0.1);">
+      <i class="fas fa-arrow-left"></i> Volver al inicio
+    </a>
+  </div>
+</nav>
+
+<main>
+  <div class="hero-section">
+    <div class="section-title">
+      <h1>Ejemplos de Páginas para Vender en Amazon</h1>
+      <p>Plantillas premium diseñadas por expertos para maximizar conversiones y escalar tu negocio en e-commerce</p>
+    </div>
+  </div>
+
+  <!-- PREMIUM TEMPLATES GALLERY -->
+  <div class="premium-templates">
+    <div class="premium-templates-header">
+      <h2>Templates Premium NeoProdUx</h2>
+      <p>Diseños exclusivos optimizados para conversión, listos para implementar en tu negocio</p>
+    </div>
+    
+    <div class="grid">
+      <!-- Template Sport -->
+      <div class="template-preview-card">
+        <div class="template-preview-image">
+          <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Template Sport">
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-container">
-            <span class="hero-badge">PROGRAMA EXCLUSIVO</span>
-            <h1 class="hero-title">Domina el E-commerce y Vende en Amazon como Experto</h1>
-            <p class="hero-subtitle">
-                Descubre nuestro sistema probado para crear páginas de conversión ultra alta, 
-                optimizar listings y escalar tu negocio en Amazon. Diseñado para emprendedores serios.
-            </p>
-            <div class="hero-actions">
-                <a href="#masterclass" class="btn btn-primary">
-                    <i class="fas fa-play-circle"></i>
-                    Ver Masterclass Gratis
-                </a>
-                <a href="#amazon-guide" class="btn btn-secondary">
-                    <i class="fas fa-book"></i>
-                    Guía Completa
-                </a>
-            </div>
+        <div class="template-preview-content">
+          <span class="template-preview-badge">Deportes</span>
+          <h3>Template Sport</h3>
+          <p>Diseño dinámico y energético para productos deportivos, ropa de entrenamiento y equipamiento fitness. Optimizado para destacar rendimiento y tecnología.</p>
+          <div class="card-footer">
+            <button class="btn template-sport" onclick="window.location.href='template-sport.html'">
+              <i class="fas fa-running btn-icon"></i>
+              Ver Template
+            </button>
+            <span style="color: #FF6B35; font-weight: 600;">High Energy</span>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Masterclass Section -->
-    <section class="masterclass" id="masterclass">
-        <div class="section-header">
-            <span class="section-label">MASTERCLASS VIP</span>
-            <h2 class="section-title">Lo que vas a dominar</h2>
-            <p class="section-subtitle">Un programa estructurado para llevar tu negocio de e-commerce al siguiente nivel</p>
+      <!-- Template Tech -->
+      <div class="template-preview-card">
+        <div class="template-preview-image">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Template Tech">
         </div>
-        <div class="masterclass-grid">
-            <div class="masterclass-card">
-                <div class="masterclass-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3>Estrategia de Conversión</h3>
-                <p>Aprende los principios psicológicos detrás de las páginas de alto rendimiento y cómo aplicarlos a tus productos.</p>
-                <ul class="masterclass-features">
-                    <li><i class="fas fa-check"></i> Psychology of pricing</li>
-                    <li><i class="fas fa-check"></i> Funnel optimization</li>
-                    <li><i class="fas fa-check"></i> A/B testing frameworks</li>
-                </ul>
-            </div>
-
-            <div class="masterclass-card">
-                <div class="masterclass-icon">
-                    <i class="fas fa-search"></i>
-                </div>
-                <h3>Amazon SEO Profesional</h3>
-                <p>Domina el algoritmo A9 de Amazon y posiciona tus productos en la primera página de resultados.</p>
-                <ul class="masterclass-features">
-                    <li><i class="fas fa-check"></i> Keyword research avanzado</li>
-                    <li><i class="fas fa-check"></i> Optimización de backend</li>
-                    <li><i class="fas fa-check"></i> Estrategias de PPC efectivas</li>
-                </ul>
-            </div>
-
-            <div class="masterclass-card">
-                <div class="masterclass-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <h3>Diseño UX/UI Premium</h3>
-                <p>Crea páginas que no solo se vean increíbles, sino que conviertan visitantes en clientes leales.</p>
-                <ul class="masterclass-features">
-                    <li><i class="fas fa-check"></i> Principles of visual hierarchy</li>
-                    <li><i class="fas fa-check"></i> Mobile-first optimization</li>
-                    <li><i class="fas fa-check"></i> Advanced micro-interactions</li>
-                </ul>
-            </div>
+        <div class="template-preview-content">
+          <span class="template-preview-badge">Tecnología</span>
+          <h3>Template Tech</h3>
+          <p>Diseño futurista para productos tecnológicos, electrónica y gadgets. Especializado en mostrar especificaciones técnicas y features innovadores.</p>
+          <div class="card-footer">
+            <button class="btn template-tech" onclick="window.location.href='template-tech.html'">
+              <i class="fas fa-microchip btn-icon"></i>
+              Ver Template
+            </button>
+            <span style="color: #007AFF; font-weight: 600;">Futuristic</span>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Amazon Selling Guide -->
-    <section class="amazon-guide" id="amazon-guide">
-        <div class="section-header">
-            <span class="section-label">GUÍA DEFINITIVA</span>
-            <h2 class="section-title">Cómo Vender en Amazon en 5 Pasos</h2>
-            <p class="section-subtitle">Nuestra metodología probada para construir un negocio exitoso en Amazon</p>
+      <!-- Template Eco -->
+      <div class="template-preview-card">
+        <div class="template-preview-image">
+          <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Template Eco">
         </div>
-        <div class="guide-container">
-            <div class="guide-steps">
-                <div class="guide-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Investigación de Producto y Mercado</h3>
-                        <p>Antes de vender, debes entender el mercado. Aprende a identificar productos con alta demanda y baja competencia, y cómo validar tu idea antes de invertir.</p>
-                        <div class="step-tips">
-                            <h4>Pro Tips:</h4>
-                            <ul>
-                                <li><i class="fas fa-lightbulb"></i> Usa herramientas como Helium 10 o Jungle Scout</li>
-                                <li><i class="fas fa-lightbulb"></i> Analiza reviews de competidores para encontrar gaps</li>
-                                <li><i class="fas fa-lightbulb"></i> Considera costos de importación y logística</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="guide-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Creación de Listings Optimizados</h3>
-                        <p>Un buen producto necesita un gran listing. Domina la creación de títulos, bullets, descripciones e imágenes que convierten.</p>
-                        <div class="step-tips">
-                            <h4>Pro Tips:</h4>
-                            <ul>
-                                <li><i class="fas fa-lightbulb"></i> Keywords principales en título (primeras 80 caracteres)</li>
-                                <li><i class="fas fa-lightbulb"></i> Bullets que resuelven objeciones y destacan beneficios</li>
-                                <li><i class="fas fa-lightbulb"></i> Imágenes profesionales estilo lifestyle</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="guide-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Optimización para el Algoritmo A9</h3>
-                        <p>Entiende cómo funciona el algoritmo de Amazon y optimiza tu listing para rankear en las primeras posiciones.</p>
-                        <div class="step-tips">
-                            <h4>Pro Tips:</h4>
-                            <ul>
-                                <li><i class="fas fa-lightbulb"></i> Backend keywords estratégicamente</li>
-                                <li><i class="fas fa-lightbulb"></i> Optimiza para velocidad de conversión</li>
-                                <li><i class="fas fa-lightbulb"></i> Maneja reviews y ratings proactivamente</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="guide-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Estrategias de Marketing y PPC</h3>
-                        <p>Aprende a usar Amazon Advertising para impulsar tus ventas y crear una marca reconocible.</p>
-                        <div class="step-tips">
-                            <h4>Pro Tips:</h4>
-                            <ul>
-                                <li><i class="fas fa-lightbulb"></i> Comienza con keywords exactos de bajo costo</li>
-                                <li><i class="fas fa-lightbulb"></i> Usa campañas de producto para búsqueda</li>
-                                <li><i class="fas fa-lightbulb"></i> Optimiza basado en ACOS (Advertising Cost of Sale)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="guide-step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3>Escalación y Optimización Continua</h3>
-                        <p>Una vez que tienes un producto exitoso, aprende a escalar y optimizar para maximizar ganancias.</p>
-                        <div class="step-tips">
-                            <h4>Pro Tips:</h4>
-                            <ul>
-                                <li><i class="fas fa-lightbulb"></i> Diversifica con productos complementarios</li>
-                                <li><i class="fas fa-lightbulb"></i> Implementa automatizaciones</li>
-                                <li><i class="fas fa-lightbulb"></i> Analiza métricas clave regularmente</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="template-preview-content">
+          <span class="template-preview-badge">Ecológico</span>
+          <h3>Template Eco</h3>
+          <p>Diseño sustentable para productos eco-friendly, orgánicos y de impacto positivo. Enfatiza materiales, procesos y beneficios ambientales.</p>
+          <div class="card-footer">
+            <button class="btn template-eco" onclick="window.location.href='template-eco.html'">
+              <i class="fas fa-leaf btn-icon"></i>
+              Ver Template
+            </button>
+            <span style="color: #34C759; font-weight: 600;">Sustainable</span>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Templates Gallery -->
-    <section class="templates-gallery" id="templates">
-        <div class="section-header">
-            <span class="section-label">TEMPLATES PREMIUM</span>
-            <h2 class="section-title">Páginas que Convierten</h2>
-            <p class="section-subtitle">Diseños profesionales listos para implementar en tu negocio</p>
+      <!-- Template Premium -->
+      <div class="template-preview-card">
+        <div class="template-preview-image">
+          <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Template Premium">
         </div>
-        <div class="gallery-container">
-            <div class="gallery-grid">
-                <div class="template-card">
-                    <div class="template-badge">HIGH CONVERSION</div>
-                    <div class="template-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tech Product Template">
-                    </div>
-                    <div class="template-content">
-                        <span class="template-category">ELECTRÓNICA</span>
-                        <h3>Tech Products Pro</h3>
-                        <p>Template especializado para productos tecnológicos con énfasis en especificaciones y comparativas.</p>
-                        <div class="template-features">
-                            <span>Specs Table</span>
-                            <span>Comparison</span>
-                            <span>Tech Features</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="template-card">
-                    <div class="template-badge">PREMIUM</div>
-                    <div class="template-image">
-                        <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Premium Product Template">
-                    </div>
-                    <div class="template-content">
-                        <span class="template-category">LUJO</span>
-                        <h3>Luxury Experience</h3>
-                        <p>Diseño elegante para productos premium con storytelling y experiencia inmersiva.</p>
-                        <div class="template-features">
-                            <span>Storytelling</span>
-                            <span>High-end Gallery</span>
-                            <span>Exclusive Offers</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="template-card">
-                    <div class="template-badge">ECO-FRIENDLY</div>
-                    <div class="template-image">
-                        <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Eco Product Template">
-                    </div>
-                    <div class="template-content">
-                        <span class="template-category">SUSTENTABLE</span>
-                        <h3>Eco Brand Pro</h3>
-                        <p>Template para marcas sustentables con enfoque en impacto ambiental y materiales.</p>
-                        <div class="template-features">
-                            <span>Sustainability</span>
-                            <span>Impact Metrics</span>
-                            <span>Eco Materials</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="template-preview-content">
+          <span class="template-preview-badge">Lujo</span>
+          <h3>Template Premium</h3>
+          <p>Diseño de lujo para productos premium, exclusivos y de alta gama. Enfocado en elegancia, calidad superior y experiencia de usuario refinada.</p>
+          <div class="card-footer">
+            <button class="btn template-premium" onclick="window.location.href='template-premium.html'">
+              <i class="fas fa-gem btn-icon"></i>
+              Ver Template
+            </button>
+            <span style="color: #1a1a1a; font-weight: 600;">Luxury</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 
-    <!-- Final CTA -->
-    <section class="cta-section" id="cta">
-        <div class="cta-container">
-            <h2 class="cta-title">Comienza tu Viaje en E-commerce Hoy</h2>
-            <p class="cta-subtitle">
-                Accede a nuestra masterclass gratuita y descubre cómo crear páginas que venden, 
-                optimizar para Amazon y construir un negocio escalable.
-            </p>
-            <a href="https://sell.amazon.com/es/sell" class="btn btn-primary" style="font-size: 18px; padding: 18px 48px;">
-                <i class="fas fa-graduation-cap"></i>
-                Acceder a la Masterclass Gratis
-            </a>
-            <p style="margin-top: 24px; font-size: 14px; opacity: 0.7;">
-                <i class="fas fa-shield-alt"></i> 100% Gratuito • Sin tarjeta requerida • Acceso inmediato
-            </p>
+  <!-- STATS SECTION -->
+  <div class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">+98%</div>
+        <div class="stat-label">Tasa de Conversión</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">+250</div>
+        <div class="stat-label">Clientes Satisfechos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24h</div>
+        <div class="stat-label">Entrega de Diseños</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">A/B Test</div>
+        <div class="stat-label">Optimización Continua</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LANDING PAGES -->
+  <div class="category-section">
+    <h2 class="category-title">🎯 Landing Pages Productos</h2>
+    <div class="grid">
+      <!-- Smartwatch Card -->
+      <div class="card template-tech">
+        <div class="card-badge">ALTA CONVERSIÓN</div>
+        <div class="card-header">
+          <h3>Smartwatch Fitness</h3>
+          <p>Reloj inteligente con análisis de salud avanzado</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>NeoProdUx Consultancy</h3>
-                    <ul>
-                        <li><a href="#">Sobre Nosotros</a></li>
-                        <li><a href="#">Metodología</a></li>
-                        <li><a href="#">Casos de Éxito</a></li>
-                        <li><a href="#">Testimonios</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Recursos</h3>
-                    <ul>
-                        <li><a href="#">Blog E-commerce</a></li>
-                        <li><a href="#">Plantillas Gratis</a></li>
-                        <li><a href="#">Herramientas</a></li>
-                        <li><a href="#">Checklists</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Comunidad</h3>
-                    <ul>
-                        <li><a href="#">Mastermind Group</a></li>
-                        <li><a href="#">Webinars Semanales</a></li>
-                        <li><a href="#">Networking Events</a></li>
-                        <li><a href="#">Partner Program</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="#">Términos de Uso</a></li>
-                        <li><a href="#">Política de Privacidad</a></li>
-                        <li><a href="#">Cookies</a></li>
-                        <li><a href="#">Afiliados</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 NeoProdUx Consultancy. Todos los derechos reservados.</p>
-                <p style="margin-top: 8px;">Consultoría especializada en e-commerce y optimización para Amazon</p>
-            </div>
+        <div class="card-body">
+          <p>Página optimizada para vender smartwatch con énfasis en features de salud, fitness tracking y conectividad.</p>
+          <div class="card-features">
+            <span>Health Tracking</span>
+            <span>GPS</span>
+            <span>Waterproof</span>
+            <span>30-day Battery</span>
+          </div>
         </div>
-    </footer>
+        <div class="card-footer">
+          <button class="btn" onclick="window.location.href='ejemplos/landing-smartwatch.html'">
+            Ver Demo <i class="fas fa-arrow-right btn-icon"></i>
+          </button>
+          <span style="color: #007AFF; font-weight: 600;">Tech</span>
+        </div>
+      </div>
 
-    <script>
-        // Navigation scroll effect
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.padding = '12px 0';
-                nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
-            } else {
-                nav.style.padding = '20px 0';
-                nav.style.boxShadow = 'none';
-            }
+      <!-- Monitor 4K Card -->
+      <div class="card template-tech">
+        <div class="card-badge">PROFESSIONAL</div>
+        <div class="card-header">
+          <h3>Monitor 4K Ultra</h3>
+          <p>Pantalla profesional para creadores de contenido</p>
+        </div>
+        <div class="card-body">
+          <p>Landing page para monitor 4K con especificaciones técnicas avanzadas y comparativas con competencia.</p>
+          <div class="card-features">
+            <span>4K Resolution</span>
+            <span>144Hz</span>
+            <span>HDR1000</span>
+            <span>Color Accuracy</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn" onclick="window.location.href='ejemplos/landing-monitor-4k.html'">
+            Ver Demo <i class="fas fa-arrow-right btn-icon"></i>
+          </button>
+          <span style="color: #007AFF; font-weight: 600;">Tech</span>
+        </div>
+      </div>
+
+      <!-- Paneles Solares Card -->
+      <div class="card template-eco">
+        <div class="card-badge">ECO-FRIENDLY</div>
+        <div class="card-header">
+          <h3>Paneles Solares</h3>
+          <p>Energía renovable para hogar sostenible</p>
+        </div>
+        <div class="card-body">
+          <p>Página especializada en paneles solares con calculadora de ROI, testimonios de clientes y análisis de ahorro.</p>
+          <div class="card-features">
+            <span>25-year Warranty</span>
+            <span>High Efficiency</span>
+            <span>Easy Install</span>
+            <span>ROI Calculator</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn" onclick="window.location.href='ejemplos/landing-paneles-solares.html'">
+            Ver Demo <i class="fas fa-arrow-right btn-icon"></i>
+          </button>
+          <span style="color: #34C759; font-weight: 600;">Eco</span>
+        </div>
+      </div>
+
+      <!-- Zapatillas Card -->
+      <div class="card template-sport">
+        <div class="card-badge">PERFORMANCE</div>
+        <div class="card-header">
+          <h3>Zapatillas Deportivas</h3>
+          <p>Calzado de alto rendimiento para atletas</p>
+        </div>
+        <div class="card-body">
+          <p>Landing page para zapatillas con énfasis en tecnología, comodidad y testimonios de atletas profesionales.</p>
+          <div class="card-features">
+            <span>Air Cushion</span>
+            <span>Lightweight</span>
+            <span>Anti-slip</span>
+            <span>Breathable</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn" onclick="window.location.href='ejemplos/landing-zapatillas.html'">
+            Ver Demo <i class="fas fa-arrow-right btn-icon"></i>
+          </button>
+          <span style="color: #FF6B35; font-weight: 600;">Sport</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMPLATES POR ESTILO -->
+  <div class="category-section">
+    <h2 class="category-title">🎨 Templates por Estilo de Venta</h2>
+    <div class="grid">
+      <!-- Storytelling Card -->
+      <div class="card template-premium">
+        <div class="card-badge">NARRATIVA</div>
+        <div class="card-header">
+          <h3>Storytelling</h3>
+          <p>Conexión emocional con tu audiencia</p>
+        </div>
+        <div class="card-body">
+          <p>Template que cuenta la historia de la marca, orígenes y misión para generar conexión profunda con clientes.</p>
+          <div class="card-features">
+            <span>Brand Story</span>
+            <span>Emotional Design</span>
+            <span>Mission Driven</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn" onclick="window.location.href='ejemplos/estilo-storytelling.html'">
+            Ver Demo <i class="fas fa-arrow-right btn-icon"></i>
+          </button>
+          <span style="color: #1a1a1a; font-weight: 600;">Premium</span>
+        </div>
+      </div>
+
+      <!-- Data-Driven Card -->
+      <div class="card template-tech">
+        <div class="card-badge">ANALYTICS</div>
+        <div class="card-header">
+          <h3>Data-Driven</h3>
+          <p>Estadísticas y pruebas sociales</p>
+        </div>
+        <div class="card-body">
+          <p>Diseño centrado en datos, gráficos y métricas que demuestran calidad, eficacia y resultados comprobados.</p>
+          <div class="card-features">
+            <span>Charts & Graphs</span>
+            <span>Case Studies</span>
+            <span>Performance Data</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn" onclick="window.location.href='ejemplos/estilo-data-driven.html'">
+            Ver Demo <i class="fas fa-arrow-right btn-icon"></i>
+          </button>
+          <span style="color: #007AFF; font-weight: 600;">Tech</span>
+        </div>
+      </div>
+
+      <!-- Social Proof Card -->
+      <div class="card template-premium">
+        <div class="card-badge">CONFIANZA</div>
+        <div class="card-header">
+          <h3>Social Proof</h3>
+          <p>Reseñas, testimonios y confianza social</p>
+        </div>
+        <div class="card-body">
+          <p>Template optimizado con testimonios, ratings, casos de éxito y pruebas sociales para aumentar conversión.</p>
+          <div class="card-features">
+            <span>Testimonials</span>
+            <span>Reviews</span>
+            <span>Case Studies</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn" onclick="window.location.href='ejemplos/estilo-social-proof.html'">
+            Ver Demo <i class="fas fa-arrow-right btn-icon"></i>
+          </button>
+          <span style="color: #1a1a1a; font-weight: 600;">Premium</span>
+        </div>
+      </div>
+
+      <!-- Minimal Pro Card -->
+      <div class="card template-premium">
+        <div class="card-badge">MINIMALISTA</div>
+        <div class="card-header">
+          <h3>Minimal Pro</h3>
+          <p>Diseño limpio y profesional</p>
+        </div>
+        <div class="card-body">
+          <p>Estilo minimalista con enfoque en la calidad, elegancia del producto y experiencia de usuario refinada.</p>
+          <div class="card-features">
+            <span>Clean Design</span>
+            <span>White Space</span>
+            <span>Focus on Product</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn" onclick="window.location.href='ejemplos/estilo-minimal-pro.html'">
+            Ver Demo <i class="fas fa-arrow-right btn-icon"></i>
+          </button>
+          <span style="color: #1a1a1a; font-weight: 600;">Premium</span>
+        </div>
+      </div>
+
+      <!-- Lanzamiento Card -->
+      <div class="card template-tech">
+        <div class="card-badge">URGENCIA</div>
+        <div class="card-header">
+          <h3>Lanzamiento</h3>
+          <p>Countdown y exclusividad</p>
+        </div>
+        <div class="card-body">
+          <p>Template de lanzamiento con countdown, early bird offers, lista de espera y sensación de urgencia.</p>
+          <div class="card-features">
+            <span>Countdown Timer</span>
+            <span>Waitlist</span>
+            <span>Early Bird</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn" onclick="window.location.href='ejemplos/estilo-lanzamiento.html'">
+            Ver Demo <i class="fas fa-arrow-right btn-icon"></i>
+          </button>
+          <span style="color: #007AFF; font-weight: 600;">Tech</span>
+        </div>
+      </div>
+
+      <!-- Bundle Card -->
+      <div class="card template-premium">
+        <div class="card-badge">OFERTAS</div>
+        <div class="card-header">
+          <h3>Bundle</h3>
+          <p>Ofertas y combos atractivos</p>
+        </div>
+        <div class="card-body">
+          <p>Página especializada en bundles, kits y ofertas combo para aumentar ticket promedio y valor de vida del cliente.</p>
+          <div class="card-features">
+            <span>Package Deals</span>
+            <span>Cross-sell</span>
+            <span>Value Packs</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn" onclick="window.location.href='ejemplos/estilo-bundle.html'">
+            Ver Demo <i class="fas fa-arrow-right btn-icon"></i>
+          </button>
+          <span style="color: #1a1a1a; font-weight: 600;">Premium</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2024 NeoProdUx Consultancy. Diseños premium para e-commerce. | <a href="index.html" style="color: #007AFF; font-weight: 600;">Volver a inicio</a></p>
+  <p style="margin-top: 12px; font-size: 0.9rem; color: #999;">Plantillas optimizadas para conversión en Amazon y otras plataformas de e-commerce</p>
+</footer>
+
+<script>
+  // Add smooth scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 100,
+          behavior: 'smooth'
         });
+      }
+    });
+  });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+  // Add hover effects to all cards
+  document.querySelectorAll('.card, .template-preview-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.zIndex = '10';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.zIndex = '1';
+    });
+  });
 
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+  // Button click animations
+  document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+      // Add ripple effect
+      const ripple = document.createElement('span');
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      
+      ripple.style.cssText = `
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.7);
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        width: ${size}px;
+        height: ${size}px;
+        top: ${y}px;
+        left: ${x}px;
+      `;
+      
+      this.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+  // Add CSS for ripple effect
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+    
+    .btn {
+      position: relative;
+      overflow: hidden;
+    }
+  `;
+  document.head.appendChild(style);
 
-        // Observe all cards and steps
-        document.querySelectorAll('.masterclass-card, .guide-step, .template-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-            observer.observe(el);
-        });
-    </script>
+  // Parallax effect for template preview images
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const previewImages = document.querySelectorAll('.template-preview-image img');
+    
+    previewImages.forEach(img => {
+      const speed = 0.5;
+      const yPos = -(scrolled * speed * 0.01);
+      img.style.transform = `scale(1.05) translateY(${yPos}px)`;
+    });
+  });
+</script>
 </body>
 </html>
