@@ -1,355 +1,1066 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejemplos de Páginas para Vender en Amazon - NeoProdUx</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: "Inter", sans-serif; color: #1a1a1a; background: #f7f7f7; }
-    a { text-decoration: none; color: inherit; }
-    
-    nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding: 16px 0; }
-    .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 1.6rem; font-weight: 800; color: #000; letter-spacing: -0.5px; }
-    nav a { color: #666; font-size: 0.95rem; transition: color 0.3s; text-decoration: none; }
-    nav a:hover { color: #000; }
-    
-    main { max-width: 1400px; margin: 140px auto 0; padding: 0 40px 80px; }
-    
-    .section-title { margin-bottom: 60px; text-align: center; }
-    .section-title h1 { font-family: "Sora", sans-serif; font-size: 3rem; font-weight: 800; margin-bottom: 12px; }
-    .section-title p { font-size: 1.1rem; color: #666; max-width: 600px; margin: 0 auto; }
-    
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-bottom: 60px; }
-    
-    .card { background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e5e5e5; transition: all 0.3s ease; }
-    .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    
-    .card-header { padding: 24px; background: linear-gradient(135deg, #ff6b35, #ff8c42); color: #fff; }
-    .card-header h3 { font-size: 1.3rem; margin-bottom: 8px; }
-    .card-header p { font-size: 0.95rem; opacity: 0.95; }
-    
-    .card-body { padding: 24px; }
-    .card-body p { font-size: 0.95rem; color: #666; margin-bottom: 16px; line-height: 1.6; }
-    
-    .card-footer { padding: 0 24px 24px; }
-    .btn { display: inline-block; padding: 12px 24px; background: #ff6b35; color: #fff; border-radius: 8px; font-weight: 600; transition: all 0.3s; }
-    .btn:hover { background: #ff5520; transform: scale(1.05); }
-    
-    .category-section { margin-bottom: 80px; }
-    .category-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 3px solid #ff6b35; }
-    
-    footer { text-align: center; padding: 40px 20px; color: #777; border-top: 1px solid #e5e5e5; }
-    
-    @media (max-width: 768px) {
-      .grid { grid-template-columns: 1fr; }
-      main { margin-top: 120px; padding: 0 20px 40px; }
-      .section-title h1 { font-size: 2rem; }
-      nav { padding: 12px 0; }
-      .nav-container { padding: 0 20px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass en E-commerce | NeoProdUx Consultancy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #111111;
+            --accent: #007AFF;
+            --accent-light: rgba(0, 122, 255, 0.1);
+            --text: #1D1D1F;
+            --text-light: #86868B;
+            --surface: #FFFFFF;
+            --surface-dark: #F5F5F7;
+            --border: #E5E5E7;
+            --success: #34C759;
+            --gradient: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text);
+            background: var(--surface);
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Navigation - Luxury Style */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Manrope', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -1px;
+            position: relative;
+        }
+
+        .logo::after {
+            content: 'CONSULTANCY';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            opacity: 0.8;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-cta:hover {
+            background: #0056CC;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Hero Section - Premium */
+        .hero {
+            padding: 180px 40px 120px;
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            opacity: 0.2;
+            filter: grayscale(100%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+            max-width: 800px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 48px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0056CC;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Section Common Styles */
+        section {
+            padding: 120px 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--accent-light);
+            color: var(--accent);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Masterclass Section */
+        .masterclass {
+            background: var(--surface);
+        }
+
+        .masterclass-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .masterclass-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .masterclass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .masterclass-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--accent-light);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 24px;
+            color: var(--accent);
+        }
+
+        .masterclass-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .masterclass-card p {
+            color: var(--text-light);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .masterclass-features {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .masterclass-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .masterclass-features li i {
+            color: var(--success);
+        }
+
+        /* Amazon Selling Guide */
+        .amazon-guide {
+            background: var(--surface-dark);
+        }
+
+        .guide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .guide-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            position: relative;
+        }
+
+        .guide-steps::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+            opacity: 0.2;
+        }
+
+        .guide-step {
+            display: flex;
+            gap: 40px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .step-content {
+            flex: 1;
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .step-content h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .step-tips {
+            background: var(--accent-light);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .step-tips h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .step-tips ul {
+            list-style: none;
+        }
+
+        .step-tips li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .step-tips li i {
+            color: var(--accent);
+            margin-top: 2px;
+        }
+
+        /* Templates Gallery */
+        .templates-gallery {
+            background: white;
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .template-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .template-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .template-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 6px 16px;
+            background: var(--accent);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 100px;
+            z-index: 2;
+        }
+
+        .template-image {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .template-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .template-card:hover .template-image img {
+            transform: scale(1.05);
+        }
+
+        .template-content {
+            padding: 32px;
+        }
+
+        .template-category {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--accent-light);
+            color: var(--accent);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .template-content h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .template-content p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .template-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .template-features span {
+            padding: 4px 12px;
+            background: var(--surface-dark);
+            border-radius: 100px;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 160px 40px;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .cta-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 80px 40px 40px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .section-title {
+                font-size: 40px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 20px;
+            }
+            
+            .hero {
+                padding: 140px 20px 80px;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .nav-container {
+                padding: 0 20px;
+            }
+            
+            .guide-step {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .cta-title {
+                font-size: 40px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">NeoProdUx</a>
+            <div class="nav-actions">
+                <a href="#masterclass" class="nav-link">Masterclass</a>
+                <a href="#amazon-guide" class="nav-link">Cómo Vender</a>
+                <a href="#templates" class="nav-link">Templates</a>
+                <a href="#cta" class="nav-cta">
+                    <i class="fas fa-rocket"></i>
+                    Comenzar Ahora
+                </a>
+            </div>
+        </div>
+    </nav>
 
-<nav>
-  <div class="nav-container">
-    <a href="index.html" class="logo" style="text-decoration: none; color: #000;"><span style="color: #ff6b35;">N</span>eo<span style="color: #ff6b35;">P</span>rod<span style="color: #ff6b35;">U</span>x</a>
-    <a href="index.html" style="color: #ff6b35; font-weight: 600;">← Volver al inicio</a>
-  </div>
-</nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-container">
+            <span class="hero-badge">PROGRAMA EXCLUSIVO</span>
+            <h1 class="hero-title">Domina el E-commerce y Vende en Amazon como Experto</h1>
+            <p class="hero-subtitle">
+                Descubre nuestro sistema probado para crear páginas de conversión ultra alta, 
+                optimizar listings y escalar tu negocio en Amazon. Diseñado para emprendedores serios.
+            </p>
+            <div class="hero-actions">
+                <a href="#masterclass" class="btn btn-primary">
+                    <i class="fas fa-play-circle"></i>
+                    Ver Masterclass Gratis
+                </a>
+                <a href="#amazon-guide" class="btn btn-secondary">
+                    <i class="fas fa-book"></i>
+                    Guía Completa
+                </a>
+            </div>
+        </div>
+    </section>
 
-<main>
-  <div class="section-title">
-    <h1>Ejemplos de Páginas para Vender en Amazon</h1>
-    <p>Plantillas y diseños profesionales para maximizar conversiones y ventas en plataformas de e-commerce</p>
-  </div>
+    <!-- Masterclass Section -->
+    <section class="masterclass" id="masterclass">
+        <div class="section-header">
+            <span class="section-label">MASTERCLASS VIP</span>
+            <h2 class="section-title">Lo que vas a dominar</h2>
+            <p class="section-subtitle">Un programa estructurado para llevar tu negocio de e-commerce al siguiente nivel</p>
+        </div>
+        <div class="masterclass-grid">
+            <div class="masterclass-card">
+                <div class="masterclass-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Estrategia de Conversión</h3>
+                <p>Aprende los principios psicológicos detrás de las páginas de alto rendimiento y cómo aplicarlos a tus productos.</p>
+                <ul class="masterclass-features">
+                    <li><i class="fas fa-check"></i> Psychology of pricing</li>
+                    <li><i class="fas fa-check"></i> Funnel optimization</li>
+                    <li><i class="fas fa-check"></i> A/B testing frameworks</li>
+                </ul>
+            </div>
 
-  <!-- LANDING PAGES -->
-  <div class="category-section">
-    <h2 class="category-title">🎯 Landing Pages Productos</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="card-header">
-          <h3>Smartwatch Fitness</h3>
-          <p>Reloj inteligente con análisis de salud</p>
-        </div>
-        <div class="card-body">
-          <p>Página optimizada para vender smartwatch con énfasis en features de salud y fitness tracking.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/landing-smartwatch.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
+            <div class="masterclass-card">
+                <div class="masterclass-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Amazon SEO Profesional</h3>
+                <p>Domina el algoritmo A9 de Amazon y posiciona tus productos en la primera página de resultados.</p>
+                <ul class="masterclass-features">
+                    <li><i class="fas fa-check"></i> Keyword research avanzado</li>
+                    <li><i class="fas fa-check"></i> Optimización de backend</li>
+                    <li><i class="fas fa-check"></i> Estrategias de PPC efectivas</li>
+                </ul>
+            </div>
 
-      <div class="card">
-        <div class="card-header">
-          <h3>Monitor 4K Ultra</h3>
-          <p>Pantalla de alta definición para profesionales</p>
+            <div class="masterclass-card">
+                <div class="masterclass-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Diseño UX/UI Premium</h3>
+                <p>Crea páginas que no solo se vean increíbles, sino que conviertan visitantes en clientes leales.</p>
+                <ul class="masterclass-features">
+                    <li><i class="fas fa-check"></i> Principles of visual hierarchy</li>
+                    <li><i class="fas fa-check"></i> Mobile-first optimization</li>
+                    <li><i class="fas fa-check"></i> Advanced micro-interactions</li>
+                </ul>
+            </div>
         </div>
-        <div class="card-body">
-          <p>Landing page para monitor 4K con especificaciones técnicas y comparativas con competencia.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/landing-monitor-4k.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
+    </section>
 
-      <div class="card">
-        <div class="card-header">
-          <h3>Paneles Solares</h3>
-          <p>Energía renovable eficiente</p>
+    <!-- Amazon Selling Guide -->
+    <section class="amazon-guide" id="amazon-guide">
+        <div class="section-header">
+            <span class="section-label">GUÍA DEFINITIVA</span>
+            <h2 class="section-title">Cómo Vender en Amazon en 5 Pasos</h2>
+            <p class="section-subtitle">Nuestra metodología probada para construir un negocio exitoso en Amazon</p>
         </div>
-        <div class="card-body">
-          <p>Página especializada en paneles solares con calculadora de ROI y testimonios de clientes.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/landing-paneles-solares.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
+        <div class="guide-container">
+            <div class="guide-steps">
+                <div class="guide-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Investigación de Producto y Mercado</h3>
+                        <p>Antes de vender, debes entender el mercado. Aprende a identificar productos con alta demanda y baja competencia, y cómo validar tu idea antes de invertir.</p>
+                        <div class="step-tips">
+                            <h4>Pro Tips:</h4>
+                            <ul>
+                                <li><i class="fas fa-lightbulb"></i> Usa herramientas como Helium 10 o Jungle Scout</li>
+                                <li><i class="fas fa-lightbulb"></i> Analiza reviews de competidores para encontrar gaps</li>
+                                <li><i class="fas fa-lightbulb"></i> Considera costos de importación y logística</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="card">
-        <div class="card-header">
-          <h3>Zapatillas Deportivas</h3>
-          <p>Calzado de alto rendimiento</p>
-        </div>
-        <div class="card-body">
-          <p>Landing page para zapatillas con énfasis en tecnología, comodidad y testimonios de atletas.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/landing-zapatillas.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
-    </div>
-  </div>
+                <div class="guide-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Creación de Listings Optimizados</h3>
+                        <p>Un buen producto necesita un gran listing. Domina la creación de títulos, bullets, descripciones e imágenes que convierten.</p>
+                        <div class="step-tips">
+                            <h4>Pro Tips:</h4>
+                            <ul>
+                                <li><i class="fas fa-lightbulb"></i> Keywords principales en título (primeras 80 caracteres)</li>
+                                <li><i class="fas fa-lightbulb"></i> Bullets que resuelven objeciones y destacan beneficios</li>
+                                <li><i class="fas fa-lightbulb"></i> Imágenes profesionales estilo lifestyle</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-  <!-- TEMPLATES POR ESTILO -->
-  <div class="category-section">
-    <h2 class="category-title">🎨 Templates por Estilo de Venta</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="card-header">
-          <h3>Storytelling</h3>
-          <p>Narrativa de marca y conexión emocional</p>
-        </div>
-        <div class="card-body">
-          <p>Template que cuenta la historia de la marca, orígenes y misión para generar conexión con clientes.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/estilo-storytelling.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
+                <div class="guide-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Optimización para el Algoritmo A9</h3>
+                        <p>Entiende cómo funciona el algoritmo de Amazon y optimiza tu listing para rankear en las primeras posiciones.</p>
+                        <div class="step-tips">
+                            <h4>Pro Tips:</h4>
+                            <ul>
+                                <li><i class="fas fa-lightbulb"></i> Backend keywords estratégicamente</li>
+                                <li><i class="fas fa-lightbulb"></i> Optimiza para velocidad de conversión</li>
+                                <li><i class="fas fa-lightbulb"></i> Maneja reviews y ratings proactivamente</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="card">
-        <div class="card-header">
-          <h3>Data-Driven</h3>
-          <p>Estadísticas y pruebas sociales</p>
-        </div>
-        <div class="card-body">
-          <p>Diseño centrado en datos, gráficos y métricas que demuestran calidad y eficacia.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/estilo-data-driven.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
+                <div class="guide-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Estrategias de Marketing y PPC</h3>
+                        <p>Aprende a usar Amazon Advertising para impulsar tus ventas y crear una marca reconocible.</p>
+                        <div class="step-tips">
+                            <h4>Pro Tips:</h4>
+                            <ul>
+                                <li><i class="fas fa-lightbulb"></i> Comienza con keywords exactos de bajo costo</li>
+                                <li><i class="fas fa-lightbulb"></i> Usa campañas de producto para búsqueda</li>
+                                <li><i class="fas fa-lightbulb"></i> Optimiza basado en ACOS (Advertising Cost of Sale)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="card">
-        <div class="card-header">
-          <h3>Social Proof</h3>
-          <p>Reseñas, testimonios y confianza</p>
+                <div class="guide-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Escalación y Optimización Continua</h3>
+                        <p>Una vez que tienes un producto exitoso, aprende a escalar y optimizar para maximizar ganancias.</p>
+                        <div class="step-tips">
+                            <h4>Pro Tips:</h4>
+                            <ul>
+                                <li><i class="fas fa-lightbulb"></i> Diversifica con productos complementarios</li>
+                                <li><i class="fas fa-lightbulb"></i> Implementa automatizaciones</li>
+                                <li><i class="fas fa-lightbulb"></i> Analiza métricas clave regularmente</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-          <p>Template optimizado con testimonios, ratings y pruebas sociales para aumentar conversión.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/estilo-social-proof.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
+    </section>
 
-      <div class="card">
-        <div class="card-header">
-          <h3>Minimal Pro</h3>
-          <p>Diseño limpio y profesional</p>
+    <!-- Templates Gallery -->
+    <section class="templates-gallery" id="templates">
+        <div class="section-header">
+            <span class="section-label">TEMPLATES PREMIUM</span>
+            <h2 class="section-title">Páginas que Convierten</h2>
+            <p class="section-subtitle">Diseños profesionales listos para implementar en tu negocio</p>
         </div>
-        <div class="card-body">
-          <p>Estilo minimalista con enfoque en la calidad y elegancia del producto.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/estilo-minimal-pro.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
+        <div class="gallery-container">
+            <div class="gallery-grid">
+                <div class="template-card">
+                    <div class="template-badge">HIGH CONVERSION</div>
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tech Product Template">
+                    </div>
+                    <div class="template-content">
+                        <span class="template-category">ELECTRÓNICA</span>
+                        <h3>Tech Products Pro</h3>
+                        <p>Template especializado para productos tecnológicos con énfasis en especificaciones y comparativas.</p>
+                        <div class="template-features">
+                            <span>Specs Table</span>
+                            <span>Comparison</span>
+                            <span>Tech Features</span>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="card">
-        <div class="card-header">
-          <h3>Lanzamiento</h3>
-          <p>Urgencia y exclusividad</p>
-        </div>
-        <div class="card-body">
-          <p>Template de lanzamiento con countdown, early bird offers y sensación de urgencia.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/estilo-lanzamiento.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
+                <div class="template-card">
+                    <div class="template-badge">PREMIUM</div>
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Premium Product Template">
+                    </div>
+                    <div class="template-content">
+                        <span class="template-category">LUJO</span>
+                        <h3>Luxury Experience</h3>
+                        <p>Diseño elegante para productos premium con storytelling y experiencia inmersiva.</p>
+                        <div class="template-features">
+                            <span>Storytelling</span>
+                            <span>High-end Gallery</span>
+                            <span>Exclusive Offers</span>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="card">
-        <div class="card-header">
-          <h3>Bundle</h3>
-          <p>Ofertas y combos atractivos</p>
+                <div class="template-card">
+                    <div class="template-badge">ECO-FRIENDLY</div>
+                    <div class="template-image">
+                        <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Eco Product Template">
+                    </div>
+                    <div class="template-content">
+                        <span class="template-category">SUSTENTABLE</span>
+                        <h3>Eco Brand Pro</h3>
+                        <p>Template para marcas sustentables con enfoque en impacto ambiental y materiales.</p>
+                        <div class="template-features">
+                            <span>Sustainability</span>
+                            <span>Impact Metrics</span>
+                            <span>Eco Materials</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-          <p>Página especializada en bundles y ofertas combo para aumentar ticket promedio.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/estilo-bundle.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- TEMPLATES PRODUCTOS -->
-  <div class="category-section">
-    <h2 class="category-title">📦 Templates por Producto</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="card-header">
-          <h3>Tech Products</h3>
-          <p>Electrónica y tecnología</p>
+    <!-- Final CTA -->
+    <section class="cta-section" id="cta">
+        <div class="cta-container">
+            <h2 class="cta-title">Comienza tu Viaje en E-commerce Hoy</h2>
+            <p class="cta-subtitle">
+                Accede a nuestra masterclass gratuita y descubre cómo crear páginas que venden, 
+                optimizar para Amazon y construir un negocio escalable.
+            </p>
+            <a href="https://sell.amazon.com/es/sell" class="btn btn-primary" style="font-size: 18px; padding: 18px 48px;">
+                <i class="fas fa-graduation-cap"></i>
+                Acceder a la Masterclass Gratis
+            </a>
+            <p style="margin-top: 24px; font-size: 14px; opacity: 0.7;">
+                <i class="fas fa-shield-alt"></i> 100% Gratuito • Sin tarjeta requerida • Acceso inmediato
+            </p>
         </div>
-        <div class="card-body">
-          <p>Template especializado para productos tecnológicos con especificaciones y features.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/template-tech.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
+    </section>
 
-      <div class="card">
-        <div class="card-header">
-          <h3>Premium</h3>
-          <p>Productos de lujo</p>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>NeoProdUx Consultancy</h3>
+                    <ul>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Metodología</a></li>
+                        <li><a href="#">Casos de Éxito</a></li>
+                        <li><a href="#">Testimonios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="#">Blog E-commerce</a></li>
+                        <li><a href="#">Plantillas Gratis</a></li>
+                        <li><a href="#">Herramientas</a></li>
+                        <li><a href="#">Checklists</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Comunidad</h3>
+                    <ul>
+                        <li><a href="#">Mastermind Group</a></li>
+                        <li><a href="#">Webinars Semanales</a></li>
+                        <li><a href="#">Networking Events</a></li>
+                        <li><a href="#">Partner Program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Términos de Uso</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Afiliados</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NeoProdUx Consultancy. Todos los derechos reservados.</p>
+                <p style="margin-top: 8px;">Consultoría especializada en e-commerce y optimización para Amazon</p>
+            </div>
         </div>
-        <div class="card-body">
-          <p>Diseño elegante y sofisticado para productos premium y de alto valor.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/template-premium.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
+    </footer>
 
-      <div class="card">
-        <div class="card-header">
-          <h3>Eco-Friendly</h3>
-          <p>Productos sustentables</p>
-        </div>
-        <div class="card-body">
-          <p>Template enfocado en sostenibilidad, materiales eco-friendly y impacto ambiental.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/template-eco.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = '12px 0';
+                nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.padding = '20px 0';
+                nav.style.boxShadow = 'none';
+            }
+        });
 
-      <div class="card">
-        <div class="card-header">
-          <h3>Sport</h3>
-          <p>Artículos deportivos</p>
-        </div>
-        <div class="card-body">
-          <p>Página especializada en equipamiento deportivo con énfasis en performance y durabilidad.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/template-sport.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
-    </div>
-  </div>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
 
-  <!-- TENDENCIAS DE DISEÑO -->
-  <div class="category-section">
-    <h2 class="category-title">✨ Tendencias de Diseño 2025</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="card-header">
-          <h3>Motion Design</h3>
-          <p>Animaciones y movimiento</p>
-        </div>
-        <div class="card-body">
-          <p>Página con micro-interacciones y animaciones que capturan la atención del usuario.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/tendencia-motion.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-      <div class="card">
-        <div class="card-header">
-          <h3>Calm UX</h3>
-          <p>Diseño tranquilo y enfocado</p>
-        </div>
-        <div class="card-body">
-          <p>Interfaz minimalista que reduce la ansiedad del usuario y facilita la decisión de compra.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/tendencia-calm.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-      <div class="card">
-        <div class="card-header">
-          <h3>IA UX</h3>
-          <p>Inteligencia artificial y personalización</p>
-        </div>
-        <div class="card-body">
-          <p>Página con elementos de IA que personalizan la experiencia para cada usuario.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/tendencia-ai-ux.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <h3>Neumorfismo</h3>
-          <p>Diseño suave y moderno</p>
-        </div>
-        <div class="card-body">
-          <p>Tendencia de diseño con sombras suaves y efectos 3D que crean profundidad visual.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/tendencia-neumorfismo.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SEO CONTENT -->
-  <div class="category-section">
-    <h2 class="category-title">📝 SEO y Contenido</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="card-header">
-          <h3>Amazon SEO</h3>
-          <p>Optimización para Amazon A9</p>
-        </div>
-        <div class="card-body">
-          <p>Estructura optimizada para algoritmos de Amazon con keywords, bullets y descripción estratégica.</p>
-        </div>
-        <div class="card-footer">
-          <a href="ejemplos/amazon-seo-contenido.html" class="btn" target="_blank">Ver ejemplo →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</main>
-
-<footer>
-  <p>&copy; 2026 NeoProdUx. Ejemplos de páginas para vender en Amazon. | <a href="index.html" style="color: #ff6b35;">Volver a inicio</a></p>
-</footer>
-
+        // Observe all cards and steps
+        document.querySelectorAll('.masterclass-card, .guide-step, .template-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
