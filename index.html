@@ -2315,6 +2315,112 @@
     ::-webkit-scrollbar-thumb:hover {
       background: linear-gradient(135deg, var(--primary-dark), #0284c7);
     }
+  <style>
+.certifications-min {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 0;
+}
+
+.certifications-min .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.certifications-min h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.cert-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cert-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2.5rem;
+}
+
+.cert-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.cert-list li:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.cert-icon {
+  flex-shrink: 0;
+  margin-right: 1rem;
+  margin-top: 2px;
+  color: #ffd700;
+}
+
+.cert-text {
+  flex-grow: 1;
+}
+
+.cert-text strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.cert-platform {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  display: block;
+}
+
+.cert-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+  padding: 0.875rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cert-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .certifications-min h2 {
+    font-size: 2rem;
+  }
+  
+  .cert-list li {
+    padding: 1rem;
+  }
+}
+</style>
 
   </style>
 </head>
@@ -2473,7 +2579,69 @@
     <a href="#caso-yale" class="case-anchor">Yale School</a>
   </div>
   
-  <section id="certificaciones" class="certifications-min">
+  <section id="<section id="certificaciones" class="certifications-min">
+  <div class="container">
+    <h2>Certificaciones</h2>
+    <p class="cert-subtitle">
+      Formación validada en plataformas reconocidas. Credenciales verificables.
+    </p>
+
+    <ul class="cert-list">
+      <li>
+        <span class="cert-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 5.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM4 8a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 1 0v-3A.5.5 0 0 0 4 8zm8 0a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 1 0v-3A.5.5 0 0 0 12 8z"/>
+          </svg>
+        </span>
+        <span class="cert-text">
+          <strong>UX Design Certification</strong>
+          <span class="cert-platform">Coursera</span>
+        </span>
+      </li>
+      <li>
+        <span class="cert-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm1-10a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM8 13a1 1 0 0 1-1-1v-4a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1z"/>
+          </svg>
+        </span>
+        <span class="cert-text">
+          <strong>UX Research & Usability</strong>
+          <span class="cert-platform">Nielsen Norman Group</span>
+        </span>
+      </li>
+      <li>
+        <span class="cert-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>
+          </svg>
+        </span>
+        <span class="cert-text">
+          <strong>Data Analytics Professional</strong>
+          <span class="cert-platform">Google Career Certificates</span>
+        </span>
+      </li>
+      <li>
+        <span class="cert-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+          </svg>
+        </span>
+        <span class="cert-text">
+          <strong>Business Intelligence Foundations</strong>
+          <span class="cert-platform">Microsoft & LinkedIn Learning</span>
+        </span>
+      </li>
+    </ul>
+
+    <a href="https://www.credly.com/users/david-sebastian-diaz" target="_blank" class="cert-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
+        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+      </svg>
+      Ver credenciales verificadas en Credly →
+    </a>
+  </div>
+</section>" class="certifications-min">
     <div class="container">
       <h2>Certificaciones</h2>
       <p class="cert-subtitle">
