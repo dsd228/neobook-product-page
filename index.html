@@ -27,30 +27,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- Fonts -->
-  <style>
+<style>
     @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-   :root {
-  --primary-color: #0ea5e9;      /* azul tecno principal */
-  --primary-dark: #0369a1;       /* azul profundo */
-  --secondary-color: #38bdf8;    /* acento suave */
-  
-  --dark-color: #050807;         /* negro elegante */
-  --light-color: #ffffff;
+    /* Variables CSS para consistencia */
+    :root {
+      --primary-color: #0ea5e9;      /* azul tecno principal */
+      --primary-dark: #0369a1;       /* azul profundo */
+      --secondary-color: #38bdf8;    /* acento suave */
+      
+      --dark-color: #050807;         /* negro elegante */
+      --light-color: #ffffff;
 
-  --gray-light: #f1f5f9;
-  --gray-medium: #94a3b8;
-  --gray-dark: #1f2933;
+      --gray-light: #f1f5f9;
+      --gray-medium: #94a3b8;
+      --gray-dark: #1f2933;
 
-  --shadow-sm: 0 4px 20px rgba(14,165,233,0.15);
-  --shadow-md: 0 20px 40px rgba(0,0,0,0.4);
-  --shadow-lg: 0 40px 80px rgba(0,0,0,0.6);
+      --shadow-sm: 0 4px 20px rgba(14,165,233,0.15);
+      --shadow-md: 0 20px 40px rgba(0,0,0,0.4);
+      --shadow-lg: 0 40px 80px rgba(0,0,0,0.6);
 
-  --transition-fast: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
+      --transition-fast: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-smooth: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * { 
@@ -121,336 +120,79 @@
       height: 100% !important;
       z-index: 0 !important;
     }
-    .hero-card {
-  background: rgba(255, 255, 255, 0.01); /* transparente pro */
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-}
-
 
     /* Capa oscura superpuesta para mejor contraste del texto */
     .hero-overlay {
       position: absolute;
       top: 0;
       left: 0;
-      width: 10%;
-      height: 10%;
-      background: rgba(0, 0, 0, 0.4);
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6); /* Más oscuro */
       z-index: 1;
       transition: background-color 0.8s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     /* Oscurece más al hover para mejor contraste */
-    
+    .hero-container:hover .hero-overlay {
+      background: rgba(0, 0, 0, 0.7); /* Más oscuro al hover */
+    }
 
     /* Cursor personalizado - OCULTARLO por ahora */
     .hero-cursor {
       display: none !important; /* Ocultamos el cursor que molesta */
     }
 
-    /* TARJETA DE CRISTAL CENTRAL - Mejorado con efecto hover */
-    /* Busca la clase .glass-card y modifícala así: */
-.glass-card {
-  width: 100%;
-  max-width: 1200px;
-  min-height: 700px;
-  background: rgba(255, 255, 255, 0.02); /* Casi invisible */
-  backdrop-filter: blur(35px) saturate(220%);
-  -webkit-backdrop-filter: blur(35px) saturate(220%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  padding: 50px 70px;
-  overflow: hidden;
-  transition: all var(--transition-smooth);
-  z-index: 2;
-}
-
-/* Efecto de refracción sutil */
-.glass-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.01) 0%,
-    transparent 50%,
-    rgba(255, 255, 255, 0.01) 100%
-  );
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Ajustar el efecto hover para mantener transparencia */
-.hero-container:hover .glass-card {
-  transform: translateY(-5px);
-  box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.05); /* Mínimo aumento en hover */
-}
-
-/* Hacer el efecto shine más sutil */
-.glass-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.04), /* Muy sutil */
-    transparent
-  );
-  transition: left 0.7s ease;
-}
-
-.glass-card:hover::before {
-  left: 100%;
-}
-    /* Efecto adicional en la tarjeta al hover del contenedor */
-    .hero-container:hover .glass-card {
-      transform: translateY(-5px);
-      box-shadow: 
-        0 35px 70px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-
-    /* CONTENIDO DEL HERO - Mejorado */
-    .hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Más oscuro */
-  z-index: 1;
-  transition: background-color 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.hero-container:hover .hero-overlay {
-  background: rgba(0, 0, 0, 0.7); /* Más oscuro al hover */
-}
-    .hero-main-content {
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-      flex-grow: 1;
+    /* TARJETA DE CRISTAL CENTRAL - VIDRIO TRANSPARENTE TOTAL */
+    .glass-card {
+      width: 100%;
+      max-width: 1200px;
+      min-height: 700px;
+      background: rgba(255, 255, 255, 0.03); /* Casi totalmente transparente */
+      backdrop-filter: blur(40px) saturate(250%); /* Blur fuerte para efecto vidrio */
+      -webkit-backdrop-filter: blur(40px) saturate(250%);
+      border: 1px solid rgba(255, 255, 255, 0.06); /* Borde muy sutil */
+      border-radius: 24px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
       position: relative;
-      z-index: 3;
-    }
-
-    .hero-main-content h1 {
-      font-size: 3.8rem;
-      color: #ffffff;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 30px;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    /* Efecto sutil en el texto al hover - ¡ACTIVADO! */
-    .hero-container:hover .hero-main-content h1 {
-      transform: translateY(-3px);
-    }
-
-    .hero-main-content p {
-      font-size: 1.4rem;
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.6;
-      margin-bottom: 50px;
-      font-weight: 500;
-      max-width: 800px;
-      transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .hero-container:hover .hero-main-content p {
-      transform: translateY(-2px);
-    }
-
-    /* BOTÓN ACCEDER - Premium */
-    .btn-acceder {
-      background: linear-gradient(135deg, #FF6B35, #FF8E53);
-      color: var(--light-color);
-      padding: 22px 85px;
-      border-radius: 50px;
-      font-size: 2rem;
-      font-weight: 700;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: all var(--transition-fast);
       box-shadow: 
-        0 15px 35px rgba(255, 107, 53, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      border: none;
-      cursor: pointer;
-      position: relative;
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      padding: 50px 70px;
       overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      z-index: 4;
+      transition: all var(--transition-smooth);
+      z-index: 2;
     }
 
-    .btn-acceder::before {
+    /* Efecto de refracción sutil */
+    .glass-card::after {
       content: '';
       position: absolute;
       top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
+        135deg,
+        rgba(14, 165, 233, 0.02) 0%,
+        transparent 50%,
+        rgba(14, 165, 233, 0.02) 100%
       );
-      transition: left 0.6s ease;
-    }
-
-    .btn-acceder:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 
-        0 20px 40px rgba(255, 107, 53, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    }
-
-    .btn-acceder:hover::before {
-      left: 100%;
-    }
-
-    .btn-acceder i {
-      font-size: 1.5rem;
-      transition: transform var(--transition-fast);
-    }
-
-    .btn-acceder:hover i {
-      transform: translateX(5px);
-    }
-
-    /* Trust Badges en Hero */
-    .trust-badge {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.95rem;
-  font-weight: 500;
-  padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.05); /* Más transparente */
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.10); /* Borde más sutil */
-  transition: all var(--transition-fast);
-}
-
-    .trust-badge {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 0.95rem;
-      font-weight: 500;
-      padding: 12px 24px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      transition: all var(--transition-fast);
-    }
-
-    .trust-badge:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-2px);
-    }
-
-    .trust-badge i {
-      font-size: 1.2rem;
-      color: var(--primary-color);
-    }
-
-    /* ==============================
-       RESPONSIVE DESIGN - ¡IMPORTANTE!
-       ============================== */
-    @media (max-width: 768px) {
-      /* Desactivar efectos hover en móviles */
-      .hero-container:hover .hero-overlay {
-        background: rgba(0, 0, 0, 0.4);
-      }
-      
-      .hero-container:hover .glass-card {
-        transform: none;
-        box-shadow: 
-          0 25px 50px rgba(0, 0, 0, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      }
-      
-      .hero-container:hover .hero-main-content h1,
-      .hero-container:hover .hero-main-content p {
-        transform: none;
-      }
-      
-      /* En móvil: ocultar Unicorn Studio y mostrar imagen de fondo */
-      .unicorn-studio-container {
-        display: none;
-      }
-      
-      .hero-container {
-        background: url('background-glass.jpg') center/cover no-repeat !important;
-      }
-      
-      .hero-overlay {
-        background: rgba(0, 0, 0, 0.5);
-      }
-    }
-
-    /* Oscurece más al hover para mejor contraste */
-    .hero-container:hover .hero-overlay {
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    /* Cursor personalizado para el efecto (opcional pero premium) */
-    .hero-cursor {
-      position: fixed;
-      width: 40px;
-      height: 40px;
-      border: 2px solid rgba(255, 107, 53, 0.8);
-      border-radius: 50%;
       pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: width 0.3s, height 0.3s, border-color 0.3s;
-      mix-blend-mode: difference;
-      display: none; /* Oculto por defecto, se activa con JS */
+      z-index: -1;
     }
 
-    .hero-cursor.active {
-      width: 60px;
-      height: 60px;
-      border-color: rgba(255, 107, 53, 1);
+    /* Ajustar el efecto hover para mantener transparencia */
+    .hero-container:hover .glass-card {
+      transform: translateY(-5px);
+      box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04); /* Mínimo aumento en hover */
     }
 
-    /* TARJETA DE CRISTAL CENTRAL - Mejorado con efecto hover */
-    
-
+    /* Hacer el efecto shine más sutil */
     .glass-card::before {
       content: '';
       position: absolute;
@@ -461,7 +203,7 @@
       background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.03), /* Muy sutil */
         transparent
       );
       transition: left 0.7s ease;
@@ -471,15 +213,7 @@
       left: 100%;
     }
 
-    /* Efecto adicional en la tarjeta al hover del contenedor */
-    .hero-container:hover .glass-card {
-      transform: translateY(-5px);
-      box-shadow: 
-        0 35px 70px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-
-    /* NAVEGACIÓN INTERNA - Logo en colores específicos y menú desplegable */
+    /* NAVEGACIÓN INTERNA - Logo en colores azules */
     .inner-nav {
       display: flex;
       justify-content: space-between;
@@ -489,7 +223,7 @@
       gap: 20px;
     }
 
-    /* LOGO NEO-PROD-UX con colores específicos */
+    /* LOGO NEO-PROD-UX con colores azules */
     .inner-logo {
       font-size: 2.2rem;
       font-weight: 800;
@@ -503,7 +237,7 @@
     }
 
     .logo-neo {
-      color: #FF6B35; /* Naranja */
+      color: #38bdf8; /* Azul claro */
     }
 
     .logo-prod {
@@ -511,7 +245,7 @@
     }
 
     .logo-ux {
-      color: #FF6B35; /* Naranja */
+      color: #0ea5e9; /* Azul principal */
     }
 
     .inner-logo:hover {
@@ -543,8 +277,8 @@
     }
 
     .nav-links a.active {
-      background: rgba(255, 107, 53, 0.2);
-      border: 1px solid rgba(255, 107, 53, 0.4);
+      background: rgba(14, 165, 233, 0.2);
+      border: 1px solid rgba(14, 165, 233, 0.4);
     }
 
     .nav-separator { 
@@ -597,10 +331,10 @@
       top: 100%; 
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.95); 
+      background: rgba(255, 255, 255, 0.98); 
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.4); 
+      border: 1px solid rgba(14, 165, 233, 0.2); 
       border-radius: 16px; 
       min-width: 260px; 
       opacity: 0; 
@@ -611,7 +345,7 @@
       margin-top: 10px; 
       box-shadow: 
         0 20px 60px rgba(0, 0, 0, 0.2),
-        0 0 0 1px rgba(255, 255, 255, 0.1);
+        0 0 0 1px rgba(14, 165, 233, 0.1);
       padding: 12px 0;
       overflow: hidden;
     }
@@ -625,7 +359,7 @@
     .dropdown-menu a { 
       display: block; 
       padding: 14px 28px; 
-      color: #555; 
+      color: #333; 
       text-decoration: none; 
       transition: all 0.3s; 
       font-size: 1rem;
@@ -642,7 +376,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+      background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.08), transparent);
       transition: left 0.5s ease;
     }
     
@@ -651,7 +385,7 @@
     }
     
     .dropdown-menu a:hover { 
-      background: rgba(255, 107, 53, 0.08); 
+      background: rgba(14, 165, 233, 0.05); 
       color: var(--primary-color); 
       border-left: 4px solid var(--primary-color);
       padding-left: 32px;
@@ -693,7 +427,7 @@
       font-weight: 800;
       line-height: 1.1;
       margin-bottom: 30px;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
       transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
@@ -704,11 +438,12 @@
 
     .hero-main-content p {
       font-size: 1.4rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255, 255, 255, 0.95);
       line-height: 1.6;
       margin-bottom: 50px;
       font-weight: 500;
       max-width: 800px;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
       transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
@@ -716,9 +451,9 @@
       transform: translateY(-2px);
     }
 
-    /* BOTÓN ACCEDER - Premium con efecto hover mejorado */
+    /* BOTÓN ACCEDER - Azul */
     .btn-acceder {
-      background: linear-gradient(135deg, #FF6B35, #FF8E53);
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: var(--light-color);
       padding: 22px 85px;
       border-radius: 50px;
@@ -729,7 +464,7 @@
       letter-spacing: 1.5px;
       transition: all var(--transition-fast);
       box-shadow: 
-        0 15px 35px rgba(255, 107, 53, 0.4),
+        0 15px 35px rgba(14, 165, 233, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
       border: none;
       cursor: pointer;
@@ -761,7 +496,7 @@
     .btn-acceder:hover {
       transform: translateY(-5px) scale(1.05);
       box-shadow: 
-        0 20px 40px rgba(255, 107, 53, 0.6),
+        0 20px 40px rgba(14, 165, 233, 0.6),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
 
@@ -796,14 +531,14 @@
       font-size: 0.95rem;
       font-weight: 500;
       padding: 12px 24px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.05); /* Transparente */
       border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.10); /* Borde sutil */
       transition: all var(--transition-fast);
     }
 
     .trust-badge:hover {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.1);
       transform: translateY(-2px);
     }
 
@@ -816,7 +551,7 @@
        BANDA DE CONFIANZA INMEDIATA
        ============================== */
     .trust-band {
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      background: linear-gradient(135deg, #050807, #0f172a);
       color: white;
       padding: 30px 40px;
       display: flex;
@@ -862,7 +597,7 @@
        MINI-TESTIMONIO
        ============================== */
     .mini-testimonial {
-      background: linear-gradient(135deg, #f8f9fa, #ffffff);
+      background: linear-gradient(135deg, #f1f5f9, #ffffff);
       padding: 50px 40px;
       text-align: center;
       border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -1025,7 +760,7 @@
     }
 
     .btn-reinforcement {
-      background: linear-gradient(135deg, #FF6B35, #FF8E53);
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: var(--light-color);
       padding: 20px 50px;
       border-radius: 50px;
@@ -1034,7 +769,7 @@
       text-decoration: none;
       transition: all var(--transition-fast);
       box-shadow: 
-        0 15px 35px rgba(255, 107, 53, 0.4),
+        0 15px 35px rgba(14, 165, 233, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
       border: none;
       cursor: pointer;
@@ -1048,7 +783,7 @@
     .btn-reinforcement:hover {
       transform: translateY(-5px) scale(1.05);
       box-shadow: 
-        0 20px 40px rgba(255, 107, 53, 0.6),
+        0 20px 40px rgba(14, 165, 233, 0.6),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
     
@@ -1117,7 +852,7 @@
       font-size: 2.8rem;
       color: var(--dark-color);
       margin-bottom: 60px;
-      background: linear-gradient(135deg, var(--dark-color), var(--gray-medium));
+      background: linear-gradient(135deg, var(--dark-color), var(--gray-dark));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -1134,7 +869,7 @@
       background: white;
       padding: 40px 30px;
       border-radius: 20px;
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-sm);
       position: relative;
       transition: transform var(--transition-fast);
       border-top: 5px solid var(--primary-color);
@@ -1143,7 +878,7 @@
 
     .work-step:hover {
       transform: translateY(-10px);
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--shadow-md);
     }
 
     .work-step::before {
@@ -1153,7 +888,7 @@
       left: 30px;
       width: 50px;
       height: 50px;
-      background: linear-gradient(135deg, #FF6B35, #FF8E53);
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: white;
       border-radius: 50%;
       display: flex;
@@ -1213,8 +948,8 @@
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(circle at 10% 20%, rgba(255, 107, 53, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 90% 80%, rgba(102, 126, 234, 0.03) 0%, transparent 50%);
+        radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.03) 0%, transparent 50%);
       pointer-events: none;
     }
 
@@ -1236,7 +971,7 @@
       margin-bottom: 25px;
       font-weight: 800;
       letter-spacing: -0.02em;
-      background: linear-gradient(135deg, var(--dark-color), var(--gray-medium));
+      background: linear-gradient(135deg, var(--dark-color), var(--gray-dark));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -1286,7 +1021,7 @@
       background: var(--primary-color);
       color: white;
       transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-sm);
     }
 
     /* Caso individual mejorado */
@@ -1433,7 +1168,7 @@
 
     .result-item:hover {
       transform: translateY(-10px);
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--shadow-md);
     }
 
     .result-value {
@@ -1456,14 +1191,14 @@
       align-items: center;
       gap: 15px;
       padding: 20px 40px;
-      background: linear-gradient(135deg, var(--dark-color), #333333);
+      background: linear-gradient(135deg, var(--dark-color), #1f2933);
       color: var(--light-color);
       border-radius: 50px;
       font-size: 1.1rem;
       font-weight: 600;
       text-decoration: none;
       transition: all var(--transition-fast);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-sm);
       position: relative;
       overflow: hidden;
     }
@@ -1486,7 +1221,7 @@
 
     .case-cta:hover {
       transform: translateY(-3px) scale(1.05);
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--shadow-md);
     }
 
     .case-cta:hover::before {
@@ -1506,7 +1241,7 @@
       position: relative;
       border-radius: 30px;
       overflow: hidden;
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--shadow-md);
       transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       background: linear-gradient(135deg, #f8f9fa, #ffffff);
       transform-style: preserve-3d;
@@ -1520,7 +1255,7 @@
         rotateY(-5deg);
       box-shadow: 
         0 50px 100px rgba(0, 0, 0, 0.15),
-        0 0 0 1px rgba(255, 107, 53, 0.1);
+        0 0 0 1px rgba(14, 165, 233, 0.1);
     }
 
     .case-image {
@@ -1577,7 +1312,7 @@
        FORMULARIO DE CAPTURA PREMIUM
        ============================== */
     .capture-form {
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      background: linear-gradient(135deg, #0f172a, #1e293b);
       color: var(--light-color);
       padding: 80px 40px;
       border-radius: 40px;
@@ -1598,8 +1333,8 @@
       width: 200%;
       height: 200%;
       background: 
-        radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 50%);
       pointer-events: none;
     }
 
@@ -1742,7 +1477,7 @@
     }
 
     .form-field select option {
-      background: #1a1a1a;
+      background: #1e293b;
       color: white;
       padding: 10px;
     }
@@ -1757,7 +1492,7 @@
       outline: none;
       border-color: var(--primary-color);
       background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+      box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
     }
 
     .form-field input::placeholder,
@@ -1798,7 +1533,7 @@
       cursor: pointer;
       transition: all var(--transition-fast);
       box-shadow: 
-        0 15px 35px rgba(255, 107, 53, 0.4),
+        0 15px 35px rgba(14, 165, 233, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
       display: inline-flex;
       align-items: center;
@@ -1826,7 +1561,7 @@
     .btn-submit:hover {
       transform: translateY(-5px) scale(1.05);
       box-shadow: 
-        0 25px 50px rgba(255, 107, 53, 0.6),
+        0 25px 50px rgba(14, 165, 233, 0.6),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
 
@@ -1869,8 +1604,8 @@
       width: 200%;
       height: 200%;
       background: 
-        radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 70% 70%, rgba(102, 126, 234, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 30% 30%, rgba(14, 165, 233, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(56, 189, 248, 0.05) 0%, transparent 50%);
       animation: rotate 60s linear infinite;
       pointer-events: none;
     }
@@ -1893,7 +1628,7 @@
       color: var(--dark-color);
       margin-bottom: 20px;
       line-height: 1.2;
-      background: linear-gradient(135deg, var(--dark-color), var(--gray-medium));
+      background: linear-gradient(135deg, var(--dark-color), var(--gray-dark));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -1918,7 +1653,7 @@
     }
 
     .testimonial-card {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       padding: 45px;
       border-radius: 24px;
       border: 1px solid rgba(0, 0, 0, 0.05);
@@ -1942,7 +1677,7 @@
       transform: translateY(-15px);
       box-shadow: 
         0 30px 80px rgba(0, 0, 0, 0.1),
-        0 0 0 1px rgba(255, 107, 53, 0.1);
+        0 0 0 1px rgba(14, 165, 233, 0.1);
     }
 
     .testimonial-header {
@@ -2043,7 +1778,7 @@
        ============================== */
     footer {
       padding: 80px 40px 40px;
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      background: linear-gradient(135deg, #0f172a, #1e293b);
       color: var(--light-color);
       position: relative;
       overflow: hidden;
@@ -2155,7 +1890,7 @@
       background: var(--primary-color);
       color: white;
       transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-sm);
     }
 
     .trust-seals {
@@ -2224,7 +1959,7 @@
     }
 
     .floating-cta-btn {
-      background: linear-gradient(135deg, #FF6B35, #FF8E53);
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: white;
       width: 60px;
       height: 60px;
@@ -2235,7 +1970,7 @@
       font-size: 1.5rem;
       box-shadow: 
         0 10px 30px rgba(0,0,0,0.3),
-        0 5px 15px rgba(255, 107, 53, 0.4);
+        0 5px 15px rgba(14, 165, 233, 0.4);
       border: none;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -2263,7 +1998,7 @@
       transform: scale(1.1);
       box-shadow: 
         0 15px 40px rgba(0,0,0,0.4),
-        0 8px 20px rgba(255, 107, 53, 0.6);
+        0 8px 20px rgba(14, 165, 233, 0.6);
     }
 
     .floating-cta-btn:hover::before {
@@ -2569,7 +2304,7 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: #f1f1f1;
+      background: #f1f5f9;
     }
 
     ::-webkit-scrollbar-thumb {
@@ -2578,7 +2313,7 @@
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(135deg, var(--primary-dark), #5a6fd8);
+      background: linear-gradient(135deg, var(--primary-dark), #0284c7);
     }
 
   </style>
