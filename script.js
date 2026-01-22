@@ -538,17 +538,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         console.log('🚀 Galería Integrada con Zoom iniciada');
     }
-    <script>
-window.addEventListener("load", () => {
-  const zoom = document.querySelector(".hero-zoomable");
-
-  requestAnimationFrame(() => {
-    zoom.style.transform = "scale(1) translateX(0) translateY(0)";
-  });
-});
-</script>
-
     
+ 
     // Iniciar cuando el DOM esté listo
     init();
 });
