@@ -19,110 +19,260 @@
     
     <style>
         /* ==============================
-           HERO EXACTO COMO PORTFOLIOBOX.COM
+           HERO CON PARALLAX INTERACTIVO
            ============================== */
-        .pb-hero-portfoliobox {
+        .pb-hero-scroll {
             position: relative;
-            min-height: 100vh;
-            padding-top: 80px;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            height: 100vh;
+            width: 100%;
             overflow: hidden;
         }
         
-        .pb-hero-background {
+        /* Capas de parallax */
+        .pb-hero-layer {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 120%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            will-change: transform;
+        }
+        
+        /* Capa 1: Fondo principal (más lento) */
+        .pb-hero-bg {
+            background-image: url('images/hero/bg-main.jpg');
             z-index: 1;
+            transform: translateZ(-2px) scale(1.5);
         }
         
-        .pb-hero-background img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.1;
-        }
-        
-        .pb-hero-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+        /* Capa 2: Imagen central (velocidad media) */
+        .pb-hero-center {
+            background-image: url('images/hero/center-image.jpg');
             z-index: 2;
+            transform: translateZ(-1px) scale(1.2);
+            background-position: center 30%;
+            opacity: 0.9;
         }
         
-        .pb-hero-content {
-            position: relative;
+        /* Capa 3: Overlay para texto */
+        .pb-hero-overlay {
+            background: linear-gradient(
+                to bottom,
+                rgba(15, 23, 42, 0.8) 0%,
+                rgba(15, 23, 42, 0.6) 50%,
+                rgba(15, 23, 42, 0.4) 100%
+            );
             z-index: 3;
+            pointer-events: none;
+        }
+        
+        /* Capa 4: Elementos flotantes (más rápido) */
+        .pb-hero-elements {
+            z-index: 4;
+            background-image: 
+                url('images/hero/element-1.png'),
+                url('images/hero/element-2.png'),
+                url('images/hero/element-3.png');
+            background-repeat: no-repeat;
+            background-position: 
+                10% 20%,
+                80% 40%,
+                50% 70%;
+            background-size: 
+                150px,
+                100px,
+                120px;
+            opacity: 0.7;
+        }
+        
+        /* Contenido del hero */
+        .pb-hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
             width: 100%;
             max-width: 800px;
-            margin: 0 auto;
             text-align: center;
             padding: 0 20px;
+            color: white;
         }
         
-        .pb-hero-main-title {
+        .pb-hero-title {
             font-size: clamp(3rem, 5vw, 4.5rem);
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            color: #1e293b;
+            background: linear-gradient(135deg, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             letter-spacing: -0.025em;
         }
         
-        .pb-hero-main-title .highlight {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        .pb-hero-title .highlight {
+            background: linear-gradient(135deg, #60a5fa, #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
-        .pb-hero-main-subtitle {
+        .pb-hero-subtitle {
             font-size: clamp(1.25rem, 2vw, 1.75rem);
-            color: #475569;
+            color: #cbd5e1;
             margin-bottom: 2.5rem;
             line-height: 1.5;
             font-weight: 400;
         }
         
-        .pb-hero-main-subtitle strong {
-            color: #1e293b;
-            font-weight: 600;
+        /* Scroll indicator */
+        .pb-scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 6;
+            color: rgba(255, 255, 255, 0.7);
+            animation: bounce 2s infinite;
+            cursor: pointer;
         }
         
-        .pb-hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
+        .pb-scroll-indicator i {
+            font-size: 1.5rem;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
         }
         
         /* ==============================
-           SECCIÓN TESTIMONIOS NUEVA
+           SECCIÓN TRANSICIÓN PARALLAX
+           ============================== */
+        .pb-parallax-transition {
+            position: relative;
+            height: 100vh;
+            background: #0f172a;
+            overflow: hidden;
+        }
+        
+        .pb-gallery-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+            gap: 15px;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 1s ease;
+        }
+        
+        .pb-gallery-item {
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.6s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Posiciones de las imágenes en la galería */
+        .pb-gallery-item:nth-child(1) {
+            grid-column: 2 / span 3;
+            grid-row: 2 / span 2;
+            transition-delay: 0.1s;
+        }
+        
+        .pb-gallery-item:nth-child(2) {
+            grid-column: 6 / span 3;
+            grid-row: 1 / span 3;
+            transition-delay: 0.2s;
+        }
+        
+        .pb-gallery-item:nth-child(3) {
+            grid-column: 10 / span 2;
+            grid-row: 2 / span 2;
+            transition-delay: 0.3s;
+        }
+        
+        .pb-gallery-item:nth-child(4) {
+            grid-column: 3 / span 2;
+            grid-row: 4 / span 3;
+            transition-delay: 0.4s;
+        }
+        
+        .pb-gallery-item:nth-child(5) {
+            grid-column: 7 / span 4;
+            grid-row: 4 / span 4;
+            transition-delay: 0.5s;
+        }
+        
+        .pb-gallery-item:nth-child(6) {
+            grid-column: 1 / span 3;
+            grid-row: 6 / span 2;
+            transition-delay: 0.6s;
+        }
+        
+        .pb-gallery-item:nth-child(7) {
+            grid-column: 11 / span 2;
+            grid-row: 5 / span 3;
+            transition-delay: 0.7s;
+        }
+        
+        /* Estado activo de la galería */
+        .pb-gallery-container.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .pb-gallery-container.active .pb-gallery-item {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Overlay para títulos de imágenes */
+        .pb-gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .pb-gallery-item:hover .pb-gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        /* ==============================
+           TESTIMONIOS MEJORADOS
            ============================== */
         .pb-testimonios-section {
             padding: 5rem 0;
             background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
             position: relative;
-        }
-        
-        .pb-testimonios-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
         }
         
         .pb-testimonios-container {
@@ -232,81 +382,27 @@
         }
         
         /* ==============================
-           MEJORAS DE CONTRASTE Y COLOR
-           ============================== */
-        .pb-section-light {
-            background: #f8fafc !important;
-        }
-        
-        .pb-section-dark {
-            background: #0f172a !important;
-            color: #f1f5f9 !important;
-        }
-        
-        .pb-section-dark .pb-section-title,
-        .pb-section-dark .pb-section-subtitle {
-            color: #f1f5f9 !important;
-        }
-        
-        .pb-project-card {
-            background: white !important;
-            border: 1px solid #e2e8f0 !important;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
-        }
-        
-        .pb-project-card:hover {
-            border-color: #3b82f6 !important;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
-        }
-        
-        .pb-service-card {
-            background: white !important;
-            border: 1px solid #e2e8f0 !important;
-        }
-        
-        .pb-service-card:hover {
-            border-color: #3b82f6 !important;
-            transform: translateY(-5px) !important;
-        }
-        
-        /* ==============================
-           NAVEGACIÓN MEJORADA
-           ============================== */
-        .pb-header.scrolled {
-            background: rgba(255, 255, 255, 0.95) !important;
-            backdrop-filter: blur(10px) !important;
-            border-bottom: 1px solid #e2e8f0 !important;
-        }
-        
-        .pb-nav-link {
-            color: #475569 !important;
-        }
-        
-        .pb-nav-link:hover,
-        .pb-nav-link.active {
-            color: #1e293b !important;
-        }
-        
-        /* ==============================
            RESPONSIVE
            ============================== */
         @media (max-width: 768px) {
-            .pb-hero-main-title {
+            .pb-hero-title {
                 font-size: 2.5rem;
             }
             
-            .pb-hero-main-subtitle {
+            .pb-hero-subtitle {
                 font-size: 1.25rem;
             }
             
-            .pb-hero-cta {
-                flex-direction: column;
-                align-items: center;
+            .pb-gallery-container {
+                grid-template-columns: repeat(8, 1fr);
+                grid-template-rows: repeat(12, 1fr);
+                gap: 10px;
+                padding: 10px;
             }
             
-            .pb-hero-cta .pb-btn {
-                width: 100%;
-                max-width: 300px;
+            .pb-gallery-item {
+                grid-column: span 4 !important;
+                grid-row: span 3 !important;
             }
             
             .pb-testimonios-grid {
@@ -320,22 +416,18 @@
     <header class="pb-header" id="main-header">
         <div class="pb-container">
             <nav class="pb-main-nav">
-                <!-- Logo -->
                 <a href="#hero" class="pb-logo">
                     <span class="logo-neo">Neo</span><span class="logo-prod">Prod</span><span class="logo-ux">Ux</span>
                 </a>
                 
-                <!-- Navegación -->
                 <div class="pb-nav-center">
                     <a href="#proyectos" class="pb-nav-link">Proyectos</a>
                     <a href="#servicios" class="pb-nav-link">Servicios</a>
                     <a href="#proceso" class="pb-nav-link">Proceso</a>
-                    <a href="#sobre-mi" class="pb-nav-link">Sobre mí</a>
                     <a href="#testimonios" class="pb-nav-link">Testimonios</a>
                     <a href="#contacto" class="pb-nav-link">Contacto</a>
                 </div>
                 
-                <!-- CTA -->
                 <div class="pb-nav-right">
                     <a href="#contacto" class="pb-btn pb-btn-primary">Empezar Proyecto</a>
                     <button class="pb-menu-toggle" id="menuToggle" aria-label="Menú">
@@ -346,54 +438,113 @@
         </div>
     </header>
 
-    <!-- ==================== HERO COMO PORTFOLIOBOX ==================== -->
-    <section class="pb-hero-portfoliobox" id="hero">
-        <!-- Fondo sutil -->
-        <div class="pb-hero-background">
-            <img src="images/hero/background.jpg" 
-                 alt="Fondo hero" 
-                 loading="eager"
-                 onerror="this.style.display='none'">
+    <!-- ==================== HERO CON PARALLAX ==================== -->
+    <section class="pb-hero-scroll" id="hero">
+        <!-- Capa 1: Fondo principal -->
+        <div class="pb-hero-layer pb-hero-bg" id="heroBg"></div>
+        
+        <!-- Capa 2: Imagen central -->
+        <div class="pb-hero-layer pb-hero-center" id="heroCenter"></div>
+        
+        <!-- Capa 3: Elementos flotantes -->
+        <div class="pb-hero-layer pb-hero-elements" id="heroElements"></div>
+        
+        <!-- Capa 4: Overlay para texto -->
+        <div class="pb-hero-layer pb-hero-overlay"></div>
+        
+        <!-- Contenido -->
+        <div class="pb-hero-content">
+            <h1 class="pb-hero-title">
+                Diseño UX/UI & <span class="highlight">Product Strategy</span>
+            </h1>
+            
+            <p class="pb-hero-subtitle">
+                Convierto visitas en clientes con diseño basado en datos, investigación de usuarios 
+                y estrategias de producto que generan <strong style="color: #93c5fd;">resultados medibles</strong>.
+            </p>
+            
+            <div class="pb-hero-actions">
+                <a href="#proyectos" class="pb-btn pb-btn-primary pb-btn-large">
+                    <i class="fas fa-eye"></i> Ver Proyectos
+                </a>
+                <a href="#contacto" class="pb-btn pb-btn-outline pb-btn-large">
+                    <i class="fas fa-calendar-alt"></i> Agendar Llamada
+                </a>
+            </div>
+            
+            <!-- Stats -->
+            <div class="pb-hero-stats">
+                <div class="pb-stat">
+                    <span class="pb-stat-number" data-count="50">0+</span>
+                    <span class="pb-stat-label">Proyectos Completados</span>
+                </div>
+                <div class="pb-stat">
+                    <span class="pb-stat-number" data-count="340">0%</span>
+                    <span class="pb-stat-label">Aumento Conversión</span>
+                </div>
+                <div class="pb-stat">
+                    <span class="pb-stat-number">100%</span>
+                    <span class="pb-stat-label">Satisfacción Clientes</span>
+                </div>
+            </div>
         </div>
         
-        <!-- Patrón overlay -->
-        <div class="pb-hero-pattern"></div>
-        
-        <!-- Contenido principal -->
-        <div class="pb-container">
-            <div class="pb-hero-content">
-                <h1 class="pb-hero-main-title">
-                    Diseño UX/UI & <span class="highlight">Product Strategy</span>
-                </h1>
-                
-                <p class="pb-hero-main-subtitle">
-                    Convierto visitas en clientes con diseño basado en datos, investigación de usuarios 
-                    y estrategias de producto que generan <strong>resultados medibles</strong>.
-                </p>
-                
-                <div class="pb-hero-cta">
-                    <a href="#proyectos" class="pb-btn pb-btn-primary pb-btn-large">
-                        <i class="fas fa-eye"></i> Ver Proyectos
-                    </a>
-                    <a href="#contacto" class="pb-btn pb-btn-outline pb-btn-large">
-                        <i class="fas fa-calendar-alt"></i> Agendar Llamada
-                    </a>
+        <!-- Scroll indicator -->
+        <div class="pb-scroll-indicator" id="scrollIndicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN TRANSICIÓN PARALLAX ==================== -->
+    <section class="pb-parallax-transition" id="parallaxTransition">
+        <div class="pb-gallery-container" id="galleryContainer">
+            <!-- Imágenes de la galería parallax -->
+            <div class="pb-gallery-item" style="background-image: url('images/gallery/ux-research.jpg');">
+                <div class="pb-gallery-overlay">
+                    <h4>User Research</h4>
+                    <p>Investigación de usuarios</p>
                 </div>
-                
-                <!-- Stats -->
-                <div class="pb-hero-stats">
-                    <div class="pb-stat">
-                        <span class="pb-stat-number" data-count="50">0+</span>
-                        <span class="pb-stat-label">Proyectos Completados</span>
-                    </div>
-                    <div class="pb-stat">
-                        <span class="pb-stat-number" data-count="340">0%</span>
-                        <span class="pb-stat-label">Aumento Conversión</span>
-                    </div>
-                    <div class="pb-stat">
-                        <span class="pb-stat-number">100%</span>
-                        <span class="pb-stat-label">Satisfacción Clientes</span>
-                    </div>
+            </div>
+            
+            <div class="pb-gallery-item" style="background-image: url('images/gallery/wireframes.jpg');">
+                <div class="pb-gallery-overlay">
+                    <h4>Wireframes</h4>
+                    <p>Prototipos interactivos</p>
+                </div>
+            </div>
+            
+            <div class="pb-gallery-item" style="background-image: url('images/gallery/ui-design.jpg');">
+                <div class="pb-gallery-overlay">
+                    <h4>UI Design</h4>
+                    <p>Diseño de interfaces</p>
+                </div>
+            </div>
+            
+            <div class="pb-gallery-item" style="background-image: url('images/gallery/testing.jpg');">
+                <div class="pb-gallery-overlay">
+                    <h4>User Testing</h4>
+                    <p>Pruebas de usabilidad</p>
+                </div>
+            </div>
+            
+            <div class="pb-gallery-item" style="background-image: url('images/gallery/product-strategy.jpg');">
+                <div class="pb-gallery-overlay">
+                    <h4>Product Strategy</h4>
+                    <p>Estrategia de producto</p>
+                </div>
+            </div>
+            
+            <div class="pb-gallery-item" style="background-image: url('images/gallery/mobile-design.jpg');">
+                <div class="pb-gallery-overlay">
+                    <h4>Mobile Design</h4>
+                    <p>Diseño móvil</p>
+                </div>
+            </div>
+            
+            <div class="pb-gallery-item" style="background-image: url('images/gallery/development.jpg');">
+                <div class="pb-gallery-overlay">
+                    <h4>Development</h4>
+                    <p>Desarrollo frontend</p>
                 </div>
             </div>
         </div>
@@ -569,7 +720,7 @@
         </div>
     </section>
 
-    <!-- ==================== TESTIMONIOS NUEVA SECCIÓN ==================== -->
+    <!-- ==================== TESTIMONIOS ==================== -->
     <section class="pb-testimonios-section" id="testimonios">
         <div class="pb-testimonios-container">
             <div class="pb-testimonios-header">
@@ -741,28 +892,185 @@
         </div>
     </footer>
 
-    <!-- ==================== JAVASCRIPT ==================== -->
-    <script src="script.js"></script>
-    
+    <!-- ==================== JAVASCRIPT PARALLAX ==================== -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Actualizar año
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             
-            // Contadores animados
-            const counters = document.querySelectorAll('.pb-stat-number[data-count]');
-            counters.forEach(counter => {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting && !entry.target.dataset.animated) {
-                            animateCounter(entry.target);
-                            entry.target.dataset.animated = 'true';
+            // ==================== PARALLAX HERO ====================
+            const heroSection = document.getElementById('hero');
+            const parallaxTransition = document.getElementById('parallaxTransition');
+            const galleryContainer = document.getElementById('galleryContainer');
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            
+            // Elementos de parallax
+            const heroBg = document.getElementById('heroBg');
+            const heroCenter = document.getElementById('heroCenter');
+            const heroElements = document.getElementById('heroElements');
+            
+            // Estados
+            let isTransitioning = false;
+            let scrollPosition = 0;
+            
+            // Configuración de parallax
+            const parallaxConfig = {
+                heroBg: { speed: 0.3 },
+                heroCenter: { speed: 0.5 },
+                heroElements: { speed: 0.7 }
+            };
+            
+            // ==================== EFECTO PARALLAX AL SCROLL ====================
+            function initParallax() {
+                window.addEventListener('scroll', function() {
+                    if (isTransitioning) return;
+                    
+                    const scrollY = window.scrollY;
+                    const heroHeight = heroSection.offsetHeight;
+                    
+                    // Efecto parallax dentro del hero
+                    if (scrollY < heroHeight) {
+                        // Calcular porcentaje de scroll en el hero
+                        const scrollPercent = scrollY / heroHeight;
+                        
+                        // Aplicar parallax a cada capa
+                        heroBg.style.transform = `translateY(${scrollY * parallaxConfig.heroBg.speed}px)`;
+                        heroCenter.style.transform = `translateY(${scrollY * parallaxConfig.heroCenter.speed}px)`;
+                        heroElements.style.transform = `translateY(${scrollY * parallaxConfig.heroElements.speed}px)`;
+                        
+                        // Opacidad del contenido del hero
+                        const heroContent = document.querySelector('.pb-hero-content');
+                        heroContent.style.opacity = 1 - (scrollPercent * 2);
+                        
+                        // Mostrar galería al hacer scroll en el hero
+                        if (scrollY > heroHeight * 0.3) {
+                            galleryContainer.classList.add('active');
+                            scrollIndicator.style.opacity = '0';
+                        } else {
+                            galleryContainer.classList.remove('active');
+                            scrollIndicator.style.opacity = '1';
                         }
-                    });
-                }, { threshold: 0.5 });
+                    }
+                    
+                    // Transición a la siguiente sección
+                    if (scrollY > heroHeight * 0.8 && !isTransitioning) {
+                        startTransition();
+                    }
+                });
                 
-                observer.observe(counter);
-            });
+                // Click en scroll indicator
+                scrollIndicator.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: heroSection.offsetHeight * 0.8,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Mouse wheel para control manual
+                let wheelTimeout;
+                window.addEventListener('wheel', function(e) {
+                    if (wheelTimeout) clearTimeout(wheelTimeout);
+                    
+                    wheelTimeout = setTimeout(() => {
+                        if (window.scrollY < heroSection.offsetHeight && e.deltaY > 0) {
+                            // Scroll down en el hero
+                            const targetScroll = heroSection.offsetHeight * 0.8;
+                            window.scrollTo({
+                                top: targetScroll,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }, 100);
+                }, { passive: true });
+            }
+            
+            // ==================== TRANSICIÓN A GALERÍA ====================
+            function startTransition() {
+                if (isTransitioning) return;
+                
+                isTransitioning = true;
+                
+                // Activar galería
+                galleryContainer.classList.add('active');
+                
+                // Scroll suave a la galería
+                setTimeout(() => {
+                    parallaxTransition.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Resetear estado después de la transición
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 1000);
+                }, 300);
+            }
+            
+            // ==================== CARGAR IMÁGENES DINÁMICAMENTE ====================
+            function loadHeroImages() {
+                // Imágenes para el hero (ajusta estas rutas)
+                const heroImages = {
+                    bg: 'images/hero/bg-main.jpg',
+                    center: 'images/hero/center-image.jpg',
+                    elements: {
+                        e1: 'images/hero/element-1.png',
+                        e2: 'images/hero/element-2.png',
+                        e3: 'images/hero/element-3.png'
+                    }
+                };
+                
+                // Precargar imágenes
+                const preloadImages = [];
+                
+                // Fondo principal
+                if (heroImages.bg) {
+                    const bgImg = new Image();
+                    bgImg.src = heroImages.bg;
+                    bgImg.onload = () => {
+                        heroBg.style.backgroundImage = `url('${heroImages.bg}')`;
+                        heroBg.style.opacity = '1';
+                    };
+                    preloadImages.push(bgImg);
+                }
+                
+                // Imagen central
+                if (heroImages.center) {
+                    const centerImg = new Image();
+                    centerImg.src = heroImages.center;
+                    centerImg.onload = () => {
+                        heroCenter.style.backgroundImage = `url('${heroImages.center}')`;
+                        heroCenter.style.opacity = '1';
+                    };
+                    preloadImages.push(centerImg);
+                }
+                
+                // Elementos flotantes
+                if (heroImages.elements.e1 && heroImages.elements.e2 && heroImages.elements.e3) {
+                    heroElements.style.backgroundImage = `
+                        url('${heroImages.elements.e1}'),
+                        url('${heroImages.elements.e2}'),
+                        url('${heroImages.elements.e3}')
+                    `;
+                }
+                
+                console.log('🖼️ Imágenes del hero cargadas');
+            }
+            
+            // ==================== CONTADORES ANIMADOS ====================
+            function initCounters() {
+                const counters = document.querySelectorAll('.pb-stat-number[data-count]');
+                
+                counters.forEach(counter => {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && !entry.target.dataset.animated) {
+                                animateCounter(entry.target);
+                                entry.target.dataset.animated = 'true';
+                            }
+                        });
+                    }, { threshold: 0.5 });
+                    
+                    observer.observe(counter);
+                });
+            }
             
             function animateCounter(element) {
                 const target = parseInt(element.dataset.count);
@@ -785,57 +1093,74 @@
                 }, stepTime);
             }
             
-            // Header scroll effect
-            const header = document.getElementById('main-header');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-            
-            // Smooth scroll
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if (href === '#') return;
-                    
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        const headerHeight = header.offsetHeight;
-                        const targetPosition = target.offsetTop - headerHeight;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
+            // ==================== HEADER SCROLL EFFECT ====================
+            function initHeaderScroll() {
+                const header = document.getElementById('main-header');
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
                     }
                 });
-            });
+            }
             
-            // Formulario
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const button = this.querySelector('button[type="submit"]');
-                    const originalText = button.textContent;
-                    
-                    button.textContent = 'Enviando...';
-                    button.disabled = true;
-                    
-                    // Simular envío
-                    setTimeout(() => {
-                        alert('¡Mensaje enviado! Te contactaré en 24 horas.');
-                        this.reset();
-                        button.textContent = originalText;
-                        button.disabled = false;
-                    }, 1500);
+            // ==================== SMOOTH SCROLL ====================
+            function initSmoothScroll() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        const href = this.getAttribute('href');
+                        if (href === '#') return;
+                        
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            const header = document.querySelector('.pb-header');
+                            const headerHeight = header.offsetHeight;
+                            const targetPosition = target.offsetTop - headerHeight;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
                 });
             }
+            
+            // ==================== FORMULARIO ====================
+            function initContactForm() {
+                const contactForm = document.getElementById('contactForm');
+                if (contactForm) {
+                    contactForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        
+                        const button = this.querySelector('button[type="submit"]');
+                        const originalText = button.textContent;
+                        
+                        button.textContent = 'Enviando...';
+                        button.disabled = true;
+                        
+                        // Simular envío
+                        setTimeout(() => {
+                            alert('¡Mensaje enviado! Te contactaré en 24 horas.');
+                            this.reset();
+                            button.textContent = originalText;
+                            button.disabled = false;
+                        }, 1500);
+                    });
+                }
+            }
+            
+            // ==================== INICIALIZAR TODO ====================
+            loadHeroImages();
+            initParallax();
+            initCounters();
+            initHeaderScroll();
+            initSmoothScroll();
+            initContactForm();
+            
+            console.log('🚀 Portfoliobox con parallax interactivo listo');
         });
     </script>
 </body>
