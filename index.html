@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="src/styles/styles.css">
+    <link rel="stylesheet" href="styles.css">
     
     <style>
         /* ==============================
@@ -78,7 +78,6 @@
             margin: var(--pb-space-2) 0;
         }
         
-        /* Flecha indicadora */
         .pb-nav-link.has-dropdown::after {
             content: '\f078';
             font-family: 'Font Awesome 6 Free';
@@ -92,34 +91,8 @@
             transform: rotate(180deg);
         }
         
-        /* Menú móvil con dropdown */
-        .pb-mobile-dropdown {
-            display: none;
-            padding-left: var(--pb-space-4);
-            margin-top: var(--pb-space-2);
-        }
-        
-        .pb-mobile-dropdown.active {
-            display: block;
-        }
-        
-        .pb-mobile-dropdown-link {
-            display: block;
-            padding: var(--pb-space-2) var(--pb-space-4);
-            color: var(--pb-text-secondary);
-            text-decoration: none;
-            font-size: var(--pb-text-sm);
-            border-left: 2px solid var(--pb-border);
-            margin-bottom: var(--pb-space-1);
-        }
-        
-        .pb-mobile-dropdown-link:hover {
-            color: var(--pb-primary);
-            border-left-color: var(--pb-primary);
-        }
-        
         /* ==============================
-           HERO GALLERY PARALLAX
+           HERO GALLERY PARALLAX CON TUS IMÁGENES
            ============================== */
         .pb-hero-gallery {
             position: relative;
@@ -152,7 +125,7 @@
             grid-template-rows: repeat(3, 1fr);
             gap: 20px;
             padding: 20px;
-            opacity: 0.3;
+            opacity: 0.4;
             z-index: 1;
         }
         
@@ -164,6 +137,13 @@
             animation-duration: 20s;
             animation-iteration-count: infinite;
             animation-timing-function: ease-in-out;
+        }
+        
+        .pb-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         
         /* Posiciones de los items de la galería */
@@ -259,7 +239,74 @@
             line-height: 1.6;
         }
         
-        /* Animaciones flotantes */
+        /* ==============================
+           ESTILOS PARA IMÁGENES DE PROYECTOS
+           ============================== */
+        .pb-project-image {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .pb-project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        
+        .pb-project-card:hover .pb-project-image img {
+            transform: scale(1.05);
+        }
+        
+        .pb-project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: white;
+            padding: var(--pb-space-6);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .pb-project-card:hover .pb-project-overlay {
+            transform: translateY(0);
+        }
+        
+        .overlay-content h4 {
+            color: white;
+            margin-bottom: var(--pb-space-2);
+            font-size: var(--pb-text-lg);
+        }
+        
+        .overlay-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: var(--pb-text-sm);
+            margin-bottom: var(--pb-space-4);
+        }
+        
+        .overlay-stats {
+            display: flex;
+            gap: var(--pb-space-4);
+            font-size: var(--pb-text-xs);
+        }
+        
+        .overlay-stats span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 8px;
+            border-radius: var(--pb-radius-sm);
+        }
+        
+        /* ==============================
+           ANIMACIONES FLOTANTES
+           ============================== */
         @keyframes float1 {
             0%, 100% { transform: translateY(0) translateX(0); }
             25% { transform: translateY(-15px) translateX(10px); }
@@ -317,36 +364,35 @@
         }
         
         /* ==============================
-           ESTILOS PARA PROYECTOS VISIBLES
+           FALLBACK PARA IMÁGENES FALTANTES
            ============================== */
-        .pb-projects-showcase {
-            display: grid !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-        }
-        
-        .pb-project-card {
-            visibility: visible !important;
-            opacity: 1 !important;
-        }
-        
-        /* Placeholder para imágenes */
-        .project-placeholder {
+        .image-fallback {
             width: 100%;
-            height: 250px;
+            height: 100%;
             background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 12px 12px 0 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .image-fallback i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .image-fallback span {
             font-weight: 600;
             font-size: 1.2rem;
         }
     </style>
 </head>
 <body>
-    <!-- Header con navegación desplegable -->
+    <!-- ==================== HEADER CON NAVEGACIÓN DESPLEGABLE ==================== -->
     <header class="pb-header hero-mode" id="main-header">
         <div class="pb-container">
             <nav class="pb-main-nav">
@@ -454,23 +500,59 @@
                 </div>
             </nav>
         </div>
-        
-        <!-- Menú móvil (se crea dinámicamente) -->
-        <div class="pb-mobile-menu" id="mobileMenu"></div>
     </header>
 
-    <!-- Hero Section con Galería Parallax -->
+    <!-- ==================== HERO CON GALERÍA PARALLAX ==================== -->
     <section class="pb-hero-gallery" id="hero">
-        <!-- Fondo con galería parallax -->
+        <!-- GALERÍA PARALLAX - REEMPLAZA CON TUS IMÁGENES -->
         <div class="pb-hero-gallery-bg" id="galleryParallax">
-            <div class="pb-gallery-item"></div>
-            <div class="pb-gallery-item"></div>
-            <div class="pb-gallery-item"></div>
-            <div class="pb-gallery-item"></div>
-            <div class="pb-gallery-item"></div>
-            <div class="pb-gallery-item"></div>
-            <div class="pb-gallery-item"></div>
-            <div class="pb-gallery-item"></div>
+            <!-- IMAGEN 1 -->
+            <div class="pb-gallery-item">
+                <img src="images/hero/gallery-1.jpg" alt="Diseño UX/UI" loading="lazy" 
+                     onerror="this.parentElement.innerHTML='<div class=\'image-fallback\'><i class=\'fas fa-pencil-ruler\'></i><span>Diseño UX/UI</span></div>'">
+            </div>
+            
+            <!-- IMAGEN 2 -->
+            <div class="pb-gallery-item">
+                <img src="images/hero/gallery-2.jpg" alt="Research de usuarios" loading="lazy"
+                     onerror="this.parentElement.innerHTML='<div class=\'image-fallback\'><i class=\'fas fa-search\'></i><span>User Research</span></div>'">
+            </div>
+            
+            <!-- IMAGEN 3 -->
+            <div class="pb-gallery-item">
+                <img src="images/hero/gallery-3.jpg" alt="Prototipos" loading="lazy"
+                     onerror="this.parentElement.innerHTML='<div class=\'image-fallback\'><i class=\'fas fa-mobile-alt\'></i><span>Prototipos</span></div>'">
+            </div>
+            
+            <!-- IMAGEN 4 -->
+            <div class="pb-gallery-item">
+                <img src="images/hero/gallery-4.jpg" alt="Wireframes" loading="lazy"
+                     onerror="this.parentElement.innerHTML='<div class=\'image-fallback\'><i class=\'fas fa-layer-group\'></i><span>Wireframes</span></div>'">
+            </div>
+            
+            <!-- IMAGEN 5 -->
+            <div class="pb-gallery-item">
+                <img src="images/hero/gallery-5.jpg" alt="Testing" loading="lazy"
+                     onerror="this.parentElement.innerHTML='<div class=\'image-fallback\'><i class=\'fas fa-flask\'></i><span>User Testing</span></div>'">
+            </div>
+            
+            <!-- IMAGEN 6 -->
+            <div class="pb-gallery-item">
+                <img src="images/hero/gallery-6.jpg" alt="Product Strategy" loading="lazy"
+                     onerror="this.parentElement.innerHTML='<div class=\'image-fallback\'><i class=\'fas fa-chart-line\'></i><span>Product Strategy</span></div>'">
+            </div>
+            
+            <!-- IMAGEN 7 -->
+            <div class="pb-gallery-item">
+                <img src="images/hero/gallery-7.jpg" alt="Mobile Design" loading="lazy"
+                     onerror="this.parentElement.innerHTML='<div class=\'image-fallback\'><i class=\'fas fa-tablet-alt\'></i><span>Mobile Design</span></div>'">
+            </div>
+            
+            <!-- IMAGEN 8 -->
+            <div class="pb-gallery-item">
+                <img src="images/hero/gallery-8.jpg" alt="Development" loading="lazy"
+                     onerror="this.parentElement.innerHTML='<div class=\'image-fallback\'><i class=\'fas fa-code\'></i><span>Development</span></div>'">
+            </div>
         </div>
         
         <!-- Overlay para mejor legibilidad -->
@@ -522,7 +604,7 @@
         </div>
     </section>
 
-    <!-- Sección: Proyectos Destacados -->
+    <!-- ==================== PROYECTOS DESTACADOS ==================== -->
     <section class="pb-section pb-section-light" id="proyectos">
         <div class="pb-container">
             <div class="pb-section-header">
@@ -534,19 +616,24 @@
             
             <!-- Galería de proyectos -->
             <div class="pb-projects-showcase">
-                <!-- Proyecto 1 -->
+                <!-- PROYECTO 1: PASEO -->
                 <article class="pb-project-card">
                     <div class="pb-project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-paw" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                            <div>PASEO FinTech</div>
-                        </div>
+                        <!-- TU IMAGEN PARA PASEO -->
+                        <img src="images/proyectos/paseo.jpg" 
+                             alt="PASEO FinTech App - Case Study" 
+                             loading="lazy"
+                             class="pb-project-img"
+                             onerror="this.src='https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?w=800&h=450&fit=crop&auto=format'; this.alt='PASEO FinTech App - Imagen de ejemplo'">
+                        
                         <div class="pb-project-overlay">
-                            <h4>PASEO – UX Case Study</h4>
-                            <p>FinTech · Mobile App</p>
-                            <div class="overlay-stats">
-                                <span><i class="fas fa-chart-line"></i> +75% velocidad</span>
-                                <span><i class="fas fa-bug"></i> -45% errores</span>
+                            <div class="overlay-content">
+                                <h4>PASEO – UX Case Study</h4>
+                                <p>FinTech · Mobile App</p>
+                                <div class="overlay-stats">
+                                    <span><i class="fas fa-chart-line"></i> +75% velocidad</span>
+                                    <span><i class="fas fa-bug"></i> -45% errores</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -573,19 +660,24 @@
                     </div>
                 </article>
 
-                <!-- Proyecto 2 -->
+                <!-- PROYECTO 2: NEXUS LOGISTICS -->
                 <article class="pb-project-card">
                     <div class="pb-project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-truck" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                            <div>Nexus Logistics</div>
-                        </div>
+                        <!-- TU IMAGEN PARA NEXUS -->
+                        <img src="images/proyectos/nexus.jpg" 
+                             alt="Nexus Logistics Dashboard" 
+                             loading="lazy"
+                             class="pb-project-img"
+                             onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&auto=format'; this.alt='Nexus Logistics - Imagen de ejemplo'">
+                        
                         <div class="pb-project-overlay">
-                            <h4>Nexus Logistics</h4>
-                            <p>Logística · SaaS B2B</p>
-                            <div class="overlay-stats">
-                                <span><i class="fas fa-user-check"></i> +40% usabilidad</span>
-                                <span><i class="fas fa-clock"></i> -30% tiempo</span>
+                            <div class="overlay-content">
+                                <h4>Nexus Logistics</h4>
+                                <p>Logística · SaaS B2B</p>
+                                <div class="overlay-stats">
+                                    <span><i class="fas fa-user-check"></i> +40% usabilidad</span>
+                                    <span><i class="fas fa-clock"></i> -30% tiempo</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -612,19 +704,24 @@
                     </div>
                 </article>
 
-                <!-- Proyecto 3 -->
+                <!-- PROYECTO 3: LA CAROYENSE -->
                 <article class="pb-project-card">
                     <div class="pb-project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-wine-glass-alt" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                            <div>La Caroyense</div>
-                        </div>
+                        <!-- TU IMAGEN PARA LA CAROYENSE -->
+                        <img src="images/proyectos/caroyense.jpg" 
+                             alt="La Caroyense E-commerce" 
+                             loading="lazy"
+                             class="pb-project-img"
+                             onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=450&fit=crop&auto=format'; this.alt='La Caroyense - Imagen de ejemplo'">
+                        
                         <div class="pb-project-overlay">
-                            <h4>La Caroyense</h4>
-                            <p>E-commerce · Mobile First</p>
-                            <div class="overlay-stats">
-                                <span><i class="fas fa-shopping-cart"></i> +340% conversión</span>
-                                <span><i class="fas fa-times-circle"></i> -45% abandono</span>
+                            <div class="overlay-content">
+                                <h4>La Caroyense</h4>
+                                <p>E-commerce · Mobile First</p>
+                                <div class="overlay-stats">
+                                    <span><i class="fas fa-shopping-cart"></i> +340% conversión</span>
+                                    <span><i class="fas fa-times-circle"></i> -45% abandono</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -662,7 +759,57 @@
         </div>
     </section>
 
-    <!-- Sección: Servicios -->
+    <!-- ==================== PROCESO ==================== -->
+    <section class="pb-section" id="proceso">
+        <div class="pb-container">
+            <div class="pb-section-header">
+                <h2 class="pb-section-title">Mi Proceso de Trabajo</h2>
+                <p class="pb-section-subtitle">
+                    Metodología estructurada que garantiza resultados consistentes
+                </p>
+            </div>
+            
+            <div class="pb-process-steps">
+                <div class="pb-process-step">
+                    <div class="pb-step-number">01</div>
+                    <h3 class="pb-step-title">Investigación</h3>
+                    <p class="pb-step-description">
+                        Análisis de métricas existentes, entrevistas con usuarios 
+                        y benchmark competitivo.
+                    </p>
+                </div>
+                
+                <div class="pb-process-step">
+                    <div class="pb-step-number">02</div>
+                    <h3 class="pb-step-title">Diseño</h3>
+                    <p class="pb-step-description">
+                        Creación de wireframes, prototipos interactivos 
+                        y sistemas de diseño.
+                    </p>
+                </div>
+                
+                <div class="pb-process-step">
+                    <div class="pb-step-number">03</div>
+                    <h3 class="pb-step-title">Validación</h3>
+                    <p class="pb-step-description">
+                        Testing con usuarios reales, análisis de feedback 
+                        y refinamiento iterativo.
+                    </p>
+                </div>
+                
+                <div class="pb-process-step">
+                    <div class="pb-step-number">04</div>
+                    <h3 class="pb-step-title">Implementación</h3>
+                    <p class="pb-step-description">
+                        Handoff a desarrollo, supervisión y medición 
+                        de resultados post-lanzamiento.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICIOS ==================== -->
     <section class="pb-section pb-section-light" id="servicios">
         <div class="pb-container">
             <div class="pb-section-header">
@@ -740,7 +887,63 @@
         </div>
     </section>
 
-    <!-- Sección: Contacto -->
+    <!-- ==================== SOBRE MÍ ==================== -->
+    <section class="pb-section pb-section-dark" id="sobre-mi">
+        <div class="pb-container">
+            <div class="pb-about-grid">
+                <div class="pb-about-content">
+                    <h2 class="pb-section-title">Sobre Mí</h2>
+                    <p class="pb-about-description">
+                        Soy <strong>David Díaz</strong>, diseñador UX/UI y estratega de producto con 5+ años 
+                        transformando productos digitales. Mi enfoque combina diseño basado en datos, 
+                        investigación de usuarios y optimización de conversión para generar impacto real.
+                    </p>
+                    <p class="pb-about-description">
+                        Especializado en startups y scale-ups, trabajo de forma remota con clientes 
+                        globales, desde ideas iniciales hasta lanzamientos exitosos.
+                    </p>
+                    
+                    <div class="pb-about-stats">
+                        <div class="pb-about-stat">
+                            <span class="pb-stat-number" data-count="50">0+</span>
+                            <span class="pb-stat-label">Proyectos completados</span>
+                        </div>
+                        <div class="pb-about-stat">
+                            <span class="pb-stat-number">100%</span>
+                            <span class="pb-stat-label">Clientes satisfechos</span>
+                        </div>
+                        <div class="pb-about-stat">
+                            <span class="pb-stat-number" data-count="35">0%</span>
+                            <span class="pb-stat-label">Conversión avg.</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pb-about-actions">
+                        <a href="#contacto" class="pb-btn pb-btn-primary">
+                            <i class="fas fa-paper-plane"></i> Contactar para proyecto
+                        </a>
+                        <a href="https://linkedin.com/in/david-sebastian-diaz" 
+                           target="_blank" 
+                           class="pb-btn pb-btn-outline">
+                            <i class="fab fa-linkedin"></i> Ver LinkedIn
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="pb-about-image">
+                    <div class="pb-image-frame">
+                        <!-- TU FOTO DE PERFIL -->
+                        <img src="images/perfil.jpg" 
+                             alt="David Díaz - Diseñador UX/UI"
+                             loading="lazy"
+                             onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&auto=format'; this.alt='Foto de perfil'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACTO ==================== -->
     <section class="pb-section" id="contacto">
         <div class="pb-container">
             <div class="pb-section-header">
@@ -831,7 +1034,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ==================== FOOTER ==================== -->
     <footer class="pb-footer">
         <div class="pb-container">
             <div class="pb-footer-content">
@@ -880,207 +1083,276 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- ==================== JAVASCRIPT ==================== -->
     <script src="script.js"></script>
     
-    <!-- Script para navegación desplegable -->
+    <!-- Script para manejar imágenes y efectos -->
     <script>
-        // ==============================
-        // NAVEGACIÓN DESPLEGABLE
-        // ==============================
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 Navegación desplegable - Inicializando');
+            console.log('🚀 Portfoliobox con tus imágenes - Inicializando');
             
             // Actualizar año en footer
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             
-            // Inicializar menús desplegables
-            initDropdowns();
-            
-            // Inicializar galería parallax
-            initGalleryParallax();
-            
-            // Inicializar contadores
-            initCounters();
-            
-            // Inicializar scroll effects
-            initScrollEffects();
-            
-            // Inicializar menú móvil
-            initMobileMenu();
-            
-            // Inicializar formulario
-            initContactForm();
-        });
-        
-        // Menús desplegables para escritorio
-        function initDropdowns() {
-            const dropdowns = document.querySelectorAll('.pb-nav-item');
-            
-            dropdowns.forEach(item => {
-                const link = item.querySelector('.pb-nav-link.has-dropdown');
-                const dropdown = item.querySelector('.pb-dropdown');
+            // ==================== CONFIGURACIÓN DE TUS IMÁGENES ====================
+            const imagePaths = {
+                // Galería parallax - AJUSTA ESTAS RUTAS
+                gallery: [
+                    'images/hero/gallery-1.jpg',
+                    'images/hero/gallery-2.jpg',
+                    'images/hero/gallery-3.jpg',
+                    'images/hero/gallery-4.jpg',
+                    'images/hero/gallery-5.jpg',
+                    'images/hero/gallery-6.jpg',
+                    'images/hero/gallery-7.jpg',
+                    'images/hero/gallery-8.jpg'
+                ],
                 
-                if (link && dropdown) {
-                    // Mostrar al hover
-                    item.addEventListener('mouseenter', function() {
-                        dropdown.classList.add('active');
-                        link.classList.add('active');
-                    });
-                    
-                    // Ocultar al salir
-                    item.addEventListener('mouseleave', function() {
-                        dropdown.classList.remove('active');
-                        link.classList.remove('active');
-                    });
-                    
-                    // Para móvil: click en el enlace
-                    link.addEventListener('click', function(e) {
-                        if (window.innerWidth < 768) {
-                            e.preventDefault();
-                            dropdown.classList.toggle('active');
-                            link.classList.toggle('active');
-                        }
-                    });
-                }
-            });
-            
-            // Cerrar dropdowns al hacer clic fuera
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.pb-nav-item')) {
-                    document.querySelectorAll('.pb-dropdown').forEach(dropdown => {
-                        dropdown.classList.remove('active');
-                    });
-                    document.querySelectorAll('.pb-nav-link.has-dropdown').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                }
-            });
-        }
-        
-        // Galería parallax
-        function initGalleryParallax() {
-            const gallery = document.getElementById('galleryParallax');
-            if (!gallery) return;
-            
-            const items = gallery.querySelectorAll('.pb-gallery-item');
-            
-            window.addEventListener('scroll', function() {
-                const scrolled = window.pageYOffset;
+                // Proyectos - AJUSTA ESTAS RUTAS
+                proyectos: {
+                    paseo: 'images/proyectos/paseo.jpg',
+                    nexus: 'images/proyectos/nexus.jpg',
+                    caroyense: 'images/proyectos/caroyense.jpg'
+                },
                 
-                items.forEach((item, index) => {
-                    const speed = 0.3 + (index * 0.05);
-                    const yPos = -(scrolled * speed);
-                    item.style.transform = `translateY(${yPos}px)`;
+                // Perfil - AJUSTA ESTA RUTA
+                perfil: 'images/perfil.jpg'
+            };
+            
+            // ==================== INICIALIZAR IMÁGENES ====================
+            function initImages() {
+                console.log('🖼️ Cargando tus imágenes...');
+                
+                // Precargar imágenes importantes
+                const imagesToPreload = [
+                    ...imagePaths.gallery,
+                    ...Object.values(imagePaths.proyectos),
+                    imagePaths.perfil
+                ];
+                
+                imagesToPreload.forEach(src => {
+                    const img = new Image();
+                    img.src = src;
+                    img.onload = () => console.log(`✅ Precargada: ${src}`);
+                    img.onerror = () => console.warn(`⚠️ No encontrada: ${src}`);
                 });
-            });
-        }
-        
-        // Contadores animados
-        function initCounters() {
-            const counters = document.querySelectorAll('.pb-stat-number[data-count]');
+                
+                // Verificar imágenes existentes
+                checkImageStatus();
+            }
             
-            counters.forEach(counter => {
-                const observer = new IntersectionObserver(function(entries) {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting && !entry.target.dataset.animated) {
-                            animateCounter(entry.target);
-                            entry.target.dataset.animated = 'true';
+            function checkImageStatus() {
+                const allImages = document.querySelectorAll('img');
+                let loaded = 0, errors = 0;
+                
+                allImages.forEach(img => {
+                    if (img.complete) {
+                        if (img.naturalHeight === 0) {
+                            errors++;
+                            console.warn(`❌ Error: ${img.src}`);
+                        } else {
+                            loaded++;
+                            img.classList.add('loaded');
                         }
+                    }
+                });
+                
+                console.log(`📊 Imágenes: ${loaded} cargadas, ${errors} errores`);
+                
+                if (errors > 0) {
+                    console.log('💡 Consejo: Verifica que tus imágenes estén en:');
+                    console.log('- images/hero/gallery-1.jpg (para la galería parallax)');
+                    console.log('- images/proyectos/paseo.jpg (para proyectos)');
+                    console.log('- images/perfil.jpg (para tu foto)');
+                }
+            }
+            
+            // ==================== GALERÍA PARALLAX ====================
+            function initGalleryParallax() {
+                const gallery = document.getElementById('galleryParallax');
+                if (!gallery) return;
+                
+                const items = gallery.querySelectorAll('.pb-gallery-item');
+                
+                window.addEventListener('scroll', function() {
+                    const scrolled = window.pageYOffset;
+                    
+                    items.forEach((item, index) => {
+                        const speed = 0.3 + (index * 0.05);
+                        const yPos = -(scrolled * speed);
+                        item.style.transform = `translateY(${yPos}px)`;
                     });
-                }, { threshold: 0.5 });
+                });
                 
-                observer.observe(counter);
-            });
-        }
-        
-        function animateCounter(element) {
-            const target = parseInt(element.dataset.count);
-            const suffix = element.textContent.replace(/[0-9]/g, '');
-            let current = 0;
-            
-            if (isNaN(target)) return;
-            
-            const increment = target / 50;
-            const stepTime = 30;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target + suffix;
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current) + suffix;
-                }
-            }, stepTime);
-        }
-        
-        // Scroll effects
-        function initScrollEffects() {
-            const header = document.getElementById('main-header');
-            const scrollHint = document.getElementById('scrollHint');
-            
-            // Efecto header al scroll
-            window.addEventListener('scroll', function() {
-                const scrollY = window.scrollY;
-                
-                if (header) {
-                    if (scrollY > 100) {
-                        header.classList.remove('hero-mode');
-                        header.classList.add('scrolled');
-                    } else {
-                        header.classList.add('hero-mode');
-                        header.classList.remove('scrolled');
-                    }
-                }
-                
-                // Scroll hint visibility
-                if (scrollHint) {
-                    if (scrollY > 300) {
-                        scrollHint.style.opacity = '0';
-                        scrollHint.style.pointerEvents = 'none';
-                    } else {
-                        scrollHint.style.opacity = '1';
-                        scrollHint.style.pointerEvents = 'auto';
-                    }
-                }
-            });
-            
-            // Click en scroll hint
-            if (scrollHint) {
-                scrollHint.addEventListener('click', function() {
-                    const proyectos = document.getElementById('proyectos');
-                    if (proyectos) {
-                        const header = document.querySelector('.pb-header');
-                        const headerHeight = header ? header.offsetHeight : 0;
-                        const targetPosition = proyectos.offsetTop - headerHeight;
+                // Efecto hover en imágenes
+                items.forEach(item => {
+                    const img = item.querySelector('img');
+                    if (img) {
+                        item.addEventListener('mouseenter', function() {
+                            img.style.transform = 'scale(1.1)';
+                            img.style.transition = 'transform 0.5s ease';
+                        });
                         
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
+                        item.addEventListener('mouseleave', function() {
+                            img.style.transform = 'scale(1)';
                         });
                     }
                 });
             }
-        }
-        
-        // Menú móvil
-        function initMobileMenu() {
-            const menuToggle = document.getElementById('menuToggle');
-            if (!menuToggle) return;
             
-            // Crear menú móvil dinámicamente
-            function createMobileMenu() {
-                const navCenter = document.querySelector('.pb-nav-center');
-                if (!navCenter) return;
+            // ==================== CONTADORES ANIMADOS ====================
+            function initCounters() {
+                const counters = document.querySelectorAll('.pb-stat-number[data-count]');
                 
-                let mobileMenu = document.getElementById('mobileMenu');
-                if (!mobileMenu) {
-                    mobileMenu = document.createElement('div');
-                    mobileMenu.id = 'mobileMenu';
-                    mobileMenu.className = 'pb-mobile-menu';
+                counters.forEach(counter => {
+                    const observer = new IntersectionObserver(function(entries) {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && !entry.target.dataset.animated) {
+                                animateCounter(entry.target);
+                                entry.target.dataset.animated = 'true';
+                            }
+                        });
+                    }, { threshold: 0.5 });
                     
-                    // Clonar estructura de navegación
+                    observer.observe(counter);
+                });
+            }
+            
+            function animateCounter(element) {
+                const target = parseInt(element.dataset.count);
+                const suffix = element.textContent.replace(/[0-9]/g, '');
+                let current = 0;
+                
+                if (isNaN(target)) return;
+                
+                const increment = target / 50;
+                const stepTime = 30;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target + suffix;
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current) + suffix;
+                    }
+                }, stepTime);
+            }
+            
+            // ==================== SCROLL EFFECTS ====================
+            function initScrollEffects() {
+                const header = document.getElementById('main-header');
+                const scrollHint = document.getElementById('scrollHint');
+                
+                // Efecto header al scroll
+                window.addEventListener('scroll', function() {
+                    const scrollY = window.scrollY;
+                    
+                    if (header) {
+                        if (scrollY > 100) {
+                            header.classList.remove('hero-mode');
+                            header.classList.add('scrolled');
+                        } else {
+                            header.classList.add('hero-mode');
+                            header.classList.remove('scrolled');
+                        }
+                    }
+                    
+                    // Scroll hint visibility
+                    if (scrollHint) {
+                        if (scrollY > 300) {
+                            scrollHint.style.opacity = '0';
+                            scrollHint.style.pointerEvents = 'none';
+                        } else {
+                            scrollHint.style.opacity = '1';
+                            scrollHint.style.pointerEvents = 'auto';
+                        }
+                    }
+                });
+                
+                // Click en scroll hint
+                if (scrollHint) {
+                    scrollHint.addEventListener('click', function() {
+                        const proyectos = document.getElementById('proyectos');
+                        if (proyectos) {
+                            const header = document.querySelector('.pb-header');
+                            const headerHeight = header ? header.offsetHeight : 0;
+                            const targetPosition = proyectos.offsetTop - headerHeight;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                }
+            }
+            
+            // ==================== MENÚS DESPLEGABLES ====================
+            function initDropdowns() {
+                const dropdowns = document.querySelectorAll('.pb-nav-item');
+                
+                dropdowns.forEach(item => {
+                    const link = item.querySelector('.pb-nav-link.has-dropdown');
+                    const dropdown = item.querySelector('.pb-dropdown');
+                    
+                    if (link && dropdown) {
+                        // Mostrar al hover (desktop)
+                        item.addEventListener('mouseenter', function() {
+                            if (window.innerWidth > 768) {
+                                dropdown.classList.add('active');
+                                link.classList.add('active');
+                            }
+                        });
+                        
+                        // Ocultar al salir (desktop)
+                        item.addEventListener('mouseleave', function() {
+                            if (window.innerWidth > 768) {
+                                dropdown.classList.remove('active');
+                                link.classList.remove('active');
+                            }
+                        });
+                        
+                        // Para móvil: click en el enlace
+                        link.addEventListener('click', function(e) {
+                            if (window.innerWidth < 768) {
+                                e.preventDefault();
+                                dropdown.classList.toggle('active');
+                                link.classList.toggle('active');
+                            }
+                        });
+                    }
+                });
+                
+                // Cerrar dropdowns al hacer clic fuera
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.pb-nav-item')) {
+                        document.querySelectorAll('.pb-dropdown').forEach(dropdown => {
+                            dropdown.classList.remove('active');
+                        });
+                        document.querySelectorAll('.pb-nav-link.has-dropdown').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                    }
+                });
+            }
+            
+            // ==================== MENÚ MÓVIL ====================
+            function initMobileMenu() {
+                const menuToggle = document.getElementById('menuToggle');
+                if (!menuToggle) return;
+                
+                // Crear menú móvil dinámicamente
+                function createMobileMenu() {
+                    const navCenter = document.querySelector('.pb-nav-center');
+                    if (!navCenter) return;
+                    
+                    // Ya existe en el HTML por el dropdown
+                    const mobileMenu = document.createElement('div');
+                    mobileMenu.className = 'pb-mobile-menu';
+                    mobileMenu.id = 'mobileMenu';
+                    
+                    // Clonar navegación
                     const navClone = navCenter.cloneNode(true);
                     
                     // Ajustar para móvil
@@ -1088,7 +1360,6 @@
                     dropdownLinks.forEach(link => {
                         const dropdown = link.nextElementSibling;
                         if (dropdown && dropdown.classList.contains('pb-dropdown')) {
-                            // Convertir dropdown a versión móvil
                             const mobileDropdown = document.createElement('div');
                             mobileDropdown.className = 'pb-mobile-dropdown';
                             
@@ -1104,7 +1375,6 @@
                             link.parentNode.insertBefore(mobileDropdown, dropdown);
                             dropdown.remove();
                             
-                            // Añadir evento para toggle
                             link.addEventListener('click', function(e) {
                                 e.preventDefault();
                                 mobileDropdown.classList.toggle('active');
@@ -1114,119 +1384,122 @@
                     
                     mobileMenu.appendChild(navClone);
                     document.querySelector('.pb-header').appendChild(mobileMenu);
+                    
+                    return mobileMenu;
                 }
                 
-                return mobileMenu;
+                // Toggle menú móvil
+                menuToggle.addEventListener('click', function() {
+                    let mobileMenu = document.getElementById('mobileMenu');
+                    if (!mobileMenu) {
+                        mobileMenu = createMobileMenu();
+                    }
+                    
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        this.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = '';
+                    } else {
+                        mobileMenu.classList.add('active');
+                        this.innerHTML = '<i class="fas fa-times"></i>';
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
             }
             
-            // Toggle menú móvil
-            menuToggle.addEventListener('click', function() {
-                const mobileMenu = createMobileMenu();
-                if (!mobileMenu) return;
+            // ==================== FORMULARIO DE CONTACTO ====================
+            function initContactForm() {
+                const contactForm = document.getElementById('contactForm');
+                if (!contactForm) return;
                 
-                if (mobileMenu.classList.contains('active')) {
-                    mobileMenu.classList.remove('active');
-                    this.innerHTML = '<i class="fas fa-bars"></i>';
-                    document.body.style.overflow = '';
-                } else {
-                    mobileMenu.classList.add('active');
-                    this.innerHTML = '<i class="fas fa-times"></i>';
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-            
-            // Cerrar menú al hacer clic en enlace
-            document.addEventListener('click', function(e) {
-                const mobileMenu = document.getElementById('mobileMenu');
-                if (mobileMenu && mobileMenu.classList.contains('active') && 
-                    !mobileMenu.contains(e.target) && 
-                    e.target !== menuToggle && 
-                    !menuToggle.contains(e.target)) {
-                    mobileMenu.classList.remove('active');
-                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                    document.body.style.overflow = '';
-                }
-            });
-        }
-        
-        // Formulario de contacto
-        function initContactForm() {
-            const contactForm = document.getElementById('contactForm');
-            if (!contactForm) return;
-            
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const btnText = submitBtn.querySelector('.btn-text');
-                const btnLoading = submitBtn.querySelector('.btn-loading');
-                
-                // Validación básica
-                const name = this.querySelector('#name').value.trim();
-                const email = this.querySelector('#email').value.trim();
-                const message = this.querySelector('#message').value.trim();
-                
-                if (!name || !email || !message) {
-                    alert('Por favor completa todos los campos requeridos');
-                    return;
-                }
-                
-                // Validar email
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    alert('Por favor ingresa un email válido');
-                    return;
-                }
-                
-                // Mostrar loading
-                btnText.style.display = 'none';
-                btnLoading.style.display = 'inline-block';
-                submitBtn.disabled = true;
-                
-                // Simular envío
-                setTimeout(() => {
-                    alert('¡Mensaje enviado! Te contactaré en menos de 24 horas.');
-                    this.reset();
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
                     
-                    // Restaurar botón
-                    btnText.style.display = 'inline-block';
-                    btnLoading.style.display = 'none';
-                    submitBtn.disabled = false;
-                }, 1500);
-            });
-        }
-        
-        // Smooth scroll para enlaces
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#' || href === '#!') return;
-                
-                e.preventDefault();
-                const targetElement = document.querySelector(href);
-                
-                if (targetElement) {
-                    const header = document.querySelector('.pb-header');
-                    const headerHeight = header ? header.offsetHeight : 0;
-                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const btnLoading = submitBtn.querySelector('.btn-loading');
                     
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+                    // Validación
+                    const name = this.querySelector('#name').value.trim();
+                    const email = this.querySelector('#email').value.trim();
+                    const message = this.querySelector('#message').value.trim();
                     
-                    // Cerrar menú móvil si está abierto
-                    const mobileMenu = document.getElementById('mobileMenu');
-                    if (mobileMenu && mobileMenu.classList.contains('active')) {
-                        mobileMenu.classList.remove('active');
-                        const menuToggle = document.getElementById('menuToggle');
-                        if (menuToggle) {
-                            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                        }
-                        document.body.style.overflow = '';
+                    if (!name || !email || !message) {
+                        alert('Por favor completa todos los campos requeridos');
+                        return;
                     }
-                }
-            });
+                    
+                    // Validar email
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert('Por favor ingresa un email válido');
+                        return;
+                    }
+                    
+                    // Mostrar loading
+                    btnText.style.display = 'none';
+                    btnLoading.style.display = 'inline-block';
+                    submitBtn.disabled = true;
+                    
+                    // Simular envío (reemplazar con tu backend)
+                    setTimeout(() => {
+                        alert('¡Mensaje enviado! Te contactaré en menos de 24 horas.');
+                        this.reset();
+                        
+                        // Restaurar botón
+                        btnText.style.display = 'inline-block';
+                        btnLoading.style.display = 'none';
+                        submitBtn.disabled = false;
+                    }, 1500);
+                });
+            }
+            
+            // ==================== SMOOTH SCROLL ====================
+            function initSmoothScroll() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        const href = this.getAttribute('href');
+                        if (href === '#' || href === '#!') return;
+                        
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        
+                        if (targetElement) {
+                            const header = document.querySelector('.pb-header');
+                            const headerHeight = header ? header.offsetHeight : 0;
+                            const targetPosition = targetElement.offsetTop - headerHeight;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Cerrar menú móvil si está abierto
+                            const mobileMenu = document.getElementById('mobileMenu');
+                            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                                mobileMenu.classList.remove('active');
+                                const menuToggle = document.getElementById('menuToggle');
+                                if (menuToggle) {
+                                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                                }
+                                document.body.style.overflow = '';
+                            }
+                        }
+                    });
+                });
+            }
+            
+            // ==================== INICIALIZAR TODO ====================
+            initImages();
+            initGalleryParallax();
+            initCounters();
+            initScrollEffects();
+            initDropdowns();
+            initMobileMenu();
+            initContactForm();
+            initSmoothScroll();
+            
+            console.log('✅ Todo inicializado correctamente');
         });
     </script>
 </body>
