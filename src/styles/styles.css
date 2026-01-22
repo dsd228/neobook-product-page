@@ -1170,101 +1170,175 @@ h1, h2, h3, h4, h5, h6 {
    PORTFOLIOBOX PARALLAX EFFECTS
    ============================== */
 
-/* Efecto de revelación parallax */
-.pb-parallax-hero {
+/* ==============================
+   PORTFOLIOBOX EFFECTS - ADAPTADO A TU PORTAFOLIO
+   ============================== */
+
+/* Efecto de revelación parallax para tu hero */
+.pb-hero-parallax {
     position: relative;
-    height: 100vh;
-    min-height: 600px;
+    min-height: 100vh;
+    padding-top: 120px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     overflow: hidden;
-    background: linear-gradient(135deg, var(--pb-bg-dark) 0%, var(--pb-gray-900) 100%);
 }
 
-.pb-parallax-background {
+.pb-hero-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 120%;
-    background-image: url('src/images/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
     transform: translateZ(0);
     will-change: transform;
 }
 
-.pb-hero-content-wrapper {
+/* Header con efecto de transformación */
+.pb-header.hero-mode {
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.pb-header.hero-mode .pb-logo {
+    color: white;
+}
+
+.pb-header.hero-mode .pb-nav-link {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.pb-header.hero-mode .pb-nav-link:hover {
+    color: white;
+}
+
+.pb-header.hero-mode .pb-btn-primary {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.pb-header.hero-mode .pb-btn-primary:hover {
+    background: white;
+    color: #1e293b;
+}
+
+/* Hero content específico para tu portafolio */
+.pb-hero-portfolio {
     position: relative;
     z-index: 2;
-    height: 100vh;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--pb-white);
-}
-
-.pb-hero-main {
-    text-align: center;
     max-width: 800px;
-    padding: 0 var(--pb-space-6);
+    margin: 0 auto;
+    text-align: center;
+    color: white;
 }
 
-.pb-hero-headline {
+.pb-hero-portfolio h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: var(--pb-space-6);
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeInUp 0.8s ease forwards 0.3s;
+    animation: slideUpFade 0.8s ease forwards 0.3s;
 }
 
-.pb-hero-subheadline {
+.pb-hero-portfolio p {
     font-size: clamp(1.125rem, 2vw, 1.5rem);
-    font-weight: 400;
-    color: var(--pb-gray-300);
+    color: #cbd5e1;
     margin-bottom: var(--pb-space-8);
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeInUp 0.8s ease forwards 0.5s;
+    animation: slideUpFade 0.8s ease forwards 0.5s;
 }
 
-.pb-hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--pb-space-3);
-    padding: var(--pb-space-4) var(--pb-space-8);
-    background-color: var(--pb-primary);
-    color: var(--pb-white);
-    text-decoration: none;
-    border-radius: var(--pb-radius);
-    font-weight: 600;
-    font-size: var(--pb-text-base);
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s ease forwards 0.7s;
-    box-shadow: var(--pb-shadow-lg);
-}
-
-.pb-hero-cta:hover {
-    background-color: var(--pb-primary-dark);
-    transform: translateY(-2px);
-    box-shadow: var(--pb-shadow-xl);
-}
-
-.pb-scroll-indicator {
+/* Indicador de scroll */
+.pb-scroll-hint {
     position: absolute;
     bottom: var(--pb-space-8);
     left: 50%;
     transform: translateX(-50%);
-    color: var(--pb-white);
-    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.7);
     animation: bounce 2s infinite;
+    cursor: pointer;
     z-index: 2;
 }
 
-@keyframes fadeInUp {
+/* Efecto de tarjetas estilo Portfoliobox */
+.pb-portfoliobox-card {
+    background: white;
+    border-radius: var(--pb-radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--pb-border);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.pb-portfoliobox-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pb-portfoliobox-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--pb-shadow-xl);
+    border-color: var(--pb-blue-500);
+}
+
+/* Grid de proyectos estilo galería Portfoliobox */
+.pb-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--pb-space-8);
+    margin: var(--pb-space-12) 0;
+}
+
+/* Badge "Hecho por" estilo Portfoliobox */
+.pb-portfolio-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pb-space-2);
+    padding: var(--pb-space-2) var(--pb-space-4);
+    background: var(--pb-gray-900);
+    color: white;
+    border-radius: var(--pb-radius-full);
+    font-size: var(--pb-text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: var(--pb-space-4);
+}
+
+.pb-portfolio-badge i {
+    color: var(--pb-accent);
+}
+
+/* Sección "Made with" */
+.pb-made-section {
+    background: linear-gradient(135deg, var(--pb-gray-50) 0%, var(--pb-gray-100) 100%);
+    padding: var(--pb-space-20) 0;
+    text-align: center;
+}
+
+.pb-made-title {
+    font-size: var(--pb-text-4xl);
+    font-weight: 800;
+    color: var(--pb-text-primary);
+    margin-bottom: var(--pb-space-6);
+}
+
+.pb-made-subtitle {
+    font-size: var(--pb-text-lg);
+    color: var(--pb-text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--pb-space-12);
+}
+
+/* Animaciones */
+@keyframes slideUpFade {
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1283,42 +1357,53 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Header transform effect */
-.pb-header.parallax-mode {
-    position: fixed;
-    background-color: transparent;
-    border-bottom: none;
-    backdrop-filter: none;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+/* Efecto de revelación al scroll */
+.pb-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.pb-header.parallax-mode .pb-logo {
-    color: var(--pb-white);
+.pb-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.pb-header.parallax-mode .pb-nav-link {
-    color: rgba(255, 255, 255, 0.9);
+/* Overlay para imágenes de proyecto */
+.pb-project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    color: white;
+    padding: var(--pb-space-6);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
 }
 
-.pb-header.parallax-mode .pb-nav-link:hover {
-    color: var(--pb-white);
+.pb-project-card:hover .pb-project-overlay {
+    transform: translateY(0);
 }
 
-.pb-header.parallax-mode .pb-btn-primary {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+/* Stats con animación */
+.pb-animated-stat {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.6s ease;
 }
 
-.pb-header.parallax-mode .pb-btn-primary:hover {
-    background-color: var(--pb-white);
-    color: var(--pb-text-primary);
+.pb-animated-stat.visible {
+    opacity: 1;
+    transform: scale(1);
 }
 
+/* Smooth header transition */
 .pb-header.scrolled {
-    background-color: var(--pb-white);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--pb-shadow-md);
     border-bottom: 1px solid var(--pb-border);
-    backdrop-filter: blur(8px);
 }
 
 .pb-header.scrolled .pb-logo {
@@ -1330,148 +1415,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pb-header.scrolled .pb-btn-primary {
-    background-color: var(--pb-primary);
+    background: var(--pb-primary);
     border-color: var(--pb-primary);
-}
-
-/* Parallax sections */
-.pb-parallax-section {
-    position: relative;
-    padding: var(--pb-space-40) 0;
-    overflow: hidden;
-}
-
-.pb-parallax-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    transform: translateZ(0);
-    will-change: transform;
-}
-
-.pb-parallax-content {
-    position: relative;
-    z-index: 2;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: var(--pb-radius-lg);
-    padding: var(--pb-space-12);
-    max-width: 1200px;
-    margin: 0 auto;
-    box-shadow: var(--pb-shadow-xl);
-}
-
-/* Gallery grid */
-.pb-portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--pb-space-8);
-    margin-top: var(--pb-space-12);
-}
-
-.pb-portfolio-item {
-    position: relative;
-    border-radius: var(--pb-radius-lg);
-    overflow: hidden;
-    aspect-ratio: 4/3;
-    background: var(--pb-gray-100);
-    transition: all 0.3s ease;
-}
-
-.pb-portfolio-item:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--pb-shadow-xl);
-}
-
-.pb-portfolio-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.pb-portfolio-item:hover .pb-portfolio-image {
-    transform: scale(1.05);
-}
-
-.pb-portfolio-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    color: var(--pb-white);
-    padding: var(--pb-space-6);
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-}
-
-.pb-portfolio-item:hover .pb-portfolio-overlay {
-    transform: translateY(0);
-}
-
-.pb-portfolio-title {
-    font-size: var(--pb-text-lg);
-    font-weight: 700;
-    margin-bottom: var(--pb-space-2);
-}
-
-.pb-portfolio-category {
-    font-size: var(--pb-text-sm);
-    opacity: 0.8;
-}
-
-/* Featured portfolios section */
-.pb-featured-section {
-    background-color: var(--pb-gray-50);
-}
-
-.pb-featured-title {
-    font-size: var(--pb-text-3xl);
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: var(--pb-space-12);
-    color: var(--pb-text-primary);
-}
-
-/* Made in Portfoliobox badge */
-.pb-made-badge {
-    display: inline-block;
-    padding: var(--pb-space-2) var(--pb-space-4);
-    background: var(--pb-gray-900);
-    color: var(--pb-white);
-    border-radius: var(--pb-radius);
-    font-size: var(--pb-text-xs);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-top: var(--pb-space-4);
-}
-
-/* Enhanced animations */
-@keyframes slideInFromBottom {
-    from {
-        opacity: 0;
-        transform: translateY(100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.pb-animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.pb-animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
+    color: white;
 }
