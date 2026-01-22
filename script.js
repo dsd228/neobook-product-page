@@ -7,7 +7,45 @@
 let isMobileMenuOpen = false;
 let lastScrollY = 0;
 let ticking = false;
+// ==============================
+// GALERÍA PARALLAX EFFECT
+// ==============================
+function initGalleryParallax() {
+    const gallery = document.getElementById('galleryParallax');
+    if (!gallery) return;
+    
+    const items = gallery.querySelectorAll('.pb-gallery-item');
+    
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * 0.5;
+        
+        items.forEach((item, index) => {
+            const speed = 0.3 + (index * 0.1);
+            const yPos = -(rate * speed);
+            item.style.transform = `translate3d(0, ${yPos}px, 0)`;
+        });
+    });
+    
+    // Efecto hover en elementos de la galería
+    items.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+            this.style.opacity = '0.5';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            this.style.opacity = '0.3';
+        });
+    });
+}
 
+// Inicializar en DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    // ... tu código existente ...
+    initGalleryParallax();
+});
 // ==============================
 // 1. INITIALIZATION
 // ==============================
