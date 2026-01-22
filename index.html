@@ -3,40 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeoProdUx | Diseño UX/UI & Product Strategy</title>
-    <meta name="description" content="Portafolio profesional de diseño UX/UI especializado en estrategia de producto, investigación de usuarios y optimización de conversión.">
+    <title>TechSelect | Productos Tech Premium</title>
+    <meta name="description" content="Productos tech seleccionados por rendimiento, diseño y precio real. Auriculares, accesorios y dispositivos premium.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="src/styles/styles.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎧</text></svg>">
 </head>
 <body>
-    <!-- ==================== HEADER ==================== -->
-    <header class="pb-header" id="main-header">
-        <div class="pb-container">
-            <nav class="pb-main-nav">
-                <a href="#hero" class="pb-logo">
-                    <span class="logo-neo">Neo</span><span class="logo-prod">Prod</span><span class="logo-ux">Ux</span>
+    <!-- Header -->
+    <header class="ts-header" id="main-header">
+        <div class="ts-container">
+            <nav class="ts-main-nav">
+                <a href="#hero" class="ts-logo">
+                    <span class="ts-logo-icon">🎧</span>
+                    <span class="ts-logo-text">TechSelect</span>
                 </a>
                 
-                <div class="pb-nav-center">
-                    <a href="#galeria" class="pb-nav-link">Galería</a>
-                    <a href="#proyectos" class="pb-nav-link">Proyectos</a>
-                    <a href="#servicios" class="pb-nav-link">Servicios</a>
-                    <a href="#testimonios" class="pb-nav-link">Testimonios</a>
-                    <a href="#contacto" class="pb-nav-link">Contacto</a>
+                <div class="ts-nav-center">
+                    <a href="#productos" class="ts-nav-link">Productos</a>
+                    <a href="#categorias" class="ts-nav-link">Categorías</a>
+                    <a href="#testimonios" class="ts-nav-link">Testimonios</a>
+                    <a href="#garantia" class="ts-nav-link">Garantía</a>
+                    <a href="#contacto" class="ts-nav-link">Contacto</a>
                 </div>
                 
-                <div class="pb-nav-right">
-                    <a href="#contacto" class="pb-btn pb-btn-primary">Empezar Proyecto</a>
-                    <button class="pb-menu-toggle" id="menuToggle" aria-label="Menú">
+                <div class="ts-nav-right">
+                    <button class="ts-cart-btn" aria-label="Carrito">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="ts-cart-count">3</span>
+                    </button>
+                    <button class="ts-menu-toggle" id="menuToggle" aria-label="Menú">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
@@ -44,516 +51,481 @@
         </div>
     </header>
 
-    <!-- ==================== HERO PORTFOLIOBOX EXACTO ==================== -->
-    <section class="pb-hero-section" id="hero">
-        <!-- WRAPPER ZOOMABLE (EXACTO COMO PORTFOLIOBOX) -->
-        <div class="pb-hero-zoomable" data-zoom="28">
-            <div class="pb-hero-zoomable-inner" id="zoomableInner">
-                <!-- GRID QUE NUNCA SE ANIMA DIRECTAMENTE - CON IMÁGENES -->
-                <div class="pb-hero-grid">
-                    <div class="pb-grid-item">
-                        <img src="images/hero/gallery-8.jpg" 
-                             alt="UI/UX Design Dashboard" 
+    <!-- Hero Section con efecto Portfoliobox -->
+    <section class="ts-hero-section" id="hero">
+        <!-- Zoomable Container -->
+        <div class="ts-hero-zoomable" data-zoom="25">
+            <div class="ts-hero-zoomable-inner" id="zoomableInner">
+                <!-- Tech Grid Background -->
+                <div class="ts-hero-grid">
+                    <div class="ts-grid-item">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Auriculares premium" 
                              loading="lazy">
                     </div>
-                    <div class="pb-grid-item">
-                        <img src="images/hero/gallery-7.jpg" 
-                             alt="Mobile App Design" 
+                    <div class="ts-grid-item">
+                        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Smartwatch" 
                              loading="lazy">
                     </div>
-                    <div class="pb-grid-item">
-                        <img src="images/hero/gallery-6.jpg" 
-                             alt="Data Visualization" 
+                    <div class="ts-grid-item">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Smartphone" 
                              loading="lazy">
                     </div>
-                    <div class="pb-grid-item">
-                        <img src="images/hero/gallery-5.jpg" 
-                             alt="Financial Dashboard" 
+                    <div class="ts-grid-item">
+                        <img src="https://images.unsplash.com/photo-1530893609608-727a05c4013d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Tablet" 
                              loading="lazy">
                     </div>
-                    <div class="pb-grid-item">
-                        <img src="images/hero/gallery-4.jpg" 
-                             alt="Team Collaboration" 
+                    <div class="ts-grid-item">
+                        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Cámara" 
                              loading="lazy">
                     </div>
-                    <div class="pb-grid-item">
-                        <img src="images/hero/gallery-2.jpg" 
-                             alt="Wireframing Process" 
+                    <div class="ts-grid-item">
+                        <img src="https://images.unsplash.com/photo-1543512214-318c7553f230?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Laptop" 
                              loading="lazy">
                     </div>
-                    <div class="pb-grid-item">
-                        <img src="images/hero/gallery-3.jpg" 
-                             alt="Responsive Design" 
-                             loading="lazy">
-                    </div>
-                    <div class="pb-grid-item">
-                        <img src="images/hero/gallery-1.jpg" 
-                             alt="User Testing" 
+                    <div class="ts-grid-item">
+                        <img src="https://images.unsplash.com/photo-1600003263720-95b45a4035d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Altavoz" 
                              loading="lazy">
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- OVERLAY (EXACTO) -->
-        <div class="pb-hero-overlay" id="heroOverlay"></div>
+        <!-- Overlay -->
+        <div class="ts-hero-overlay" id="heroOverlay"></div>
         
-        <!-- CONTENIDO DEL HERO -->
-        <div class="pb-hero-content">
-            <div class="pb-hero-tag">
-                <i class="fas fa-sparkles"></i>
-                Hecho para Creativos
+        <!-- Hero Content -->
+        <div class="ts-hero-content">
+            <div class="ts-hero-tag">
+                <i class="fas fa-bolt"></i>
+                SELECCIÓN PREMIUM 2024
             </div>
             
-            <h1 class="pb-hero-title">
-                Diseño UX/UI & <span class="highlight">Product Strategy</span>
+            <h1 class="ts-hero-title">
+                PRODUCTOS TECH <span class="ts-highlight">SELECCIONADOS</span><br>
+                POR RENDIMIENTO, DISEÑO<br>
+                Y PRECIO REAL.
             </h1>
             
-            <p class="pb-hero-subtitle">
-                Convierto visitas en clientes con diseño basado en datos, investigación de usuarios 
-                y estrategias de producto que generan <strong>resultados medibles</strong>.
+            <p class="ts-hero-subtitle">
+                Descubre dispositivos probados en laboratorio con la mejor relación calidad-precio del mercado.
+                <strong>Garantía extendida de 24 meses</strong> en todos nuestros productos.
             </p>
             
-            <div class="pb-hero-actions">
-                <a href="#galeria" class="pb-btn pb-btn-primary pb-btn-large">
-                    <i class="fas fa-eye"></i> Ver Galería
+            <div class="ts-hero-actions">
+                <a href="#productos" class="ts-btn ts-btn-primary ts-btn-large">
+                    <i class="fas fa-shopping-bag"></i> VER COLECCIÓN
                 </a>
-                <a href="#contacto" class="pb-btn pb-btn-outline pb-btn-large">
-                    <i class="fas fa-calendar-alt"></i> Agendar Llamada
+                <a href="#testimonios" class="ts-btn ts-btn-outline ts-btn-large">
+                    <i class="fas fa-play-circle"></i> VER REVIEWS
                 </a>
             </div>
             
-            <div class="pb-hero-stats">
-                <div class="pb-stat">
-                    <span class="pb-stat-number" data-count="50">0+</span>
-                    <span class="pb-stat-label">Proyectos Completados</span>
+            <div class="ts-hero-stats">
+                <div class="ts-stat">
+                    <span class="ts-stat-number">4.8</span>
+                    <span class="ts-stat-label">/5 CALIFICACIÓN</span>
                 </div>
-                <div class="pb-stat">
-                    <span class="pb-stat-number" data-count="340">0%</span>
-                    <span class="pb-stat-label">Aumento Conversión</span>
+                <div class="ts-stat">
+                    <span class="ts-stat-number">3,000+</span>
+                    <span class="ts-stat-label">COMPRADORES</span>
                 </div>
-                <div class="pb-stat">
-                    <span class="pb-stat-number">100%</span>
-                    <span class="pb-stat-label">Satisfacción Clientes</span>
+                <div class="ts-stat">
+                    <span class="ts-stat-number">24</span>
+                    <span class="ts-stat-label">MESES GARANTÍA</span>
                 </div>
             </div>
         </div>
         
-        <!-- BOTÓN "DESPLÁZATE HACIA ABAJO" (EXACTO) -->
-        <button class="pb-scroll-down" id="scrollDown" aria-label="Desplázate hacia abajo">
-            <span class="pb-scroll-icon">↓</span>
-            Desplázate hacia abajo
+        <!-- Scroll Down Button -->
+        <button class="ts-scroll-down" id="scrollDown" aria-label="Desplázate hacia abajo">
+            <span class="ts-scroll-icon">↓</span>
+            DESCUBRIR PRODUCTOS
         </button>
     </section>
 
-    <!-- ==================== GALERÍA (INTEGRACIÓN EXACTA) ==================== -->
-    <section class="pb-gallery-integrated" id="galeria">
-        <div class="pb-container">
-            <div class="pb-section-header">
-                <h2 class="pb-section-title">Galería de Proyectos</h2>
-                <p class="pb-section-subtitle">
-                    Los mismos elementos del fondo, ahora como contenido interactivo.
-                </p>
-            </div>
-        </div>
-        
-        <!-- LOS MISMOS ELEMENTOS DEL GRID, PERO AHORA EN DISPOSICIÓN PARALLAX -->
-        <div class="pb-gallery-parallax">
-            <div class="pb-parallax-item" data-speed="0.1">
-                <div class="pb-parallax-content">
-                    <h3>PASEO App</h3>
-                    <p>FinTech Mobile Design</p>
-                    <span class="pb-item-category">Mobile App</span>
-                </div>
-                <img src="Desktop - 1paseo.png">
-            </div>
-            
-            <div class="pb-parallax-item" data-speed="0.2">
-                <div class="pb-parallax-content">
-                    <h3>Nexus Dashboard</h3>
-                    <p>SaaS B2B Interface</p>
-                    <span class="pb-item-category">Dashboard</span>
-                </div>
-                <img src="images/Home.png">
-            </div>
-            
-            <div class="pb-parallax-item" data-speed="0.15">
-                <div class="pb-parallax-content">
-                    <h3>La Caroyense</h3>
-                    <p>E-commerce Redesign</p>
-                    <span class="pb-item-category">E-commerce</span>
-                </div>
-                <img src="images/iPhone 16 Pro - 2.png">
-            </div>
-            
-            <div class="pb-parallax-item" data-speed="0.25">
-                <div class="pb-parallax-content">
-                    <h3>HealthTrack Pro</h3>
-                    <p>Health App UI/UX</p>
-                    <span class="pb-item-category">Health Tech</span>
-                </div>
-                <img src="images/gallery/UX.jpg">
-            </div>
-            
-            <div class="pb-parallax-item" data-speed="0.12">
-                <div class="pb-parallax-content">
-                    <h3>EduLearn Platform</h3>
-                    <p>Educational SaaS</p>
-                    <span class="pb-item-category">Education</span>
-                </div>
-                <img src="images/gallery/Educational.jpg">
-            </div>
-            
-            <div class="pb-parallax-item" data-speed="0.3">
-                <div class="pb-parallax-content">
-                    <h3>TravelMate</h3>
-                    <p>Travel App Design</p>
-                    <span class="pb-item-category">Travel</span>
-                </div>
-                <img src="images/gallery/Travel App Design.png">
-            </div>
-            
-            <div class="pb-parallax-item" data-speed="0.18">
-                <div class="pb-parallax-content">
-                    <h3>Finance Dashboard</h3>
-                    <p>Analytics & Reports</p>
-                    <span class="pb-item-category">Finance</span>
-                </div>
-                <img src="images/gallery/Finance Dashboard.png">
-            </div>
-            
-            <div class="pb-parallax-item" data-speed="0.22">
-                <div class="pb-parallax-content">
-                    <h3>FitTrack Pro</h3>
-                    <p>Fitness App UI/UX</p>
-                    <span class="pb-item-category">Fitness</span>
-                </div>
-                <img src="images/gallery/UX.png">
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== PROYECTOS DETALLADOS ==================== -->
-    <section class="pb-section pb-section-light" id="proyectos">
-        <div class="pb-container">
-            <div class="pb-section-header">
-                <h2 class="pb-section-title">Proyectos Destacados</h2>
-                <p class="pb-section-subtitle">
-                    Casos de estudio donde el diseño UX/UI transformó resultados de negocio.
+    <!-- Featured Product -->
+    <section class="ts-product-featured" id="productos">
+        <div class="ts-container">
+            <div class="ts-section-header">
+                <h2 class="ts-section-title">OVER EAR DE HUMAN</h2>
+                <p class="ts-section-subtitle">
+                    Auriculares premium con sonido envolvente real. Tecnología de cancelación activa de ruido.
                 </p>
             </div>
             
-            <div class="pb-projects-showcase">
-                <!-- Proyecto 1 -->
-                <article class="pb-project-card">
-                    <div class="pb-project-image">
-                        <img src="app para paseadores de perros (20)/Reserva · Paseo confirmado-1.png" 
-                             alt="PASEO App - FinTech" 
-                             loading="lazy">
-                        <div class="pb-project-overlay">
-                            <i class="fas fa-eye"></i>
-                        </div>
+            <div class="ts-product-showcase">
+                <div class="ts-product-visual">
+                    <div class="ts-product-image-container">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Auriculares OVER EAR DE HUMAN" 
+                             class="ts-product-main-image">
+                        <div class="ts-product-badge">MEJOR VENDIDO</div>
                     </div>
-                    <div class="pb-project-content">
-                        <div class="pb-project-meta">
-                            <span class="pb-project-category">FinTech · Mobile App</span>
-                            <span class="pb-project-year">2024</span>
-                        </div>
-                        <h3 class="pb-project-title">PASEO – UX Case Study</h3>
-                        <p class="pb-project-description">
-                            Diseño integral de app FinTech para paseo de perros con sistema de pagos 
-                            y seguimiento en tiempo real.
-                        </p>
-                        <a href="https://github.com/dsd228/dsd228-paseo-ux-case-study" 
-                           target="_blank" 
-                           class="pb-project-link">
-                            <i class="fab fa-github"></i> Ver Caso Completo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Proyecto 2 -->
-                <article class="pb-project-card">
-                    <div class="pb-project-image">
-                        <img src="dispatch - copia.png" 
-                             alt="Nexus Logistics Dashboard" 
-                             loading="lazy">
-                        <div class="pb-project-overlay">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                    </div>
-                    <div class="pb-project-content">
-                        <div class="pb-project-meta">
-                            <span class="pb-project-category">Logística · SaaS B2B</span>
-                            <span class="pb-project-year">2023</span>
-                        </div>
-                        <h3 class="pb-project-title">Nexus Logistics Dashboard</h3>
-                        <p class="pb-project-description">
-                            Rediseño UX/UI de dashboard operativo B2B para simplificar flujos 
-                            y reducir curva de aprendizaje.
-                        </p>
-                        <a href="https://github.com/dsd228/nexus-logistics-ui" 
-                           target="_blank" 
-                           class="pb-project-link">
-                            <i class="fab fa-github"></i> Ver Caso Completo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Proyecto 3 -->
-                <article class="pb-project-card">
-                    <div class="pb-project-image">
-                        <img src="Bodega La Caroyense — UX_UI Redesign/Desktop - 6.png" 
-                             alt="La Caroyense E-commerce" 
-                             loading="lazy">
-                        <div class="pb-project-overlay">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                    </div>
-                    <div class="pb-project-content">
-                        <div class="pb-project-meta">
-                            <span class="pb-project-category">E-commerce · Mobile First</span>
-                            <span class="pb-project-year">2023</span>
-                        </div>
-                        <h3 class="pb-project-title">La Caroyense E-commerce</h3>
-                        <p class="pb-project-description">
-                            Rediseño mobile-first de e-commerce optimizando funnel de compra 
-                            para maximizar conversión.
-                        </p>
-                        <a href="https://github.com/dsd228/la-caroyense-ux-ui-redesign" 
-                           target="_blank" 
-                           class="pb-project-link">
-                            <i class="fab fa-github"></i> Ver Caso Completo
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SERVICIOS ==================== -->
-    <section class="pb-section" id="servicios">
-        <div class="pb-container">
-            <div class="pb-section-header">
-                <h2 class="pb-section-title">Servicios Especializados</h2>
-                <p class="pb-section-subtitle">
-                    Soluciones de diseño UX/UI y estrategia de producto.
-                </p>
-            </div>
-            
-            <div class="pb-services-grid">
-                <div class="pb-service-card">
-                    <div class="pb-service-icon">
-                        <i class="fas fa-pencil-ruler"></i>
-                    </div>
-                    <h3 class="pb-service-title">Diseño UX/UI</h3>
-                    <p class="pb-service-description">
-                        Interfaces intuitivas y atractivas basadas en investigación de usuarios.
-                    </p>
-                </div>
-                
-                <div class="pb-service-card">
-                    <div class="pb-service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="pb-service-title">Estrategia de Producto</h3>
-                    <p class="pb-service-description">
-                        Definición de roadmap y optimización de flujos para maximizar conversión.
-                    </p>
-                </div>
-                
-                <div class="pb-service-card">
-                    <div class="pb-service-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3 class="pb-service-title">Diseño Mobile</h3>
-                    <p class="pb-service-description">
-                        Apps nativas y responsive design optimizadas para experiencia móvil.
-                    </p>
-                </div>
-                
-                <div class="pb-service-card">
-                    <div class="pb-service-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="pb-service-title">Desarrollo Frontend</h3>
-                    <p class="pb-service-description">
-                        Implementación de diseños en código limpio y accesible.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== TESTIMONIOS ==================== -->
-    <section class="pb-section pb-section-light" id="testimonios">
-        <div class="pb-container">
-            <div class="pb-section-header">
-                <h2 class="pb-section-title">Lo que dicen mis clientes</h2>
-                <p class="pb-section-subtitle">
-                    Feedback real de proyectos completados con resultados verificables.
-                </p>
-            </div>
-            
-            <div class="pb-testimonials-grid">
-                <div class="pb-testimonial-card">
-                    <div class="pb-testimonial-content">
-                        <p class="pb-testimonial-quote">
-                            David transformó completamente nuestro producto. Implementamos sus recomendaciones 
-                            y en 3 meses vimos un aumento del 78% en retención de usuarios.
-                        </p>
-                    </div>
-                    <div class="pb-testimonial-author">
-                        <div class="pb-author-avatar">AC</div>
-                        <div class="pb-author-info">
-                            <h4>Alex Chen</h4>
-                            <p>CEO & Founder, Startup FinTech</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pb-testimonial-card">
-                    <div class="pb-testimonial-content">
-                        <p class="pb-testimonial-quote">
-                            Excelente análisis de datos y propuestas de diseño. Nuestras métricas de usabilidad 
-                            mejoraron +40% post-rediseño. Profesional y orientado a resultados.
-                        </p>
-                    </div>
-                    <div class="pb-testimonial-author">
-                        <div class="pb-author-avatar">MR</div>
-                        <div class="pb-author-info">
-                            <h4>María Rodríguez</h4>
-                            <p>Product Lead, E-commerce Platform</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pb-testimonial-card">
-                    <div class="pb-testimonial-content">
-                        <p class="pb-testimonial-quote">
-                            +$2.1M en ingresos adicionales tras el rediseño. El mejor ROI que hemos visto en diseño. 
-                            Trabajo remoto impecable y comunicación constante.
-                        </p>
-                    </div>
-                    <div class="pb-testimonial-author">
-                        <div class="pb-author-avatar">JW</div>
-                        <div class="pb-author-info">
-                            <h4>James Wilson</h4>
-                            <p>CEO, SaaS Platform</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== CONTACTO ==================== -->
-    <section class="pb-section" id="contacto">
-        <div class="pb-container">
-            <div class="pb-section-header">
-                <h2 class="pb-section-title">Hablemos de tu proyecto</h2>
-                <p class="pb-section-subtitle">
-                    Cuéntame sobre tu producto y te enviaré una propuesta personalizada.
-                </p>
-            </div>
-            
-            <div class="pb-contact-grid">
-                <div class="pb-contact-info">
-                    <h3 class="pb-contact-title">Información de contacto</h3>
                     
-                    <div class="pb-contact-details">
-                        <div class="pb-contact-detail">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:david.diaz.uxdata@gmail.com">david.diaz.uxdata@gmail.com</a>
-                            </div>
-                        </div>
-                        
-                        <div class="pb-contact-detail">
-                            <i class="fas fa-calendar-alt"></i>
-                            <div>
-                                <h4>Agendar llamada</h4>
-                                <a href="https://calendly.com/dsd228-dd" target="_blank">Calendly.com/dsd228-dd</a>
-                            </div>
-                        </div>
-                        
-                        <div class="pb-contact-detail">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Ubicación</h4>
-                                <p>100% Remoto · Clientes globales</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pb-contact-form">
-                    <form id="contactForm">
-                        <div class="pb-form-group">
-                            <label for="name">Nombre completo *</label>
-                            <input type="text" id="name" name="name" required placeholder="Tu nombre">
-                        </div>
-                        
-                        <div class="pb-form-group">
-                            <label for="email">Email profesional *</label>
-                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
-                        </div>
-                        
-                        <div class="pb-form-group">
-                            <label for="message">¿En qué puedo ayudarte? *</label>
-                            <textarea id="message" name="message" rows="4" required placeholder="Describe tu proyecto..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="pb-btn pb-btn-primary pb-btn-block">
-                            <i class="fas fa-paper-plane"></i> Enviar mensaje
+                    <div class="ts-product-gallery">
+                        <button class="ts-gallery-thumb active">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Negro">
                         </button>
-                    </form>
+                        <button class="ts-gallery-thumb">
+                            <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Blanco">
+                        </button>
+                        <button class="ts-gallery-thumb">
+                            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Azul">
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="ts-product-details">
+                    <div class="ts-price-tag">
+                        <span class="ts-price">$1.200</span>
+                        <span class="ts-price-old">$1.500</span>
+                        <span class="ts-discount">-20%</span>
+                    </div>
+                    
+                    <div class="ts-rating">
+                        <div class="ts-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="ts-rating-text">4.8/5 (3,000+ reseñas)</span>
+                    </div>
+                    
+                    <div class="ts-features-grid">
+                        <div class="ts-feature">
+                            <i class="fas fa-battery-full"></i>
+                            <div>
+                                <h4>30 HORAS</h4>
+                                <p>De batería continua</p>
+                            </div>
+                        </div>
+                        <div class="ts-feature">
+                            <i class="fas fa-volume-mute"></i>
+                            <div>
+                                <h4>CANCELACIÓN</h4>
+                                <p>Activa de ruido</p>
+                            </div>
+                        </div>
+                        <div class="ts-feature">
+                            <i class="fab fa-apple"></i>
+                            <i class="fab fa-android"></i>
+                            <div>
+                                <h4>COMPATIBLE</h4>
+                                <p>iOS y Android</p>
+                            </div>
+                        </div>
+                        <div class="ts-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>12 MESES</h4>
+                                <p>Garantía extendida</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ts-color-selector">
+                        <h3>Color:</h3>
+                        <div class="ts-colors">
+                            <button class="ts-color-option active" data-color="black" style="background-color: #1a1a1a;"></button>
+                            <button class="ts-color-option" data-color="white" style="background-color: #ffffff;"></button>
+                            <button class="ts-color-option" data-color="blue" style="background-color: #2563eb;"></button>
+                        </div>
+                    </div>
+                    
+                    <div class="ts-product-actions">
+                        <button class="ts-btn ts-btn-primary ts-btn-xl ts-btn-full">
+                            <i class="fas fa-shopping-cart"></i> COMPRAR AHORA
+                        </button>
+                        <button class="ts-btn ts-btn-outline ts-btn-full">
+                            <i class="fas fa-info-circle"></i> VER DETALLES TÉCNICOS
+                        </button>
+                    </div>
+                    
+                    <div class="ts-delivery-info">
+                        <div class="ts-delivery-item">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Envío gratis en 24h</span>
+                        </div>
+                        <div class="ts-delivery-item">
+                            <i class="fas fa-undo"></i>
+                            <span>30 días para devolver</span>
+                        </div>
+                        <div class="ts-delivery-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Pago 100% seguro</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="pb-footer">
-        <div class="pb-container">
-            <div class="pb-footer-content">
-                <div class="pb-footer-brand">
-                    <a href="#hero" class="pb-logo pb-logo-footer">
-                        <span class="logo-neo">Neo</span><span class="logo-prod">Prod</span><span class="logo-ux">Ux</span>
-                    </a>
-                    <p class="pb-footer-description">
-                        Diseño UX/UI estratégico basado en datos para productos digitales 
-                        que convierten y retienen.
+    <!-- Categories -->
+    <section class="ts-section ts-section-light" id="categorias">
+        <div class="ts-container">
+            <div class="ts-section-header">
+                <h2 class="ts-section-title">COMPRAR POR CATEGORÍA</h2>
+                <p class="ts-section-subtitle">
+                    Explora nuestra selección curada de productos tech organizados por categorías.
+                </p>
+            </div>
+            
+            <div class="ts-categories-grid">
+                <div class="ts-category-card">
+                    <div class="ts-category-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h3 class="ts-category-title">AUDIO</h3>
+                    <p class="ts-category-description">
+                        Auriculares, altavoces y sistemas de sonido premium.
                     </p>
+                    <a href="#" class="ts-category-link">
+                        Ver productos <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 
-                <div class="pb-footer-links">
-                    <div class="pb-footer-column">
-                        <h4 class="pb-footer-title">Enlaces</h4>
-                        <a href="#galeria" class="pb-footer-link">Galería</a>
-                        <a href="#proyectos" class="pb-footer-link">Proyectos</a>
-                        <a href="#servicios" class="pb-footer-link">Servicios</a>
-                        <a href="#testimonios" class="pb-footer-link">Testimonios</a>
-                        <a href="#contacto" class="pb-footer-link">Contacto</a>
+                <div class="ts-category-card">
+                    <div class="ts-category-icon">
+                        <i class="fab fa-apple"></i>
+                    </div>
+                    <h3 class="ts-category-title">ACCESO iOS</h3>
+                    <p class="ts-category-description">
+                        Accesorios compatibles con iPhone, iPad y MacBook.
+                    </p>
+                    <a href="#" class="ts-category-link">
+                        Ver productos <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="ts-category-card">
+                    <div class="ts-category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3 class="ts-category-title">PRODUCTIVIDAD</h3>
+                    <p class="ts-category-description">
+                        Dispositivos para trabajo remoto y estudio.
+                    </p>
+                    <a href="#" class="ts-category-link">
+                        Ver productos <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="ts-category-card">
+                    <div class="ts-category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="ts-category-title">GAMING</h3>
+                    <p class="ts-category-description">
+                        Equipo para gaming profesional y casual.
+                    </p>
+                    <a href="#" class="ts-category-link">
+                        Ver productos <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="ts-section" id="testimonios">
+        <div class="ts-container">
+            <div class="ts-section-header">
+                <h2 class="ts-section-title">RESEÑAS VERIFICADAS</h2>
+                <p class="ts-section-subtitle">
+                    Opiniones reales de nuestros clientes satisfechos.
+                </p>
+            </div>
+            
+            <div class="ts-testimonials-grid">
+                <div class="ts-testimonial-card">
+                    <div class="ts-testimonial-content">
+                        <p class="ts-testimonial-quote">
+                            "Los auriculares superaron todas mis expectativas. La cancelación de ruido es increíble y la batería dura lo que prometen. ¡Recomendado!"
+                        </p>
+                    </div>
+                    <div class="ts-testimonial-author">
+                        <div class="ts-author-avatar">MJ</div>
+                        <div class="ts-author-info">
+                            <h4>María J.</h4>
+                            <p>Ingeniera de Software</p>
+                            <div class="ts-author-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ts-testimonial-card">
+                    <div class="ts-testimonial-content">
+                        <p class="ts-testimonial-quote">
+                            "Compré los OVER EAR para trabajar desde casa y son perfectos. Muy cómodos para usar todo el día y el sonido es cristalino."
+                        </p>
+                    </div>
+                    <div class="ts-testimonial-author">
+                        <div class="ts-author-avatar">CR</div>
+                        <div class="ts-author-info">
+                            <h4>Carlos R.</h4>
+                            <p>Diseñador UX/UI</p>
+                            <div class="ts-author-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ts-testimonial-card">
+                    <div class="ts-testimonial-content">
+                        <p class="ts-testimonial-quote">
+                            "Excelente relación calidad-precio. He probado marcas más caras y estos son igual de buenos. El servicio post-venta es excelente."
+                        </p>
+                    </div>
+                    <div class="ts-testimonial-author">
+                        <div class="ts-author-avatar">AS</div>
+                        <div class="ts-author-info">
+                            <h4>Ana S.</h4>
+                            <p>Estudiante Universitaria</p>
+                            <div class="ts-author-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warranty -->
+    <section class="ts-section ts-section-warranty" id="garantia">
+        <div class="ts-container">
+            <div class="ts-warranty-content">
+                <div class="ts-warranty-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h2 class="ts-warranty-title">GARANTÍA EXTENDIDA 24 MESES</h2>
+                <p class="ts-warranty-description">
+                    Confía en la calidad de nuestros productos. Todos incluyen garantía extendida de 24 meses y soporte técnico especializado.
+                </p>
+                <div class="ts-warranty-features">
+                    <div class="ts-warranty-feature">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Cambio inmediato</span>
+                    </div>
+                    <div class="ts-warranty-feature">
+                        <i class="fas fa-headset"></i>
+                        <span>Soporte 24/7</span>
+                    </div>
+                    <div class="ts-warranty-feature">
+                        <i class="fas fa-truck"></i>
+                        <span>Recogida gratis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="ts-newsletter" id="contacto">
+        <div class="ts-container">
+            <div class="ts-newsletter-content">
+                <h2 class="ts-newsletter-title">SÉ EL PRIMERO EN SABER</h2>
+                <p class="ts-newsletter-subtitle">
+                    Suscríbete y recibe ofertas exclusivas, lanzamientos y consejos tech.
+                </p>
+                
+                <form class="ts-newsletter-form">
+                    <div class="ts-form-group">
+                        <input type="email" placeholder="Tu email profesional" required>
+                        <button type="submit" class="ts-btn ts-btn-primary">
+                            SUSCRIBIRME <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <p class="ts-form-note">
+                        Al suscribirte aceptas nuestra <a href="#">Política de Privacidad</a>. Sin spam.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="ts-footer">
+        <div class="ts-container">
+            <div class="ts-footer-content">
+                <div class="ts-footer-brand">
+                    <a href="#hero" class="ts-logo ts-logo-footer">
+                        <span class="ts-logo-icon">🎧</span>
+                        <span class="ts-logo-text">TechSelect</span>
+                    </a>
+                    <p class="ts-footer-description">
+                        Productos tech seleccionados por rendimiento, diseño y precio real.
+                    </p>
+                    <div class="ts-social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="ts-footer-links">
+                    <div class="ts-footer-column">
+                        <h4 class="ts-footer-title">TIENDA</h4>
+                        <a href="#productos" class="ts-footer-link">Productos Destacados</a>
+                        <a href="#categorias" class="ts-footer-link">Categorías</a>
+                        <a href="#" class="ts-footer-link">Nuevos Lanzamientos</a>
+                        <a href="#" class="ts-footer-link">Ofertas</a>
                     </div>
                     
-                    <div class="pb-footer-column">
-                        <h4 class="pb-footer-title">Recursos</h4>
-                        <a href="https://github.com/dsd228" target="_blank" class="pb-footer-link">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="https://calendly.com/dsd228-dd" target="_blank" class="pb-footer-link">
-                            <i class="fas fa-calendar-alt"></i> Calendly
-                        </a>
+                    <div class="ts-footer-column">
+                        <h4 class="ts-footer-title">AYUDA</h4>
+                        <a href="#" class="ts-footer-link">Centro de Soporte</a>
+                        <a href="#" class="ts-footer-link">Envíos y Devoluciones</a>
+                        <a href="#" class="ts-footer-link">Garantía</a>
+                        <a href="#contacto" class="ts-footer-link">Contacto</a>
+                    </div>
+                    
+                    <div class="ts-footer-column">
+                        <h4 class="ts-footer-title">EMPRESA</h4>
+                        <a href="#" class="ts-footer-link">Sobre Nosotros</a>
+                        <a href="#" class="ts-footer-link">Blog Tech</a>
+                        <a href="#" class="ts-footer-link">Trabaja con Nosotros</a>
+                        <a href="#" class="ts-footer-link">Distribuidores</a>
                     </div>
                 </div>
             </div>
             
-            <div class="pb-footer-bottom">
-                <p class="pb-copyright">
-                    &copy; <span id="currentYear">2025</span> NeoProdUx. Todos los derechos reservados.
+            <div class="ts-footer-bottom">
+                <p class="ts-copyright">
+                    &copy; <span id="currentYear">2024</span> TechSelect. Todos los derechos reservados.
                 </p>
+                <div class="ts-payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-apple-pay"></i>
+                </div>
             </div>
         </div>
     </footer>
