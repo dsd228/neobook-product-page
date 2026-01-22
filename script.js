@@ -1,4 +1,4 @@
-// ============================== TECH SELECT IMPLEMENTATION ==============================
+// ============================== DAVID DÍAZ PORTFOLIO ==============================
 document.addEventListener('DOMContentLoaded', function() {
     // Actualizar año
     document.getElementById('currentYear').textContent = new Date().getFullYear();
@@ -7,17 +7,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.getElementById('main-header');
     const zoomableInner = document.getElementById('zoomableInner');
     const heroOverlay = document.getElementById('heroOverlay');
-    const heroContent = document.querySelector('.ts-hero-content');
+    const heroContent = document.querySelector('.dd-hero-content');
     const scrollDownBtn = document.getElementById('scrollDown');
     const menuToggle = document.getElementById('menuToggle');
     
     // ============================== ZOOM EFFECT (PORTFOLIOBOX STYLE) ==============================
-    function initTechZoom() {
+    function initPortfolioZoom() {
         if (!zoomableInner) return;
         
         // 1. Obtener valor de zoom
         const zoomContainer = zoomableInner.parentElement;
-        const zoomValue = parseInt(zoomContainer.getAttribute('data-zoom')) || 25;
+        const zoomValue = parseInt(zoomContainer.getAttribute('data-zoom')) || 28;
         
         // 2. Estado inicial (inline como Portfoliobox)
         zoomableInner.style.transform = `scale(${zoomValue}) translateX(25px) translateY(-45px)`;
@@ -54,12 +54,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 heroContent.style.opacity = '1';
             }
             
-            console.log('🚀 Efecto TechSelect Zoom ejecutado (scale:', zoomValue, ')');
+            console.log('🚀 Efecto Portfoliobox ejecutado (scale:', zoomValue, ')');
         });
     }
     
     // Inicializar zoom al cargar
-    setTimeout(initTechZoom, 100);
+    setTimeout(initPortfolioZoom, 100);
     
     // ============================== MENÚ MÓVIL ==============================
     function initMobileMenu() {
@@ -71,21 +71,21 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!isOpen) {
                 // Crear menú móvil
                 const mobileMenu = document.createElement('div');
-                mobileMenu.className = 'ts-mobile-menu';
+                mobileMenu.className = 'dd-mobile-menu';
                 mobileMenu.innerHTML = `
-                    <div class="ts-mobile-menu-content">
-                        <button class="ts-mobile-close" aria-label="Cerrar menú">
+                    <div class="dd-mobile-menu-content">
+                        <button class="dd-mobile-close" aria-label="Cerrar menú">
                             <i class="fas fa-times"></i>
                         </button>
-                        <div class="ts-mobile-nav">
-                            <a href="#productos" class="ts-nav-link">Productos</a>
-                            <a href="#categorias" class="ts-nav-link">Categorías</a>
-                            <a href="#testimonios" class="ts-nav-link">Testimonios</a>
-                            <a href="#garantia" class="ts-nav-link">Garantía</a>
-                            <a href="#contacto" class="ts-nav-link">Contacto</a>
+                        <div class="dd-mobile-nav">
+                            <a href="#proyectos" class="dd-nav-link">Proyectos</a>
+                            <a href="#servicios" class="dd-nav-link">Servicios</a>
+                            <a href="#proceso" class="dd-nav-link">Proceso</a>
+                            <a href="#testimonios" class="dd-nav-link">Testimonios</a>
+                            <a href="#contacto" class="dd-nav-link">Contacto</a>
                         </div>
-                        <div class="ts-mobile-actions">
-                            <a href="#productos" class="ts-btn ts-btn-primary">Comprar Ahora</a>
+                        <div class="dd-mobile-actions">
+                            <a href="#contacto" class="dd-btn dd-btn-primary">Empezar Proyecto</a>
                         </div>
                     </div>
                 `;
@@ -94,11 +94,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.body.classList.add('mobile-menu-open');
                 
                 // Cerrar menú
-                const closeBtn = mobileMenu.querySelector('.ts-mobile-close');
+                const closeBtn = mobileMenu.querySelector('.dd-mobile-close');
                 closeBtn.addEventListener('click', closeMobileMenu);
                 
                 // Cerrar al hacer clic en enlaces
-                mobileMenu.querySelectorAll('.ts-nav-link').forEach(link => {
+                mobileMenu.querySelectorAll('.dd-nav-link').forEach(link => {
                     link.addEventListener('click', closeMobileMenu);
                 });
                 
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function closeMobileMenu() {
-        const mobileMenu = document.querySelector('.ts-mobile-menu');
+        const mobileMenu = document.querySelector('.dd-mobile-menu');
         if (mobileMenu) {
             mobileMenu.style.animation = 'fadeOut 0.3s ease';
             setTimeout(() => {
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollDownBtn.addEventListener('click', function(e) {
             e.preventDefault();
             
-            const targetPosition = document.querySelector('#productos').offsetTop;
+            const targetPosition = document.querySelector('#proyectos').offsetTop;
             
             window.scrollTo({
                 top: targetPosition - 80,
@@ -193,9 +193,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ============================== PRODUCT GALLERY INTERACTION ==============================
-    const galleryThumbs = document.querySelectorAll('.ts-gallery-thumb');
-    const mainImage = document.querySelector('.ts-product-main-image');
+    // ============================== PROJECT GALLERY INTERACTION ==============================
+    const galleryThumbs = document.querySelectorAll('.dd-gallery-thumb');
     
     galleryThumbs.forEach(thumb => {
         thumb.addEventListener('click', function() {
@@ -205,86 +204,25 @@ document.addEventListener('DOMContentLoaded', function() {
             // Agregar active al thumb clickeado
             this.classList.add('active');
             
-            // Cambiar imagen principal
-            if (mainImage) {
-                const thumbImg = this.querySelector('img');
-                mainImage.src = thumbImg.src.replace('q=80', 'q=90');
-                
-                // Efecto de transición
-                mainImage.style.opacity = '0';
-                setTimeout(() => {
-                    mainImage.style.transition = 'opacity 0.3s ease';
-                    mainImage.style.opacity = '1';
-                }, 50);
+            // Cambiar imagen principal del proyecto
+            const projectShowcase = this.closest('.dd-project-showcase');
+            if (projectShowcase) {
+                const mainImage = projectShowcase.querySelector('.dd-project-main-image');
+                if (mainImage) {
+                    const thumbImg = this.querySelector('img');
+                    // Efecto de transición
+                    mainImage.style.opacity = '0';
+                    setTimeout(() => {
+                        mainImage.style.transition = 'opacity 0.3s ease';
+                        mainImage.style.opacity = '1';
+                    }, 50);
+                }
             }
         });
     });
     
-    // ============================== COLOR SELECTOR ==============================
-    const colorOptions = document.querySelectorAll('.ts-color-option');
-    
-    colorOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            // Remover clase active de todos
-            colorOptions.forEach(c => c.classList.remove('active'));
-            
-            // Agregar active al color seleccionado
-            this.classList.add('active');
-            
-            // Actualizar precio según color (simulado)
-            const priceElement = document.querySelector('.ts-price');
-            const color = this.dataset.color;
-            
-            // Pequeña animación en el precio
-            if (priceElement) {
-                priceElement.style.transform = 'scale(1.1)';
-                setTimeout(() => {
-                    priceElement.style.transition = 'transform 0.3s ease';
-                    priceElement.style.transform = 'scale(1)';
-                }, 300);
-            }
-        });
-    });
-    
-    // ============================== ADD TO CART SIMULATION ==============================
-    const addToCartBtn = document.querySelector('.ts-btn-xl');
-    const cartCount = document.querySelector('.ts-cart-count');
-    
-    if (addToCartBtn) {
-        addToCartBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const originalText = this.innerHTML;
-            const originalWidth = this.offsetWidth;
-            
-            // Efecto de agregar al carrito
-            this.style.width = originalWidth + 'px';
-            this.innerHTML = '<i class="fas fa-check"></i> AGREGADO';
-            this.disabled = true;
-            
-            // Actualizar contador del carrito
-            if (cartCount) {
-                let currentCount = parseInt(cartCount.textContent);
-                cartCount.textContent = currentCount + 1;
-                
-                // Animación del contador
-                cartCount.style.transform = 'scale(1.5)';
-                setTimeout(() => {
-                    cartCount.style.transition = 'transform 0.3s ease';
-                    cartCount.style.transform = 'scale(1)';
-                }, 300);
-            }
-            
-            // Restaurar botón después de 2 segundos
-            setTimeout(() => {
-                this.innerHTML = originalText;
-                this.disabled = false;
-            }, 2000);
-        });
-    }
-    
-    // ============================== PRODUCT FEATURES HOVER ==============================
-    const features = document.querySelectorAll('.ts-feature');
+    // ============================== PROJECT FEATURES HOVER ==============================
+    const features = document.querySelectorAll('.dd-feature');
     
     features.forEach(feature => {
         feature.addEventListener('mouseenter', function() {
@@ -296,76 +234,77 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // ============================== SERVICE CARDS INTERACTION ==============================
+    const serviceCards = document.querySelectorAll('.dd-service-card');
+    
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
     // ============================== TESTIMONIAL CAROUSEL ==============================
     function initTestimonials() {
-        const testimonials = document.querySelectorAll('.ts-testimonial-card');
+        const testimonials = document.querySelectorAll('.dd-testimonial-card');
         let currentIndex = 0;
         
         function rotateTestimonials() {
             testimonials.forEach((testimonial, index) => {
                 if (index === currentIndex) {
                     testimonial.style.opacity = '1';
-                    testimonial.style.transform = 'translateY(0)';
+                    testimonial.style.transform = 'translateY(0) scale(1.05)';
                 } else {
-                    testimonial.style.opacity = '0.6';
-                    testimonial.style.transform = 'translateY(10px)';
+                    testimonial.style.opacity = '0.8';
+                    testimonial.style.transform = 'translateY(0) scale(1)';
                 }
             });
             
             currentIndex = (currentIndex + 1) % testimonials.length;
         }
         
-        // Rotar testimonials cada 5 segundos
-        setInterval(rotateTestimonials, 5000);
-        
-        // Inicializar
+        // Inicializar con animación
         testimonials.forEach((testimonial, index) => {
             testimonial.style.transition = 'all 0.5s ease';
             if (index === 0) {
                 testimonial.style.opacity = '1';
             } else {
-                testimonial.style.opacity = '0.6';
+                testimonial.style.opacity = '0.8';
             }
         });
+        
+        // Rotar testimonials cada 5 segundos
+        // setInterval(rotateTestimonials, 5000);
     }
     
     initTestimonials();
     
-    // ============================== NEWSLETTER FORM ==============================
-    const newsletterForm = document.querySelector('.ts-newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
+    // ============================== CONTACT FORM ==============================
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const input = this.querySelector('input[type="email"]');
             const button = this.querySelector('button[type="submit"]');
             const originalText = button.innerHTML;
             
-            // Validar email
-            const email = input.value;
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            
-            if (!emailRegex.test(email)) {
-                input.style.borderColor = '#ef4444';
-                input.focus();
-                return;
-            }
-            
             // Deshabilitar y mostrar estado de carga
-            input.disabled = true;
             button.disabled = true;
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
             
             // Simular envío
             setTimeout(() => {
                 // Mostrar mensaje de éxito
                 const successMessage = document.createElement('div');
-                successMessage.className = 'ts-form-success';
+                successMessage.className = 'dd-form-success';
                 successMessage.innerHTML = `
                     <i class="fas fa-check-circle"></i>
                     <div>
-                        <h4>¡Suscripción exitosa!</h4>
-                        <p>Te hemos enviado un email de confirmación.</p>
+                        <h4>¡Mensaje enviado!</h4>
+                        <p>Te responderé en menos de 24 horas.</p>
                     </div>
                 `;
                 
@@ -386,10 +325,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Restaurar formulario
                 setTimeout(() => {
-                    input.value = '';
-                    input.disabled = false;
                     button.disabled = false;
                     button.innerHTML = originalText;
+                    
+                    // Limpiar formulario
+                    this.reset();
                     
                     // Eliminar mensaje después de 5 segundos
                     setTimeout(() => {
@@ -406,11 +346,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ============================== PARALLAX EFFECT ON SCROLL ==============================
     let ticking = false;
-    let lastScrollY = 0;
     
     function updateParallax() {
         const scrollY = window.scrollY;
-        const parallaxElements = document.querySelectorAll('.ts-grid-item');
+        const parallaxElements = document.querySelectorAll('.dd-grid-item');
         
         parallaxElements.forEach((element, index) => {
             const speed = 0.05 + (index * 0.01);
@@ -418,7 +357,6 @@ document.addEventListener('DOMContentLoaded', function() {
             element.style.transform = `translateY(${yPos}px)`;
         });
         
-        lastScrollY = scrollY;
         ticking = false;
     }
     
@@ -429,40 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // ============================== LAZY LOADING ==============================
-    function initLazyLoading() {
-        const images = document.querySelectorAll('img[data-src]');
-        
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.add('loaded');
-                        observer.unobserve(img);
-                    }
-                });
-            }, {
-                rootMargin: '50px 0px',
-                threshold: 0.1
-            });
-            
-            images.forEach(img => imageObserver.observe(img));
-        } else {
-            // Fallback
-            images.forEach(img => {
-                img.src = img.dataset.src;
-            });
-        }
-    }
-    
-    initLazyLoading();
-    
-    // ============================== INITIALIZE ==============================
-    console.log('🚀 TechSelect implementado correctamente');
-    
-    // AOS (Animate on Scroll) simulation
+    // ============================== ANIMATE ON SCROLL ==============================
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -478,10 +383,69 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Observar elementos para animar
-    document.querySelectorAll('.ts-category-card, .ts-testimonial-card, .ts-feature').forEach(el => {
+    document.querySelectorAll('.dd-project-showcase, .dd-service-card, .dd-testimonial-card, .dd-process-step').forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
+        el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
+    });
+    
+    // ============================== STATS COUNTER ==============================
+    function initStatsCounter() {
+        const statNumbers = document.querySelectorAll('.dd-stat-number');
+        
+        statNumbers.forEach(stat => {
+            const originalText = stat.textContent;
+            const isPercentage = originalText.includes('%');
+            const isPlus = originalText.includes('+');
+            
+            // Extraer número
+            const number = parseFloat(originalText.replace(/[^0-9.]/g, ''));
+            
+            let current = 0;
+            const increment = number / 30; // 30 frames
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= number) {
+                    stat.textContent = originalText;
+                    clearInterval(timer);
+                } else {
+                    let displayNumber = Math.floor(current);
+                    if (isPercentage) {
+                        stat.textContent = displayNumber + '%';
+                    } else if (isPlus) {
+                        stat.textContent = displayNumber + '+';
+                    } else {
+                        stat.textContent = displayNumber;
+                    }
+                }
+            }, 30);
+        });
+    }
+    
+    // Iniciar contadores cuando el hero está en vista
+    const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(initStatsCounter, 1000);
+                heroObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    const heroSection = document.querySelector('.dd-hero-section');
+    if (heroSection) {
+        heroObserver.observe(heroSection);
+    }
+    
+    // ============================== INITIALIZE ==============================
+    console.log('🚀 Portfolio David Díaz implementado correctamente');
+    
+    // Inicializar tooltips para proyectos
+    const projectTags = document.querySelectorAll('.dd-tag');
+    projectTags.forEach(tag => {
+        tag.addEventListener('mouseenter', function() {
+            this.style.cursor = 'pointer';
+        });
     });
 });
