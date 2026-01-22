@@ -489,3 +489,140 @@ animationStyles.textContent = `
 document.head.appendChild(animationStyles);
 
 console.log('✅ Portfoliobox Exact Replica - Inicializado correctamente');
+// ==============================
+// PORTFOLIOBOX EFFECTS ADICIONALES
+// ==============================
+
+// Efecto de scroll suave mejorado
+function initEnhancedSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            
+            e.preventDefault();
+            const targetElement = document.querySelector(href);
+            
+            if (targetElement) {
+                const header = document.querySelector('.pb-header');
+                const headerHeight = header ? header.offsetHeight : 0;
+                const targetPosition = targetElement.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Cerrar menú móvil si está abierto
+                if (window.innerWidth < 768 && window.isMobileMenuOpen) {
+                    closeMobileMenu();
+                }
+            }
+        });
+    });
+}
+
+// Actualizar enlace activo en navegación
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.pb-nav-link');
+    const scrollY = window.pageYOffset + 150;
+    
+    let currentActive = null;
+    
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            currentActive = sectionId;
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentActive}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// Carga perezosa de imágenes
+function initLazyLoading() {
+    if ('IntersectionObserver' in window) {
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+        
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const src = img.getAttribute('data-src') || img.src;
+                    
+                    if (src && src !== img.src) {
+                        img.src = src;
+                    }
+                    
+                    img.classList.add('loaded');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    }
+}
+
+// Efectos hover en tarjetas
+function initCardEffects() {
+    const cards = document.querySelectorAll('.pb-project-card, .pb-service-card, .pb-testimonial-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transition = 'all 0.3s ease';
+        });
+    });
+}
+
+// Inicializar efectos adicionales cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    // Tu código existente primero...
+    
+    // Luego añade estos efectos Portfoliobox:
+    setTimeout(() => {
+        initEnhancedSmoothScroll();
+        initLazyLoading();
+        initCardEffects();
+        
+        // Actualizar año en footer
+        const yearElement = document.querySelector('.pb-copyright');
+        if (yearElement) {
+            const currentYear = new Date().getFullYear();
+            yearElement.innerHTML = yearElement.innerHTML.replace('2024', currentYear);
+        }
+        
+        // Añadir clase loaded al body para transiciones suaves
+        document.body.classList.add('loaded');
+        
+        console.log('🎨 Efectos Portfoliobox activados');
+    }, 100);
+});
+
+// Event listener para scroll
+window.addEventListener('scroll', function() {
+    updateActiveNavLink();
+    
+    // Efecto de opacidad en header según scroll
+    const header = document.querySelector('.pb-header');
+    const scrollY = window.scrollY;
+    
+    if (scrollY > 50 && !header.classList.contains('scrolled')) {
+        header.classList.add('scrolled');
+    } else if (scrollY <= 50 && header.classList.contains('scrolled')) {
+        header.classList.remove('scrolled');
+    }
+});
