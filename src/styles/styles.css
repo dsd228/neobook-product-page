@@ -2423,3 +2423,19 @@ body.mobile-menu-open {
     margin-top: 2rem;
     animation: slideIn 0.4s ease;
 }
+/* Añade esto al final de tu CSS si hay problemas mobile: */
+@media (max-width: 767px) {
+    .dd-container {
+        padding: 0 1rem !important;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .dd-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
