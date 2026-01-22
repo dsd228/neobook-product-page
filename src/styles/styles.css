@@ -1419,3 +1419,139 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--pb-primary);
     color: white;
 }
+/* ==============================
+   MEJORAS PARA EFECTOS PORTFOLIOBOX
+   ============================== */
+
+/* Transiciones suaves para carga */
+body.loaded .pb-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mejoras para overlay de proyectos */
+.pb-project-overlay .overlay-stats {
+    display: flex;
+    gap: var(--pb-space-4);
+    margin-top: var(--pb-space-2);
+    font-size: var(--pb-text-xs);
+}
+
+.pb-project-overlay .overlay-stats span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: var(--pb-radius-sm);
+}
+
+/* Efecto de borde en cards */
+.pb-portfoliobox-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--pb-primary), var(--pb-accent));
+    border-radius: var(--pb-radius-lg) var(--pb-radius-lg) 0 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pb-portfoliobox-card:hover::before {
+    opacity: 1;
+}
+
+/* Animaciones escalonadas */
+[data-delay] {
+    transition-delay: calc(var(--delay, 0) * 1ms);
+}
+
+/* Mejoras para estadísticas */
+.pb-stat-number.animated {
+    animation: countUp 1s ease-out forwards;
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive adjustments para efectos */
+@media (max-width: 767px) {
+    .pb-hero-parallax {
+        min-height: 90vh;
+        padding-top: 100px;
+    }
+    
+    .pb-hero-portfolio h1 {
+        font-size: var(--pb-text-4xl);
+    }
+    
+    .pb-hero-portfolio p {
+        font-size: var(--pb-text-lg);
+    }
+    
+    .pb-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pb-scroll-hint {
+        bottom: var(--pb-space-4);
+    }
+}
+
+/* Optimización de performance */
+@media (prefers-reduced-motion: reduce) {
+    .pb-reveal,
+    .pb-portfoliobox-card,
+    .pb-animated-stat {
+        transition: none;
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    
+    .pb-scroll-hint {
+        animation: none;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .pb-hero-parallax {
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+    
+    .pb-made-section {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    }
+}
+
+/* Print styles mejorados */
+@media print {
+    .pb-hero-parallax {
+        background: none !important;
+        min-height: auto;
+        padding: 2rem 0;
+    }
+    
+    .pb-hero-bg,
+    .pb-scroll-hint {
+        display: none;
+    }
+    
+    .pb-portfoliobox-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+}
