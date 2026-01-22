@@ -1,221 +1,269 @@
-// ============================== GALERÍA INTEGRADA CON ZOOM ==============================
+// ============================== PORTFOLIOBOX EXACT IMPLEMENTATION ==============================
 document.addEventListener('DOMContentLoaded', function() {
     // Actualizar año
     document.getElementById('currentYear').textContent = new Date().getFullYear();
     
     // Variables principales
     const header = document.getElementById('main-header');
-    const heroSection = document.querySelector('.pb-hero-section');
-    const heroGalleryContainer = document.getElementById('heroGalleryContainer');
+    const zoomableInner = document.getElementById('zoomableInner');
     const heroOverlay = document.getElementById('heroOverlay');
     const heroContent = document.querySelector('.pb-hero-content');
-    const mainGallery = document.getElementById('mainGallery');
     const scrollDownBtn = document.getElementById('scrollDown');
     const gallerySection = document.getElementById('galeria');
-    const expandedGallery = document.getElementById('expandedGallery');
+    const parallaxItems = document.querySelectorAll('.pb-parallax-item');
+    const menuToggle = document.getElementById('menuToggle');
     
-    // Estados
-    let isZooming = false;
-    let zoomProgress = 0;
-    let lastScrollY = 0;
-    let ticking = false;
-    
-    // ============================== INICIALIZAR GALERÍA ==============================
-    function initializeGallery() {
-        const galleryItems = mainGallery.querySelectorAll('.pb-gallery-item');
+    // ============================== ZOOM EFFECT EXACTO (PORTFOLIOBOX) ==============================
+    function initPortfolioboxZoom() {
+        if (!zoomableInner) return;
         
-        // Agregar gradientes dinámicos
-        const gradients = [
-            'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-            'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-            'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-            'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-            'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
-            'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-            'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)'
-        ];
+        // 1. OBTENER VALOR DE ZOOM DEL DATA ATTRIBUTE
+        const zoomContainer = zoomableInner.parentElement;
+        const zoomValue = parseInt(zoomContainer.getAttribute('data-zoom')) || 28;
         
-        galleryItems.forEach((item, index) => {
-            // Asignar gradiente
-            item.style.background = gradients[index % gradients.length];
-            
-            // Eventos hover
-            item.addEventListener('mouseenter', function() {
-                if (!isZooming) {
-                    this.style.transform = 'translateZ(100px) scale(1.1)';
-                    this.style.zIndex = '100';
-                }
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                if (!isZooming) {
-                    this.style.transform = '';
-                    this.style.zIndex = '';
-                }
-            });
-            
-            // Click para ver detalles
-            item.addEventListener('click', function() {
-                const project = this.getAttribute('data-project');
-                showProjectDetails(project);
-            });
-        });
+        // 2. ESTADO INICIAL (ESTO ES CLAVE) - INLINE
+        // Portfoliobox inyecta esto inline, no en CSS
+        zoomableInner.style.transform = `scale(${zoomValue}) translateX(22px) translateY(-42px)`;
+        zoomableInner.style.opacity = '0';
         
-        // Clonar items para la galería expandida
-        if (expandedGallery) {
-            expandedGallery.innerHTML = mainGallery.innerHTML;
-        }
-    }
-    
-    // ============================== EFECTO ZOOM INTEGRADO ==============================
-    function updateIntegratedZoom() {
-        const scrollY = window.scrollY;
-        const heroHeight = heroSection.offsetHeight;
-        const galleryTop = gallerySection.offsetTop;
-        
-        // Calcular progreso del scroll
-        let progress = 0;
-        
-        if (scrollY <= heroHeight) {
-            // En el hero
-            progress = scrollY / heroHeight;
-            isZooming = true;
-        } else if (scrollY >= galleryTop && scrollY <= galleryTop + gallerySection.offsetHeight) {
-            // En la sección de galería
-            progress = 1;
-            isZooming = false;
-        } else if (scrollY > heroHeight && scrollY < galleryTop) {
-            // Transición entre hero y galería
-            progress = 1;
-            isZooming = false;
-        } else {
-            // Después de la galería
-            progress = 1;
-            isZooming = false;
-        }
-        
-        // Limitar progreso entre 0 y 1
-        progress = Math.max(0, Math.min(1, progress));
-        
-        // Solo actualizar si hay cambios
-        if (Math.abs(progress - zoomProgress) > 0.001) {
-            applyZoomTransform(progress);
-            zoomProgress = progress;
-        }
-        
-        // Efecto parallax en la galería expandida
-        if (expandedGallery && scrollY > galleryTop) {
-            const galleryItems = expandedGallery.querySelectorAll('.pb-gallery-item');
-            const parallaxOffset = (scrollY - galleryTop) * 0.3;
-            
-            galleryItems.forEach((item, index) => {
-                const speed = 0.5 + (index * 0.1);
-                const yPos = parallaxOffset * speed;
-                item.style.transform = `translateY(${yPos}px) rotate(${getItemRotation(index)})`;
-            });
-        }
-        
-        ticking = false;
-    }
-    
-    function applyZoomTransform(progress) {
-        // Efecto de zoom out en el contenedor
-        const startScale = 1;
-        const endScale = 0.3;
-        const scale = startScale - (progress * (startScale - endScale));
-        
-        // Posición (mover hacia arriba)
-        const startY = 0;
-        const endY = -50;
-        const yPos = startY + (progress * (endY - startY));
-        
-        // Tamaño de los items
-        const itemStartScale = 0.8;
-        const itemEndScale = 1;
-        const itemScale = itemStartScale + (progress * (itemEndScale - itemStartScale));
-        
-        // Opacidad del overlay
-        const overlayOpacity = 1 - (progress * 0.8);
-        
-        // Transformaciones del hero
-        if (heroGalleryContainer) {
-            heroGalleryContainer.style.transform = `translateY(${yPos}%) scale(${scale})`;
-            heroGalleryContainer.style.opacity = 1 - (progress * 0.5);
-        }
-        
+        // 3. OVERLAY Y CONTENIDO INICIAL
         if (heroOverlay) {
-            heroOverlay.style.opacity = overlayOpacity;
+            heroOverlay.style.opacity = '1';
         }
         
         if (heroContent) {
-            heroContent.style.opacity = 1 - (progress * 1.2);
-            heroContent.style.transform = `translateY(${progress * 50}px)`;
+            heroContent.style.opacity = '1';
         }
         
-        // Transformaciones de los items en el hero
-        const heroItems = mainGallery.querySelectorAll('.pb-gallery-item');
-        heroItems.forEach((item, index) => {
-            // Escala individual
-            item.style.transform = `translateZ(${getItemZ(index, progress)}px) scale(${getItemScale(index, progress)})`;
+        // 4. CORRECCIÓN EN PRIMER FRAME (ESTO ES CLAVE)
+        // Fuerza layout reflow (getBoundingClientRect)
+        zoomableInner.getBoundingClientRect();
+        
+        // 5. ANIMACIÓN CON REQUESTANIMATIONFRAME
+        requestAnimationFrame(() => {
+            // Aplica la transformación final
+            zoomableInner.style.transition = 'transform 1.1s cubic-bezier(0.33, 1, 0.68, 1), opacity 1.1s cubic-bezier(0.33, 1, 0.68, 1)';
+            zoomableInner.style.transform = 'scale(1) translateX(0) translateY(0)';
+            zoomableInner.style.opacity = '1';
             
-            // Opacidad
-            item.style.opacity = 0.4 + (progress * 0.6);
+            // Overlay fade out
+            if (heroOverlay) {
+                heroOverlay.style.transition = 'opacity 1.1s cubic-bezier(0.33, 1, 0.68, 1)';
+                heroOverlay.style.opacity = '0.3';
+            }
             
-            // Mostrar contenido cuando esté cerca
-            const itemInner = item.querySelector('.pb-item-inner');
-            if (itemInner) {
-                itemInner.style.opacity = progress > 0.3 ? 1 : 0;
+            // Content fade in
+            if (heroContent) {
+                heroContent.style.transition = 'opacity 1.1s cubic-bezier(0.33, 1, 0.68, 1)';
+                heroContent.style.opacity = '1';
+            }
+            
+            console.log('🎯 Zoom Portfoliobox ejecutado (scale:', zoomValue, ')');
+        });
+    }
+    
+    // Inicializar zoom al cargar
+    setTimeout(initPortfolioboxZoom, 100);
+    
+    // ============================== MENÚ MÓVIL ==============================
+    function initMobileMenu() {
+        if (!menuToggle) return;
+        
+        const navCenter = document.querySelector('.pb-nav-center');
+        const navRight = document.querySelector('.pb-nav-right');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'pb-mobile-menu';
+        
+        menuToggle.addEventListener('click', function() {
+            const isOpen = document.body.classList.contains('mobile-menu-open');
+            
+            if (!isOpen) {
+                // Crear menú móvil
+                mobileMenu.innerHTML = `
+                    <div class="pb-mobile-menu-content">
+                        <button class="pb-mobile-close" aria-label="Cerrar menú">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <div class="pb-mobile-nav">
+                            <a href="#galeria" class="pb-nav-link">Galería</a>
+                            <a href="#proyectos" class="pb-nav-link">Proyectos</a>
+                            <a href="#servicios" class="pb-nav-link">Servicios</a>
+                            <a href="#testimonios" class="pb-nav-link">Testimonios</a>
+                            <a href="#contacto" class="pb-nav-link">Contacto</a>
+                        </div>
+                        <div class="pb-mobile-actions">
+                            <a href="#contacto" class="pb-btn pb-btn-primary">Empezar Proyecto</a>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(mobileMenu);
+                document.body.classList.add('mobile-menu-open');
+                
+                // Estilos para el menú móvil
+                const style = document.createElement('style');
+                style.textContent = `
+                    .pb-mobile-menu {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(255, 255, 255, 0.98);
+                        backdrop-filter: blur(20px);
+                        z-index: 2000;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        animation: fadeIn 0.3s ease;
+                    }
+                    .pb-mobile-menu-content {
+                        padding: 2rem;
+                        width: 100%;
+                        max-width: 400px;
+                        position: relative;
+                    }
+                    .pb-mobile-close {
+                        position: absolute;
+                        top: 1rem;
+                        right: 1rem;
+                        background: none;
+                        border: none;
+                        font-size: 1.5rem;
+                        color: var(--pb-gray-500);
+                        cursor: pointer;
+                        width: 48px;
+                        height: 48px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .pb-mobile-close:hover {
+                        background: var(--pb-gray-100);
+                    }
+                    .pb-mobile-nav {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                        margin-bottom: 3rem;
+                    }
+                    .pb-mobile-nav .pb-nav-link {
+                        color: var(--pb-text-primary);
+                        font-size: 1.25rem;
+                        font-weight: 500;
+                        padding: 0.75rem 0;
+                        text-decoration: none;
+                        text-align: center;
+                        border-bottom: 1px solid var(--pb-border);
+                    }
+                    .pb-mobile-nav .pb-nav-link:hover {
+                        color: var(--pb-primary);
+                    }
+                    .pb-mobile-actions {
+                        display: flex;
+                        justify-content: center;
+                    }
+                    @keyframes fadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+                    body.mobile-menu-open {
+                        overflow: hidden;
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                // Cerrar menú
+                const closeBtn = mobileMenu.querySelector('.pb-mobile-close');
+                closeBtn.addEventListener('click', closeMobileMenu);
+                
+                // Cerrar al hacer clic en enlaces
+                mobileMenu.querySelectorAll('.pb-nav-link').forEach(link => {
+                    link.addEventListener('click', closeMobileMenu);
+                });
+            } else {
+                closeMobileMenu();
             }
         });
+    }
+    
+    function closeMobileMenu() {
+        const mobileMenu = document.querySelector('.pb-mobile-menu');
+        if (mobileMenu) {
+            mobileMenu.style.animation = 'fadeOut 0.3s ease';
+            setTimeout(() => {
+                mobileMenu.remove();
+                document.body.classList.remove('mobile-menu-open');
+            }, 300);
+        }
+    }
+    
+    initMobileMenu();
+    
+    // ============================== SCROLL PARA INTEGRACIÓN CON GALERÍA ==============================
+    let ticking = false;
+    let lastScrollY = 0;
+    
+    function updateScrollIntegration() {
+        const scrollY = window.scrollY;
+        const heroHeight = document.querySelector('.pb-hero-section').offsetHeight;
+        const galleryTop = gallerySection.offsetTop;
         
-        // Ocultar botón cuando se hace zoom
+        // Progreso del scroll (0 a 1)
+        let progress = 0;
+        
+        if (scrollY <= heroHeight) {
+            // Dentro del hero
+            progress = scrollY / heroHeight;
+        } else if (scrollY >= galleryTop && scrollY <= galleryTop + gallerySection.offsetHeight) {
+            // Dentro de la galería
+            progress = 1;
+        } else if (scrollY > heroHeight && scrollY < galleryTop) {
+            // Transición entre hero y galería
+            progress = 1;
+        }
+        
+        // Ajustar overlay del hero
+        if (heroOverlay) {
+            const overlayOpacity = 0.3 + (progress * 0.5);
+            heroOverlay.style.opacity = Math.min(0.8, overlayOpacity);
+        }
+        
+        // Parallax en items de galería
+        if (scrollY > galleryTop - window.innerHeight / 2) {
+            const parallaxOffset = (scrollY - (galleryTop - window.innerHeight / 2)) * 0.5;
+            
+            parallaxItems.forEach(item => {
+                const speed = parseFloat(item.getAttribute('data-speed')) || 0.15;
+                const yPos = parallaxOffset * speed;
+                item.style.transform = `translateY(${yPos}px)`;
+            });
+        }
+        
+        // Botón scroll fade
         if (scrollDownBtn) {
-            if (progress > 0.2) {
-                scrollDownBtn.style.opacity = 0;
+            if (progress > 0.3) {
+                scrollDownBtn.style.opacity = '0';
                 scrollDownBtn.style.pointerEvents = 'none';
             } else {
-                scrollDownBtn.style.opacity = 1;
+                scrollDownBtn.style.opacity = '1';
                 scrollDownBtn.style.pointerEvents = 'auto';
             }
         }
-    }
-    
-    // Funciones auxiliares para efectos 3D
-    function getItemZ(index, progress) {
-        const startZ = [-100, -80, -60, -40, -20, 0, 20, 40];
-        const endZ = [0, 10, 20, 30, 40, 50, 60, 70];
-        return startZ[index] + (progress * (endZ[index] - startZ[index]));
-    }
-    
-    function getItemScale(index, progress) {
-        const startScale = [0.8, 0.8, 0.85, 0.85, 0.9, 0.9, 0.95, 1];
-        const endScale = [1.1, 1.0, 1.05, 1.0, 1.1, 1.05, 1.0, 1.1];
-        return startScale[index] + (progress * (endScale[index] - startScale[index]));
-    }
-    
-    function getItemRotation(index) {
-        const rotations = ['-5deg', '3deg', '-2deg', '5deg', '-3deg', '2deg', '-4deg', '4deg'];
-        return rotations[index % rotations.length];
-    }
-    
-    // ============================== SCROLL EVENT ==============================
-    function handleScroll() {
-        lastScrollY = window.scrollY;
         
+        lastScrollY = scrollY;
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
         if (!ticking) {
-            window.requestAnimationFrame(function() {
-                updateIntegratedZoom();
-                updateHeader();
-                ticking = false;
-            });
+            requestAnimationFrame(updateScrollIntegration);
             ticking = true;
         }
-    }
+    });
     
-    window.addEventListener('scroll', handleScroll);
-    
-    // ============================== HEADER ==============================
+    // ============================== HEADER SCROLL ==============================
     function updateHeader() {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -224,6 +272,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    window.addEventListener('scroll', updateHeader);
+    
     // ============================== BOTÓN SCROLL DOWN ==============================
     if (scrollDownBtn) {
         scrollDownBtn.addEventListener('click', function(e) {
@@ -231,7 +281,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const targetPosition = gallerySection.offsetTop;
             
-            // Animación suave al hacer clic
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
@@ -273,172 +322,145 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth'
                 });
                 
-                // Cerrar menú móvil si está abierto
+                // Cerrar menú móvil
                 closeMobileMenu();
             }
         });
     });
     
-    // ============================== MOSTRAR DETALLES DEL PROYECTO ==============================
-    function showProjectDetails(projectId) {
-        const projects = {
-            paseo: {
-                title: "PASEO App",
-                category: "FinTech Mobile Design",
-                description: "Diseño integral de app FinTech para paseo de perros con sistema de pagos y seguimiento en tiempo real.",
-                link: "https://github.com/dsd228/dsd228-paseo-ux-case-study"
-            },
-            nexus: {
-                title: "Nexus Dashboard",
-                category: "SaaS B2B Interface",
-                description: "Rediseño UX/UI de dashboard operativo B2B para simplificar flujos y reducir curva de aprendizaje.",
-                link: "https://github.com/dsd228/nexus-logistics-ui"
-            },
-            caroyense: {
-                title: "La Caroyense",
-                category: "E-commerce Redesign",
-                description: "Rediseño mobile-first de e-commerce optimizando funnel de compra para maximizar conversión.",
-                link: "https://github.com/dsd228/la-caroyense-ux-ui-redesign"
-            },
-            health: {
-                title: "HealthTrack Pro",
-                category: "Health App UI/UX",
-                description: "Aplicación de salud con seguimiento de métricas y recomendaciones personalizadas.",
-                link: "#"
-            },
-            edulearn: {
-                title: "EduLearn Platform",
-                category: "Educational SaaS",
-                description: "Plataforma de aprendizaje en línea con sistema de gamificación y analytics.",
-                link: "#"
-            },
-            travel: {
-                title: "TravelMate",
-                category: "Travel App Design",
-                description: "App de viajes con planificación de itinerarios y reservas integradas.",
-                link: "#"
-            },
-            finance: {
-                title: "Finance Dashboard",
-                category: "Analytics & Reports",
-                description: "Dashboard financiero con visualización de datos y reportes automáticos.",
-                link: "#"
-            },
-            fitness: {
-                title: "FitTrack Pro",
-                category: "Fitness App UI/UX",
-                description: "Aplicación de fitness con seguimiento de entrenamientos y nutrición.",
-                link: "#"
-            }
-        };
+    // ============================== INTERACCIÓN CON ITEMS DE GALERÍA ==============================
+    parallaxItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            const currentTransform = this.style.transform || '';
+            this.style.transform = currentTransform + ' scale(1.05)';
+            this.style.zIndex = '100';
+        });
         
-        const project = projects[projectId];
-        if (project) {
-            const modalHTML = `
-                <div class="pb-project-modal">
-                    <div class="pb-modal-content">
-                        <button class="pb-modal-close">&times;</button>
-                        <h3>${project.title}</h3>
-                        <span class="pb-modal-category">${project.category}</span>
-                        <p>${project.description}</p>
-                        ${project.link !== '#' ? 
-                            `<a href="${project.link}" target="_blank" class="pb-btn pb-btn-primary">
-                                <i class="fab fa-github"></i> Ver Proyecto
-                            </a>` : 
-                            `<button class="pb-btn pb-btn-primary" disabled>Próximamente</button>`
-                        }
-                    </div>
+        item.addEventListener('mouseleave', function() {
+            const currentTransform = this.style.transform || '';
+            this.style.transform = currentTransform.replace(' scale(1.05)', '');
+            this.style.zIndex = '';
+        });
+        
+        item.addEventListener('click', function() {
+            const title = this.querySelector('h3').textContent;
+            showProjectModal(title);
+        });
+    });
+    
+    function showProjectModal(title) {
+        const modalHTML = `
+            <div class="pb-project-modal">
+                <div class="pb-modal-content">
+                    <button class="pb-modal-close">&times;</button>
+                    <h3>${title}</h3>
+                    <p>Proyecto en desarrollo. Próximamente más detalles.</p>
+                    <a href="#contacto" class="pb-btn pb-btn-primary">
+                        <i class="fas fa-envelope"></i> Contactar sobre este proyecto
+                    </a>
                 </div>
-            `;
-            
-            // Remover modal existente
-            const existingModal = document.querySelector('.pb-project-modal');
-            if (existingModal) {
-                existingModal.remove();
+            </div>
+        `;
+        
+        // Remover modal existente
+        const existingModal = document.querySelector('.pb-project-modal');
+        if (existingModal) {
+            existingModal.remove();
+        }
+        
+        // Agregar nuevo modal
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        
+        // Estilos del modal
+        const style = document.createElement('style');
+        style.textContent = `
+            .pb-project-modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                backdrop-filter: blur(10px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 2000;
+                animation: fadeIn 0.3s ease;
             }
-            
-            // Agregar nuevo modal
-            document.body.insertAdjacentHTML('beforeend', modalHTML);
-            
-            // Estilos del modal
-            const style = document.createElement('style');
-            style.textContent = `
-                .pb-project-modal {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0,0,0,0.8);
-                    backdrop-filter: blur(10px);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 2000;
-                    animation: fadeIn 0.3s ease;
+            .pb-modal-content {
+                background: white;
+                padding: 3rem;
+                border-radius: 24px;
+                max-width: 500px;
+                width: 90%;
+                position: relative;
+                animation: slideUp 0.4s ease;
+            }
+            .pb-modal-close {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                font-size: 2rem;
+                cursor: pointer;
+                color: var(--pb-gray-500);
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .pb-modal-close:hover {
+                background: var(--pb-gray-100);
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+            @keyframes slideUp {
+                from { 
+                    opacity: 0;
+                    transform: translateY(30px);
                 }
-                .pb-modal-content {
-                    background: white;
-                    padding: 3rem;
-                    border-radius: 24px;
-                    max-width: 500px;
-                    width: 90%;
-                    position: relative;
-                    animation: slideUp 0.4s ease;
+                to { 
+                    opacity: 1;
+                    transform: translateY(0);
                 }
-                .pb-modal-close {
-                    position: absolute;
-                    top: 1rem;
-                    right: 1rem;
-                    background: none;
-                    border: none;
-                    font-size: 2rem;
-                    cursor: pointer;
-                    color: var(--pb-gray-500);
-                }
-                .pb-modal-category {
-                    display: inline-block;
-                    background: var(--pb-primary);
-                    color: white;
-                    padding: 0.25rem 1rem;
-                    border-radius: 50px;
-                    font-size: 0.875rem;
-                    font-weight: 600;
-                    margin: 1rem 0;
-                }
-                @keyframes fadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                }
-                @keyframes slideUp {
-                    from { 
-                        opacity: 0;
-                        transform: translateY(30px);
-                    }
-                    to { 
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-            `;
-            document.head.appendChild(style);
-            
-            // Cerrar modal
-            const modal = document.querySelector('.pb-project-modal');
-            const closeBtn = modal.querySelector('.pb-modal-close');
-            
-            closeBtn.addEventListener('click', () => {
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Cerrar modal
+        const modal = document.querySelector('.pb-project-modal');
+        const closeBtn = modal.querySelector('.pb-modal-close');
+        
+        closeBtn.addEventListener('click', () => {
+            modal.style.animation = 'fadeOut 0.3s ease';
+            setTimeout(() => modal.remove(), 300);
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
                 modal.style.animation = 'fadeOut 0.3s ease';
                 setTimeout(() => modal.remove(), 300);
-            });
-            
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.style.animation = 'fadeOut 0.3s ease';
-                    setTimeout(() => modal.remove(), 300);
-                }
-            });
-        }
+            }
+        });
+        
+        // Cerrar con ESC
+        document.addEventListener('keydown', function closeModalOnEsc(e) {
+            if (e.key === 'Escape') {
+                modal.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => modal.remove(), 300);
+                document.removeEventListener('keydown', closeModalOnEsc);
+            }
+        });
     }
     
     // ============================== CONTADORES ==============================
@@ -470,6 +492,8 @@ document.addEventListener('DOMContentLoaded', function() {
         counters.forEach(counter => observer.observe(counter));
     }
     
+    initCounters();
+    
     // ============================== FORMULARIO ==============================
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
@@ -478,68 +502,105 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const button = this.querySelector('button[type="submit"]');
             const originalText = button.textContent;
+            const originalHTML = button.innerHTML;
             
-            button.textContent = 'Enviando...';
+            // Deshabilitar botón y mostrar estado de carga
             button.disabled = true;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
             
+            // Simular envío (en producción esto sería una llamada AJAX real)
             setTimeout(() => {
-                alert('¡Mensaje enviado! Te contactaré en 24 horas.');
-                this.reset();
-                button.textContent = originalText;
-                button.disabled = false;
-            }, 1500);
+                // Mostrar mensaje de éxito
+                const successMessage = document.createElement('div');
+                successMessage.className = 'pb-form-success';
+                successMessage.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h4>¡Mensaje enviado!</h4>
+                        <p>Te responderé en menos de 24 horas.</p>
+                    </div>
+                `;
+                
+                // Estilos para el mensaje de éxito
+                const style = document.createElement('style');
+                style.textContent = `
+                    .pb-form-success {
+                        background: linear-gradient(135deg, #10b981, #059669);
+                        color: white;
+                        padding: 1.5rem;
+                        border-radius: 12px;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        margin-top: 1.5rem;
+                        animation: slideUp 0.4s ease;
+                    }
+                    .pb-form-success i {
+                        font-size: 2rem;
+                    }
+                    .pb-form-success h4 {
+                        font-size: 1.125rem;
+                        margin-bottom: 0.25rem;
+                    }
+                    .pb-form-success p {
+                        opacity: 0.9;
+                        font-size: 0.95rem;
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                // Insertar mensaje después del formulario
+                contactForm.parentNode.insertBefore(successMessage, contactForm.nextSibling);
+                
+                // Restaurar botón
+                setTimeout(() => {
+                    button.disabled = false;
+                    button.innerHTML = originalHTML;
+                    button.textContent = originalText;
+                    
+                    // Limpiar formulario
+                    contactForm.reset();
+                    
+                    // Desaparecer mensaje después de 5 segundos
+                    setTimeout(() => {
+                        successMessage.style.opacity = '0';
+                        successMessage.style.transform = 'translateY(-10px)';
+                        setTimeout(() => {
+                            successMessage.remove();
+                        }, 300);
+                    }, 5000);
+                }, 1500);
+            }, 2000);
         });
     }
     
-    // ============================== MENÚ MÓVIL ==============================
-    const menuToggle = document.getElementById('menuToggle');
-    
-    function closeMobileMenu() {
-        const navCenter = document.querySelector('.pb-nav-center');
-        if (navCenter && window.innerWidth < 768) {
-            navCenter.style.display = 'none';
-            if (menuToggle) {
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                menuToggle.setAttribute('aria-expanded', 'false');
-            }
+    // ============================== LAZY LOADING PARA IMÁGENES ==============================
+    function initLazyLoading() {
+        const images = document.querySelectorAll('img[data-src]');
+        
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            images.forEach(img => imageObserver.observe(img));
+        } else {
+            // Fallback para navegadores antiguos
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
         }
     }
     
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            const navCenter = document.querySelector('.pb-nav-center');
-            if (window.getComputedStyle(navCenter).display === 'flex') {
-                navCenter.style.display = 'none';
-                this.innerHTML = '<i class="fas fa-bars"></i>';
-                this.setAttribute('aria-expanded', 'false');
-            } else {
-                navCenter.style.display = 'flex';
-                navCenter.style.flexDirection = 'column';
-                navCenter.style.position = 'absolute';
-                navCenter.style.top = '100%';
-                navCenter.style.left = '0';
-                navCenter.style.width = '100%';
-                navCenter.style.background = 'rgba(255, 255, 255, 0.98)';
-                navCenter.style.backdropFilter = 'blur(20px)';
-                navCenter.style.padding = '2rem';
-                navCenter.style.boxShadow = 'var(--pb-shadow-lg)';
-                this.innerHTML = '<i class="fas fa-times"></i>';
-                this.setAttribute('aria-expanded', 'true');
-            }
-        });
-    }
+    initLazyLoading();
     
-    // ============================== INICIALIZACIÓN ==============================
-    function init() {
-        initializeGallery();
-        initCounters();
-        updateIntegratedZoom();
-        updateHeader();
-        
-        console.log('🚀 Galería Integrada con Zoom iniciada');
-    }
-    
- 
-    // Iniciar cuando el DOM esté listo
-    init();
+    // ============================== INICIALIZAR TODO ==============================
+    console.log('🚀 Portfoliobox implementado correctamente');
 });
