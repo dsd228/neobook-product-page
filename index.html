@@ -15,7 +15,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -30,17 +30,17 @@
     <!-- Skip Link -->
     <a href="#main-content" class="skip-link">Saltar al contenido</a>
 
-    <!-- Header Minimalista pero EFECTIVO -->
-    <header class="header-minimal">
+    <!-- Header FIJO y CLARO -->
+    <header class="header-fixed">
         <div class="container">
             <nav class="main-nav">
-                <!-- Logo con valor -->
+                <!-- Logo clickeable -->
                 <a href="#hero" class="logo">
                     <span class="logo-symbol">DD</span>
                     <span class="logo-text">David Díaz <span class="logo-tag">UX/UI</span></span>
                 </a>
                 
-                <!-- Navegación con foco -->
+                <!-- Navegación clara -->
                 <div class="nav-center">
                     <a href="#resultados" class="nav-link">
                         <i class="fas fa-chart-line"></i> Resultados
@@ -49,14 +49,17 @@
                         <i class="fas fa-briefcase"></i> Casos
                     </a>
                     <a href="#servicios" class="nav-link">
-                        <i class="fas fa-cogs"></i> Cómo trabajo
+                        <i class="fas fa-cogs"></i> Proceso
+                    </a>
+                    <a href="#testimonios" class="nav-link">
+                        <i class="fas fa-quote-right"></i> Testimonios
                     </a>
                 </div>
                 
-                <!-- CTA principal en header -->
+                <!-- CTA ÚNICO y CLARO -->
                 <div class="nav-right">
                     <a href="#contacto" class="btn-primary btn-header">
-                        <i class="fas fa-calendar-check"></i> Consulta gratis
+                        <i class="fas fa-calendar-check"></i> Trabajemos juntos
                     </a>
                     <button class="menu-toggle" id="menuToggle" aria-label="Menú">
                         <i class="fas fa-bars"></i>
@@ -66,68 +69,57 @@
         </div>
     </header>
 
-    <!-- ===== HERO SECTION REDISEÑADO ===== -->
+    <!-- ===== HERO SIMPLIFICADO ===== -->
     <section class="hero-section" id="hero" role="main" id="main-content">
         <div class="hero-background"></div>
         
         <div class="container">
             <div class="hero-content">
                 
-                <!-- Badge de URGENCIA y VALOR -->
-                <div class="hero-badge pulse">
-                    <span class="badge-dot"></span>
-                    <span>⚠️ Última disponibilidad Q2 2024</span>
-                </div>
-                
-                <!-- HEADLINE que CONVIERTE (Ley de Miller: 7±2 elementos) -->
+                <!-- HEADLINE JERÁRQUICO -->
                 <h1 class="hero-title">
-                    ¿Tu producto digital 
-                    <span class="text-highlight">no convierte</span> 
-                    lo esperado?
+                    Diseño productos digitales que <span class="text-highlight">convierten</span>
                 </h1>
                 
-                <!-- SUBHEADLINE con beneficio claro -->
+                <!-- SUBHEADLINE CLARO -->
                 <h2 class="hero-subtitle">
-                    Soy <strong>David Díaz</strong>, diseñador UX/UI especializado en 
-                    <strong>multiplicar ingresos</strong> de startups SaaS y FinTech.
-                    <span class="hero-subtext">Resultados medibles en 8 semanas o menos.</span>
+                    UX/UI enfocado en resultados reales, no en humo visual
+                    <span class="hero-subtext">+340% conversión promedio • Resultados en 8 semanas</span>
                 </h2>
                 
-                <!-- SOCIAL PROOF inmediata (Ley de Fitts: fácil de ver) -->
-                <div class="hero-proof">
-                    <div class="proof-item">
-                        <div class="proof-number" data-count="340">0%</div>
-                        <div class="proof-label">Conversión promedio</div>
-                    </div>
-                    <div class="proof-divider"></div>
-                    <div class="proof-item">
-                        <div class="proof-number" data-count="2.1">$0M</div>
-                        <div class="proof-label">Ingresos generados</div>
-                    </div>
-                    <div class="proof-divider"></div>
-                    <div class="proof-item">
-                        <div class="proof-number" data-count="8">0</div>
-                        <div class="proof-label">Semanas para resultados</div>
-                    </div>
-                </div>
-                
-                <!-- CTA PRINCIPAL IRRESISTIBLE (un solo foco) -->
+                <!-- CTA PRINCIPAL IRRESISTIBLE -->
                 <div class="hero-cta">
-                    <a href="#contacto" class="btn-cta-primary">
-                        <div class="cta-content">
-                            <i class="fas fa-rocket"></i>
-                            <div>
-                                <div class="cta-main">Diagnóstico UX Gratuito</div>
-                                <div class="cta-sub">+ propuesta personalizada en 24h</div>
-                            </div>
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
+                    <a href="#contacto" class="btn-primary btn-cta-primary">
+                        <i class="fas fa-rocket"></i>
+                        <span>Agendar llamada gratuita</span>
+                        <i class="fas fa-arrow-right"></i>
                     </a>
                     
                     <!-- Micro-beneficio adicional -->
                     <div class="cta-note">
                         <i class="fas fa-shield-alt"></i>
                         <span>Sin compromiso • Solo pago por resultados</span>
+                    </div>
+                </div>
+                
+                <!-- SOCIAL PROOF inmediata -->
+                <div class="hero-proof">
+                    <div class="proof-item">
+                        <div class="proof-number" data-count="340">0%</div>
+                        <div class="proof-label">Conversión promedio</div>
+                        <small>Impacto en ventas</small>
+                    </div>
+                    <div class="proof-divider"></div>
+                    <div class="proof-item">
+                        <div class="proof-number" data-count="2.1">$0M</div>
+                        <div class="proof-label">Ingresos generados</div>
+                        <small>ROI comprobado</small>
+                    </div>
+                    <div class="proof-divider"></div>
+                    <div class="proof-item">
+                        <div class="proof-number" data-count="8">0</div>
+                        <div class="proof-label">Semanas para resultados</div>
+                        <small>Time-to-value rápido</small>
                     </div>
                 </div>
                 
@@ -150,22 +142,22 @@
             </div>
         </div>
         
-        <!-- Scroll indicator mejorado -->
+        <!-- Scroll indicator -->
         <a href="#resultados" class="scroll-down" aria-label="Ver resultados">
             <div class="scroll-text">Ver resultados comprobados</div>
             <div class="scroll-icon">↓</div>
         </a>
     </section>
 
-    <!-- ===== SECCIÓN RESULTADOS (antes del carrusel) ===== -->
+    <!-- ===== SECCIÓN RESULTADOS CON CONTEXTO ===== -->
     <section class="section results-section" id="resultados">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
                     <i class="fas fa-trophy"></i>
-                    Resultados Comprobados
+                    Resultados con Significado
                 </h2>
-                <p class="section-subtitle">Métricas reales de proyectos recientes</p>
+                <p class="section-subtitle">Métricas reales con impacto claro en negocio</p>
             </div>
             
             <div class="results-grid">
@@ -177,6 +169,10 @@
                         <div class="result-number" data-count="78">0%</div>
                         <h3 class="result-title">Aumento retención</h3>
                         <p class="result-desc">App FinTech para paseadores de perros</p>
+                        <div class="result-context">
+                            <h4>Impacto</h4>
+                            <p>Usuarios activos mensuales crecieron +78%</p>
+                        </div>
                         <div class="result-meta">
                             <span class="result-badge">FinTech</span>
                             <span class="result-time">8 semanas</span>
@@ -192,6 +188,10 @@
                         <div class="result-number" data-count="2.1">$0M</div>
                         <h3 class="result-title">Ingresos adicionales</h3>
                         <p class="result-desc">Dashboard SaaS para logística</p>
+                        <div class="result-context">
+                            <h4>Impacto</h4>
+                            <p>MRR aumentó $2.1M en 12 semanas</p>
+                        </div>
                         <div class="result-meta">
                             <span class="result-badge">SaaS B2B</span>
                             <span class="result-time">12 semanas</span>
@@ -207,6 +207,10 @@
                         <div class="result-number" data-count="62">0%</div>
                         <h3 class="result-title">Más conversión</h3>
                         <p class="result-desc">E-commerce mobile-first</p>
+                        <div class="result-context">
+                            <h4>Impacto</h4>
+                            <p>Tasa de conversión aumentó +62%</p>
+                        </div>
                         <div class="result-meta">
                             <span class="result-badge">E-commerce</span>
                             <span class="result-time">10 semanas</span>
@@ -217,29 +221,29 @@
             
             <!-- CTA intermedio -->
             <div class="section-cta">
-                <p>¿Quieres resultados similares para tu producto?</p>
-                <a href="#contacto" class="btn-secondary">
-                    <i class="fas fa-calendar-alt"></i> Agendar llamada 30min
+                <p>¿Quieres resultados con impacto medible para tu producto?</p>
+                <a href="#contacto" class="btn-primary">
+                    <i class="fas fa-calendar-alt"></i> Agenda llamada 30min
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== CARRUSEL COVERFLOW 3D OPTIMIZADO ===== -->
+    <!-- ===== CARRUSEL COVERFLOW CON CONTEXTO ===== -->
     <section class="section coverflow-section" id="proyectos">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
                     <i class="fas fa-cube"></i>
-                    Proyectos en 3D
+                    Casos con Contexto
                 </h2>
-                <p class="section-subtitle">Casos de estudio interactivos. Desliza o usa flechas.</p>
+                <p class="section-subtitle">No solo diseño bonito, soluciones con propósito</p>
             </div>
         </div>
         
         <!-- Coverflow optimizado -->
         <div class="coverflow-container">
-            <!-- Preview con enfoque en resultados -->
+            <!-- Preview con contexto de problema/solución -->
             <div class="coverflow-preview">
                 <div class="preview-content">
                     <div class="preview-image">
@@ -257,6 +261,19 @@
                             <div class="preview-time" id="previewDuration">8 semanas</div>
                         </div>
                         <h3 class="preview-title" id="previewTitle">PASEO App</h3>
+                        
+                        <!-- Contexto del problema/solución -->
+                        <div class="preview-context">
+                            <div class="context-block">
+                                <h4><i class="fas fa-exclamation-triangle"></i> Problema</h4>
+                                <p id="previewProblem">Usuarios abandonaban durante onboarding por complejidad</p>
+                            </div>
+                            <div class="context-block">
+                                <h4><i class="fas fa-lightbulb"></i> Decisión UX</h4>
+                                <p id="previewSolution">Rediseño completo del flujo con 3 pasos simplificados y validación en tiempo real</p>
+                            </div>
+                        </div>
+                        
                         <p class="preview-description" id="previewDescription">
                             Rediseño completo que incrementó retención en +78% y redujo onboarding en 3.2x
                         </p>
@@ -302,11 +319,13 @@
             <!-- Carrusel Coverflow -->
             <div class="coverflow-carousel">
                 <div class="coverflow-track" id="coverflowTrack">
-                    <!-- Slides optimizados para conversión -->
+                    <!-- Slides con contexto -->
                     <div class="coverflow-slide active" data-index="0" 
                          data-img="app para paseadores de perros (20)/mis mascotasPro - 23.png"
                          data-title="PASEO App"
                          data-description="+78% retención, onboarding 3.2x más rápido"
+                         data-problem="Usuarios abandonaban durante onboarding por complejidad"
+                         data-solution="Rediseño completo del flujo con 3 pasos simplificados"
                          data-badge="FinTech"
                          data-stat1="+78%"
                          data-stat2="3.2x"
@@ -325,6 +344,10 @@
                             <div class="slide-label">
                                 <span class="slide-category">FinTech</span>
                                 <h4>PASEO App</h4>
+                                <div class="slide-context">
+                                    <p><strong>Problema:</strong> Onboarding complejo</p>
+                                    <p><strong>Solución:</strong> Flujo de 3 pasos</p>
+                                </div>
                                 <div class="slide-stats">
                                     <span><i class="fas fa-clock"></i> 8 semanas</span>
                                     <span><i class="fas fa-chart-line"></i> +78%</span>
@@ -333,11 +356,13 @@
                         </div>
                     </div>
                     
-                    <!-- Slide 2 - Optimizado -->
+                    <!-- Slide 2 -->
                     <div class="coverflow-slide" data-index="1" 
                          data-img="dispatch - copia.png"
                          data-title="Nexus Dashboard"
                          data-description="+$2.1M en ingresos adicionales para SaaS B2B"
+                         data-problem="Usuarios no encontraban métricas clave en dashboard"
+                         data-solution="Rediseño de jerarquía visual y navegación contextual"
                          data-badge="SaaS B2B"
                          data-stat1="+45%"
                          data-stat2="$2.1M"
@@ -356,6 +381,10 @@
                             <div class="slide-label">
                                 <span class="slide-category">SaaS B2B</span>
                                 <h4>Nexus Dashboard</h4>
+                                <div class="slide-context">
+                                    <p><strong>Problema:</strong> Datos no accesibles</p>
+                                    <p><strong>Solución:</strong> Jerarquía visual clara</p>
+                                </div>
                                 <div class="slide-stats">
                                     <span><i class="fas fa-clock"></i> 12 semanas</span>
                                     <span><i class="fas fa-dollar-sign"></i> $2.1M</span>
@@ -364,11 +393,13 @@
                         </div>
                     </div>
                     
-                    <!-- Slides restantes optimizados de manera similar -->
+                    <!-- Slide 3 -->
                     <div class="coverflow-slide" data-index="2" 
                          data-img="images/projects/E-commerce Mobile.png"
                          data-title="E-commerce Premium"
                          data-description="+62% conversión, 94% tráfico mobile"
+                         data-proble="Checkout abandonado por pasos innecesarios"
+                         data-solution="Flujo de compra simplificado en 2 pasos"
                          data-badge="E-commerce"
                          data-stat1="+62%"
                          data-stat2="94%"
@@ -387,6 +418,10 @@
                             <div class="slide-label">
                                 <span class="slide-category">E-commerce</span>
                                 <h4>Tienda Premium</h4>
+                                <div class="slide-context">
+                                    <p><strong>Problema:</strong> Checkout complejo</p>
+                                    <p><strong>Solución:</strong> 2 pasos simplificados</p>
+                                </div>
                                 <div class="slide-stats">
                                     <span><i class="fas fa-clock"></i> 10 semanas</span>
                                     <span><i class="fas fa-mobile"></i> 94% mobile</span>
@@ -394,11 +429,9 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Más slides... -->
                 </div>
                 
-                <!-- Controles simplificados -->
+                <!-- Controles -->
                 <div class="coverflow-controls">
                     <button class="coverflow-prev" aria-label="Proyecto anterior">
                         <i class="fas fa-chevron-left"></i>
@@ -408,28 +441,11 @@
                         <button class="dot active" data-index="0"></button>
                         <button class="dot" data-index="1"></button>
                         <button class="dot" data-index="2"></button>
-                        <button class="dot" data-index="3"></button>
                     </div>
                     
                     <button class="coverflow-next" aria-label="Siguiente proyecto">
                         <i class="fas fa-chevron-right"></i>
                     </button>
-                </div>
-            </div>
-            
-            <!-- Instrucciones contextuales -->
-            <div class="coverflow-instructions">
-                <div class="instruction">
-                    <i class="fas fa-hand-point-up"></i>
-                    <span>Click para ver métricas</span>
-                </div>
-                <div class="instruction">
-                    <i class="fas fa-arrows-alt-h"></i>
-                    <span>Desliza para navegar</span>
-                </div>
-                <div class="instruction">
-                    <i class="fas fa-play-circle"></i>
-                    <span>Auto-play activado</span>
                 </div>
             </div>
         </div>
@@ -438,17 +454,17 @@
         <div class="container">
             <div class="contextual-cta">
                 <div class="cta-content">
-                    <h3>¿Tu producto necesita estos resultados?</h3>
-                    <p>Solicita un análisis gratuito de tus métricas actuales.</p>
+                    <h3>¿Tu producto necesita soluciones con impacto?</h3>
+                    <p>Identifico problemas y diseño soluciones medibles.</p>
                 </div>
                 <a href="#contacto" class="btn-primary btn-large">
-                    <i class="fas fa-chart-bar"></i> Analizar mis métricas
+                    <i class="fas fa-chart-bar"></i> Analizar mis desafíos
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== CÓMO TRABAJO (antes Servicios) ===== -->
+    <!-- ===== PROCESO ===== -->
     <section class="section process-section" id="servicios">
         <div class="container">
             <div class="section-header">
@@ -517,7 +533,7 @@
         </div>
     </section>
 
-    <!-- ===== TESTIMONIOS MEJORADOS ===== -->
+    <!-- ===== TESTIMONIOS ===== -->
     <section class="section testimonials-section" id="testimonios">
         <div class="container">
             <div class="section-header">
@@ -580,19 +596,19 @@
         </div>
     </section>
 
-    <!-- ===== CONTACTO OPTIMIZADO PARA CONVERSIÓN ===== -->
+    <!-- ===== CONTACTO OPTIMIZADO ===== -->
     <section class="section contact-section" id="contacto">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
                     <i class="fas fa-calendar-check"></i>
-                    ¿Listo para multiplicar tus resultados?
+                    ¿Listo para mejorar tu producto?
                 </h2>
                 <p class="section-subtitle">Propuesta personalizada en 24 horas. Sin compromiso.</p>
             </div>
             
             <div class="contact-grid">
-                <!-- Lado izquierdo: Beneficios y confianza -->
+                <!-- Lado izquierdo: Beneficios -->
                 <div class="contact-benefits">
                     <h3 class="benefits-title">Qué obtienes en tu consulta gratuita:</h3>
                     
@@ -628,7 +644,7 @@
                         </div>
                     </div>
                     
-                    <!-- Garantía destacada -->
+                    <!-- Garantía -->
                     <div class="guarantee-card">
                         <div class="guarantee-icon">
                             <i class="fas fa-shield-alt"></i>
@@ -639,7 +655,7 @@
                         </div>
                     </div>
                     
-                    <!-- Información de contacto rápida -->
+                    <!-- Información rápida -->
                     <div class="contact-quick">
                         <div class="quick-item">
                             <i class="fas fa-clock"></i>
@@ -713,7 +729,7 @@
                         
                         <button type="submit" class="btn-primary btn-large btn-block">
                             <i class="fas fa-paper-plane"></i> 
-                            <span>Enviar solicitud de consulta</span>
+                            <span>Quiero mejorar mi producto</span>
                         </button>
                         
                         <div class="form-footer">
@@ -726,7 +742,7 @@
         </div>
     </section>
 
-    <!-- ===== FOOTER SIMPLIFICADO ===== -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -738,10 +754,10 @@
                     </a>
                     <p class="footer-tagline">Diseño UX/UI que multiplica ingresos</p>
                     
-                    <!-- CTA final en footer -->
+                    <!-- CTA final -->
                     <div class="footer-cta">
-                        <a href="#contacto" class="btn-secondary">
-                            <i class="fas fa-calendar-check"></i> Última disponibilidad Q2
+                        <a href="#contacto" class="btn-primary">
+                            <i class="fas fa-calendar-check"></i> Trabajemos juntos
                         </a>
                     </div>
                 </div>
@@ -751,8 +767,8 @@
                     <div class="footer-column">
                         <h4>Trabajo</h4>
                         <a href="#resultados">Resultados</a>
-                        <a href="#proyectos">Proyectos 3D</a>
-                        <a href="#servicios">Cómo trabajo</a>
+                        <a href="#proyectos">Casos</a>
+                        <a href="#servicios">Proceso</a>
                     </div>
                     
                     <div class="footer-column">
