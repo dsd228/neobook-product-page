@@ -4,7 +4,7 @@
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Portafolio David Díaz - Coverflow 3D Cargado');
+    console.log('Portafolio David Díaz - Coverflow 3D Cargado');
     
     // ===== CONFIGURACIÓN INICIAL =====
     const config = {
