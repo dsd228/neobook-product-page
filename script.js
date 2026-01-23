@@ -1,24 +1,29 @@
 // ============================================
-// PORTAFOLIO PREMIUM DAVID DÍAZ - JAVASCRIPT
-// CON CARRUSEL COVERFLOW 3D TIPO APPLE
+// PORTAFOLIO OPTIMIZADO 10/10 - JAVASCRIPT
+// Enfocado en conversión y experiencia de usuario
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Portafolio David Díaz - Coverflow 3D Cargado');
+    console.log('Portafolio David Díaz - Optimizado 10/10');
     
-    // ===== CONFIGURACIÓN INICIAL =====
+    // ===== CONFIGURACIÓN =====
     const config = {
         reduceMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-        isTouch: 'ontouchstart' in window || navigator.maxTouchPoints > 0
+        isTouch: 'ontouchstart' in window || navigator.maxTouchPoints > 0,
+        debug: false
     };
     
-    // ===== VARIABLES GLOBALES =====
-    const header = document.querySelector('.header-minimal');
-    const menuToggle = document.getElementById('menuToggle');
-    const currentYearEl = document.getElementById('currentYear');
-    const statNumbers = document.querySelectorAll('.stat-number[data-count]');
+    // ===== ELEMENTOS PRINCIPALES =====
+    const elements = {
+        header: document.querySelector('.header-minimal'),
+        menuToggle: document.getElementById('menuToggle'),
+        currentYear: document.getElementById('currentYear'),
+        contactForm: document.getElementById('contactForm'),
+        coverflowTrack: document.getElementById('coverflowTrack'),
+        statNumbers: document.querySelectorAll('[data-count]')
+    };
     
-    // ===== INICIALIZAR TODO =====
+    // ===== INICIALIZAR MÓDULOS =====
     function init() {
         updateCurrentYear();
         initMobileMenu();
@@ -27,54 +32,33 @@ document.addEventListener('DOMContentLoaded', function() {
         initStatsCounter();
         initContactForm();
         initAnimations();
-        initLazyLoading();
-        initAccessibility();
+        initCoverflow();
+        initAnalytics();
         
-        // Inicializar Coverflow
-        const coverflow = initCoverflow();
-        
-        console.log('✅ Módulos inicializados');
-        
-        // Exponer coverflow globalmente
-        window.DDPortfolio = window.DDPortfolio || {};
-        window.DDPortfolio.coverflow = coverflow;
-        
-        // Cleanup on page unload
-        window.addEventListener('beforeunload', () => {
-            if (coverflow && coverflow.cleanup) {
-                coverflow.cleanup();
-            }
-        });
+        if (config.debug) console.log('✅ Todos los módulos inicializados');
     }
     
-    // ===== 1. ACTUALIZAR AÑO =====
+    // ===== 1. AÑO ACTUAL =====
     function updateCurrentYear() {
-        if (currentYearEl) {
-            currentYearEl.textContent = new Date().getFullYear();
+        if (elements.currentYear) {
+            elements.currentYear.textContent = new Date().getFullYear();
         }
     }
     
-    // ===== 2. MENÚ MÓVIL =====
+    // ===== 2. MENÚ MÓVIL OPTIMIZADO =====
     function initMobileMenu() {
-        if (!menuToggle) return;
+        if (!elements.menuToggle) return;
         
-        menuToggle.addEventListener('click', toggleMobileMenu);
-        
-        document.addEventListener('keydown', function(e) {
+        elements.menuToggle.addEventListener('click', toggleMobileMenu);
+        document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeMobileMenu();
         });
     }
     
     function toggleMobileMenu() {
         const isOpen = document.body.classList.contains('mobile-menu-open');
-        
-        if (isOpen) {
-            closeMobileMenu();
-        } else {
-            openMobileMenu();
-        }
-        
-        menuToggle.setAttribute('aria-expanded', !isOpen);
+        isOpen ? closeMobileMenu() : openMobileMenu();
+        elements.menuToggle.setAttribute('aria-expanded', !isOpen);
     }
     
     function openMobileMenu() {
@@ -82,21 +66,27 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenu.className = 'mobile-menu active';
         mobileMenu.setAttribute('role', 'dialog');
         mobileMenu.setAttribute('aria-modal', 'true');
-        mobileMenu.setAttribute('aria-label', 'Menú de navegación');
         
         mobileMenu.innerHTML = `
             <div class="mobile-menu-content">
                 <button class="mobile-menu-close" aria-label="Cerrar menú">
                     <i class="fas fa-times"></i>
                 </button>
-                <nav class="mobile-nav" aria-label="Navegación móvil">
-                    <a href="#proyectos" class="nav-link">Proyectos</a>
-                    <a href="#coverflow" class="nav-link">Galería 3D</a>
-                    <a href="#servicios" class="nav-link">Servicios</a>
-                    <a href="#proceso" class="nav-link">Proceso</a>
-                    <a href="#contacto" class="nav-link">Contacto</a>
+                <nav class="mobile-nav">
+                    <a href="#resultados" class="nav-link">
+                        <i class="fas fa-chart-line"></i> Resultados
+                    </a>
+                    <a href="#proyectos" class="nav-link">
+                        <i class="fas fa-briefcase"></i> Casos
+                    </a>
+                    <a href="#servicios" class="nav-link">
+                        <i class="fas fa-cogs"></i> Cómo trabajo
+                    </a>
+                    <a href="#contacto" class="nav-link">
+                        <i class="fas fa-calendar-check"></i> Contacto
+                    </a>
                 </nav>
-                <a href="#contacto" class="btn-primary btn-full">Iniciar Proyecto</a>
+                <a href="#contacto" class="btn-primary">Consulta gratuita</a>
             </div>
         `;
         
@@ -104,17 +94,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('mobile-menu-open');
         document.body.style.overflow = 'hidden';
         
-        // Enfocar y configurar cierre
         const closeBtn = mobileMenu.querySelector('.mobile-menu-close');
         closeBtn.focus();
-        
         closeBtn.addEventListener('click', closeMobileMenu);
         
         mobileMenu.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', closeMobileMenu);
         });
         
-        // Trap focus
         trapFocus(mobileMenu);
     }
     
@@ -122,13 +109,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const mobileMenu = document.querySelector('.mobile-menu');
         if (mobileMenu) {
             mobileMenu.style.animation = 'fadeOut 0.3s ease';
-            
             setTimeout(() => {
                 mobileMenu.remove();
                 document.body.classList.remove('mobile-menu-open');
                 document.body.style.overflow = '';
-                menuToggle.focus();
-                menuToggle.setAttribute('aria-expanded', 'false');
+                elements.menuToggle.focus();
+                elements.menuToggle.setAttribute('aria-expanded', 'false');
             }, 300);
         }
     }
@@ -137,7 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const focusable = element.querySelectorAll(
             'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
         );
-        
         if (focusable.length === 0) return;
         
         const first = focusable[0];
@@ -163,21 +148,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== 3. HEADER SCROLL =====
     function initHeaderScroll() {
         let lastScroll = 0;
+        const threshold = 100;
         
         function updateHeader() {
             const currentScroll = window.scrollY;
+            const isScrollingDown = currentScroll > lastScroll;
             
             if (currentScroll > 50) {
-                header.classList.add('scrolled');
+                elements.header.classList.add('scrolled');
                 
-                if (currentScroll > lastScroll && currentScroll > 100) {
-                    header.style.transform = 'translateY(-100%)';
+                if (isScrollingDown && currentScroll > threshold) {
+                    elements.header.style.transform = 'translateY(-100%)';
                 } else {
-                    header.style.transform = 'translateY(0)';
+                    elements.header.style.transform = 'translateY(0)';
                 }
             } else {
-                header.classList.remove('scrolled');
-                header.style.transform = 'translateY(0)';
+                elements.header.classList.remove('scrolled');
+                elements.header.style.transform = 'translateY(0)';
             }
             
             lastScroll = currentScroll;
@@ -192,15 +179,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
-                
                 if (href === '#' || href === '#hero') return;
                 
                 e.preventDefault();
                 const target = document.querySelector(href);
                 
                 if (target) {
-                    const headerHeight = header.offsetHeight;
-                    const targetPosition = target.offsetTop - headerHeight;
+                    const headerHeight = elements.header.offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
                     
                     window.scrollTo({
                         top: targetPosition,
@@ -214,9 +200,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ===== 5. CONTADOR ESTADÍSTICAS =====
+    // ===== 5. CONTADORES DE ESTADÍSTICAS =====
     function initStatsCounter() {
-        if (statNumbers.length === 0) return;
+        if (elements.statNumbers.length === 0) return;
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -225,16 +211,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.5, rootMargin: '0px 0px -50px 0px' });
         
-        statNumbers.forEach(el => observer.observe(el));
+        elements.statNumbers.forEach(el => observer.observe(el));
     }
     
     function animateCounter(element) {
         const target = parseFloat(element.getAttribute('data-count'));
-        const isPercentage = element.textContent.includes('%');
-        const isMoney = element.textContent.includes('$');
-        const duration = 2000;
+        const text = element.textContent;
+        const isMoney = text.includes('$');
+        const isPercentage = text.includes('%');
+        const duration = 1500;
         const steps = 60;
         const increment = target / steps;
         let current = 0;
@@ -245,7 +232,9 @@ document.addEventListener('DOMContentLoaded', function() {
             step++;
             
             if (step >= steps) {
+                clearInterval(timer);
                 let finalValue = target;
+                
                 if (isMoney) {
                     element.textContent = `$${finalValue.toFixed(1)}M`;
                 } else if (isPercentage) {
@@ -253,14 +242,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     element.textContent = `${finalValue.toFixed(0)}+`;
                 }
-                clearInterval(timer);
                 
+                // Efecto visual
                 element.style.transform = 'scale(1.1)';
-                setTimeout(() => {
-                    element.style.transform = 'scale(1)';
-                }, 200);
+                setTimeout(() => element.style.transform = 'scale(1)', 200);
             } else {
-                let displayValue = Math.floor(current);
+                const displayValue = Math.floor(current);
                 
                 if (isMoney) {
                     element.textContent = `$${displayValue.toFixed(1)}M`;
@@ -273,19 +260,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }, duration / steps);
     }
     
-    // ===== 6. FORMULARIO CONTACTO =====
+    // ===== 6. FORMULARIO DE CONTACTO =====
     function initContactForm() {
-        const contactForm = document.getElementById('contactForm');
-        if (!contactForm) return;
+        if (!elements.contactForm) return;
         
         // Validación en tiempo real
-        contactForm.querySelectorAll('input, textarea').forEach(input => {
+        elements.contactForm.querySelectorAll('input, textarea').forEach(input => {
             input.addEventListener('blur', validateField);
             input.addEventListener('input', clearError);
         });
         
-        // Envío
-        contactForm.addEventListener('submit', async function(e) {
+        // Envío del formulario
+        elements.contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             if (!validateForm()) return;
@@ -299,14 +285,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span>Enviando...</span>
             `;
             
-            // Simular envío
+            // Simulación de envío (en producción sería fetch)
             setTimeout(() => {
                 showFormSuccess();
                 
                 setTimeout(() => {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalText;
-                    contactForm.reset();
+                    elements.contactForm.reset();
                 }, 1500);
             }, 2000);
         });
@@ -329,6 +315,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 isValid = false;
                 errorMessage = 'Email inválido';
             }
+        } else if (field.type === 'url' && value && !value.startsWith('http')) {
+            isValid = false;
+            errorMessage = 'URL debe comenzar con http:// o https://';
         }
         
         if (!isValid) {
@@ -339,10 +328,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function validateForm() {
-        const form = document.getElementById('contactForm');
         let isValid = true;
         
-        form.querySelectorAll('[required]').forEach(field => {
+        elements.contactForm.querySelectorAll('[required]').forEach(field => {
             if (!validateField({ target: field })) {
                 isValid = false;
             }
@@ -385,7 +373,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function showFormSuccess() {
-        const form = document.getElementById('contactForm');
+        const form = elements.contactForm;
         const successMessage = document.createElement('div');
         
         successMessage.className = 'form-success';
@@ -393,8 +381,8 @@ document.addEventListener('DOMContentLoaded', function() {
         successMessage.innerHTML = `
             <i class="fas fa-check-circle"></i>
             <div>
-                <h4>¡Mensaje enviado!</h4>
-                <p>Te responderé en menos de 24 horas.</p>
+                <h4>¡Solicitud enviada!</h4>
+                <p>Te contactaré en menos de 12 horas para agendar tu consulta.</p>
             </div>
         `;
         
@@ -416,8 +404,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function initAnimations() {
         if (config.reduceMotion) return;
         
-        const elements = document.querySelectorAll(
-            '.project-card, .service-card, .testimonial-card, .process-step'
+        const animatedElements = document.querySelectorAll(
+            '.result-card, .process-card, .testimonial-card, .benefit-item'
         );
         
         const observer = new IntersectionObserver((entries) => {
@@ -432,124 +420,65 @@ document.addEventListener('DOMContentLoaded', function() {
             rootMargin: '0px 0px -50px 0px'
         });
         
-        elements.forEach(el => {
+        animatedElements.forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
+            el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
     }
     
-    // ===== 8. LAZY LOADING =====
-    function initLazyLoading() {
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        
-        if ('loading' in HTMLImageElement.prototype) {
-            images.forEach(img => {
-                img.classList.add('lazy-load');
-                img.addEventListener('load', function() {
-                    this.classList.add('loaded');
-                });
-            });
-        } else {
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src || img.src;
-                        img.classList.add('loaded');
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-            
-            images.forEach(img => imageObserver.observe(img));
-        }
-    }
-    
-    // ===== 9. ACCESIBILIDAD =====
-    function initAccessibility() {
-        // Añadir roles a imágenes sin alt
-        document.querySelectorAll('img:not([alt])').forEach(img => {
-            img.setAttribute('alt', '');
-            img.setAttribute('aria-hidden', 'true');
-        });
-        
-        // Navegación con teclado
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab') {
-                document.body.classList.add('keyboard-nav');
-            }
-        });
-        
-        document.addEventListener('mousedown', function() {
-            document.body.classList.remove('keyboard-nav');
-        });
-    }
-    
-    // ===== 10. CARRUSEL COVERFLOW 3D =====
+    // ===== 8. COVERFLOW OPTIMIZADO =====
     function initCoverflow() {
-        const coverflowTrack = document.getElementById('coverflowTrack');
-        if (!coverflowTrack) return null;
+        if (!elements.coverflowTrack) return null;
         
         const slides = document.querySelectorAll('.coverflow-slide');
         const dots = document.querySelectorAll('.coverflow-dots .dot');
         const prevBtn = document.querySelector('.coverflow-prev');
         const nextBtn = document.querySelector('.coverflow-next');
-        const autoplayToggle = document.getElementById('autoplayToggle');
-        const progressBar = document.querySelector('.autoplay-progress .progress-bar');
         
         // Elementos de vista previa
-        const previewImg = document.getElementById('previewImg');
-        const previewTitle = document.getElementById('previewTitle');
-        const previewDescription = document.getElementById('previewDescription');
-        const previewBadge = document.getElementById('previewBadge');
-        const previewStat1 = document.getElementById('previewStat1');
-        const previewStat2 = document.getElementById('previewStat2');
-        const previewDuration = document.getElementById('previewDuration');
-        const previewLink = document.getElementById('previewLink');
+        const previewElements = {
+            img: document.getElementById('previewImg'),
+            title: document.getElementById('previewTitle'),
+            description: document.getElementById('previewDescription'),
+            badge: document.getElementById('previewBadge'),
+            stat1: document.getElementById('previewStat1'),
+            duration: document.getElementById('previewDuration')
+        };
         
-        // Variables de estado
+        // Estado
         let currentIndex = 0;
-        let totalSlides = slides.length;
+        const totalSlides = slides.length;
         let isAnimating = false;
-        let autoplayInterval = null;
-        let isAutoplay = true;
-        let autoplaySpeed = 5000; // 5 segundos
         let isDragging = false;
         let dragStartX = 0;
         let dragCurrentX = 0;
-        let dragThreshold = 50; // px mínimo para cambiar slide
+        const dragThreshold = 30;
         
         // Configuración
-        const configCoverflow = {
-            animationDuration: 800,
+        const coverflowConfig = {
+            animationDuration: 600,
             easing: 'cubic-bezier(0.23, 1, 0.32, 1)',
-            visibleSlides: 3, // Slides visibles a cada lado
-            touchSensitivity: 2
+            visibleSlides: 2
         };
         
         // Inicializar
         updateCoverflow();
         updatePreview();
-        initEventListeners();
-        startAutoplay();
+        initCoverflowEvents();
         
-        // Función para actualizar coverflow
+        // Funciones principales
         function updateCoverflow() {
             if (isAnimating) return;
-            
             isAnimating = true;
             
-            // Actualizar índices de slides
             slides.forEach((slide, index) => {
                 slide.classList.remove('active');
                 
-                // Calcular índice relativo
                 let relativeIndex = index - currentIndex;
                 
-                // Limitar índices visibles
-                if (Math.abs(relativeIndex) > configCoverflow.visibleSlides) {
+                if (Math.abs(relativeIndex) > coverflowConfig.visibleSlides) {
                     slide.style.opacity = '0';
                     slide.style.pointerEvents = 'none';
                 } else {
@@ -563,70 +492,48 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            // Actualizar dots
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentIndex);
             });
             
-            // Reset animating flag después de la transición
             setTimeout(() => {
                 isAnimating = false;
-            }, configCoverflow.animationDuration);
+            }, coverflowConfig.animationDuration);
         }
         
-        // Función para actualizar vista previa
         function updatePreview() {
             const activeSlide = slides[currentIndex];
+            if (!activeSlide || !previewElements.img) return;
             
-            if (!activeSlide || !previewImg) return;
+            // Actualizar datos
+            previewElements.img.src = activeSlide.getAttribute('data-img');
+            previewElements.img.alt = activeSlide.getAttribute('data-title');
+            previewElements.title.textContent = activeSlide.getAttribute('data-title');
+            previewElements.description.textContent = activeSlide.getAttribute('data-description');
+            previewElements.badge.textContent = activeSlide.getAttribute('data-badge');
+            previewElements.stat1.textContent = activeSlide.getAttribute('data-stat1');
+            previewElements.duration.textContent = activeSlide.getAttribute('data-duration');
             
-            // Obtener datos del slide activo
-            const imgSrc = activeSlide.getAttribute('data-img');
-            const title = activeSlide.getAttribute('data-title');
-            const description = activeSlide.getAttribute('data-description');
-            const badge = activeSlide.getAttribute('data-badge');
-            const stat1 = activeSlide.getAttribute('data-stat1');
-            const stat2 = activeSlide.getAttribute('data-stat2');
-            const duration = activeSlide.getAttribute('data-duration');
-            const link = activeSlide.getAttribute('data-link');
-            
-            // Actualizar elementos de vista previa
-            if (previewImg) {
-                previewImg.src = imgSrc;
-                previewImg.alt = title;
-            }
-            if (previewTitle) previewTitle.textContent = title;
-            if (previewDescription) previewDescription.textContent = description;
-            if (previewBadge) previewBadge.textContent = badge;
-            if (previewStat1) previewStat1.textContent = stat1;
-            if (previewStat2) previewStat2.textContent = stat2;
-            if (previewDuration) previewDuration.textContent = duration;
-            if (previewLink) previewLink.href = link;
-            
-            // Animación de transición
+            // Animación
             const previewContent = document.querySelector('.preview-content');
             if (previewContent) {
                 previewContent.style.opacity = '0';
-                previewContent.style.transform = 'translateY(20px)';
+                previewContent.style.transform = 'translateY(10px)';
                 
                 setTimeout(() => {
-                    previewContent.style.transition = 'all 0.5s ease';
+                    previewContent.style.transition = 'all 0.4s ease';
                     previewContent.style.opacity = '1';
                     previewContent.style.transform = 'translateY(0)';
                 }, 50);
             }
         }
         
-        // Navegación
         function goToSlide(index) {
             if (isAnimating || index === currentIndex) return;
             
-            // Calcular nuevo índice (con wrap-around)
             currentIndex = (index + totalSlides) % totalSlides;
-            
             updateCoverflow();
             updatePreview();
-            resetAutoplay();
         }
         
         function goToPrevSlide() {
@@ -637,160 +544,70 @@ document.addEventListener('DOMContentLoaded', function() {
             goToSlide(currentIndex + 1);
         }
         
-        // Auto-play
-        function startAutoplay() {
-            if (!isAutoplay || config.reduceMotion) return;
-            
-            clearInterval(autoplayInterval);
-            
-            autoplayInterval = setInterval(() => {
-                if (!isDragging && !isAnimating) {
-                    goToNextSlide();
-                }
-            }, autoplaySpeed);
-            
-            // Iniciar animación de progress bar
-            if (progressBar) {
-                progressBar.style.animation = `progressBar ${autoplaySpeed}ms linear infinite`;
-            }
-        }
-        
-        function stopAutoplay() {
-            clearInterval(autoplayInterval);
-            if (progressBar) {
-                progressBar.style.animation = 'none';
-            }
-        }
-        
-        function resetAutoplay() {
-            if (isAutoplay) {
-                startAutoplay();
-            }
-        }
-        
-        function toggleAutoplay() {
-            isAutoplay = !isAutoplay;
-            
-            if (isAutoplay) {
-                startAutoplay();
-                if (autoplayToggle) {
-                    autoplayToggle.checked = true;
-                }
-            } else {
-                stopAutoplay();
-                if (autoplayToggle) {
-                    autoplayToggle.checked = false;
-                }
-            }
-        }
-        
         // Event Listeners
-        function initEventListeners() {
+        function initCoverflowEvents() {
             // Botones de navegación
-            if (prevBtn) {
-                prevBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    goToPrevSlide();
-                });
-            }
-            
-            if (nextBtn) {
-                nextBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    goToNextSlide();
-                });
-            }
+            if (prevBtn) prevBtn.addEventListener('click', goToPrevSlide);
+            if (nextBtn) nextBtn.addEventListener('click', goToNextSlide);
             
             // Dots
             dots.forEach((dot, index) => {
-                dot.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    goToSlide(index);
-                });
+                dot.addEventListener('click', () => goToSlide(index));
             });
-            
-            // Auto-play toggle
-            if (autoplayToggle) {
-                autoplayToggle.addEventListener('change', toggleAutoplay);
-            }
             
             // Click en slides
             slides.forEach((slide, index) => {
-                slide.addEventListener('click', (e) => {
-                    if (!isDragging) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        goToSlide(index);
-                    }
+                slide.addEventListener('click', () => {
+                    if (!isDragging) goToSlide(index);
                 });
             });
             
-            // Wheel scroll
-            coverflowTrack.addEventListener('wheel', handleWheel, { passive: false });
+            // Wheel
+            elements.coverflowTrack.addEventListener('wheel', handleWheel, { passive: false });
             
-            // Touch/Mouse drag
-            coverflowTrack.addEventListener('mousedown', startDrag);
-            coverflowTrack.addEventListener('touchstart', handleTouchStart, { passive: true });
+            // Drag
+            elements.coverflowTrack.addEventListener('mousedown', startDrag);
+            elements.coverflowTrack.addEventListener('touchstart', handleTouchStart, { passive: true });
             
             document.addEventListener('mousemove', handleDrag);
             document.addEventListener('touchmove', handleTouchMove, { passive: false });
             
             document.addEventListener('mouseup', endDrag);
             document.addEventListener('touchend', endDrag);
-            document.addEventListener('touchcancel', endDrag);
             
-            // Keyboard navigation
+            // Teclado
             document.addEventListener('keydown', handleKeydown);
         }
         
         function handleWheel(e) {
             e.preventDefault();
-            
             if (isAnimating) return;
             
-            const delta = Math.sign(e.deltaY);
-            
-            if (delta > 0) {
-                goToNextSlide();
-            } else {
-                goToPrevSlide();
-            }
+            e.deltaY > 0 ? goToNextSlide() : goToPrevSlide();
         }
         
         function startDrag(e) {
             isDragging = true;
-            dragStartX = e.clientX;
+            dragStartX = e.clientX || e.touches[0].clientX;
             dragCurrentX = dragStartX;
-            
-            // Pausar auto-play temporalmente
-            stopAutoplay();
         }
         
         function handleDrag(e) {
             if (!isDragging) return;
-            
-            dragCurrentX = e.clientX;
+            dragCurrentX = e.clientX || e.touches[0].clientX;
             updateDragEffect();
         }
         
         function handleTouchStart(e) {
             if (e.touches.length === 1) {
-                isDragging = true;
-                dragStartX = e.touches[0].clientX;
-                dragCurrentX = dragStartX;
-                stopAutoplay();
+                startDrag(e);
             }
         }
         
         function handleTouchMove(e) {
             if (!isDragging || e.touches.length !== 1) return;
-            
             e.preventDefault();
-            dragCurrentX = e.touches[0].clientX;
-            updateDragEffect();
+            handleDrag(e);
         }
         
         function endDrag() {
@@ -799,54 +616,20 @@ document.addEventListener('DOMContentLoaded', function() {
             const dragDistance = dragCurrentX - dragStartX;
             
             if (Math.abs(dragDistance) > dragThreshold) {
-                if (dragDistance > 0) {
-                    goToPrevSlide();
-                } else {
-                    goToNextSlide();
-                }
+                dragDistance > 0 ? goToPrevSlide() : goToNextSlide();
             }
             
             isDragging = false;
-            
-            // Reanudar auto-play si estaba activo
-            if (isAutoplay) {
-                startAutoplay();
-            }
+            elements.coverflowTrack.style.transform = '';
+            elements.coverflowTrack.style.transition = '';
         }
         
         function updateDragEffect() {
             if (!isDragging) return;
             
-            const dragDistance = (dragCurrentX - dragStartX) * configCoverflow.touchSensitivity;
-            const dragPercentage = dragDistance / window.innerWidth;
-            
-            // Efecto visual durante el drag
-            coverflowTrack.style.transform = `translateX(${dragDistance}px)`;
-            coverflowTrack.style.transition = 'none';
-            
-            // Feedback visual en slides
-            slides.forEach((slide, index) => {
-                if (Math.abs(index - currentIndex) <= configCoverflow.visibleSlides) {
-                    const baseTransform = slide.getAttribute('data-index');
-                    const extraRotation = dragPercentage * 10; // Rotación adicional por drag
-                    
-                    if (baseTransform) {
-                        const baseValue = parseInt(baseTransform);
-                        let newRotation = 0;
-                        
-                        if (baseValue < 0) {
-                            newRotation = 30 + extraRotation;
-                        } else if (baseValue > 0) {
-                            newRotation = -30 + extraRotation;
-                        }
-                        
-                        slide.style.transform = slide.style.transform.replace(
-                            /rotateY\([^)]*\)/,
-                            `rotateY(${newRotation}deg)`
-                        );
-                    }
-                }
-            });
+            const dragDistance = dragCurrentX - dragStartX;
+            elements.coverflowTrack.style.transform = `translateX(${dragDistance}px)`;
+            elements.coverflowTrack.style.transition = 'none';
         }
         
         function handleKeydown(e) {
@@ -858,77 +641,51 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (e.key === 'ArrowRight') {
                 e.preventDefault();
                 goToNextSlide();
-            } else if (e.key === ' ') {
-                e.preventDefault();
-                toggleAutoplay();
             }
         }
         
-        // Cleanup
-        function cleanup() {
-            stopAutoplay();
-            
-            // Remover event listeners
-            if (prevBtn) prevBtn.removeEventListener('click', goToPrevSlide);
-            if (nextBtn) nextBtn.removeEventListener('click', goToNextSlide);
-            if (autoplayToggle) autoplayToggle.removeEventListener('change', toggleAutoplay);
-            
-            dots.forEach(dot => {
-                dot.removeEventListener('click', () => {});
-            });
-            
-            slides.forEach(slide => {
-                slide.removeEventListener('click', () => {});
-            });
-            
-            coverflowTrack.removeEventListener('wheel', handleWheel);
-            coverflowTrack.removeEventListener('mousedown', startDrag);
-            coverflowTrack.removeEventListener('touchstart', handleTouchStart);
-            
-            document.removeEventListener('mousemove', handleDrag);
-            document.removeEventListener('touchmove', handleTouchMove);
-            document.removeEventListener('mouseup', endDrag);
-            document.removeEventListener('touchend', endDrag);
-            document.removeEventListener('touchcancel', endDrag);
-            document.removeEventListener('keydown', handleKeydown);
-        }
-        
-        // Public methods
+        // API pública
         return {
             next: goToNextSlide,
             prev: goToPrevSlide,
             goTo: (index) => goToSlide(index),
-            play: () => {
-                isAutoplay = true;
-                startAutoplay();
-                if (autoplayToggle) autoplayToggle.checked = true;
-            },
-            pause: () => {
-                isAutoplay = false;
-                stopAutoplay();
-                if (autoplayToggle) autoplayToggle.checked = false;
-            },
-            cleanup: cleanup,
-            getCurrentIndex: () => currentIndex,
-            getTotalSlides: () => totalSlides
+            getCurrentIndex: () => currentIndex
         };
+    }
+    
+    // ===== 9. ANALÍTICAS SIMPLIFICADAS =====
+    function initAnalytics() {
+        // Track CTA clicks
+        document.querySelectorAll('.btn-primary, .btn-cta-primary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const text = this.textContent.trim();
+                console.log(`📊 CTA Clicked: "${text.substring(0, 30)}..."`);
+                // Aquí iría tu código de Google Analytics o similares
+            });
+        });
+        
+        // Track form submissions
+        if (elements.contactForm) {
+            elements.contactForm.addEventListener('submit', function() {
+                console.log('📊 Form Submitted');
+            });
+        }
     }
     
     // ===== INICIALIZAR =====
     init();
     
-    // ===== UTILIDADES GLOBALES =====
+    // ===== API GLOBAL =====
     window.DDPortfolio = window.DDPortfolio || {};
     Object.assign(window.DDPortfolio, {
         refresh: function() {
-            statNumbers.forEach(stat => {
+            elements.statNumbers.forEach(stat => {
                 const target = stat.getAttribute('data-count');
-                const isPercentage = stat.textContent.includes('%');
-                const isMoney = stat.textContent.includes('$');
+                const text = stat.textContent;
                 
-                if (isMoney) {
+                if (text.includes('$')) {
                     stat.textContent = `$${target}M`;
-                } else if (isPercentage) {
+                } else if (text.includes('%')) {
                     stat.textContent = `${target}%`;
                 } else {
                     stat.textContent = `${target}+`;
@@ -939,62 +696,24 @@ document.addEventListener('DOMContentLoaded', function() {
         showNotification: function(message, type = 'success') {
             const notification = document.createElement('div');
             notification.className = `notification notification-${type}`;
-            notification.setAttribute('role', 'alert');
             notification.innerHTML = `
                 <span>${message}</span>
-                <button class="notification-close" aria-label="Cerrar">
+                <button class="notification-close">
                     <i class="fas fa-times"></i>
                 </button>
             `;
             
             document.body.appendChild(notification);
             
-            setTimeout(() => {
-                notification.classList.add('fade-out');
-                setTimeout(() => notification.remove(), 300);
-            }, 5000);
-            
+            setTimeout(() => notification.classList.add('fade-out'), 5000);
             notification.querySelector('.notification-close').addEventListener('click', () => {
                 notification.classList.add('fade-out');
-                setTimeout(() => notification.remove(), 300);
             });
-        },
-        
-        // Métodos para controlar el coverflow desde la consola
-        coverflowNext: function() {
-            if (window.DDPortfolio.coverflow) {
-                window.DDPortfolio.coverflow.next();
-            }
-        },
-        
-        coverflowPrev: function() {
-            if (window.DDPortfolio.coverflow) {
-                window.DDPortfolio.coverflow.prev();
-            }
-        },
-        
-        coverflowGoTo: function(index) {
-            if (window.DDPortfolio.coverflow) {
-                window.DDPortfolio.coverflow.goTo(index);
-            }
-        },
-        
-        coverflowPlay: function() {
-            if (window.DDPortfolio.coverflow) {
-                window.DDPortfolio.coverflow.play();
-            }
-        },
-        
-        coverflowPause: function() {
-            if (window.DDPortfolio.coverflow) {
-                window.DDPortfolio.coverflow.pause();
-            }
         }
     });
 });
 
-// Polyfill para Safari
+// Polyfill para navegadores antiguos
 if (!('scrollBehavior' in document.documentElement.style)) {
-    import('https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js')
-        .then(() => console.log('Polyfill cargado'));
+    import('https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js');
 }
