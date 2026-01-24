@@ -2254,3 +2254,169 @@ body.mobile-menu-open .header-fixed {
 .mobile-menu.fade-out .mobile-menu-content {
   animation: slideOut var(--transition-normal) forwards;
 }
+/* ===== BANNERS DE FONDO ===== */
+.hero-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.95; /* Ajusta según necesidad */
+}
+
+/* Ajustar contenido del hero sobre el banner */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.92) 0%, 
+        rgba(255, 255, 255, 0.85) 100%
+    );
+    z-index: 1;
+}
+
+/* Banner para sección "Sobre mí" */
+.about-section {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-white);
+}
+
+.about-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.about-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    opacity: 0.08; /* Muy sutil para fondo */
+}
+
+.about-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Ajustar el grid de "Sobre mí" para el nuevo layout */
+.about-grid {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Logo actualizado */
+.logo-img {
+    height: 36px;
+    width: auto;
+    display: block;
+}
+
+.logo-symbol {
+    display: none; /* Ocultar el símbolo DD si prefieres solo la imagen */
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        height: 32px;
+    }
+    
+    /* Ajustes para banners en móvil */
+    .hero-banner,
+    .about-banner {
+        position: fixed; /* Mejor rendimiento en móvil */
+    }
+    
+    .banner-img,
+    .about-banner-img {
+        object-position: center 20%;
+    }
+    
+    .about-grid {
+        padding: var(--space-4);
+    }
+}
+
+/* Mejorar legibilidad del texto sobre banners */
+.hero-title,
+.hero-subtitle,
+.hero-subtext {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about-headline,
+.about-text p,
+.highlight-item h4,
+.highlight-item p,
+.certifications-title,
+.certifications-subtitle {
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* Efecto de superposición para mejorar contraste */
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.97) 0%,
+        rgba(255, 255, 255, 0.97) 60%,
+        rgba(255, 255, 255, 0.9) 100%
+    );
+    z-index: 0;
+}
+
+/* Ajustes específicos para el layout de "Sobre mí" con banner */
+@media (min-width: 992px) {
+    .about-section::before {
+        background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.97) 0%,
+            rgba(255, 255, 255, 0.97) 40%, /* La foto está a la izquierda */
+            rgba(255, 255, 255, 0.85) 60%,
+            rgba(255, 255, 255, 0.9) 100%
+        );
+    }
+    
+    .about-grid {
+        background: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+        border: none;
+    }
+}
