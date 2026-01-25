@@ -666,140 +666,153 @@ body.mobile-menu-open .header-fixed {
   60% { transform: translateY(-5px); }
 }
 
-/* ===== GALERÍA DE MOCKUPS UX/UI ===== */
-/* ===== GALERÍA DE MOCKUPS UX/UI ===== */
+/* ============================================
+   GALERÍA PRO DE MOCKUPS - VERSIÓN PREMIUM
+   Solo imágenes sin títulos ni descripciones
+   ============================================ */
+
+/* ===== GALERÍA MINIMALISTA ===== */
 .mockups-section {
   padding: var(--space-8) 0;
-  background: var(--color-gray-50);
-  border-bottom: 1px solid var(--color-gray-200);
+  background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-white) 100%);
   position: relative;
-  z-index: 1;
+  overflow: hidden;
 }
 
 .mockups-section .section-header {
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
 }
 
 .mockups-section .section-title {
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  position: relative;
+  display: inline-block;
 }
 
-.mockups-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--space-4);
-  margin-bottom: var(--space-6);
+.mockups-section .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
 }
 
-@media (min-width: 768px) {
-  .mockups-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-5);
-  }
+.mockups-section .section-subtitle {
+  font-size: 1.25rem;
+  max-width: 500px;
+  opacity: 0.8;
 }
 
-@media (min-width: 1024px) {
-  .mockups-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
-  }
-}
-
-.mockup-card {
-  background: var(--color-white);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  border: 1px solid var(--color-gray-200);
-  transition: all var(--transition-normal);
-  box-shadow: var(--shadow-md);
-}
-
-.mockup-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--color-primary);
-  box-shadow: var(--shadow-2xl);
-}
-
-.mockup-image {
+/* Contenedor de galería sin títulos */
+.gallery-container {
   position: relative;
   width: 100%;
-  height: 200px;
-  overflow: hidden;
-  background: var(--color-gray-100);
-  display: flex;
-  align-items: flex-start; /* Cambiado de center a flex-start */
-  justify-content: center;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+/* Grid de galería premium */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+  margin: 0;
+  padding: var(--space-5) 0;
 }
 
 @media (min-width: 768px) {
-  .mockup-image {
-    height: 240px;
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
   }
 }
 
-.mockup-image img {
-  width: auto; /* Cambiado de 100% a auto */
-  height: 100%; /* Mantiene la altura del contenedor */
-  object-fit: contain; /* Cambiado de cover a contain */
-  object-position: top center; /* Posiciona la imagen arriba y centrada */
-  transition: transform var(--transition-normal);
+@media (min-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+  }
 }
 
-.mockup-card:hover .mockup-image img {
-  transform: scale(1.05);
+/* Tarjeta minimalista solo imagen */
+.gallery-item {
+  position: relative;
+  background: transparent;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  aspect-ratio: 16/10;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: 1px solid var(--color-gray-200);
+  background: var(--color-white);
 }
 
-/* Clases específicas para diferentes tipos de mockups */
-.mockup-dashboard .mockup-image img {
-  object-position: top center;
-  max-width: 100%;
+.gallery-item:hover {
+  transform: translateY(-12px) scale(1.02);
+  border-color: var(--color-primary);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px var(--color-primary);
 }
 
-.mockup-product .mockup-image img {
-  object-position: top center;
-  max-width: 100%;
+/* Imagen con efecto zoom elegante */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, var(--color-gray-100), var(--color-gray-50));
 }
 
-.mockup-analytics .mockup-image img {
-  object-position: top center;
-  max-width: 100%;
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  padding: var(--space-4);
 }
 
-.mockup-mobile .mockup-image img {
-  object-position: top center;
-  max-width: 85%; /* Reduce un poco el tamaño para que no toque los bordes */
+.gallery-item:hover .gallery-image img {
+  transform: scale(1.08);
 }
 
-.mockup-landing .mockup-image img {
-  object-position: top center;
-  max-width: 100%;
-}
-
-.mockup-admin .mockup-image img {
-  object-position: top center;
-  max-width: 100%;
-}
-
-.mockup-overlay {
+/* Overlay minimalista al hover */
+.gallery-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 70%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-normal);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background var(--transition-normal);
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: var(--space-4);
 }
 
-.mockup-card:hover .mockup-overlay {
-  background: rgba(0, 0, 0, 0.3);
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
 }
 
-.view-full {
-  width: 40px;
-  height: 40px;
+/* Botón de expansión minimalista */
+.expand-btn {
+  width: 44px;
+  height: 44px;
   background: var(--color-white);
   border-radius: 50%;
   display: flex;
@@ -807,67 +820,272 @@ body.mobile-menu-open .header-fixed {
   justify-content: center;
   color: var(--color-gray-700);
   text-decoration: none;
-  transform: translateY(20px);
+  transform: translateY(20px) scale(0.8);
   opacity: 0;
-  transition: all var(--transition-normal);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: var(--shadow-lg);
+  border: none;
+  cursor: pointer;
 }
 
-.mockup-card:hover .view-full {
-  transform: translateY(0);
+.expand-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(0) scale(1);
+}
+
+.gallery-item:hover .expand-btn {
+  transform: translateY(0) scale(1);
   opacity: 1;
 }
 
-.view-full:hover {
+/* Indicador de tipo (opcional, muy sutil) */
+.image-type {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: rgba(0, 0, 0, 0.75);
+  color: var(--color-white);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(4px);
+}
+
+.gallery-item:hover .image-type {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Controles de filtro (opcional) */
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: var(--space-2) var(--space-4);
+  background: transparent;
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-gray-600);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(180, 189, 61, 0.05);
+}
+
+.filter-btn.active {
   background: var(--color-primary);
+  border-color: var(--color-primary);
   color: var(--color-white);
 }
 
-.mockup-info {
-  padding: var(--space-4);
+/* Modal para vista completa */
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
 }
 
-.mockup-info h3 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: var(--space-2);
-  color: var(--color-black);
+.gallery-modal.active {
+  opacity: 1;
+  visibility: visible;
 }
 
-.mockup-info p {
-  font-size: 0.875rem;
+.modal-content {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  max-width: 1400px;
+  background: var(--color-white);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  transform: scale(0.9);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.gallery-modal.active .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  background: var(--color-gray-50);
+}
+
+.modal-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2xl);
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 48px;
+  height: 48px;
+  background: var(--color-white);
+  border-radius: 50%;
+  border: none;
+  color: var(--color-gray-700);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-lg);
+  z-index: 2001;
+}
+
+.modal-close:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  transform: rotate(90deg);
+}
+
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--space-4);
+  z-index: 2001;
+}
+
+.modal-prev,
+.modal-next {
+  width: 56px;
+  height: 56px;
+  background: var(--color-white);
+  border-radius: 50%;
+  border: none;
+  color: var(--color-gray-700);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-lg);
+  opacity: 0.9;
+}
+
+.modal-prev:hover,
+.modal-next:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Footer de la galería */
+.gallery-footer {
+  text-align: center;
+  padding: var(--space-8) 0 var(--space-4);
+  border-top: 1px solid var(--color-gray-200);
+  margin-top: var(--space-8);
+}
+
+.gallery-footer p {
+  font-size: 1rem;
   color: var(--color-gray-600);
   margin-bottom: var(--space-3);
-  line-height: 1.5;
 }
 
-.mockup-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
+/* Estados de carga */
+.gallery-item.loading {
+  background: linear-gradient(90deg, 
+    var(--color-gray-100) 25%, 
+    var(--color-gray-200) 50%, 
+    var(--color-gray-100) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
 }
 
-.tag {
-  background: var(--color-gray-100);
-  color: var(--color-gray-700);
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-full);
-  font-size: 0.75rem;
-  font-weight: 500;
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
-.mockups-cta {
-  text-align: center;
-  padding: var(--space-5);
-  background: linear-gradient(135deg, rgba(180, 189, 61, 0.05), transparent);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-gray-200);
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  
+  .gallery-item {
+    aspect-ratio: 4/3;
+  }
+  
+  .gallery-item:hover {
+    transform: translateY(-8px) scale(1.01);
+  }
+  
+  .modal-content {
+    width: 95vw;
+    height: 95vh;
+    padding: 0;
+  }
+  
+  .modal-image {
+    padding: var(--space-4);
+  }
 }
 
-.mockups-cta p {
-  margin-bottom: var(--space-3);
-  font-size: 1.125rem;
-  color: var(--color-gray-800);
-  font-weight: 500;
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .gallery-filters {
+    gap: var(--space-1);
+  }
+  
+  .filter-btn {
+    padding: var(--space-1) var(--space-3);
+    font-size: 0.75rem;
+  }
 }
 
 /* ===== SECCIÓN RESULTADOS CON CONTEXTO ===== */
