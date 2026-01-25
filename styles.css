@@ -667,6 +667,7 @@ body.mobile-menu-open .header-fixed {
 }
 
 /* ===== GALERÍA DE MOCKUPS UX/UI ===== */
+/* ===== GALERÍA DE MOCKUPS UX/UI ===== */
 .mockups-section {
   padding: var(--space-8) 0;
   background: var(--color-gray-50);
@@ -724,6 +725,10 @@ body.mobile-menu-open .header-fixed {
   width: 100%;
   height: 200px;
   overflow: hidden;
+  background: var(--color-gray-100);
+  display: flex;
+  align-items: flex-start; /* Cambiado de center a flex-start */
+  justify-content: center;
 }
 
 @media (min-width: 768px) {
@@ -733,14 +738,46 @@ body.mobile-menu-open .header-fixed {
 }
 
 .mockup-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: auto; /* Cambiado de 100% a auto */
+  height: 100%; /* Mantiene la altura del contenedor */
+  object-fit: contain; /* Cambiado de cover a contain */
+  object-position: top center; /* Posiciona la imagen arriba y centrada */
   transition: transform var(--transition-normal);
 }
 
 .mockup-card:hover .mockup-image img {
   transform: scale(1.05);
+}
+
+/* Clases específicas para diferentes tipos de mockups */
+.mockup-dashboard .mockup-image img {
+  object-position: top center;
+  max-width: 100%;
+}
+
+.mockup-product .mockup-image img {
+  object-position: top center;
+  max-width: 100%;
+}
+
+.mockup-analytics .mockup-image img {
+  object-position: top center;
+  max-width: 100%;
+}
+
+.mockup-mobile .mockup-image img {
+  object-position: top center;
+  max-width: 85%; /* Reduce un poco el tamaño para que no toque los bordes */
+}
+
+.mockup-landing .mockup-image img {
+  object-position: top center;
+  max-width: 100%;
+}
+
+.mockup-admin .mockup-image img {
+  object-position: top center;
+  max-width: 100%;
 }
 
 .mockup-overlay {
