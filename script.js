@@ -878,3 +878,79 @@ window.closeMobileMenu = function() {
         }
     }, 300);
 };
+// Agrega esto al final de tu script.js existente o crea un nuevo archivo
+
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const galleryOverlay = document.querySelector('.gallery-overlay');
+    const galleryClose = document.querySelector('.gallery-close');
+    const body = document.body;
+    
+    // Expandir card al hacer clic
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Prevenir que se expanda si ya está expandida
+            if (this.classList.contains('expanded')) return;
+            
+            // Obtener posición original
+            const rect = this.getBoundingClientRect();
+            
+            // Calcular transform para animación
+            const scaleX = window.innerWidth / rect.width;
+            const scaleY = window.innerHeight / rect.height;
+            
+            // Guardar posición original
+            this.style.setProperty('--original-x', `${rect.left}px`);
+            this.style.setProperty('--original-y', `${rect.top}px`);
+            this.style.setProperty('--original-width', `${rect.width}px`);
+            this.style.setProperty('--original-height', `${rect.height}px`);
+            
+            // Añadir clases para expansión
+            this.classList.add('expanded');
+            galleryOverlay.classList.add('active');
+            body.classList.add('no-scroll');
+            
+            // Forzar reflow para reiniciar animación
+            void this.offsetWidth;
+        });
+    });
+    
+    // Cerrar card expandida
+    function closeExpandedCard() {
+        const expandedItem = document.querySelector('.gallery-item.expanded');
+        if (expandedItem) {
+            expandedItem.classList.remove('expanded');
+            galleryOverlay.classList.remove('active');
+            body.classList.remove('no-scroll');
+        }
+    }
+    
+    // Eventos para cerrar
+    galleryClose.addEventListener('click', closeExpandedCard);
+    galleryOverlay.addEventListener('click', closeExpandedCard);
+    
+    // Cerrar con tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' || e.keyCode === 27) {
+            closeExpandedCard();
+        }
+    });
+    
+    // Prevenir scroll en cards expandidas
+    document.addEventListener('wheel', function(e) {
+        if (document.querySelector('.gallery-item.expanded')) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    // Cerrar al hacer clic fuera de la imagen expandida
+    document.addEventListener('click', function(e) {
+        const expandedItem = document.querySelector('.gallery-item.expanded');
+        if (expandedItem && 
+            !expandedItem.contains(e.target) && 
+            e.target !== galleryClose && 
+            !galleryClose.contains(e.target)) {
+            closeExpandedCard();
+        }
+    });
+});
