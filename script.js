@@ -945,7 +945,7 @@ document.addEventListener('DOMContentLoaded', function() {
             void expandedClone.offsetWidth;
             
             // Animar a posición central
-            expandedClone.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            expandedClone.style.transition = 'all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1)';
             expandedClone.style.top = '50%';
             expandedClone.style.left = '50%';
             expandedClone.style.transform = 'translate(-50%, -50%) scale(1)';
