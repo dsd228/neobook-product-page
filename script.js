@@ -90,6 +90,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     <a href="#hero" class="nav-link" onclick="closeMobileMenu()">
                         <i class="fas fa-home"></i> Inicio
                     </a>
+                    <a href="#mockups" class="nav-link" onclick="closeMobileMenu()">
+                        <i class="fas fa-paint-brush"></i> Mockups
+                    </a>
                     <a href="#resultados" class="nav-link" onclick="closeMobileMenu()">
                         <i class="fas fa-chart-line"></i> Resultados
                     </a>
@@ -454,7 +457,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (config.reduceMotion) return;
         
         const animatedElements = document.querySelectorAll(
-            '.result-card, .process-card, .testimonial-card, .benefit-item'
+            '.result-card, .process-card, .testimonial-card, .benefit-item, .mockup-card'
         );
         
         if (animatedElements.length === 0) return;
@@ -779,6 +782,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(`📊 Mobile Menu ${isOpen ? 'Closed' : 'Opened'}`);
             });
         }
+        
+        // Track mockup gallery interactions
+        document.querySelectorAll('.view-full').forEach(link => {
+            link.addEventListener('click', function() {
+                const mockupTitle = this.closest('.mockup-card').querySelector('h3').textContent;
+                console.log(`📊 Mockup Viewed: "${mockupTitle}"`);
+            });
+        });
     }
     
     // ===== INICIALIZAR =====
