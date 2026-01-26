@@ -24,18 +24,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ===== INICIALIZAR MÓDULOS =====
     function init() {
-        updateCurrentYear();
-        initMobileMenu();
-        initSmoothScroll();
-        initHeaderSticky();
-        initStatsCounter();
-        initContactForm();
-        initAnimations();
-        initAppleGallery();
-        initAnalytics();
-        
-        if (config.debug) console.log('✅ Todos los módulos inicializados');
-    }
+    updateCurrentYear();
+    initMobileMenu();
+    initSmoothScroll();
+    initHeaderSticky();
+    initStatsCounter();
+    initContactForm();
+    initAnimations();
+    initAppleGallery();
+    initCasesInteractions(); // ← AÑADE ESTA LÍNEA
+    initAnalytics();
+    
+    if (config.debug) console.log('✅ Todos los módulos inicializados');
+}
     
     // ===== 1. AÑO ACTUAL =====
     function updateCurrentYear() {
@@ -483,7 +484,64 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(el);
         });
     }
+    // ===== INTERACCIONES MEJORADAS PARA CASOS =====
+function initCasesInteractions() {
+    const caseCards = document.querySelectorAll('.case-card');
     
+    caseCards.forEach(card => {
+        // Hover effects mejorados
+        card.addEventListener('mouseenter', () => {
+            const stats = card.querySelectorAll('.stat');
+            stats.forEach((stat, index) => {
+                setTimeout(() => {
+                    stat.style.transform = 'translateY(-2px)';
+                }, index * 50);
+            });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            const stats = card.querySelectorAll('.stat');
+            stats.forEach(stat => {
+                stat.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Click en la imagen para ver más
+        const image = card.querySelector('.case-image');
+        if (image) {
+            image.addEventListener('click', () => {
+                const title = card.querySelector('.case-title').textContent;
+                console.log(`📊 Caso visto: ${title}`);
+                
+                // Aquí podrías agregar lógica para abrir un modal o lightbox
+                // Por ejemplo: openCaseModal(card);
+            });
+        }
+        
+        // Keyboard navigation
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const link = card.querySelector('.btn-primary');
+                if (link) link.click();
+            }
+        });
+    });
+    
+    // Track clicks en botones de casos
+    document.querySelectorAll('.btn-case').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const card = this.closest('.case-card');
+            const title = card.querySelector('.case-title').textContent;
+            const action = this.textContent.trim();
+            
+            console.log(`📊 Caso acción: ${title} - ${action}`);
+            
+            // Aquí iría tu código de analytics
+            // trackEvent('case_action', { title: title, action: action });
+        });
+    });
+}
     // ===== 8. GALERÍA APPLE PRO - CARRUSEL INFINITO =====
     function initAppleGallery() {
         const galleryTrack = document.querySelector('.gallery-track');
