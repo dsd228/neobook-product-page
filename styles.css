@@ -671,7 +671,7 @@ body.mobile-menu-open .header-fixed {
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: var(--space-4);
-  color: var(--color-white);
+  color: var(--color-black);
 }
 
 .hero-title .text-highlight {
@@ -694,7 +694,7 @@ body.mobile-menu-open .header-fixed {
 }
 
 .hero-subtitle strong {
-  color: var(--color-white);
+  color: var(--color-black);
   font-weight: 600;
 }
 
