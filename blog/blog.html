@@ -62,7 +62,7 @@
     .brand-logo {
       width: 24px;
       height: 24px;
-      background: linear-gradient(135deg, #ff6b35, #ff8c42);
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
       border-radius: 4px;
       display: flex;
       align-items: center;
@@ -141,8 +141,8 @@
     /* Grid de artículos */
     .articles-grid { 
       display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-      gap: 22px; 
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+      gap: 28px; 
     }
     
     .article-card { 
@@ -153,7 +153,6 @@
       display: flex; 
       flex-direction: column; 
       transition: transform 0.25s ease, box-shadow 0.25s ease; 
-      min-height: 280px; 
       height: 100%;
     }
     
@@ -162,8 +161,32 @@
       box-shadow: 0 18px 38px rgba(0,0,0,0.08); 
     }
     
+    /* Imagen de la card */
+    .card-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: 2rem;
+    }
+    
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    
+    .article-card:hover .card-image img {
+      transform: scale(1.05);
+    }
+    
     .card-body { 
-      padding: 22px; 
+      padding: 24px; 
       display: flex; 
       flex-direction: column; 
       gap: 12px; 
@@ -172,39 +195,66 @@
     
     .article-title { 
       font-family: "Sora", sans-serif; 
-      font-size: 1.2rem; 
-      color: #0f0f0f; 
-      line-height: 1.5; 
-      font-weight: 600; 
+      font-size: 1.25rem; 
+      color: #0f172a; 
+      line-height: 1.4; 
+      font-weight: 700; 
       margin-bottom: 8px;
     }
     
+    .article-excerpt {
+      color: #475569; 
+      font-size: 0.95rem; 
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid #f1f5f9;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+    
+    .article-category {
+      background: #f1f5f9;
+      color: #475569;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    
     .article-link { 
-      color: #ff6b35; 
-      font-weight: 700; 
+      color: #2563eb; 
+      font-weight: 600; 
       display: inline-flex; 
       align-items: center; 
       gap: 8px; 
-      margin-top: auto;
-      padding-top: 12px;
-      border-top: 1px solid #f0f0f0;
+      margin-top: 12px;
+      font-size: 0.95rem;
     }
     
     .article-link:hover {
-      color: #e05a2b;
+      color: #1d4ed8;
+      gap: 10px;
     }
     
     /* CTA */
     .blog-cta { 
       margin-top: 48px; 
-      padding: 24px; 
+      padding: 32px; 
       border-radius: 14px; 
-      background: #0f0f0f; 
+      background: #0f172a; 
       color: #fff; 
       display: flex; 
       flex-wrap: wrap; 
       align-items: center; 
-      gap: 16px; 
+      gap: 24px; 
       justify-content: space-between; 
     }
     
@@ -214,24 +264,26 @@
     }
     
     .cta-text strong {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
+      color: #fff;
     }
     
     .cta-text p {
       color: rgba(255,255,255,0.7); 
-      font-size: 0.95rem;
+      font-size: 1rem;
+      line-height: 1.6;
     }
     
     .cta-actions { 
       display: flex; 
-      gap: 10px; 
+      gap: 12px; 
       flex-wrap: wrap; 
     }
     
     .btn { 
-      padding: 12px 18px; 
+      padding: 14px 24px; 
       border-radius: 10px; 
       font-weight: 600; 
       border: none; 
@@ -245,36 +297,39 @@
     }
     
     .btn-primary { 
-      background: linear-gradient(135deg, #ff6b35, #ff8c42); 
+      background: linear-gradient(135deg, #2563eb, #3b82f6); 
       color: #fff; 
     }
     
     .btn-primary:hover { 
       transform: translateY(-2px); 
-      box-shadow: 0 10px 30px rgba(255,107,53,0.25); 
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.25); 
     }
     
     .btn-secondary { 
       background: transparent; 
       color: #fff; 
-      border: 2px solid rgba(255,255,255,0.4); 
+      border: 2px solid rgba(255,255,255,0.3); 
     }
     
     .btn-secondary:hover { 
       border-color: #fff; 
       transform: translateY(-2px); 
+      background: rgba(255,255,255,0.05);
     }
     
     /* Footer */
     .blog-footer { 
       text-align: center; 
       padding: 40px 16px 56px; 
-      color: #777; 
+      color: #64748b; 
       font-size: 0.95rem; 
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
     }
     
     .blog-footer a {
-      color: #ff6b35;
+      color: #2563eb;
       font-weight: 500;
     }
     
@@ -303,6 +358,22 @@
         width: 100%;
         justify-content: space-between;
       }
+      .articles-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+      .card-image {
+        height: 160px;
+      }
+      .blog-cta {
+        padding: 24px;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+      .cta-text {
+        min-width: auto;
+      }
       .cta-actions {
         width: 100%;
         justify-content: center;
@@ -324,6 +395,9 @@
       }
       .cta-text {
         min-width: auto;
+      }
+      .btn {
+        width: 100%;
       }
     }
   </style>
@@ -356,75 +430,138 @@
     <h2 class="section-head">Artículos del Blog</h2>
     
     <div class="articles-grid">
-      <!-- Artículos del blog -->
+      <!-- Artículos del blog con imágenes -->
       <article class="article-card">
+        <div class="card-image">
+          <img src="canvavsfigma.jpg" alt="Canva vs Figma 2025" loading="lazy">
+        </div>
         <div class="card-body">
           <div class="article-title">Canva vs Figma 2025</div>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Comparativa completa entre ambas herramientas para diseño en 2025.</p>
+          <p class="article-excerpt">Comparativa completa entre ambas herramientas para diseño en 2025. Ventajas, desventajas y casos de uso específicos para cada herramienta.</p>
+          <div class="article-meta">
+            <span class="article-category">Herramientas</span>
+            <span>5 min lectura</span>
+          </div>
           <a class="article-link" href="blog-canva-vs-figma-2025.html">Leer artículo completo →</a>
         </div>
       </article>
 
       <article class="article-card">
+        <div class="card-image">
+          <img src="dashboardanalisis.jpg" alt="Dashboard Design Examples 2024" loading="lazy">
+        </div>
         <div class="card-body">
           <div class="article-title">Dashboard Design Examples 2024</div>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Ejemplos y mejores prácticas para diseño de dashboards.</p>
+          <p class="article-excerpt">Ejemplos y mejores prácticas para diseño de dashboards. Análisis de métricas, visualización de datos y patrones de diseño efectivos.</p>
+          <div class="article-meta">
+            <span class="article-category">UI/UX</span>
+            <span>7 min lectura</span>
+          </div>
           <a class="article-link" href="blog-dashboard-design-examples-2024.html">Leer artículo completo →</a>
         </div>
       </article>
 
       <article class="article-card">
+        <div class="card-image">
+          <img src="appcomida.jpg" alt="Design Food Delivery App" loading="lazy">
+        </div>
         <div class="card-body">
           <div class="article-title">Design Food Delivery App</div>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Guía completa para diseñar una app de delivery de comida.</p>
+          <p class="article-excerpt">Guía completa para diseñar una app de delivery de comida. User flows, microinteractions y patrones de conversión optimizados.</p>
+          <div class="article-meta">
+            <span class="article-category">Product Design</span>
+            <span>8 min lectura</span>
+          </div>
           <a class="article-link" href="blog-design-food-delivery-app.html">Leer artículo completo →</a>
         </div>
       </article>
 
       <article class="article-card">
+        <div class="card-image">
+          <img src="figmamake.jpg" alt="Figma Make" loading="lazy">
+        </div>
         <div class="card-body">
           <div class="article-title">Figma Make</div>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Todo sobre Figma Make y sus funcionalidades.</p>
+          <p class="article-excerpt">Todo sobre Figma Make y sus funcionalidades. Automatización, plugins y flujos de trabajo avanzados para diseñadores.</p>
+          <div class="article-meta">
+            <span class="article-category">Figma</span>
+            <span>6 min lectura</span>
+          </div>
           <a class="article-link" href="blog-figma-make.html">Leer artículo completo →</a>
         </div>
       </article>
 
       <article class="article-card">
+        <div class="card-image">
+          <img src="figmahtml.jpg" alt="Figma to HTML Tools" loading="lazy">
+        </div>
         <div class="card-body">
           <div class="article-title">Figma to HTML Tools</div>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Herramientas para convertir diseños Figma a código HTML.</p>
+          <p class="article-excerpt">Herramientas para convertir diseños Figma a código HTML. Comparativa de plugins y metodologías para design to code.</p>
+          <div class="article-meta">
+            <span class="article-category">Code</span>
+            <span>6 min lectura</span>
+          </div>
           <a class="article-link" href="blog-figma-to-html-tools.html">Leer artículo completo →</a>
         </div>
       </article>
 
       <article class="article-card">
+        <div class="card-image">
+          <img src="framer.jpg" alt="Framer Trends" loading="lazy">
+        </div>
         <div class="card-body">
           <div class="article-title">Framer Trends</div>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Tendencias actuales en diseño con Framer.</p>
+          <p class="article-excerpt">Tendencias actuales en diseño con Framer. Animaciones, interacciones y desarrollo frontend con esta poderosa herramienta.</p>
+          <div class="article-meta">
+            <span class="article-category">Herramientas</span>
+            <span>5 min lectura</span>
+          </div>
           <a class="article-link" href="blog-framer-trends.html">Leer artículo completo →</a>
         </div>
       </article>
 
       <article class="article-card">
+        <div class="card-image">
+          <img src="7errores.jpg" alt="Grocery UX" loading="lazy">
+        </div>
         <div class="card-body">
           <div class="article-title">Grocery UX</div>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.5">Experiencia de usuario en apps de supermercado.</p>
+          <p class="article-excerpt">Experiencia de usuario en apps de supermercado. Patrones de compra, gestión de carrito y optimización del checkout.</p>
+          <div class="article-meta">
+            <span class="article-category">UX Research</span>
+            <span>7 min lectura</span>
+          </div>
           <a class="article-link" href="blog-grocery-ux.html">Leer artículo completo →</a>
         </div>
       </article>
 
       <article class="article-card">
+        <div class="card-image">
+          <img src="7errores.jpg" alt="Dog Walking UX" loading="lazy">
+        </div>
         <div class="card-body">
           <div class="article-title">Dog Walking UX</div>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.5">Diseño de experiencia para apps de paseo de perros.</p>
+          <p class="article-excerpt">Diseño de experiencia para apps de paseo de perros. Geolocalización, seguridad y comunicación entre dueños y paseadores.</p>
+          <div class="article-meta">
+            <span class="article-category">UX Design</span>
+            <span>6 min lectura</span>
+          </div>
           <a class="article-link" href="blog-dog-walking-ux.html">Leer artículo completo →</a>
         </div>
       </article>
 
       <article class="article-card">
+        <div class="card-image">
+          <img src="figmahtml.jpg" alt="Export Figma to HTML" loading="lazy">
+        </div>
         <div class="card-body">
           <div class="article-title">Export Figma to HTML</div>
-          <p style="color: #666; font-size: 0.95rem; line-height: 1.5">Cómo exportar diseños de Figma a código HTML.</p>
+          <p class="article-excerpt">Cómo exportar diseños de Figma a código HTML. Guía paso a paso para mantener la fidelidad del diseño en producción.</p>
+          <div class="article-meta">
+            <span class="article-category">Figma</span>
+            <span>8 min lectura</span>
+          </div>
           <a class="article-link" href="blog-export-figma-to-html.html">Leer artículo completo →</a>
         </div>
       </article>
@@ -434,7 +571,7 @@
     <div class="blog-cta">
       <div class="cta-text">
         <p><strong>¿Quieres más contenido sobre UX/UI y product?</strong></p>
-        <p>Contacta conmigo para recibir nuestras nuevas guías y casos de estudio.</p>
+        <p>Contacta conmigo para recibir nuestras nuevas guías y casos de estudio directamente en tu email.</p>
       </div>
       <div class="cta-actions">
         <a href="../contact.html" class="btn btn-primary">
@@ -478,6 +615,31 @@
         }
       });
     });
+
+    // Efecto hover en las imágenes de las cards
+    document.querySelectorAll('.article-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        const img = this.querySelector('.card-image img');
+        if (img) {
+          img.style.transform = 'scale(1.05)';
+        }
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        const img = this.querySelector('.card-image img');
+        if (img) {
+          img.style.transform = 'scale(1)';
+        }
+      });
+    });
+
+    // Lazy loading para imágenes
+    if ('loading' in HTMLImageElement.prototype) {
+      const images = document.querySelectorAll('img[loading="lazy"]');
+      images.forEach(img => {
+        img.src = img.dataset.src;
+      });
+    }
   </script>
 </body>
 </html>
