@@ -649,7 +649,7 @@ body.mobile-menu-open .header-fixed {
   object-fit: cover;
   object-position: center;
   display: block;
-  filter: brightness(0.8);
+  
 }
 
 /* CONTENIDO HERO */
