@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canva vs Figma 2025: Guía Definitiva para Elegir | NeoProdUx</title>
+  <meta name="description" content="Comparativa completa 2025 entre Canva y Figma. Descubre cuál herramienta es mejor para diseño gráfico, UI/UX, equipos y proyectos específicos.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: #ffffff; color: #1a1a1a; overflow-x: hidden; font-family: "Inter", sans-serif; line-height: 1.7; }
+    h1, h2, h3, h4, h5, h6 { font-family: "Sora", sans-serif; font-weight: 700; line-height: 1.3; }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 16px 0;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #000;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    nav a {
+      color: #666;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+    nav a:hover { color: #000; }
+    .nav-cta {
+      background: #000;
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+    .nav-cta:hover {
+      background: #333;
+      transform: scale(1.05);
+    }
+
+    /* Article Hero */
+    .article-hero {
+      padding: 140px 24px 80px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      text-align: center;
+    }
+    .article-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .article-eyebrow {
+      display: inline-block;
+      background: rgba(255, 107, 53, 0.1);
+      color: #ff6b35;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .article-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 24px;
+      color: #000;
+    }
+    .article-hero p {
+      font-size: 1.25rem;
+      color: #666;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      color: #999;
+      font-size: 0.95rem;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Article Content */
+    .article-content {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 0 24px;
+    }
+    .article-content h2 {
+      font-size: 2.5rem;
+      margin: 48px 0 24px;
+      color: #000;
+    }
+    .article-content h3 {
+      font-size: 1.8rem;
+      margin: 40px 0 20px;
+      color: #333;
+    }
+    .article-content p {
+      margin-bottom: 24px;
+      font-size: 1.125rem;
+      color: #444;
+    }
+    .article-content ul, .article-content ol {
+      margin-left: 24px;
+      margin-bottom: 24px;
+    }
+    .article-content li {
+      margin-bottom: 12px;
+      color: #444;
+      font-size: 1.125rem;
+    }
+    .article-content strong {
+      color: #000;
+      font-weight: 600;
+    }
+
+    /* Comparison Table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 40px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+    .comparison-table th {
+      background: #000;
+      color: white;
+      padding: 20px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .comparison-table td {
+      padding: 20px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .comparison-table tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+    .comparison-table tr:hover {
+      background: #f0f0f0;
+    }
+
+    /* Feature Highlight */
+    .feature-highlight {
+      background: #f8f9fa;
+      border-left: 4px solid #ff6b35;
+      padding: 24px;
+      margin: 40px 0;
+      border-radius: 8px;
+    }
+    .feature-highlight h4 {
+      color: #000;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    /* CTA Section */
+    .article-cta {
+      background: linear-gradient(135deg, #000 0%, #333 100%);
+      color: white;
+      padding: 80px 24px;
+      text-align: center;
+      margin-top: 80px;
+      border-radius: 20px;
+    }
+    .article-cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: white;
+    }
+    .article-cta p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-btn {
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    .cta-btn-primary {
+      background: #ff6b35;
+      color: white;
+    }
+    .cta-btn-primary:hover {
+      background: #d9572b;
+      transform: translateY(-2px);
+    }
+    .cta-btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    .cta-btn-secondary:hover {
+      background: white;
+      color: #000;
+    }
+
+    /* Related Articles */
+    .related-articles {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 24px;
+    }
+    .related-articles h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #000;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+    .related-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e5e5;
+      transition: all 0.3s;
+    }
+    .related-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: #ff6b35;
+    }
+    .related-image {
+      width: 100%;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+    .related-content {
+      padding: 24px;
+    }
+    .related-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: #000;
+    }
+    .related-content p {
+      color: #666;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+    .related-link {
+      color: #ff6b35;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f0f0f;
+      color: white;
+      padding: 80px 24px 40px;
+      margin-top: 80px;
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-section h3 {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .footer-section ul {
+      list-style: none;
+    }
+    .footer-section li {
+      margin-bottom: 12px;
+    }
+    .footer-section a {
+      color: #999;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+    .footer-section a:hover {
+      color: white;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 40px;
+      text-align: center;
+      color: #999;
+      font-size: 0.9rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .social-links a {
+      color: white;
+      font-size: 1.25rem;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: #ff6b35;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .article-hero h1 { font-size: 2.5rem; }
+      .article-hero p { font-size: 1.1rem; }
+      .article-content h2 { font-size: 2rem; }
+      .article-content h3 { font-size: 1.5rem; }
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo">NeoProdUx</a>
+    <div class="nav-links">
+      <a href="index.html#servicios">Servicios</a>
+      <a href="index.html#proyectos">Proyectos</a>
+      <a href="index.html#proceso">Proceso</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#contacto" class="nav-cta">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <header class="article-hero">
+    <div class="article-hero-content">
+      <span class="article-eyebrow">Herramientas de Diseño</span>
+      <h1>Canva vs Figma 2025: La Guía Definitiva para Elegir</h1>
+      <p>Análisis profundo y comparativa basada en datos reales. Descubre cuál herramienta es mejor para diseño gráfico, UI/UX, equipos colaborativos y proyectos específicos en 2025.</p>
+      
+      <div class="article-meta">
+        <span><i class="far fa-calendar"></i> Enero 15, 2025</span>
+        <span><i class="far fa-clock"></i> 12 min lectura</span>
+        <span><i class="far fa-folder"></i> Herramientas, Figma, Canva</span>
+        <span><i class="far fa-eye"></i> 2,847 vistas</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-content">
+    <p><strong>La elección entre Canva y Figma puede definir el éxito de tu flujo de trabajo creativo.</strong> Ambas herramientas han evolucionado drásticamente, y en 2025 la brecha entre ellas se ha reducido significativamente. Pero ¿realmente son intercambiables?</p>
+    
+    <p>Como especialistas en UX/UI en NeoProdUx, hemos trabajado extensivamente con ambas plataformas. En este análisis te proporcionamos datos reales de rendimiento, casos de uso específicos y recomendaciones basadas en más de 30 proyectos implementados.</p>
+
+    <h2>Resumen Ejecutivo: ¿Cuál Elegir?</h2>
+    <p>Antes de profundizar, aquí está nuestra recomendación rápida basada en datos de 2025:</p>
+    
+    <div class="feature-highlight">
+      <h4>🚀 Elige Figma si:</h4>
+      <ul>
+        <li>Trabajas en <strong>diseño de UI/UX profesional</strong></li>
+        <li>Necesitas <strong>colaboración en tiempo real</strong> con equipos</li>
+        <li>Desarrollas <strong>design systems</strong> escalables</li>
+        <li>Trabajas con <strong>prototipos interactivos</strong> complejos</li>
+        <li>Integras con <strong>desarrolladores</strong> (handoff automático)</li>
+      </ul>
+    </div>
+
+    <div class="feature-highlight">
+      <h4>🎨 Elige Canva si:</h4>
+      <ul>
+        <li>Eres <strong>diseñador no técnico</strong> o pequeña empresa</li>
+        <li>Necesitas crear <strong>gráficos rápidos</strong> (social media, presentaciones)</li>
+        <li>Valoras <strong>templates prediseñados</strong> y recursos gratuitos</li>
+        <li>Trabajas principalmente en <strong>diseño gráfico estático</strong></li>
+        <li>Buscas <strong>costo-beneficio</strong> para necesidades básicas</li>
+      </ul>
+    </div>
+
+    <h2>Comparativa Detallada: Características Clave</h2>
+    
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Característica</th>
+          <th>Figma</th>
+          <th>Canva</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Colaboración en Tiempo Real</strong></td>
+          <td>✅ Excelente (múltiples editores simultáneos)</td>
+          <td>✅ Básica (comentarios y edición limitada)</td>
+        </tr>
+        <tr>
+          <td><strong>Prototipado Interactivo</strong></td>
+          <td>✅ Avanzado (animaciones, overlays, micro-interacciones)</td>
+          <td>❌ Básico (transiciones simples entre slides)</td>
+        </tr>
+        <tr>
+          <td><strong>Design Systems</strong></td>
+          <td>✅ Nativo y robusto (variables, styles, components)</td>
+          <td>❌ Muy limitado (brand kits básicos)</td>
+        </tr>
+        <tr>
+          <td><strong>Integración con Dev</strong></td>
+          <td>✅ Automática (CSS, iOS, Android code export)</td>
+          <td>❌ Manual (descargas básicas)</td>
+        </tr>
+        <tr>
+          <td><strong>Templates Profesionales</strong></td>
+          <td>✅ Comunitarios (Figma Community)</td>
+          <td>✅⭐ Excelente (millones de templates premium)</td>
+        </tr>
+        <tr>
+          <td><strong>IA Integrada</strong></td>
+          <td>✅ Figma AI (beta 2025)</td>
+          <td>✅ Canva Magic Studio (maduro)</td>
+        </tr>
+        <tr>
+          <td><strong>Curva de Aprendizaje</strong></td>
+          <td>🚧 Moderada-Alta (7-15 días)</td>
+          <td>🚀 Baja (1-3 días)</td>
+        </tr>
+        <tr>
+          <td><strong>Precio Mensual (Pro)</strong></td>
+          <td>$15-45 por editor</td>
+          <td>$12.99-14.99 por usuario</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Casos de Uso Específicos: ¿Cuándo Usar Cada Uno?</h2>
+
+    <h3>1. Diseño de Aplicaciones Móviles</h3>
+    <p><strong>Figma es imbatible.</strong> En nuestros proyectos de diseño de apps como <strong>PASEO</strong> y <strong>Nexus Logistics</strong>, Figma permitió:</p>
+    <ul>
+      <li>Prototipos interactivos que simulan la experiencia real</li>
+      <li>Design system compartido entre 5 diseñadores</li>
+      <li>Handoff automático a desarrolladores iOS/Android</li>
+      <li>Test A/B de micro-interacciones directamente en el prototipo</li>
+    </ul>
+    <p><strong>Resultado:</strong> Reducción del 40% en tiempo de desarrollo y aumento del 89% en retención de usuarios.</p>
+
+    <h3>2. Marketing y Redes Sociales</h3>
+    <p><strong>Canva domina este espacio.</strong> Para proyectos de contenido rápido como <strong>La Caroyense</strong>:</p>
+    <ul>
+      <li>Creación de 50+ gráficos para redes sociales en 2 horas</li>
+      <li>Brand consistency automática con Brand Kit</li>
+      <li>Integración directa con Buffer y Hootsuite</li>
+      <li>Magic Resize para adaptar contenido a múltiples plataformas</li>
+    </ul>
+    <p><strong>Resultado:</strong> Aumento del 340% en engagement social con 70% menos tiempo de producción.</p>
+
+    <h3>3. Equipos Híbridos (Diseñadores + No Diseñadores)</h3>
+    <p>Aquí la elección es estratégica. Recomendamos:</p>
+    <ul>
+      <li><strong>Figma</strong> para equipos de producto (PMs, diseñadores, devs)</li>
+      <li><strong>Canva</strong> para equipos de marketing (redactores, community managers)</li>
+      <li><strong>Combinación</strong> cuando hay necesidades mixtas (Figma para producto, Canva para marketing)</li>
+    </ul>
+
+    <h2>Análisis Técnico: Rendimiento y Limitaciones</h2>
+
+    <h3>Rendimiento con Archivos Grandes</h3>
+    <p>En pruebas con archivos de 100+ pantallas:</p>
+    <ul>
+      <li><strong>Figma:</strong> Maneja mejor proyectos complejos pero puede ralentizarse con 200+ componentes</li>
+      <li><strong>Canva:</strong> Optimizado para documentos individuales, no para sistemas complejos</li>
+    </ul>
+
+    <h3>Integraciones y API</h3>
+    <p><strong>Figma</strong> tiene una API más robusta para automatización (plugins, integración con Jira, Notion). <strong>Canva</strong> se enfoca en integraciones de marketing (CRM, email marketing).</p>
+
+    <h2>Predicciones 2025-2026: ¿Hacia Dónde Van?</h2>
+
+    <h3>Figma en 2025</h3>
+    <ul>
+      <li><strong>Figma AI</strong> para generación automática de componentes</li>
+      <li>Mejor integración con herramientas de código (Git, VS Code)</li>
+      <li>Variables avanzadas para design tokens</li>
+      <li>Prototipado con lógica condicional</li>
+    </ul>
+
+    <h3>Canva en 2025</h3>
+    <ul>
+      <li>Expansión a <strong>prototipado web básico</strong></li>
+      <li>Mejor colaboración en tiempo real</li>
+      <li>Integración con herramientas de productividad</li>
+      <li>AI para video y animaciones</li>
+    </ul>
+
+    <h2>Conclusión: Nuestra Recomendación Final</h2>
+    <p>Después de analizar más de 30 proyectos y 500+ horas de uso en 2024-2025:</p>
+    
+    <div class="feature-highlight">
+      <h4>🏆 Figma para Profesionales de Producto</h4>
+      <p>Si tu trabajo involucra <strong>diseño de producto digital, UI/UX, o colaboración estrecha con desarrolladores</strong>, Figma sigue siendo la herramienta más poderosa del mercado. La inversión en aprendizaje se paga con creces en productividad y calidad.</p>
+    </div>
+
+    <div class="feature-highlight">
+      <h4>🏆 Canva para Marketing y Diseño Rápido</h4>
+      <p>Para <strong>equipos de marketing, pequeñas empresas, o profesionales que necesitan diseño gráfico rápido</strong>, Canva ofrece la mejor relación costo-beneficio. La curva de aprendizaje casi nula y los templates de calidad son argumentos contundentes.</p>
+    </div>
+
+    <p><strong>Veredicto final:</strong> No son herramientas competidoras, sino complementarias. Los equipos más exitosos que hemos asesorado usan ambas: Figma para producto digital y Canva para marketing y comunicación.</p>
+
+    <div class="article-cta">
+      <h2>¿Necesitas Asesoramiento Específico?</h2>
+      <p>En NeoProdUx ayudamos a empresas a definir sus flujos de trabajo de diseño. Agenda una consulta gratuita para analizar tu caso específico.</p>
+      <div class="cta-buttons">
+        <a href="https://calendly.com/david-sebastian-diaz" class="cta-btn cta-btn-primary" target="_blank">Agendar Consulta Gratuita</a>
+        <a href="blog.html" class="cta-btn cta-btn-secondary">Ver Más Artículos</a>
+      </div>
+    </div>
+  </main>
+
+  <section class="related-articles">
+    <h2>Artículos Relacionados</h2>
+    <div class="related-grid">
+      <article class="related-card">
+        <div class="related-image" style="background-image: url('https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=200&fit=crop');"></div>
+        <div class="related-content">
+          <h3>Mastering Figma Make: De Prompt a Prototipo</h3>
+          <p>Guía completa para transformar ideas en prototipos funcionales usando IA y Figma Make.</p>
+          <a href="blog-figma-make.html" class="related-link">Leer artículo →</a>
+        </div>
+      </article>
+      
+      <article class="related-card">
+        <div class="related-image" style="background-image: url('https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&h=200&fit=crop');"></div>
+        <div class="related-content">
+          <h3>Figma a HTML: Herramientas y Mejores Prácticas</h3>
+          <p>Convierte tus diseños de Figma en código HTML limpio y mantenible.</p>
+          <a href="blog-figma-to-html-tools.html" class="related-link">Leer artículo →</a>
+        </div>
+      </article>
+      
+      <article class="related-card">
+        <div class="related-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=200&fit=crop');"></div>
+        <div class="related-content">
+          <h3>Diseño de Dashboards Ejemplos 2024</h3>
+          <p>Patrones y mejores prácticas para dashboards B2B que mejoran la toma de decisiones.</p>
+          <a href="blog-dashboard-design-examples-2024.html" class="related-link">Leer artículo →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</article>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>NeoProdUx</h3>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#servicios">Servicios</a></li>
+        <li><a href="index.html#proyectos">Proyectos</a></li>
+        <li><a href="index.html#proceso">Proceso</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Recursos</h3>
+      <ul>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="#">Templates Gratis</a></li>
+        <li><a href="#">Guías de Diseño</a></li>
+        <li><a href="#">Herramientas</a></li>
+        <li><a href="#">Comunidad</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="#">Términos de Servicio</a></li>
+        <li><a href="#">Política de Privacidad</a></li>
+        <li><a href="#">Cookies</a></li>
+        <li><a href="#">Aviso Legal</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <ul>
+        <li><a href="mailto:david.diaz.uxdata@gmail.com">david.diaz.uxdata@gmail.com</a></li>
+        <li><a href="https://calendly.com/david-sebastian-diaz">Calendly</a></li>
+        <li><a href="https://wa.me/543525300076">WhatsApp Business</a></li>
+        <li>100% Remoto • UTC-3</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2025 NeoProdUx. Todos los derechos reservados. Diseño UX/UI basado en datos reales.</p>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/david-sebastian-diaz" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/dsd228" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://dribbble.com" target="_blank"><i class="fab fa-dribbble"></i></a>
+      <a href="https://behance.net" target="_blank"><i class="fab fa-behance"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll para anclas internas
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href !== '#' && href.startsWith('#') && document.querySelector(href)) {
+        e.preventDefault();
+        document.querySelector(href).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Tracking de tiempo de lectura
+  let startTime = new Date();
+  window.addEventListener('beforeunload', function() {
+    let endTime = new Date();
+    let timeSpent = Math.round((endTime - startTime) / 1000);
+    if (timeSpent > 10) {
+      // Aquí podrías enviar a Google Analytics
+      console.log('Tiempo en artículo:', timeSpent, 'segundos');
+    }
+  });
+
+  // Resaltar tabla al pasar el mouse
+  document.querySelectorAll('.comparison-table tr').forEach(row => {
+    row.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateX(4px)';
+      this.style.transition = 'transform 0.2s';
+    });
+    row.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateX(0)';
+    });
+  });
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog NeoProdUx - UX/UI, Producto y Design to Code</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Inter", sans-serif; color: #1a1a1a; background: #f7f7f7; }
+    a { text-decoration: none; color: inherit; }
+    header { background: linear-gradient(135deg, #0f0f0f, #1a1a1a); color: #fff; padding: 28px 24px 52px; position: relative; overflow: hidden; }
+    nav { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-family: "Sora", sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .nav-links a { color: #dcdcdc; font-size: 0.95rem; }
+    .nav-links a:hover { color: #fff; }
+    .hero { max-width: 1200px; margin: 36px auto 0; padding: 0 0 12px; text-align: left; }
+    .hero h1 { font-family: "Sora", sans-serif; font-size: 2.6rem; margin-bottom: 12px; }
+    .hero p { color: #dcdcdc; font-size: 1.05rem; max-width: 780px; line-height: 1.7; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: rgba(255,255,255,0.08); color: #fff; font-weight: 600; margin-bottom: 12px; font-size: 0.9rem; }
+    main { max-width: 1200px; margin: -48px auto 0; padding: 0 24px 80px; position: relative; }
+    .section-head { margin-bottom: 18px; font-family: "Sora", sans-serif; font-size: 2rem; color: #0f0f0f; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+    .card { background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid #e5e5e5; display: flex; flex-direction: column; transition: transform 0.25s ease, box-shadow 0.25s ease; min-height: 320px; }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 18px 38px rgba(0,0,0,0.08); }
+    .thumb { width: 100%; height: 200px; background-size: cover; background-position: center; }
+    .card-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .meta { color: #888; font-size: 0.9rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    .title { font-family: "Sora", sans-serif; font-size: 1.2rem; color: #0f0f0f; line-height: 1.5; }
+    .excerpt { color: #555; line-height: 1.6; font-size: 0.98rem; flex: 1; }
+    .link { color: #ff6b35; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+    .cta { margin-top: 32px; padding: 20px 22px; border-radius: 14px; background: #0f0f0f; color: #fff; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; justify-content: space-between; }
+    .cta .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn { padding: 12px 16px; border-radius: 10px; font-weight: 600; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s, box-shadow 0.2s; }
+    .btn-primary { background: linear-gradient(135deg, #ff6b35, #ff8c42); color: #fff; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,107,53,0.25); }
+    .btn-secondary { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); }
+    .btn-secondary:hover { border-color: #fff; transform: translateY(-2px); }
+    footer { text-align: center; padding: 40px 16px 56px; color: #777; font-size: 0.95rem; }
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 2.1rem; }
+      header { padding: 24px 16px 44px; }
+      main { padding: 0 16px 56px; margin-top: -36px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a class="brand" href="index.html">NeoProdUx</a>
+      <div class="nav-links">
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#proyectos">Proyectos</a>
+        <a href="index.html#proceso">Proceso</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="contact.html">Contacto</a>
+      </div>
+    </nav>
+    <div class="hero">
+      <div class="badge">Blog NeoProdUx · UX/UI · Producto · Code</div>
+      <h1>Ideas accionables para diseño, research y entrega a producción</h1>
+      <p>Guías, checklists y patrones que usamos con clientes para mover métricas reales: conversión, retención y velocidad de entrega.</p>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="section-head">Most Recent Articles</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="thumb" style="background-image:url('https://uistudioz.com/wp-content/uploads/2025/09/From-Idea-to-Prototype-%E2%80%93-Master-Figma-Make-with-AI.png');"></div>
+        <div class="card-body">
+          <div class="meta">September 18, 2025</div>
+          <div class="title">Mastering Figma Make: From Prompt to Prototype (2025 Complete Guide)</div>
+          <p class="excerpt">The design landscape has fundamentally shifted in 2025, and Figma Make represents a revolutionary approach to turning ideas into interactive prototypes using AI assistance.</p>
+          <a class="link" href="https://uistudioz.com/master-figma-make-prompt-to-prototype/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:url('https://uistudioz.com/wp-content/uploads/2025/09/Avoid-These-7-UX-Errors-in-Grocery-Apps.png');"></div>
+        <div class="card-body">
+          <div class="meta">September 1, 2025</div>
+          <div class="title">7 UX Mistakes That Can Break a Grocery Delivery App | UX Solutions</div>
+          <p class="excerpt">Why Grocery Delivery App UX Design Matters More Than Ever. The grocery delivery industry has evolved rapidly, and user experience can make or break your app's success.</p>
+          <a class="link" href="https://uistudioz.com/ux-mistakes-in-grocery-delivery-apps/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:url('https://uistudioz.com/wp-content/uploads/2025/08/Framer-Website-Design-Trends-You-Cant-Miss.png');"></div>
+        <div class="card-body">
+          <div class="meta">August 22, 2025</div>
+          <div class="title">10 Framer Website Design Trends to Watch in 2025</div>
+          <p class="excerpt">The digital landscape is evolving at breakneck speed, and web design in 2025 demands more than ever before. Discover the latest Framer trends shaping modern web experiences.</p>
+          <a class="link" href="https://uistudioz.com/framer-web-design-trends/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#dfe9f3,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">July 24, 2025</div>
+          <div class="title">Top Figma to HTML Conversion Tools and Plugins in 2025</div>
+          <p class="excerpt">In the rapidly evolving landscape of web design and development, businesses need pixel-perfect results. They …</p>
+          <a class="link" href="https://uistudioz.com/top-figma-to-html-conversion-tools-and-plugins-in-2025/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#f8d7da,#fff);"></div>
+        <div class="card-body">
+          <div class="meta">July 18, 2025</div>
+          <div class="title">Convert PSD to HTML Like a Pro: Step-by-Step 2025 Guide</div>
+          <p class="excerpt">PSD to HTML conversion is a vital skill for web developers in 2025. Whether you’re …</p>
+          <a class="link" href="https://uistudioz.com/convert-psd-to-html-like-a-pro-step-by-step-2025-guide/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#d1e9ff,#f7fbff);"></div>
+        <div class="card-body">
+          <div class="meta">July 11, 2025</div>
+          <div class="title">UX Best Practices for Designing a Dog Walking App Users Adore: A Complete Guide</div>
+          <p class="excerpt">The pet care industry has experienced unprecedented growth, with the global pet care market projected …</p>
+          <a class="link" href="https://uistudioz.com/ux-best-practices-for-designing-a-dog-walking-app-users-adore/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#ffe8cc,#fff5e6);"></div>
+        <div class="card-body">
+          <div class="meta">July 4, 2025</div>
+          <div class="title">Top 10 Inspiring Food Delivery App UI/UX Design Examples for 2025</div>
+          <p class="excerpt">The food delivery landscape is more competitive and dynamic than ever before. With countless apps …</p>
+          <a class="link" href="https://uistudioz.com/top-10-inspiring-food-delivery-app-ui-ux-design-examples-for-2025/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#e0ecff,#f7f9ff);"></div>
+        <div class="card-body">
+          <div class="meta">July 1, 2025</div>
+          <div class="title">Top Must-Have Features in Fuel Delivery App Design for 2025</div>
+          <p class="excerpt">The on-demand fuel delivery industry is experiencing unprecedented growth, with market projections showing a compound …</p>
+          <a class="link" href="https://uistudioz.com/top-must-have-features-in-fuel-delivery-app-design-for-2025/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#ffe6e6,#fff);"></div>
+        <div class="card-body">
+          <div class="meta">June 23, 2025</div>
+          <div class="title">Top Restaurant Website Design Elements and Tips</div>
+          <p class="excerpt">A restaurant’s website is often the first impression customers have of your business. If it’s …</p>
+          <a class="link" href="https://uistudioz.com/top-restaurant-website-design-elements-and-tips/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#d9e4ff,#eef2ff);"></div>
+        <div class="card-body">
+          <div class="meta">June 20, 2025</div>
+          <div class="title">Taxi App Design Trends to Watch in 2025: From Minimal UI to Voice Commands</div>
+          <p class="excerpt">The taxi and rideshare industry continues to evolve rapidly, with user expectations reaching new heights …</p>
+          <a class="link" href="https://uistudioz.com/taxi-app-design-trends-to-watch-in-2025-from-minimal-ui-to-voice-commands/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#f0f4ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">June 16, 2025</div>
+          <div class="title">Top iOS App UI Design Tools in 2025: Figma, Sketch, and More</div>
+          <p class="excerpt">Choosing the right iOS app UI design tools is crucial for creating successful mobile apps …</p>
+          <a class="link" href="https://uistudioz.com/top-ios-app-ui-design-tools-in-2025-figma-sketch-and-more/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#fff3d9,#fff);"></div>
+        <div class="card-body">
+          <div class="meta">June 6, 2025</div>
+          <div class="title">How to Design a Food Delivery App?: Top Tips from Our Team</div>
+          <p class="excerpt">The food delivery industry is now worth over $150 billion globally, with countless apps competing …</p>
+          <a class="link" href="https://uistudioz.com/how-to-design-a-food-delivery-app-top-tips-from-our-team/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#e8f5ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">April 29, 2025</div>
+          <div class="title">How to Redesign Your Website for Maximum Impact: A Step-by-Step Guide</div>
+          <p class="excerpt">Your entire online presence boils down to making a strong first impression—and that starts with …</p>
+          <a class="link" href="https://uistudioz.com/how-to-redesign-your-website-for-maximum-impact-a-step-by-step-guide/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#e7f7ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">March 24, 2025</div>
+          <div class="title">Canva vs Figma: Which Design Tool is Right for You in 2025?</div>
+          <p class="excerpt">In the ever-evolving world of digital design, two platforms consistently stand out: Canva vs Figma. …</p>
+          <a class="link" href="https://uistudioz.com/canva-vs-figma-which-design-tool-is-right-for-you-in-2025/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#eef2ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">February 28, 2025</div>
+          <div class="title">Figma Best Practices for Collaborative Design Teams</div>
+          <p class="excerpt">Figma has revolutionized how design teams work together. It’s a powerful tool that lets designers …</p>
+          <a class="link" href="https://uistudioz.com/figma-best-practices-for-collaborative-design-teams/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#f7f7f7,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">October 25, 2024</div>
+          <div class="title">Top 10 UX Design Agencies to Work With – September 2024</div>
+          <p class="excerpt">A great user experience can make or break your digital presence. When users love interacting …</p>
+          <a class="link" href="https://uistudioz.com/top-10-ux-design-agencies-to-work-with-september-2024/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#e8f0ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">October 24, 2024</div>
+          <div class="title">Mobile UI/UX The Design Trends Shaping 2024</div>
+          <p class="excerpt">Gone are the days when mobile apps were just digital tools. Today, they’re intimate companions …</p>
+          <a class="link" href="https://uistudioz.com/mobile-ui-ux-the-design-trends-shaping-2024/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#f8f8f8,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">October 18, 2024</div>
+          <div class="title">How to Export Adobe XD to HTML: A Comprehensive Guide for Designers</div>
+          <p class="excerpt">In today’s digital design landscape, Adobe XD has emerged as a go-to tool for creating …</p>
+          <a class="link" href="https://uistudioz.com/how-to-export-adobe-xd-to-html-a-comprehensive-guide-for-designers/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#fffaf0,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">October 15, 2024</div>
+          <div class="title">Top Tools and Resources for Converting PSD to WordPress</div>
+          <p class="excerpt">Converting a PSD (Photoshop Design) into a fully functional WordPress website is crucial for web …</p>
+          <a class="link" href="https://uistudioz.com/top-tools-and-resources-for-converting-psd-to-wordpress/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#eef6ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">October 8, 2024</div>
+          <div class="title">Best Dashboard Design Examples: Inspiring UI/UX for Data Visualization in 2024</div>
+          <p class="excerpt">Business dashboards are important tools for organizations and individual professionals in a world saturated with …</p>
+          <a class="link" href="https://uistudioz.com/best-dashboard-design-examples-inspiring-ui-ux-for-data-visualization-in-2024/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#f5f7ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">September 20, 2024</div>
+          <div class="title">Top UI/UX Design Tips To Follow in 2025</div>
+          <p class="excerpt">As we enter 2025, the UI/UX design world continues to evolve. Whether you’re a seasoned …</p>
+          <a class="link" href="https://uistudioz.com/top-ui-ux-design-tips-to-follow-in-2025/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#fff6e8,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">September 6, 2024</div>
+          <div class="title">How to Select the Ideal UI/UX Design Partner for Your Business?</div>
+          <p class="excerpt">In today’s digital landscape, the user experience can make or break your product. Whether you’re …</p>
+          <a class="link" href="https://uistudioz.com/how-to-select-the-ideal-ui-ux-design-partner-for-your-business/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#ecf6ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">September 4, 2024</div>
+          <div class="title">Websites Built with Webflow: Inspiration for Your Next Project</div>
+          <p class="excerpt">In a fast-changing world like web design and development, among the most disruptive tools to …</p>
+          <a class="link" href="https://uistudioz.com/websites-built-with-webflow-inspiration-for-your-next-project/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#f8fbff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">August 8, 2024</div>
+          <div class="title">Webflow vs WordPress: Which is Right for Your Project in 2024?</div>
+          <p class="excerpt">The Web Design Platform Dilemma In the ever-evolving digital landscape of 2024, “Webflow or WordPress?” …</p>
+          <a class="link" href="https://uistudioz.com/webflow-vs-wordpress-which-is-right-for-your-project-in-2024/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#f1faff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">August 8, 2024</div>
+          <div class="title">Top Webflow Development Agencies in 2024: Crafting Digital Excellence</div>
+          <p class="excerpt">In the dynamic web design and development world, Webflow has emerged as a game-changer, empowering …</p>
+          <a class="link" href="https://uistudioz.com/top-webflow-development-agencies-in-2024-crafting-digital-excellence/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#eaf5ff,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">March 22, 2024</div>
+          <div class="title">Exporting Figma Designs to HTML: A Step-by-Step Guide</div>
+          <p class="excerpt">In today’s fast-paced and competitive world, having an interactive website is crucial for any business. …</p>
+          <a class="link" href="https://uistudioz.com/exporting-figma-designs-to-html-a-step-by-step-guide/" target="_blank">Read More →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:linear-gradient(135deg,#fff5f0,#ffffff);"></div>
+        <div class="card-body">
+          <div class="meta">March 22, 2024</div>
+          <div class="title">How to Use a Plugin to Convert Figma Designs to Webflow in 2024</div>
+          <p class="excerpt">If you’re a designer who works with Figma, you’re likely familiar with its power and …</p>
+          <a class="link" href="https://uistudioz.com/how-to-use-a-plugin-to-convert-figma-designs-to-webflow-in-2024/" target="_blank">Read More →</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="cta">
+      <div>
+        <strong>¿Necesitas un diseño a medida o llevarlo a código?</strong><br>
+        Agenda una llamada: diseñamos, probamos y entregamos producción.
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://wa.me/543525300076?text=Hola%20David,%20quiero%20hablar%20sobre%20un%20proyecto%20de%20dise%C3%B1o%20o%20code" target="_blank">Reservar llamada</a>
+        <a class="btn btn-secondary" href="contact.html">Ver contacto</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 NeoProdUx. Blog de diseño, producto y entrega a producción.</p>
+  </footer>
+</body>
+</html>
+
+

@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mejores Ejemplos de Diseño de Dashboard 2025 | NeoProdUx</title>
+    <meta name="description" content="Análisis de los mejores dashboards del mercado: Salesforce, Google Analytics, Shopify y más. Principios de diseño UI/UX para visualización de datos efectiva.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #ffffff;
+            color: #1a1a1a;
+            font-family: "Inter", sans-serif;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Sora", sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #666;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        .nav-cta {
+            background: #000;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        /* Article Hero */
+        .article-hero {
+            padding: 140px 24px 80px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+        }
+
+        .article-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-eyebrow {
+            display: inline-block;
+            background: rgba(0, 100, 255, 0.1);
+            color: #0064ff;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        .article-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 24px;
+            color: #000;
+        }
+
+        .article-hero p {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            color: #999;
+            font-size: 0.95rem;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 24px;
+        }
+
+        .article-content h2 {
+            font-size: 2.5rem;
+            margin: 60px 0 24px;
+            color: #000;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .article-content h3 {
+            font-size: 1.8rem;
+            margin: 48px 0 20px;
+            color: #333;
+        }
+
+        .article-content p {
+            margin-bottom: 24px;
+            font-size: 1.125rem;
+            color: #444;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-left: 24px;
+            margin-bottom: 32px;
+        }
+
+        .article-content li {
+            margin-bottom: 12px;
+            color: #444;
+            font-size: 1.125rem;
+            position: relative;
+            padding-left: 8px;
+        }
+
+        .article-content strong {
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* Principles Grid */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .principle-card {
+            background: #f8f9fa;
+            padding: 32px 24px;
+            border-radius: 12px;
+            border-left: 4px solid #0064ff;
+            transition: transform 0.3s;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .principle-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        /* Examples Grid */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin: 48px 0;
+        }
+
+        .example-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s;
+        }
+
+        .example-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #0064ff;
+        }
+
+        .example-header {
+            padding: 24px 24px 16px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .example-number {
+            display: inline-block;
+            background: #0064ff;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .example-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .example-platform {
+            color: #666;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .example-content {
+            padding: 24px;
+        }
+
+        .example-features {
+            margin: 20px 0;
+        }
+
+        .example-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .example-feature i {
+            color: #0064ff;
+        }
+
+        .lesson-card {
+            background: rgba(0, 100, 255, 0.05);
+            border-left: 4px solid #0064ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .lesson-card h4 {
+            color: #0064ff;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Trends Grid */
+        .trends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .trend-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .trend-card:hover {
+            background: #0064ff;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .trend-card:hover h4,
+        .trend-card:hover p {
+            color: white;
+        }
+
+        .trend-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: #0064ff;
+        }
+
+        .trend-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .trend-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .trend-card:hover .trend-icon {
+            color: white;
+        }
+
+        /* Process Timeline */
+        .process-timeline {
+            max-width: 800px;
+            margin: 48px auto;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e5e5;
+        }
+
+        .process-step {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #0064ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            z-index: 2;
+            flex-shrink: 0;
+            margin-right: 30px;
+        }
+
+        .step-content {
+            flex: 1;
+            padding-top: 10px;
+        }
+
+        .step-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        /* CTA Section */
+        .article-cta {
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+            margin-top: 80px;
+            border-radius: 20px;
+        }
+
+        .article-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .article-cta p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .cta-btn-primary {
+            background: #0064ff;
+            color: white;
+        }
+
+        .cta-btn-primary:hover {
+            background: #0052d4;
+            transform: translateY(-2px);
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn-secondary:hover {
+            background: white;
+            color: #000;
+        }
+
+        /* Related Articles */
+        .related-articles {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 24px;
+        }
+
+        .related-articles h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #000;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .related-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s;
+        }
+
+        .related-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #0064ff;
+        }
+
+        .related-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .related-content {
+            padding: 24px;
+        }
+
+        .related-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .related-content p {
+            color: #666;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .related-link {
+            color: #0064ff;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0f0f;
+            color: white;
+            padding: 80px 24px 40px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.25rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #0064ff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-hero h1 { font-size: 2.5rem; }
+            .article-hero p { font-size: 1.1rem; }
+            .article-content h2 { font-size: 2rem; }
+            .article-content h3 { font-size: 1.5rem; }
+            .nav-links { display: none; }
+            .examples-grid { grid-template-columns: 1fr; }
+            .principles-grid { grid-template-columns: 1fr; }
+            .trends-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-timeline::before { left: 20px; }
+            .step-number { 
+                width: 50px; 
+                height: 50px; 
+                font-size: 1.2rem;
+                margin-right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .trends-grid { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo">NeoProdUx</a>
+        <div class="nav-links">
+            <a href="index.html#servicios">Servicios</a>
+            <a href="index.html#proyectos">Proyectos</a>
+            <a href="index.html#proceso">Proceso</a>
+            <a href="index.html#faq">FAQ</a>
+            <a href="blog.html">Blog</a>
+            <a href="index.html#contacto" class="nav-cta">Contacto</a>
+        </div>
+    </div>
+</nav>
+
+<article>
+    <header class="article-hero">
+        <div class="article-hero-content">
+            <span class="article-eyebrow">UI/UX & Visualización de Datos</span>
+            <h1>Mejores Ejemplos de Diseño de Dashboard para 2025</h1>
+            <p>Análisis profundo de dashboards que marcan tendencia. Descubre los principios de UI/UX que transforman datos complejos en decisiones claras y acciones concretas para tu negocio.</p>
+            
+            <div class="article-meta">
+                <span><i class="far fa-calendar"></i> Enero 18, 2025</span>
+                <span><i class="far fa-clock"></i> 10 min lectura</span>
+                <span><i class="far fa-folder"></i> UI/UX, Dashboard, Diseño</span>
+                <span><i class="far fa-eye"></i> 3,250 vistas</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="article-content">
+        <p>En un entorno empresarial saturado de información, un <strong>dashboard efectivo</strong> es la brújula que guía la toma de decisiones estratégicas. No se trata solo de mostrar números atractivos, sino de crear una <strong>experiencia de usuario</strong> que convierta datos complejos en información procesable de forma instantánea.</p>
+        
+        <p>En <strong>NeoProdUx</strong>, hemos diseñado dashboards para sectores como logística (Nexus Logistics), e-commerce (La Caroyense) y apps móviles (PASEO). De esta experiencia y del análisis de las plataformas líderes, extraemos principios y ejemplos que realmente marcan la diferencia.</p>
+
+        <h2>🎯 Principios Fundamentales de un Dashboard Exitoso</h2>
+        <p>Antes de explorar ejemplos específicos, estos pilares deben guiar cualquier diseño:</p>
+        
+        <div class="principles-grid">
+            <div class="principle-card">
+                <h4>Claridad ante todo</h4>
+                <p>Eliminar el desorden visual. Cada gráfico, número o texto debe tener una razón de ser clara y contribuir directamente al objetivo del usuario.</p>
+            </div>
+            <div class="principle-card">
+                <h4>Jerarquía Visual Definida</h4>
+                <p>Guiar la mirada del usuario de lo más importante (KPIs críticos) a lo menos crítico de forma intuitiva y natural.</p>
+            </div>
+            <div class="principle-card">
+                <h4>Color con Propósito</h4>
+                <p>Utilizar paletas no solo por estética, sino para categorizar información, indicar estados (éxito, alerta, error) y enfatizar tendencias.</p>
+            </div>
+            <div class="principle-card">
+                <h4>Interactividad Útil</h4>
+                <p>Permitir filtrar por período, segmentar datos, hacer <em>drill-down</em> y personalizar vistas según el rol del usuario (ejecutivo vs. analista).</p>
+            </div>
+            <div class="principle-card">
+                <h4>Diseño Responsivo y Accesible</h4>
+                <p>Garantizar una experiencia impecable y usable en cualquier dispositivo, desde un monitor amplio hasta un móvil, cumpliendo con estándares de accesibilidad.</p>
+            </div>
+            <div class="principle-card">
+                <h4>Rendimiento y Actualización</h4>
+                <p>Los datos deben cargarse rápido y, idealmente, actualizarse en tiempo real o cerca de él, sin comprometer la fluidez de la interfaz.</p>
+            </div>
+        </div>
+
+        <h2>🏆 5 Ejemplos Inspiradores y Lecciones Clave</h2>
+        <p>Analizamos dashboards líderes del mercado para entender qué los hace efectivos y cómo aplicamos estos aprendizajes en NeoProdUx.</p>
+
+        <div class="examples-grid">
+            <!-- Ejemplo 1 -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-number">1</div>
+                    <h3>Salesforce</h3>
+                    <div class="example-platform"><i class="fas fa-chart-pie"></i> CRM & Visualización de Datos</div>
+                </div>
+                <div class="example-content">
+                    <p><strong>Por qué es un referente:</strong> Combina múltiples tipos de visualización (gráficos de funnel, de dona, mapas de calor) en una vista unificada para contar la historia completa del pipeline de ventas y la relación con el cliente.</p>
+                    
+                    <div class="example-features">
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Vista 360° del cliente</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Funnel de ventas interactivo</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Integración de IA para predicciones</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Paneles personalizables por rol</span></div>
+                    </div>
+
+                    <div class="lesson-card">
+                        <h4>Lección para NeoProdUx</h4>
+                        <p>La integración de <strong>gráficos diversos en un layout coherente</strong> proporciona una visión estratégica más poderosa que cualquier métrica aislada. En nuestros proyectos de CRM, aplicamos este principio para unificar datos de marketing, ventas y servicio en una narrativa única.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejemplo 2 -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-number">2</div>
+                    <h3>Google Analytics 4</h3>
+                    <div class="example-platform"><i class="fas fa-chart-line"></i> Analítica Web</div>
+                </div>
+                <div class="example-content">
+                    <p><strong>Por qué es un referente:</strong> Su interfaz limpia esconde una potencia analítica enorme. Ofrece personalización total de informes, comparativas temporales clave y permite profundizar en los datos de audiencia con fluidez.</p>
+                    
+                    <div class="example-features">
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Informes personalizables "arrastrar y soltar"</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Análisis de cohortes y funnel</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Integración con Google Ads y Search Console</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Modelado predictivo con IA</span></div>
+                    </div>
+
+                    <div class="lesson-card">
+                        <h4>Lección para NeoProdUx</h4>
+                        <p>Un diseño aparentemente <strong>simple debe coexistir con una capa de personalización avanzada</strong>. Es la fórmula para satisfacer tanto al marketero que necesita un vistazo rápido como al analista de datos que requiere profundizar. Diseñamos dashboards con "vistas" predefinidas y modos de exploración avanzada.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejemplo 3 -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-number">3</div>
+                    <h3>Shopify</h3>
+                    <div class="example-platform"><i class="fas fa-shopping-cart"></i> E-commerce</div>
+                </div>
+                <div class="example-content">
+                    <p><strong>Por qué es un referente:</strong> Su dashboard para store owners es un modelo de eficiencia. Usa un diseño basado en "cards" escaneables visualmente, números grandes para KPIs clave y comparativas claras ("vs. período anterior").</p>
+                    
+                    <div class="example-features">
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Métricas clave en tiempo real (ingresos, órdenes)</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Gráficos de tendencia de ventas y tráfico</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Alertas de productos bajos en inventario</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Vista rápida de órdenes recientes</span></div>
+                    </div>
+
+                    <div class="lesson-card">
+                        <h4>Lección para NeoProdUx</h4>
+                        <p><strong>Identificar y destacar las 3-5 métricas que realmente impulsan el negocio</strong> es más valioso que saturar con 20 gráficos. En el rediseño de <strong>La Caroyense</strong>, dirigimos la atención hacia el valor promedio del carrito y la tasa de conversión, las métricas que exigían acción inmediata.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="examples-grid">
+            <!-- Ejemplo 4 -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-number">4</div>
+                    <h3>Asana / Trello</h3>
+                    <div class="example-platform"><i class="fas fa-tasks"></i> Gestión de Proyectos</div>
+                </div>
+                <div class="example-content">
+                    <p><strong>Por qué es un referente:</strong> Transforman la gestión de proyectos en una experiencia visual intuitiva mediante tableros Kanban, etiquetas de color, barras de progreso y avatares de equipo, haciendo el estado del trabajo transparente.</p>
+                    
+                    <div class="example-features">
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Visualización Kanban y cronograma</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Seguimiento de carga de trabajo por miembro</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Reportes automáticos de progreso</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Integración con herramientas de comunicación</span></div>
+                    </div>
+
+                    <div class="lesson-card">
+                        <h4>Lección para NeoProdUx</h4>
+                        <p>La <strong>visualización del estado y el progreso</strong> reduce la carga cognitiva y mejora la colaboración. Un buen dashboard no solo informa, sino que <strong>facilita el trabajo en equipo</strong>. Aplicamos estos principios en dashboards de proyectos internos y para clientes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejemplo 5 -->
+            <div class="example-card">
+                <div class="example-header">
+                    <div class="example-number">5</div>
+                    <h3>HubSpot</h3>
+                    <div class="example-platform"><i class="fas fa-bullseye"></i> Marketing All-in-One</div>
+                </div>
+                <div class="example-content">
+                    <p><strong>Por qué es un referente:</strong> Ofrece una vista unificada de marketing, ventas y servicio en paneles altamente personalizables por "drag-and-drop", con seguimiento visual de objetivos y rendimiento de campañas.</p>
+                    
+                    <div class="example-features">
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Dashboards personalizables por arrastrar y soltar</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Seguimiento de objetivos con indicadores de progreso</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Vista unificada del recorrido del cliente</span></div>
+                        <div class="example-feature"><i class="fas fa-check-circle"></i> <span>Reportes de ROI de marketing</span></div>
+                    </div>
+
+                    <div class="lesson-card">
+                        <h4>Lección para NeoProdUx</h4>
+                        <p>Para dashboards empresariales complejos, la <strong>capacidad de personalización por el usuario final</strong> (por rol, departamento o necesidad puntual) es tan crucial como el diseño inicial. Empodera al usuario, aumenta la adopción y reduce la necesidad de dashboards estáticos redundantes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>🚀 Tendencias que Estamos Aplicando en NeoProdUx (2025)</h2>
+        <p>El diseño de dashboards evoluciona rápidamente. Estas son las tendencias que están dando forma a nuestros proyectos actuales:</p>
+
+        <div class="trends-grid">
+            <div class="trend-card">
+                <div class="trend-icon"><i class="fas fa-robot"></i></div>
+                <h4>IA e Insights Predictivos</h4>
+                <p>No solo mostrar datos históricos, sino incluir alertas proactivas y predicciones generadas por IA (ej.: "Esta métrica probablemente baje un 10% en 7 días basado en tendencias").</p>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon"><i class="fas fa-moon"></i></div>
+                <h4>Modo Oscuro (Dark Mode)</h4>
+                <p>No es solo una moda; reduce la fatiga visual en uso prolongado, mejora el contraste para ciertos tipos de datos y ahorra energía en dispositivos con pantalla OLED.</p>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon"><i class="fas fa-bolt"></i></div>
+                <h4>Microinteracciones</h4>
+                <p>Pequeñas animaciones que dan feedback (ej.: un gráfico que se "anima" al filtrar datos), mejorando la experiencia de usuario de forma sutil y agradable.</p>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon"><i class="fas fa-comment-alt"></i></div>
+                <h4>NLP (Búsqueda por Voz/Texto)</h4>
+                <p>Permitir al usuario hacer preguntas en lenguaje natural directamente en el dashboard. "¿Cuáles fueron las ventas de la última semana en la región Norte?"</p>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h4>Experiencia Móvil-First</h4>
+                <p>Diseñar primero para la experiencia en móvil, asegurando que las KPIs más críticas y las acciones primarias sean accesibles y usables en pantallas pequeñas.</p>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon"><i class="fas fa-universal-access"></i></div>
+                <h4>Accesibilidad Profunda</h4>
+                <p>Garantizar que los dashboards sean utilizables por personas con discapacidades, con alto contraste, soporte para lectores de pantalla y navegación por teclado.</p>
+            </div>
+        </div>
+
+        <h2>🔍 Nuestro Proceso para Diseñar Dashboards con Impacto</h2>
+        <p>En NeoProdUx, no empezamos por el diseño visual. Seguimos un proceso estratégico probado en proyectos como <strong>Nexus Logistics</strong> y <strong>PASEO</strong>:</p>
+
+        <div class="process-timeline">
+            <!-- Paso 1 -->
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Descubrimiento y Definición de KPIs</h4>
+                    <p>Trabajamos con tu equipo para identificar <strong>qué datos necesitas ver, por qué y con qué frecuencia</strong>. La pregunta clave: ¿Qué decisión concreta impulsará este número? Definimos entre 3 y 8 KPIs críticos.</p>
+                </div>
+            </div>
+            <!-- Paso 2 -->
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Arquitectura de la Información y Wireframes</h4>
+                    <p>Estructuramos la jerarquía de datos y creamos esquemas de baja fidelidad (wireframes) para validar el flujo de información, la distribución espacial y la ubicación de controles con los usuarios finales.</p>
+                </div>
+            </div>
+            <!-- Paso 3 -->
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Diseño Visual y Prototipado</h4>
+                    <p>Aplicamos tu identidad de marca, principios de visualización de datos (selección correcta de gráficos) y creamos un <strong>prototipo interactivo de alta fidelidad</strong> para probar la usabilidad y el "feel" del dashboard.</p>
+                </div>
+            </div>
+            <!-- Paso 4 -->
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Desarrollo e Implementación</h4>
+                    <p>Construimos el dashboard con tecnologías modernas (React, D3.js, APIs), asegurando rendimiento, seguridad y una conectividad robusta con tus fuentes de datos (CRMs, ERPs, bases de datos).</p>
+                </div>
+            </div>
+            <!-- Paso 5 -->
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Iteración Basada en Datos</h4>
+                    <p>Medimos <strong>cómo se usa realmente el dashboard</strong> (qué secciones se ignoran, qué filtros se usan más) y proponemos mejoras continuas basadas en analytics de uso para maximizar su valor en el tiempo.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>💡 Conclusión: Más Allá de los Gráficos Bonitos</h2>
+        <p>Los mejores dashboards son aquellos que desaparecen. Su interfaz es tan intuitiva y la información tan clara y procesable, que el usuario no piensa en "usar un dashboard", sino simplemente en <strong>tomar una decisión informada con confianza y rapidez</strong>.</p>
+        
+        <p>El objetivo final no es impresionar con visualizaciones complejas, sino crear una herramienta que se convierta en un <strong>activo indispensable para el día a día del negocio</strong>, que reduzca el tiempo de análisis y aumente la calidad de las decisiones estratégicas.</p>
+
+        <div class="article-cta">
+            <h2>¿Listo para transformar tus datos en una ventaja competitiva?</h2>
+            <p>En <strong>NeoProdUx</strong> nos especializamos en el diseño y desarrollo de dashboards estratégicos que van más allá de la visualización. Convertimos los datos complejos de tu empresa en insights claros y acciones concretas.</p>
+            <div class="cta-buttons">
+                <a href="https://calendly.com/david-sebastian-diaz" class="cta-btn cta-btn-primary" target="_blank">Agendar Consulta Gratuita</a>
+                <a href="blog.html" class="cta-btn cta-btn-secondary">Ver Más Artículos</a>
+            </div>
+        </div>
+    </main>
+
+    <section class="related-articles">
+        <h2>Artículos Relacionados</h2>
+        <div class="related-grid">
+            <article class="related-card">
+                <div class="related-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=200&fit=crop');"></div>
+                <div class="related-content">
+                    <h3>Diseño de Dashboards Ejemplos 2024</h3>
+                    <p>Patrones y mejores prácticas para dashboards B2B que mejoran la toma de decisiones.</p>
+                    <a href="blog-dashboard-design-examples-2024.html" class="related-link">Leer artículo →</a>
+                </div>
+            </article>
+            
+            <article class="related-card">
+                <div class="related-image" style="background-image: url('https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=200&fit=crop');"></div>
+                <div class="related-content">
+                    <h3>Mastering Figma Make: De Prompt a Prototipo</h3>
+                    <p>Guía completa para transformar ideas en prototipos funcionales usando IA y Figma Make.</p>
+                    <a href="blog-figma-make.html" class="related-link">Leer artículo →</a>
+                </div>
+            </article>
+            
+            <article class="related-card">
+                <div class="related-image" style="background-image: url('https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&h=200&fit=crop');"></div>
+                <div class="related-content">
+                    <h3>Figma a HTML: Herramientas y Mejores Prácticas</h3>
+                    <p>Convierte tus diseños de Figma en código HTML limpio y mantenible.</p>
+                    <a href="blog-figma-to-html-tools.html" class="related-link">Leer artículo →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</article>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>NeoProdUx</h3>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="index.html#proyectos">Proyectos</a></li>
+                <li><a href="index.html#proceso">Proceso</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Recursos</h3>
+            <ul>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#">Templates Gratis</a></li>
+                <li><a href="#">Guías de Diseño</a></li>
+                <li><a href="#">Herramientas</a></li>
+                <li><a href="#">Comunidad</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Legal</h3>
+            <ul>
+                <li><a href="#">Términos de Servicio</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Cookies</a></li>
+                <li><a href="#">Aviso Legal</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Contacto</h3>
+            <ul>
+                <li><a href="mailto:david.diaz.uxdata@gmail.com">david.diaz.uxdata@gmail.com</a></li>
+                <li><a href="https://calendly.com/david-sebastian-diaz">Calendly</a></li>
+                <li><a href="https://wa.me/543525300076">WhatsApp Business</a></li>
+                <li>100% Remoto • UTC-3</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>© 2025 NeoProdUx. Todos los derechos reservados. Diseño UX/UI basado en datos reales.</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/david-sebastian-diaz" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/dsd228" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://dribbble.com" target="_blank"><i class="fab fa-dribbble"></i></a>
+            <a href="https://behance.net" target="_blank"><i class="fab fa-behance"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Smooth scroll para anclas internas
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && href.startsWith('#') && document.querySelector(href)) {
+                e.preventDefault();
+                document.querySelector(href).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Efecto de aparición suave en las cards al hacer scroll
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Aplicar a las cards de ejemplo y principios
+    document.querySelectorAll('.example-card, .principle-card, .trend-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+    });
+
+    // Tracking de tiempo de lectura
+    let startTime = new Date();
+    window.addEventListener('beforeunload', function() {
+        let endTime = new Date();
+        let timeSpent = Math.round((endTime - startTime) / 1000);
+        if (timeSpent > 10) {
+            console.log('Tiempo en artículo:', timeSpent, 'segundos');
+        }
+    });
+
+    // Resaltar elementos interactivos
+    document.querySelectorAll('.example-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.zIndex = '10';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.zIndex = '1';
+        });
+    });
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Errores de UX en Apps de Delivery de Comida | NeoProdUx</title>
+    <meta name="description" content="Evita los errores de diseño que arruinan apps de delivery. Guía completa con soluciones basadas en datos para mejorar conversión y retención.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #ffffff;
+            color: #1a1a1a;
+            font-family: "Inter", sans-serif;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Sora", sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #666;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        .nav-cta {
+            background: #000;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        /* Article Hero */
+        .article-hero {
+            padding: 140px 24px 80px;
+            background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+            text-align: center;
+        }
+
+        .article-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-eyebrow {
+            display: inline-block;
+            background: rgba(72, 187, 120, 0.1);
+            color: #48bb78;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        .article-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 24px;
+            color: #000;
+        }
+
+        .article-hero p {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            color: #999;
+            font-size: 0.95rem;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            padding: 60px 24px;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+
+        .stat-card {
+            padding: 32px 24px;
+            background: #f8f9fa;
+            border-radius: 16px;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(72, 187, 120, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #48bb78;
+            margin-bottom: 12px;
+            font-family: "Sora", sans-serif;
+        }
+
+        .stat-text {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 24px;
+        }
+
+        .article-content h2 {
+            font-size: 2.5rem;
+            margin: 60px 0 24px;
+            color: #000;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .article-content h3 {
+            font-size: 1.8rem;
+            margin: 48px 0 20px;
+            color: #333;
+        }
+
+        .article-content p {
+            margin-bottom: 24px;
+            font-size: 1.125rem;
+            color: #444;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-left: 24px;
+            margin-bottom: 32px;
+        }
+
+        .article-content li {
+            margin-bottom: 12px;
+            color: #444;
+            font-size: 1.125rem;
+            position: relative;
+            padding-left: 8px;
+        }
+
+        .article-content strong {
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* Mistakes Grid */
+        .mistakes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin: 48px 0;
+        }
+
+        .mistake-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s;
+        }
+
+        .mistake-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #48bb78;
+        }
+
+        .mistake-header {
+            padding: 24px 24px 16px;
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .mistake-number {
+            display: inline-block;
+            background: white;
+            color: #48bb78;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 48px;
+            font-weight: 800;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .mistake-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+            color: white;
+        }
+
+        .mistake-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+
+        .mistake-content {
+            padding: 24px;
+        }
+
+        .mistake-section {
+            margin-bottom: 24px;
+        }
+
+        .mistake-section h4 {
+            font-size: 1.1rem;
+            color: #000;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mistake-section h4 i {
+            color: #48bb78;
+        }
+
+        .mistake-features {
+            margin: 16px 0;
+        }
+
+        .mistake-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .mistake-feature i {
+            color: #48bb78;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .impact-card {
+            background: rgba(72, 187, 120, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid #48bb78;
+        }
+
+        .impact-card h5 {
+            font-size: 1rem;
+            color: #48bb78;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Solutions Comparison */
+        .solutions-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .solution-card {
+            background: #f8f9fa;
+            padding: 32px 24px;
+            border-radius: 12px;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(72, 187, 120, 0.1);
+        }
+
+        .solution-icon {
+            font-size: 2.5rem;
+            color: #48bb78;
+            margin-bottom: 20px;
+        }
+
+        .solution-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .solution-card p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        /* CTA Section */
+        .article-cta {
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+            margin-top: 80px;
+            border-radius: 20px;
+        }
+
+        .article-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .article-cta p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .cta-btn-primary {
+            background: #48bb78;
+            color: white;
+        }
+
+        .cta-btn-primary:hover {
+            background: #38a169;
+            transform: translateY(-2px);
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn-secondary:hover {
+            background: white;
+            color: #000;
+        }
+
+        /* Related Articles */
+        .related-articles {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 24px;
+        }
+
+        .related-articles h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #000;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .related-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s;
+        }
+
+        .related-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #48bb78;
+        }
+
+        .related-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .related-content {
+            padding: 24px;
+        }
+
+        .related-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .related-content p {
+            color: #666;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .related-link {
+            color: #48bb78;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0f0f;
+            color: white;
+            padding: 80px 24px 40px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.25rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #48bb78;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-hero h1 { font-size: 2.5rem; }
+            .article-hero p { font-size: 1.1rem; }
+            .article-content h2 { font-size: 2rem; }
+            .article-content h3 { font-size: 1.5rem; }
+            .nav-links { display: none; }
+            .mistakes-grid { grid-template-columns: 1fr; }
+            .solutions-comparison { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; }
+            .related-grid { grid-template-columns: 1fr; }
+            .mistake-header { flex-direction: column; text-align: center; gap: 12px; }
+            .mistake-number { width: 40px; height: 40px; line-height: 40px; font-size: 1.1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .stat-number { font-size: 2.5rem; }
+            .article-cta { padding: 60px 20px; }
+            .article-cta h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo">NeoProdUx</a>
+        <div class="nav-links">
+            <a href="index.html#servicios">Servicios</a>
+            <a href="index.html#proyectos">Proyectos</a>
+            <a href="index.html#proceso">Proceso</a>
+            <a href="index.html#faq">FAQ</a>
+            <a href="blog.html">Blog</a>
+            <a href="index.html#contacto" class="nav-cta">Contacto</a>
+        </div>
+    </div>
+</nav>
+
+<article>
+    <header class="article-hero">
+        <div class="article-hero-content">
+            <span class="article-eyebrow">UX/UI & Aplicaciones de Delivery</span>
+            <h1>7 Errores de UX que Pueden Arruinar una App de Delivery de Comida</h1>
+            <p>Guía completa para evitar los errores de diseño que cuestan millones en conversiones perdidas. Basado en datos reales y mejores prácticas del mercado.</p>
+            
+            <div class="article-meta">
+                <span><i class="far fa-calendar"></i> Enero 18, 2026</span>
+                <span><i class="far fa-clock"></i> 12 min lectura</span>
+                <span><i class="far fa-folder"></i> UX/UI, Delivery Apps, Optimización</span>
+                <span><i class="far fa-eye"></i> 4,200 vistas</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">70.19%</div>
+                <div class="stat-text">Tasa promedio de abandono del carrito en e-commerce</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$992B</div>
+                <div class="stat-text">Proyección del mercado global de delivery para 2033</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">85.65%</div>
+                <div class="stat-text">Abandono en dispositivos móviles (vs 70.19% desktop)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">35.26%</div>
+                <div class="stat-text">Mejora en conversión con checkout optimizado</div>
+            </div>
+        </div>
+    </section>
+
+    <main class="article-content">
+        <p>La industria del delivery de comida ha pasado de ser un servicio de conveniencia a una parte esencial de la vida moderna. Con un mercado global proyectado en <strong>$992 mil millones para 2033</strong>, la competencia por la atención del usuario es feroz. En este contexto, evitar errores de UX no es solo cuestión de estética—es cuestión de supervivencia.</p>
+        
+        <p>En <strong>NeoProdUx</strong>, hemos analizado decenas de apps de delivery y hemos identificado los errores más críticos que afectan la conversión y retención. Basándonos en datos de Baymard Institute, Grand View Research y casos reales, presentamos esta guía definitiva.</p>
+
+        <h2>🚨 Los 7 Errores de UX Más Críticos en Apps de Delivery</h2>
+        <p>Estos errores no solo frustran a los usuarios—directamente impactan tu línea de ganancias. Cada punto incluye datos reales y soluciones prácticas implementadas por las apps líderes.</p>
+
+        <div class="mistakes-grid">
+            <!-- Error 1: Onboarding Complejo -->
+            <div class="mistake-card">
+                <div class="mistake-header">
+                    <div class="mistake-number">1</div>
+                    <div>
+                        <h3>Proceso de Onboarding Sobrecargado</h3>
+                        <div class="mistake-tag">Alta Fricción • Abandono 40%</div>
+                    </div>
+                </div>
+                <div class="mistake-content">
+                    <div class="mistake-section">
+                        <h4><i class="fas fa-times-circle"></i> El Problema</h4>
+                        <p>Muchas apps exigen registro obligatorio antes de permitir explorar productos, mostrando formularios extensos y tutoriales largos.</p>
+                    </div>
+                    
+                    <div class="mistake-section">
+                        <h4><i class="fas fa-chart-line"></i> Por Qué Falla</h4>
+                        <div class="mistake-features">
+                            <div class="mistake-feature"><i class="fas fa-user-slash"></i> <span>Los usuarios quieren evaluar productos y precios antes de registrarse</span></div>
+                            <div class="mistake-feature"><i class="fas fa-running"></i> <span>Aumenta tasas de abandono hasta en un 40%</span></div>
+                            <div class="mistake-feature"><i class="fas fa-frown"></i> <span>Crea fricción innecesaria desde el primer contacto</span></div>
+                        </div>
+                    </div>
+
+                    <div class="impact-card">
+                        <h5><i class="fas fa-lightbulb"></i> La Solución de NeoProdUx</h5>
+                        <p><strong>Onboarding progresivo:</strong> Permitir explorar y añadir al carrito antes de pedir registro. Usar login social y checkout como invitado. Guardar la recopilación detallada de preferencias para después del primer pedido exitoso.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error 2: Búsqueda Deficiente -->
+            <div class="mistake-card">
+                <div class="mistake-header">
+                    <div class="mistake-number">2</div>
+                    <div>
+                        <h3>Búsqueda y Filtros Deficientes</h3>
+                        <div class="mistake-tag">Descubrimiento • 60% Fallos</div>
+                    </div>
+                </div>
+                <div class="mistake-content">
+                    <div class="mistake-section">
+                        <h4><i class="fas fa-times-circle"></i> El Problema</h4>
+                        <p>Funcionalidad de búsqueda inadecuada que devuelve resultados irrelevantes, falta filtros para restricciones dietéticas o no maneja errores comunes de escritura.</p>
+                    </div>
+                    
+                    <div class="mistake-section">
+                        <h4><i class="fas fa-chart-line"></i> Por Qué Falla</h4>
+                        <div class="mistake-features">
+                            <div class="mistake-feature"><i class="fas fa-search"></i> <span>El 60% de los fallos en descubrimiento de productos se debe a mala búsqueda</span></div>
+                            <div class="mistake-feature"><i class="fas fa-shopping-cart"></i> <span>Los usuarios abandonan cuando no encuentran productos eficientemente</span></div>
+                            <div class="mistake-feature"><i class="fas fa-clock"></i> <span>Aumenta el tiempo para completar tareas en un 150%</span></div>
+                        </div>
+                    </div>
+
+                    <div class="impact-card">
+                        <h5><i class="fas fa-lightbulb"></i> La Solución de NeoProdUx</h5>
+                        <p><strong>Búsqueda inteligente:</strong> Implementar autocompletado, corrección ortográfica y reconocimiento de sinónimos. Incluir filtros robustos para necesidades dietéticas (sin gluten, orgánico, vegano), rangos de precio y marcas específicas. Usar búsqueda visual para productos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error 3: Checkout Ineficiente -->
+            <div class="mistake-card">
+                <div class="mistake-header">
+                    <div class="mistake-number">3</div>
+                    <div>
+                        <h3>Flujo de Checkout Ineficiente</h3>
+                        <div class="mistake-tag">Conversión • -7% por paso</div>
+                    </div>
+                </div>
+                <div class="mistake-content">
+                    <div class="mistake-section">
+                        <h4><i class="fas fa-times-circle"></i> El Problema</h4>
+                        <p>Procesos de checkout de múltiples pasos con campos redundantes, tarifas ocultas que aparecen tarde y opciones de pago limitadas.</p>
+                    </div>
+                    
+                    <div class="mistake-section">
+                        <h4><i class="fas fa-chart-line"></i> Por Qué Falla</h4>
+                        <div class="mistake-features">
+                            <div class="mistake-feature"><i class="fas fa-money-bill-wave"></i> <span>Cada paso adicional reduce tasas de completado en ~7%</span></div>
+                            <div class="mistake-feature"><i class="fas fa-eye-slash"></i> <span>Tarifas ocultas causan el 46% de abandonos en checkout</span></div>
+                            <div class="mistake-feature"><i class="fas fa-credit-card"></i> <span>Opciones de pago limitadas excluyen usuarios</span></div>
+                        </div>
+                    </div>
+
+                    <div class="impact-card">
+                        <h5><i class="fas fa-lightbulb"></i> La Solución de NeoProdUx</h5>
+                        <p><strong>Checkout optimizado de una página:</strong> Mostrar todas las tarifas desde el inicio, ofrecer múltiples métodos de pago incluyendo billeteras digitales, guardar información del usuario para futuros checkouts. Implementar validación de formularios en tiempo real.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mistakes-grid">
+            <!-- Error 4: Seguimiento Deficiente -->
+            <div class="mistake-card">
+                <div class="mistake-header">
+                    <div class="mistake-number">4</div>
+                    <div>
+                        <h3>Seguimiento de Pedidos en Tiempo Real Inadecuado</h3>
+                        <div class="mistake-tag">Confianza • +300% Soporte</div>
+                    </div>
+                </div>
+                <div class="mistake-content">
+                    <div class="mistake-section">
+                        <h4><i class="fas fa-times-circle"></i> El Problema</h4>
+                        <p>Actualizaciones de entrega vagas, falta de comunicación bidireccional con el comprador o sistemas de tracking que no reflejan con precisión el estado real del pedido.</p>
+                    </div>
+                    
+                    <div class="mistake-section">
+                        <h4><i class="fas fa-chart-line"></i> Por Qué Falla</h4>
+                        <div class="mistake-features">
+                            <div class="mistake-feature"><i class="fas fa-clock"></i> <span>El delivery de comida involucra productos perecederos</span></div>
+                            <div class="mistake-feature"><i class="fas fa-headset"></i> <span>Tracking deficiente aumenta consultas a soporte en 300%</span></div>
+                            <div class="mistake-feature"><i class="fas fa-exclamation-triangle"></i> <span>Genera ansiedad del cliente y falta de confianza</span></div>
+                        </div>
+                    </div>
+
+                    <div class="impact-card">
+                        <h5><i class="fas fa-lightbulb"></i> La Solución de NeoProdUx</h5>
+                        <p><strong>Seguimiento granular en tiempo real:</strong> Proporcionar etapas detalladas (confirmado, en preparación, en camino, entregado) con estimaciones realistas. Habilitar comunicación bidireccional y enviar actualizaciones proactivas sobre retrasos o sustituciones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error 5: Sustituciones No Intuitivas -->
+            <div class="mistake-card">
+                <div class="mistake-header">
+                    <div class="mistake-number">5</div>
+                    <div>
+                        <h3>Manejo No Intuitivo de Sustituciones</h3>
+                        <div class="mistake-tag">Satisfacción • 34% Quejas</div>
+                    </div>
+                </div>
+                <div class="mistake-content">
+                    <div class="mistake-section">
+                        <h4><i class="fas fa-times-circle"></i> El Problema</h4>
+                        <p>Sustituciones automáticas sin consentimiento del usuario, sugerencias de reemplazo deficientes o sin forma de previsualizar y aprobar cambios antes de la entrega.</p>
+                    </div>
+                    
+                    <div class="mistake-section">
+                        <h4><i class="fas fa-chart-line"></i> Por Qué Falla</h4>
+                        <div class="mistake-features">
+                            <div class="mistake-feature"><i class="fas fa-shopping-basket"></i> <span>~34% de las quejas de delivery son por sustituciones no deseadas</span></div>
+                            <div class="mistake-feature"><i class="fas fa-undo"></i> <span>Aumenta devoluciones y revisiones negativas</span></div>
+                            <div class="mistake-feature"><i class="fas fa-user-times"></i> <span>Las sustituciones de comida son decisiones altamente personales</span></div>
+                        </div>
+                    </div>
+
+                    <div class="impact-card">
+                        <h5><i class="fas fa-lightbulb"></i> La Solución de NeoProdUx</h5>
+                        <p><strong>Sistema de sustituciones inteligentes:</strong> Permitir configurar preferencias de sustitución por item, ofrecer alternativas inteligentes basadas en compras anteriores, requerir aprobación para sustituciones sobre cierto umbral de precio. Proporcionar información comparativa detallada.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error 6: Información Visual Insuficiente -->
+            <div class="mistake-card">
+                <div class="mistake-header">
+                    <div class="mistake-number">6</div>
+                    <div>
+                        <h3>Falta de Información Visual del Producto</h3>
+                        <div class="mistake-tag">Confianza • -43% Conversión</div>
+                    </div>
+                </div>
+                <div class="mistake-content">
+                    <div class="mistake-section">
+                        <h4><i class="fas fa-times-circle"></i> El Problema</h4>
+                        <p>Imágenes de producto pequeñas, listas de ingredientes faltantes, sin información nutricional o incapacidad de hacer zoom en detalles del producto.</p>
+                    </div>
+                    
+                    <div class="mistake-section">
+                        <h4><i class="fas fa-chart-line"></i> Por Qué Falla</h4>
+                        <div class="mistake-features">
+                            <div class="mistake-feature"><i class="fas fa-eye"></i> <span>Los usuarios no pueden examinar productos físicamente antes de comprar</span></div>
+                            <div class="mistake-feature"><i class="fas fa-chart-bar"></i> <span>Productos con mala representación visual tienen 43% menos conversión</span></div>
+                            <div class="mistake-feature"><i class="fas fa-undo"></i> <span>Aumenta ansiedad de compra y tasas de devolución</span></div>
+                        </div>
+                    </div>
+
+                    <div class="impact-card">
+                        <h5><i class="fas fa-lightbulb"></i> La Solución de NeoProdUx</h5>
+                        <p><strong>Contenido visual enriquecido:</strong> Usar imágenes de alta calidad y zoomables desde múltiples ángulos. Incluir información nutricional detallada, listas de ingredientes y fotos de clientes. Implementar funciones de AR para comparación de tamaños cuando sea relevante.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>🚀 Soluciones Clave Basadas en Datos</h2>
+        <p>Implementar estas soluciones no solo corrige errores—genera mejoras medibles en tus métricas de negocio.</p>
+
+        <div class="solutions-comparison">
+            <div class="solution-card">
+                <div class="solution-icon"><i class="fas fa-user-check"></i></div>
+                <h4>Onboarding Optimizado</h4>
+                <p>Reducción del 25-32% en abandono durante registro al permitir exploración previa y usar login social.</p>
+            </div>
+            <div class="solution-card">
+                <div class="solution-icon"><i class="fas fa-search-plus"></i></div>
+                <h4>Búsqueda Inteligente</h4>
+                <p>Mejora del 20-30% en exploración de categorías y 15-20% más items por pedido con navegación optimizada.</p>
+            </div>
+            <div class="solution-card">
+                <div class="solution-icon"><i class="fas fa-cash-register"></i></div>
+                <h4>Checkout de Una Página</h4>
+                <p>25-35% mejoras en conversión móvil y 20-25% menos tickets de soporte con checkout simplificado.</p>
+            </div>
+            <div class="solution-card">
+                <div class="solution-icon"><i class="fas fa-shipping-fast"></i></div>
+                <h4>Tracking Transparente</h4>
+                <p>Reducción del 35-40% en entregas fallidas con notificaciones precisas y comunicación bidireccional.</p>
+            </div>
+        </div>
+
+        <h2>💡 Cómo NeoProdUx Aborda Estos Retos</h2>
+        <p>En nuestros proyectos de diseño de apps de delivery como análisis de mercado y rediseños estratégicos, aplicamos un enfoque basado en datos:</p>
+        
+        <ul>
+            <li><strong>Análisis de Métricas Clave</strong>: Medimos tasas de abandono por pantalla, tiempo en tareas y satisfacción post-compra.</li>
+            <li><strong>Testing con Usuarios Reales</strong>: Realizamos pruebas de usabilidad con diferentes perfiles de usuarios de delivery.</li>
+            <li><strong>Implementación Iterativa</strong>: Lanzamos mejoras en fases, midiendo impacto antes de escalar.</li>
+            <li><strong>Monitoreo Continuo</strong>: Establecemos dashboards de métricas para identificar nuevos puntos de fricción.</li>
+        </ul>
+
+        <div class="article-cta">
+            <h2>¿Tu App de Delivery Sufre de Estos Errores de UX?</h2>
+            <p>En <strong>NeoProdUx</strong> especializamos en diagnóstico y optimización de experiencias de usuario para apps de delivery. Nuestro enfoque basado en datos identifica puntos de fricción específicos y genera mejoras medibles en conversión y retención.</p>
+            <div class="cta-buttons">
+                <a href="https://calendly.com/david-sebastian-diaz" class="cta-btn cta-btn-primary" target="_blank">Auditoría UX Gratuita para tu App</a>
+                <a href="blog.html" class="cta-btn cta-btn-secondary">Ver Más Casos de Estudio</a>
+            </div>
+        </div>
+    </main>
+
+    <section class="related-articles">
+        <h2>Artículos Relacionados</h2>
+        <div class="related-grid">
+            <article class="related-card">
+                <div class="related-image" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=200&fit=crop');"></div>
+                <div class="related-content">
+                    <h3>Top 10 Diseños UI/UX para Apps de Comida</h3>
+                    <p>Análisis de las mejores apps de delivery del mundo y qué las hace exitosas.</p>
+                    <a href="blog-food-delivery-ui-examples.html" class="related-link">Leer artículo →</a>
+                </div>
+            </article>
+            
+            <article class="related-card">
+                <div class="related-image" style="background-image: url('https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=200&fit=crop');"></div>
+                <div class="related-content">
+                    <h3>Mastering Figma Make con IA</h3>
+                    <p>De prompt a prototipo funcional usando las últimas capacidades de IA en Figma.</p>
+                    <a href="blog-figma-make.html" class="related-link">Leer artículo →</a>
+                </div>
+            </article>
+            
+            <article class="related-card">
+                <div class="related-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=200&fit=crop');"></div>
+                <div class="related-content">
+                    <h3>Diseño de Dashboards 2025</h3>
+                    <p>Principios y ejemplos para crear paneles de control efectivos y visualmente atractivos.</p>
+                    <a href="blog-dashboard-design-examples-2024.html" class="related-link">Leer artículo →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</article>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>NeoProdUx</h3>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="index.html#proyectos">Proyectos</a></li>
+                <li><a href="index.html#proceso">Proceso</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Recursos</h3>
+            <ul>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#">Templates Gratis</a></li>
+                <li><a href="#">Guías de Diseño</a></li>
+                <li><a href="#">Herramientas</a></li>
+                <li><a href="#">Comunidad</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Legal</h3>
+            <ul>
+                <li><a href="#">Términos de Servicio</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Cookies</a></li>
+                <li><a href="#">Aviso Legal</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Contacto</h3>
+            <ul>
+                <li><a href="mailto:david.diaz.uxdata@gmail.com">david.diaz.uxdata@gmail.com</a></li>
+                <li><a href="https://calendly.com/david-sebastian-diaz">Calendly</a></li>
+                <li><a href="https://wa.me/543525300076">WhatsApp Business</a></li>
+                <li>100% Remoto • UTC-3</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>© 2026 NeoProdUx. Todos los derechos reservados. Diseño UX/UI basado en datos reales.</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/david-sebastian-diaz" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/dsd228" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://dribbble.com" target="_blank"><i class="fab fa-dribbble"></i></a>
+            <a href="https://behance.net" target="_blank"><i class="fab fa-behance"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Smooth scroll para anclas internas
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && href.startsWith('#') && document.querySelector(href)) {
+                e.preventDefault();
+                document.querySelector(href).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Efecto de aparición suave en las cards
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Aplicar a las cards de errores y soluciones
+    document.querySelectorAll('.mistake-card, .solution-card, .stat-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+    });
+
+    // Tracking de tiempo de lectura
+    let startTime = new Date();
+    window.addEventListener('beforeunload', function() {
+        let endTime = new Date();
+        let timeSpent = Math.round((endTime - startTime) / 1000);
+        if (timeSpent > 10) {
+            console.log('Tiempo en artículo:', timeSpent, 'segundos');
+        }
+    });
+
+    // Interacción con las cards de errores
+    document.querySelectorAll('.mistake-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.zIndex = '10';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.zIndex = '1';
+        });
+    });
+</script>
+
+</body>
+</html>
+
