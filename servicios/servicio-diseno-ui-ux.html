@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño UI-UX | NeoProdUx - Interfaces que Convierten</title>
+    <meta name="description" content="Servicios profesionales de diseño UI-UX. Interfaces intuitivas centradas en el usuario que mejoran conversión y retención.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --fondo-principal: #0a0a0f;
+            --texto-principal: #ffffff;
+            --texto-secundario: #b0b0c0;
+            --acento-principal: #FF6B35;
+            --acento-secundario: #FF8C42;
+            --blanco-puro: #FFFFFF;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 107, 53, 0.2);
+            --font-family-serif: 'Playfair Display', serif;
+            --font-family-sans: 'Inter', sans-serif;
+            --font-family-sora: 'Sora', sans-serif;
+        }
+        body {
+            font-family: var(--font-family-sans);
+            background: var(--fondo-principal);
+            color: var(--texto-principal);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ==============================
+           HEADER CON ESTILO GLASS
+           ============================== */
+        header {
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ==============================
+           LOGO CON EFECTO VIDRIO
+           ============================== */
+        .logo { 
+            font-size: 1.8rem; 
+            font-weight: 800; 
+            color: #000; 
+            letter-spacing: -0.5px; 
+            text-decoration: none;
+            font-family: var(--font-family-sora);
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 8px 16px;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+        }
+        
+        /* Contenedor interno para efecto vidrio */
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+            border-radius: 12px;
+            z-index: -1;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+        
+        /* Efecto de resplandor naranja en hover */
+        .logo::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                rgba(255, 107, 53, 0), 
+                rgba(255, 140, 66, 0), 
+                rgba(255, 107, 53, 0));
+            border-radius: 14px;
+            z-index: -2;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        /* Letras específicas del logo - NARANJA */
+        .logo .letter-n {
+            color: var(--acento-principal);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .logo .letter-p {
+            color: var(--acento-principal);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .logo .letter-u {
+            color: var(--acento-principal);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Letras blancas */
+        .logo .letter-e,
+        .logo .letter-o,
+        .logo .letter-r,
+        .logo .letter-o2,
+        .logo .letter-d,
+        .logo .letter-x {
+            color: var(--texto-principal);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* HOVER EFECTO VIDRIO */
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+        
+        .logo:hover::before {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 
+                0 8px 32px rgba(255, 107, 53, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo:hover::after {
+            opacity: 1;
+            background: linear-gradient(45deg, 
+                rgba(255, 107, 53, 0.2), 
+                rgba(255, 140, 66, 0.15), 
+                rgba(255, 107, 53, 0.2));
+        }
+        
+        /* HOVER - Letras naranjas se vuelven más brillantes */
+        .logo:hover .letter-n,
+        .logo:hover .letter-p,
+        .logo:hover .letter-u {
+            color: var(--acento-secundario);
+            text-shadow: 
+                0 0 20px rgba(255, 107, 53, 0.4),
+                0 0 40px rgba(255, 107, 53, 0.2);
+        }
+        
+        /* HOVER - Letras blancas se vuelven efecto vidrio */
+        .logo:hover .letter-e,
+        .logo:hover .letter-o,
+        .logo:hover .letter-r,
+        .logo:hover .letter-o2,
+        .logo:hover .letter-d,
+        .logo:hover .letter-x {
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* ==============================
+           BOTONES CON ESTILO GLASS
+           ============================== */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--acento-principal), var(--acento-secundario));
+            color: white;
+            padding: 14px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: var(--font-family-sans);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 8px 32px rgba(255, 107, 53, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent);
+            transition: left 0.6s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 12px 40px rgba(255, 107, 53, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+        
+        /* ==============================
+           HERO SECTION - GLASS
+           ============================== */
+        .hero-service {
+            padding: 140px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Fondo con efecto glass */
+        .hero-service::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 140, 66, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 165, 0, 0.08) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .hero-service h1 {
+            font-family: var(--font-family-serif);
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 24px;
+            color: var(--texto-principal);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-service p {
+            font-size: 1.4rem;
+            color: var(--texto-secundario);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        
+        .service-icon {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            color: var(--acento-principal);
+            filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.3));
+        }
+        
+        /* ==============================
+           BENEFITS SECTION - GLASS CARDS
+           ============================== */
+        .benefits-section {
+            padding: 100px 20px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+        
+        .benefit-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 48px 36px;
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--acento-principal), 
+                var(--acento-secundario));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(255, 107, 53, 0.4);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(255, 107, 53, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+        
+        .benefit-card:hover::before {
+            opacity: 1;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--texto-principal);
+            font-family: var(--font-family-sora);
+        }
+        
+        .benefit-card p {
+            font-size: 1.1rem;
+            color: var(--texto-secundario);
+            line-height: 1.7;
+        }
+        
+        /* ==============================
+           PROCESS SECTION - GLASS
+           ============================== */
+        .process-section {
+            padding: 100px 20px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .process-step {
+            text-align: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 107, 53, 0.3);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .process-step:hover::after {
+            opacity: 1;
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--acento-principal), var(--acento-secundario));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            margin: 0 auto 25px;
+            box-shadow: 
+                0 10px 30px rgba(255, 107, 53, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-step h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--texto-principal);
+            font-family: var(--font-family-sora);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-step p {
+            font-size: 1rem;
+            color: var(--texto-secundario);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ==============================
+           CTA SECTION - GLASS
+           ============================== */
+        .cta-section {
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(255, 140, 66, 0.08) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .cta-section h2 {
+            font-family: var(--font-family-serif);
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 24px;
+            color: var(--texto-principal);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-section p {
+            font-size: 1.3rem;
+            color: var(--texto-secundario);
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* ==============================
+           TÍTULOS SECCIONES
+           ============================== */
+        h2 {
+            font-family: var(--font-family-serif);
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--texto-principal);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--texto-secundario);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* ==============================
+           RESPONSIVE
+           ============================== */
+        @media (max-width: 768px) {
+            .hero-service h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-service p {
+                font-size: 1.2rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+            
+            .benefit-card {
+                padding: 36px 28px;
+            }
+            
+            .benefit-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2.8rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+                padding: 6px 12px;
+            }
+            
+            .service-icon {
+                font-size: 4rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-service h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <span class="letter-n">N</span>
+                <span class="letter-e">e</span>
+                <span class="letter-o">o</span>
+                <span class="letter-p">P</span>
+                <span class="letter-r">r</span>
+                <span class="letter-o2">o</span>
+                <span class="letter-d">d</span>
+                <span class="letter-u">U</span>
+                <span class="letter-x">x</span>
+            </a>
+            <a href="cotizacion.html" class="btn-primary">Solicitar propuesta</a>
+        </div>
+    </header>
+
+    <section class="hero-service">
+        <div class="container">
+            <div class="service-icon">🎨</div>
+            <h1>Diseño UI-UX</h1>
+            <p>Interfaces intuitivas y experiencias centradas en el usuario que aumentan conversión y satisfacción</p>
+            <a href="cotizacion.html" class="btn-primary" style="font-size: 1.1rem; padding: 18px 48px;">Empezar proyecto</a>
+        </div>
+    </section>
+
+    <section class="benefits-section">
+        <div class="container">
+            <h2>¿Qué obtienes?</h2>
+            <p class="section-subtitle">Diseño UX/UI completo enfocado en resultados medibles</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>🔍 Investigación UX</h3>
+                    <p>Entrevistas con usuarios, análisis de comportamiento, mapas de empatía y journey maps para entender necesidades reales.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🎯 Wireframes y prototipos</h3>
+                    <p>Prototipos interactivos de alta fidelidad en Figma que simulan la experiencia final antes de desarrollar.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>✨ Diseño visual</h3>
+                    <p>Interfaces modernas y accesibles con sistema de diseño completo: colores, tipografía, componentes.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>📱 Responsive design</h3>
+                    <p>Diseños optimizados para móvil, tablet y desktop con microinteracciones que guían al usuario.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🧪 Testing de usabilidad</h3>
+                    <p>Validamos con usuarios reales antes de lanzar. Iteramos basados en feedback concreto.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>📊 Métricas de éxito</h3>
+                    <p>Establecemos KPIs claros y medimos impacto: tasa de conversión, tiempo en tarea, satisfacción.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="container">
+            <h2>Nuestro proceso</h2>
+            <p class="section-subtitle">4 pasos para transformar tu producto</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Descubrimiento</h3>
+                    <p>Entendemos tu negocio, usuarios y objetivos. Analizamos competencia y definimos estrategia.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Diseño</h3>
+                    <p>Creamos wireframes, prototipos interactivos y diseño visual completo con sistema de diseño.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Validación</h3>
+                    <p>Testing con usuarios reales. Iteramos y mejoramos basados en feedback medible.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Entrega</h3>
+                    <p>Archivos Figma organizados, especificaciones para desarrollo y handoff completo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Listo para mejorar tu UX?</h2>
+            <p>Transformemos tu producto en una experiencia que los usuarios aman</p>
+            <a href="cotizacion.html" class="btn-primary" style="font-size: 1.1rem; padding: 20px 48px;">Solicitar propuesta</a>
+        </div>
+    </section>
+</body>
+</html>
