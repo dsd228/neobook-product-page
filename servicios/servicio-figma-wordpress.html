@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figma a WordPress | NeoProdUx</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --fondo-principal: #F0F4F8; --texto-principal: #2E3A46; --texto-secundario: #3B4758; --acento-principal: #A4D2F4; --font-family-serif: 'Playfair Display', serif; --font-family-sans: 'Inter', sans-serif; }
+        body { font-family: var(--font-family-sans); background: var(--fondo-principal); color: var(--texto-principal); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: white; padding: 20px 0; box-shadow: 0 2px 10px rgba(46,58,70,0.08); }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 900; color: var(--texto-principal); text-decoration: none; font-family: var(--font-family-serif); }
+        .btn-primary { background: linear-gradient(135deg, var(--acento-principal), #8FC4EF); color: white; padding: 12px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block; }
+        .hero-service { padding: 120px 20px 80px; text-align: center; background: linear-gradient(135deg, var(--fondo-principal), rgba(164,210,244,0.1)); }
+        .hero-service h1 { font-family: var(--font-family-serif); font-size: 64px; font-weight: 900; margin-bottom: 24px; }
+        .hero-service p { font-size: 22px; color: var(--texto-secundario); max-width: 700px; margin: 0 auto 40px; }
+        .service-icon { font-size: 80px; margin-bottom: 20px; }
+        .benefits-section { padding: 80px 20px; background: white; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 60px; }
+        .benefit-card { background: var(--fondo-principal); padding: 40px 32px; border-radius: 16px; box-shadow: -4px -4px 12px rgba(255,255,255,0.8), 4px 4px 12px rgba(46,58,70,0.08); }
+        .benefit-card h3 { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+        h2 { font-family: var(--font-family-serif); font-size: 48px; font-weight: 900; text-align: center; margin-bottom: 16px; }
+        .cta-section { padding: 100px 20px; background: white; text-align: center; }
+    </style>
+</head>
+<body>
+    <header><div class="header-content"><a href="index.html" class="logo">NeoProdUx</a><a href="cotizacion.html" class="btn-primary">Solicitar propuesta</a></div></header>
+    <section class="hero-service">
+        <div class="container">
+            <div class="service-icon">🔧</div>
+            <h1>Figma a WordPress</h1>
+            <p>Tu diseño convertido en un CMS potente y fácil de administrar</p>
+            <a href="cotizacion.html" class="btn-primary" style="font-size: 18px; padding: 18px 48px;">Empezar proyecto</a>
+        </div>
+    </section>
+    <section class="benefits-section">
+        <div class="container">
+            <h2>¿Qué obtienes?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card"><h3>🎨 Tema custom</h3><p>Desarrollo de tema WordPress personalizado desde tu Figma. No plantillas genéricas.</p></div>
+                <div class="benefit-card"><h3>📝 Gutenberg blocks</h3><p>Bloques personalizados para que edites contenido sin romper el diseño.</p></div>
+                <div class="benefit-card"><h3>⚡ Optimizado</h3><p>Performance optimizado: lazy loading, minificación, cache configurado.</p></div>
+                <div class="benefit-card"><h3>🔌 Plugins esenciales</h3><p>Instalación y configuración de plugins necesarios (SEO, forms, seguridad).</p></div>
+                <div class="benefit-card"><h3>📱 Mobile-first</h3><p>Responsive design que funciona perfecto en móvil, tablet y desktop.</p></div>
+                <div class="benefit-card"><h3>🎓 Capacitación</h3><p>Video tutorial para que tu equipo administre contenido fácilmente.</p></div>
+            </div>
+        </div>
+    </section>
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Necesitas un WordPress personalizado?</h2>
+            <p>Convertimos tu diseño en un sitio administrable</p>
+            <a href="cotizacion.html" class="btn-primary" style="font-size: 18px; padding: 20px 48px;">Solicitar propuesta</a>
+        </div>
+    </section>
+</body>
+</html>
+
