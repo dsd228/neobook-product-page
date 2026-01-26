@@ -929,3 +929,33 @@ document.addEventListener("DOMContentLoaded", () => {
     items[current].classList.add("is-active");
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".gallery-item");
+
+  items.forEach(item => {
+    item.addEventListener("click", () => {
+      expandImage(item.querySelector("img").src, item.querySelector("img").alt);
+    });
+  });
+
+  function expandImage(src, alt) {
+    const overlay = document.createElement("div");
+    overlay.className = "gallery-expanded";
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = alt;
+
+    overlay.appendChild(img);
+    document.body.appendChild(overlay);
+
+    requestAnimationFrame(() => {
+      overlay.classList.add("active");
+    });
+
+    overlay.addEventListener("click", () => {
+      overlay.classList.remove("active");
+      setTimeout(() => overlay.remove(), 300);
+    });
+  }
+});
