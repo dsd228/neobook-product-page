@@ -959,3 +959,81 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+// ===== GALERÍA APPLE PRO - CARRUSEL INFINITO =====
+function initAppleGallery() {
+  const galleryTrack = document.querySelector('.gallery-track');
+  if (!galleryTrack) return;
+  
+  // Duplicar los items para efecto infinito
+  const items = galleryTrack.querySelectorAll('.gallery-item');
+  const cloneItems = Array.from(items).map(item => item.cloneNode(true));
+  
+  cloneItems.forEach(item => {
+    galleryTrack.appendChild(item);
+  });
+  
+  // Controles
+  const dots = document.querySelectorAll('.gallery-dot');
+  const prevBtn = document.querySelector('.gallery-prev');
+  const nextBtn = document.querySelector('.gallery-next');
+  
+  let currentIndex = 0;
+  const totalItems = items.length;
+  let autoScrollInterval;
+  
+  function updateDots() {
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+  }
+  
+  function goToSlide(index) {
+    currentIndex = (index + totalItems) % totalItems;
+    updateDots();
+  }
+  
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalItems;
+      updateDots();
+    }, 5000);
+  }
+  
+  function stopAutoScroll() {
+    if (autoScrollInterval) {
+      clearInterval(autoScrollInterval);
+    }
+  }
+  
+  // Event listeners
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      stopAutoScroll();
+      goToSlide(currentIndex - 1);
+      startAutoScroll();
+    });
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      stopAutoScroll();
+      goToSlide(currentIndex + 1);
+      startAutoScroll();
+    });
+  }
+  
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      stopAutoScroll();
+      goToSlide(index);
+      startAutoScroll();
+    });
+  });
+  
+  // Pausar al hacer hover
+  galleryTrack.addEventListener('mouseenter', stopAutoScroll);
+  galleryTrack.addEventListener('mouseleave', startAutoScroll);
+  
+  // Iniciar
+  startAutoScroll();
+}
